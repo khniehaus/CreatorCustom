@@ -4,3 +4,4 @@ makehuman_hg/*
 xbuild
 xbuild/*
 *.pyc
+*.dmg
