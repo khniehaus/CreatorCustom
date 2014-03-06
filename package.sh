@@ -7,3 +7,4 @@ cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ./step_repo_update.sh
 ./step_build_prepare.sh
 ./step_compile_app.sh
+./step_prepare_dist.sh

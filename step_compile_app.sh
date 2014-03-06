@@ -9,9 +9,9 @@ export BUILD_DIR=xbuild
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 
 # Ensure SVN source tree exists
-if [ ! -d $MAKEHUMAN_HG_DIR ]
+if [ ! -d $BUILD_DIR ]
 then
-echo "Source code not found in: $MAKEHUMAN_HG_DIR"
+echo "MakeHuman not built to: $BUILD_DIR"
 exit 1
 fi
 
@@ -34,5 +34,9 @@ ln -s ../../build_dependencies/py2app-0.7.2-py2.7.egg py2app-0.7.2-py2.7.egg
 
 # Run py2app (builds the makehuman.app)
 python setup.py py2app
+
+# Apply Mac OS X MakeHuman.app hacks to correct jpeg loading issue
+rm dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf
+macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
 
 cd ../../
