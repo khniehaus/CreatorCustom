@@ -30,7 +30,7 @@ echo Running build prepare scripts
 cd $MAKEHUMAN_HG_DIR/buildscripts
 ln -s ../../core_dependencies/numpy ../makehuman
 python build_prepare.py .. ../../$BUILD_DIR
-rm ../makehuman/numpy
+unlink ../makehuman/numpy
 
 # Remove makehuman startup script as it confuses py2app, link icons, then link core makehuman dependencies
 echo Preparing the exported build directory

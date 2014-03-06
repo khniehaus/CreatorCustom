@@ -15,6 +15,6 @@ hg pull && hg update
 cd ..
 else
 echo Checking out MakeHuman source code:
-echo NOTE: Once it reaches the -adding file changes step-, it will appear to be frozen while it downloads the entire MakeHuman repository, be patient and wait for it to complete. Once you have downloaded the repository, it will only need to download updates as required in the future...
+echo NOTE: Once it reaches the -adding file changes- step, it will appear to be frozen while it downloads the entire MakeHuman repository, be patient and wait for it to complete. Once you have downloaded the repository, it will only need to download updates as required in the future...
 hg clone https://bitbucket.org/MakeHuman/makehuman $MAKEHUMAN_HG_DIR
 fi
