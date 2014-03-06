@@ -1,0 +1,2 @@
+#!/bin/sh
+exec pythonw2.7 /Users/Francois/Development/PyQt-mac-gpl-4.9.6/DESTDIR/PyQt4/uic/pyuic.py ${1+"$@"}
