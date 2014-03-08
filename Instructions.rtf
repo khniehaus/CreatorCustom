@@ -12,6 +12,27 @@
 5) Add the 'setuptools' egg to your Python installation by running the included 'setuptools-0.6c11-py2.7.egg' as a shell script from the 'build_dependencies' folder.\
 6) Install the latest version of Mercurial on your mac ({\field{\*\fldinst{HYPERLINK "http://mercurial.selenic.com/downloads/"}}{\fldrslt http://mercurial.selenic.com/downloads/}})\
 7) Kick off the MakeHuman app packaging process by running: ./package.sh\
-8) Create a distributed disk image by running: ./dmg.sh\
+8) Create a distributable disk image by running: ./dmg.sh\
 \
-The package script has been set up with nightly builds in mind so it will check-out and update the MakeHuman (trunk) source code automatically. If all went well, you should end up with a fully distributable Mac OS X disk image file (dmg).}
+The package script has been set up with nightly builds in mind so it will check-out and update the MakeHuman (trunk) source code automatically. If all went well, you should end up with a fully distributable Mac OS X disk image file (dmg).\
+\
+Doing a release build is very similar to the instructions above, but has a few additional steps:\
+1) Follow steps 1-6 in the instructions above to set up your system for building MakeHuman.\
+2) Check out the MakeHuman source code by running: ./step_repo_update.sh\
+3) Switch to the stable branch by navigating to the newly created 
+\i makehuman_hg
+\i0  directory and running: hg update -C stable\
+4) In 
+\i makehuman_hg/buildscripts
+\i0  create a 
+\i build.conf
+\i0  file containing: isRelease = True\
+5) Edit 
+\i setup.py
+\i0  and change the icon that the build should use from 
+\i makehuman_nb.icns
+\i0  to 
+\i makehuman.icns\
+
+\i0 6) Kick off the MakeHuman app building process by running: ./package.sh\
+7) Create a distributable disk image by running: ./dmg.sh}
