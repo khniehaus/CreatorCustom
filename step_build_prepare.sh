@@ -32,11 +32,16 @@ ln -s ../../core_dependencies/numpy ../makehuman
 python build_prepare.py .. ../../$BUILD_DIR
 unlink ../makehuman/numpy
 
-# Remove makehuman startup script as it confuses py2app, link icons, then link core makehuman dependencies
+# Switch to exported directory and remove the makehuman startup script as it confuses py2app
 echo Preparing the exported build directory
 cd ../../$BUILD_DIR/makehuman
 rm makehuman
+
+# Remove icons directory since it is only a partial copy of the directory, then symlink the full directory
+rm -rf icons
 ln -s ../../$MAKEHUMAN_HG_DIR/makehuman/icons icons
+
+# Link core dependencies
 ln -s ../../core_dependencies/numpy numpy
 ln -s ../../core_dependencies/OpenGL OpenGL
 ln -s ../../core_dependencies/PyQt4 PyQt4
