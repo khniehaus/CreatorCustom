@@ -25,12 +25,30 @@ export MAKEHUMAN_APP_BUNDLE_NAME='MakeHuman'
 cd $BUILD_DIR/makehuman
 
 # Link py2app build dependencies
-ln -s ../../setup.py setup.py
-ln -s ../../build_dependencies/py2app py2app
-ln -s ../../build_dependencies/altgraph-0.10.1-py2.7.egg altgraph-0.10.1-py2.7.egg
-ln -s ../../build_dependencies/macholib-1.5-py2.7.egg macholib-1.5-py2.7.egg
-ln -s ../../build_dependencies/modulegraph-0.10.2-py2.7.egg modulegraph-0.10.2-py2.7.egg
-ln -s ../../build_dependencies/py2app-0.7.2-py2.7.egg py2app-0.7.2-py2.7.egg
+if [ ! -a setup.py ]
+then
+	ln -s ../../setup.py setup.py
+fi
+if [ ! -a py2app ]
+then
+	ln -s ../../build_dependencies/py2app py2app
+fi
+if [ ! -a altgraph-0.10.1-py2.7.egg ]
+then
+	ln -s ../../build_dependencies/altgraph-0.10.1-py2.7.egg altgraph-0.10.1-py2.7.egg
+fi
+if [ ! -a macholib-1.5-py2.7.egg ]
+then
+	ln -s ../../build_dependencies/macholib-1.5-py2.7.egg macholib-1.5-py2.7.egg
+fi
+if [ ! -a modulegraph-0.10.2-py2.7.egg ]
+then
+	ln -s ../../build_dependencies/modulegraph-0.10.2-py2.7.egg modulegraph-0.10.2-py2.7.egg
+fi
+if [ ! -a py2app-0.7.2-py2.7.egg ]
+then
+	ln -s ../../build_dependencies/py2app-0.7.2-py2.7.egg py2app-0.7.2-py2.7.egg
+fi
 
 # Run py2app (builds the makehuman.app)
 python setup.py py2app

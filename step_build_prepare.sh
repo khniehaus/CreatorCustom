@@ -28,7 +28,10 @@ sleep 2
 # Run the MakeHuman release preparation script
 echo Running build prepare scripts
 cd $MAKEHUMAN_HG_DIR/buildscripts
-ln -s ../../core_dependencies/numpy ../makehuman
+if [ ! -a ../makehuman/numpy ]
+then
+	ln -s ../../core_dependencies/numpy ../makehuman
+fi
 python build_prepare.py .. ../../$BUILD_DIR
 unlink ../makehuman/numpy
 
@@ -39,13 +42,31 @@ rm makehuman
 
 # Remove icons directory since it is only a partial copy of the directory, then symlink the full directory
 rm -rf icons
-ln -s ../../$MAKEHUMAN_HG_DIR/makehuman/icons icons
+if [ ! -a icons ]
+then
+	ln -s ../../$MAKEHUMAN_HG_DIR/makehuman/icons icons
+fi
 
 # Link core dependencies
-ln -s ../../core_dependencies/numpy numpy
-ln -s ../../core_dependencies/OpenGL OpenGL
-ln -s ../../core_dependencies/PyQt4 PyQt4
-ln -s ../../core_dependencies/sip.so sip.so
-ln -s ../../core_dependencies/sipconfig.py sipconfig.py
+if [ ! -a numpy ]
+then
+	ln -s ../../core_dependencies/numpy numpy
+fi
+if [ ! -a OpenGL ]
+then
+	ln -s ../../core_dependencies/OpenGL OpenGL
+fi
+if [ ! -a PyQt4 ]
+then
+	ln -s ../../core_dependencies/PyQt4 PyQt4
+fi
+if [ ! -a sip.so ]
+then
+	ln -s ../../core_dependencies/sip.so sip.so
+fi
+if [ ! -a sipconfig.py ]
+then
+	ln -s ../../core_dependencies/sipconfig.py sipconfig.py
+fi
 cd ../../../../
 
