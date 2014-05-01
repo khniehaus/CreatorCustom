@@ -56,5 +56,11 @@ python setup.py py2app
 # Apply Mac OS X MakeHuman.app hacks to correct jpeg loading issue
 rm dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf
 macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
+# Since macdeployqt cannot detect which modules a pyqt project needs,
+# we copy them manually
+cp /Developer/Applications/Qt/plugins/imageformats/libqsvg.dylib dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/imageformats/
+# Important: simply copying the required plugins over WILL make the
+# application crash when running, to fix it we run macdeployqt again.
+macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
 
 cd ../../
