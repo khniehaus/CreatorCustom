@@ -25,8 +25,15 @@ rm -rf dist
 rm -rf $BUILD_DIR
 sleep 2
 
+if [ ! -d $MAKEHUMAN_HG_DIR/buildscripts ]
+then
+echo "Buildscripts folder not found in: $MAKEHUMAN_HG_DIR/buildscripts"
+exit 1
+fi
+
 # Run the MakeHuman release preparation script
 echo Running build prepare scripts
+echo
 cd $MAKEHUMAN_HG_DIR/buildscripts
 if [ ! -a ../makehuman/numpy ]
 then
@@ -35,9 +42,18 @@ fi
 python build_prepare.py .. ../../$BUILD_DIR
 unlink ../makehuman/numpy
 
+cd ../..
+
+if [ ! -d $BUILD_DIR/makehuman ]
+then
+echo "Build_prepare failed, output folder not found in: $BUILD_DIR/makehuman"
+exit 1
+fi
+
 # Switch to exported directory and remove the makehuman startup script as it confuses py2app
+echo
 echo Preparing the exported build directory
-cd ../../$BUILD_DIR/makehuman
+cd $BUILD_DIR/makehuman
 rm makehuman
 
 # Remove icons directory since it is only a partial copy of the directory, then symlink the full directory

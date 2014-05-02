@@ -15,6 +15,7 @@ fi
 
 cd $BUILD_DIR/makehuman
 
+echo Copying extra files in dist folder
 # Copy extra files
 cp license.txt dist/license.txt
 cp -R blendertools dist/Blender\ Plugins

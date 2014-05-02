@@ -22,6 +22,12 @@ echo Using: $(which python)
 # Set the bundle name
 export MAKEHUMAN_APP_BUNDLE_NAME='MakeHuman'
 
+if [ ! -d $BUILD_DIR/makehuman ]
+then
+echo "MakeHuman not built to: $BUILD_DIR/makehuman"
+exit 1
+fi
+
 cd $BUILD_DIR/makehuman
 
 # Link py2app build dependencies
@@ -51,11 +57,25 @@ then
 fi
 
 # Run py2app (builds the makehuman.app)
+echo
+echo Running py2app build
 python setup.py py2app
 
+if [ ! -d dist/$MAKEHUMAN_APP_BUNDLE_NAME.app ]
+then
+echo "Py2app failed to output to: dist/$MAKEHUMAN_APP_BUNDLE_NAME.app"
+exit 1
+fi
+
 # Apply Mac OS X MakeHuman.app hacks to correct jpeg loading issue
-rm dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf
+echo
+echo Running macdeployqt
+if [ -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf ]
+then
+	rm dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf
+fi
 macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
+echo Deploying qtSvg component
 # Since macdeployqt cannot detect which modules a pyqt project needs,
 # we copy them manually
 cp /Developer/Applications/Qt/plugins/imageformats/libqsvg.dylib dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/imageformats/
