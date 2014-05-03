@@ -5,3 +5,4 @@ xbuild
 xbuild/*
 *.pyc
 *.dmg
+dist
