@@ -4,8 +4,8 @@
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Variables
-export MAKEHUMAN_HG_DIR=makehuman_hg
-export BUILD_DIR=xbuild
+export SCRIPTDIR=`pwd`
+export BUILD_DIR=$SCRIPTDIR/xbuild
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 
 # Ensure SVN source tree exists
@@ -31,29 +31,29 @@ fi
 cd $BUILD_DIR/makehuman
 
 # Link py2app build dependencies
-if [ ! -a setup.py ]
+if [ ! -f $BUILD_DIR/makehuman/setup.py ]
 then
-	ln -s ../../setup.py setup.py
+	ln -s $SCRIPTDIR/setup.py $BUILD_DIR/makehuman/setup.py
 fi
-if [ ! -a py2app ]
+if [ ! -L $BUILD_DIR/makehuman/py2app ]
 then
-	ln -s ../../build_dependencies/py2app py2app
+	ln -s $SCRIPTDIR/build_dependencies/py2app $BUILD_DIR/makehuman/py2app
 fi
-if [ ! -a altgraph-0.10.1-py2.7.egg ]
+if [ ! -f $BUILD_DIR/makehuman/altgraph-0.10.1-py2.7.egg ]
 then
-	ln -s ../../build_dependencies/altgraph-0.10.1-py2.7.egg altgraph-0.10.1-py2.7.egg
+	ln -s $SCRIPTDIR/build_dependencies/altgraph-0.10.1-py2.7.egg $BUILD_DIR/makehuman/altgraph-0.10.1-py2.7.egg
 fi
-if [ ! -a macholib-1.5-py2.7.egg ]
+if [ ! -f $BUILD_DIR/makehuman/macholib-1.5-py2.7.egg ]
 then
-	ln -s ../../build_dependencies/macholib-1.5-py2.7.egg macholib-1.5-py2.7.egg
+	ln -s $SCRIPTDIR/build_dependencies/macholib-1.5-py2.7.egg $BUILD_DIR/makehuman/macholib-1.5-py2.7.egg
 fi
-if [ ! -a modulegraph-0.10.2-py2.7.egg ]
+if [ ! -f $BUILD_DIR/makehuman/modulegraph-0.10.2-py2.7.egg ]
 then
-	ln -s ../../build_dependencies/modulegraph-0.10.2-py2.7.egg modulegraph-0.10.2-py2.7.egg
+	ln -s $SCRIPTDIR/build_dependencies/modulegraph-0.10.2-py2.7.egg $BUILD_DIR/makehuman/modulegraph-0.10.2-py2.7.egg
 fi
-if [ ! -a py2app-0.7.2-py2.7.egg ]
+if [ ! -L $BUILD_DIR/makehuman/py2app-0.7.2-py2.7.egg ]
 then
-	ln -s ../../build_dependencies/py2app-0.7.2-py2.7.egg py2app-0.7.2-py2.7.egg
+	ln -s $SCRIPTDIR/build_dependencies/py2app-0.7.2-py2.7.egg $BUILD_DIR/makehuman/py2app-0.7.2-py2.7.egg
 fi
 
 # Run py2app (builds the makehuman.app)
@@ -61,9 +61,9 @@ echo
 echo Running py2app build
 python setup.py py2app
 
-if [ ! -d dist/$MAKEHUMAN_APP_BUNDLE_NAME.app ]
+if [ ! -d "$BUILD_DIR/makehuman/dist/${MAKEHUMAN_APP_BUNDLE_NAME}.app" ]
 then
-echo "Py2app failed to output to: dist/$MAKEHUMAN_APP_BUNDLE_NAME.app"
+echo "Py2app failed to output to: $BUILD_DIR/makehuman/dist/${MAKEHUMAN_APP_BUNDLE_NAME}.app"
 exit 1
 fi
 
@@ -83,4 +83,43 @@ cp /Developer/Applications/Qt/plugins/imageformats/libqsvg.dylib dist/$MAKEHUMAN
 # application crash when running, to fix it we run macdeployqt again.
 macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
 
-cd ../../
+# Some checks to verify whether the package contains all required libraries
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Frameworks/QtCore.framework/QtCore ]
+then 
+	echo 'Error: Missing QtCore component in app bundle'
+	echo Verify by running macdeployqt verbose manually as jenkins user
+	exit 1
+fi
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Frameworks/QtOpenGL.framework/QtOpenGL ]
+then 
+        echo 'Error: Missing QtOpenGL component in app bundle'
+	echo Verify by running macdeployqt verbose manually as jenkins user
+        exit 1
+fi
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Frameworks/QtSvg.framework/QtSvg ]
+then
+        echo 'Error: Missing QtSvg component in app bundle'
+        echo Verify by running macdeployqt verbose manually as jenkins user
+        exit 1
+fi
+
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/imageformats/libqsvg.dylib ]
+then
+        echo 'Error: Missing Qt SVG image plugin in app bundle'
+        echo Verify by running macdeployqt verbose manually as jenkins user
+        exit 1
+fi
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/imageformats/libqjpeg.dylib ]
+then
+        echo 'Error: Missing Qt JPeG image plugin in app bundle'
+        echo Verify by running macdeployqt verbose manually as jenkins user
+        exit 1
+fi
+if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/codecs/libqjpcodecs.dylib ]
+then
+        echo 'Error: Missing Qt JPeG codec plugin in app bundle'
+        echo Verify by running macdeployqt verbose manually as jenkins user
+        exit 1
+fi
+
+cd $SCRIPTDIR

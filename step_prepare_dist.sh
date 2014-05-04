@@ -4,7 +4,8 @@
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Variables
-export BUILD_DIR=xbuild
+export SCRIPTDIR=`pwd`
+export BUILD_DIR=$SCRIPTDIR/xbuild
 
 # Ensure SVN source tree exists
 if [ ! -d $BUILD_DIR/makehuman/dist ]
@@ -22,6 +23,14 @@ cp -R blendertools dist/Blender\ Plugins
 rm -f dist/Blender\ Plugins/*.bat
 
 # Move dist folder into OS X builder location
-mv dist ../../dist
+mv $BUILD_DIR/makehuman/dist $SCRIPTDIR/dist
 
-cd ../../
+if [ ! -d "$SCRIPTDIR/dist" ]
+then
+echo "Py2app failed to output to: $SCRIPTDIR/dist"
+exit 1
+fi
+
+cd $SCRIPTDIR
+
+echo OSX build done
