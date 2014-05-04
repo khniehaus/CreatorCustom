@@ -74,14 +74,14 @@ if [ -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf ]
 then
 	rm dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Resources/qt.conf
 fi
-macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
+macdeployqt-4.8 dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
 echo Deploying qtSvg component
 # Since macdeployqt cannot detect which modules a pyqt project needs,
 # we copy them manually
 cp /Developer/Applications/Qt/plugins/imageformats/libqsvg.dylib dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/PlugIns/imageformats/
 # Important: simply copying the required plugins over WILL make the
 # application crash when running, to fix it we run macdeployqt again.
-macdeployqt dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
+macdeployqt-4.8 dist/$MAKEHUMAN_APP_BUNDLE_NAME.app -verbose=0
 
 # Some checks to verify whether the package contains all required libraries
 if [ ! -f dist/$MAKEHUMAN_APP_BUNDLE_NAME.app/Contents/Frameworks/QtCore.framework/QtCore ]
