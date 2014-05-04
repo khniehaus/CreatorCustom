@@ -4,8 +4,9 @@
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Variables
-export MAKEHUMAN_HG_DIR=makehuman_hg
-export BUILD_DIR=xbuild
+export SCRIPTDIR=`pwd`
+export MAKEHUMAN_HG_DIR=$SCRIPTDIR/makehuman_hg
+export BUILD_DIR=$SCRIPTDIR/xbuild
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 
 # Ensure SVN source tree exists
@@ -35,14 +36,13 @@ fi
 echo Running build prepare scripts
 echo
 cd $MAKEHUMAN_HG_DIR/buildscripts
-if [ ! -a ../makehuman/numpy ]
+if [ ! -f $MAKEHUMAN_HG_DIR/makehuman/numpy ]
 then
-	ln -s ../../core_dependencies/numpy ../makehuman
+	ln -s $SCRIPTDIR/core_dependencies/numpy $MAKEHUMAN_HG_DIR/makehuman
 fi
-python build_prepare.py .. ../../$BUILD_DIR
-unlink ../makehuman/numpy
 
-cd ../..
+python build_prepare.py $MAKEHUMAN_HG_DIR $BUILD_DIR
+unlink $MAKEHUMAN_HG_DIR/makehuman/numpy
 
 if [ ! -d $BUILD_DIR/makehuman ]
 then
@@ -58,31 +58,31 @@ rm makehuman
 
 # Remove icons directory since it is only a partial copy of the directory, then symlink the full directory
 rm -rf icons
-if [ ! -a icons ]
+if [ ! -f $BUILD_DIR/makehuman/icons ]
 then
-	ln -s ../../$MAKEHUMAN_HG_DIR/makehuman/icons icons
+	ln -s $MAKEHUMAN_HG_DIR/makehuman/icons $BUILD_DIR/makehuman/icons
 fi
 
 # Link core dependencies
-if [ ! -a numpy ]
+if [ ! -f $BUILD_DIR/makehuman/numpy ]
 then
-	ln -s ../../core_dependencies/numpy numpy
+	ln -s $SCRIPTDIR/core_dependencies/numpy $BUILD_DIR/makehuman/numpy
 fi
-if [ ! -a OpenGL ]
+if [ ! -f $BUILD_DIR/makehuman/OpenGL ]
 then
-	ln -s ../../core_dependencies/OpenGL OpenGL
+	ln -s $SCRIPTDIR/core_dependencies/OpenGL $BUILD_DIR/makehuman/OpenGL
 fi
-if [ ! -a PyQt4 ]
+if [ ! -f $BUILD_DIR/makehuman/PyQt4 ]
 then
-	ln -s ../../core_dependencies/PyQt4 PyQt4
+	ln -s $SCRIPTDIR/core_dependencies/PyQt4 $BUILD_DIR/makehuman/PyQt4
 fi
-if [ ! -a sip.so ]
+if [ ! -f $BUILD_DIR/makehuman/sip.so ]
 then
-	ln -s ../../core_dependencies/sip.so sip.so
+	ln -s $SCRIPTDIR/core_dependencies/sip.so $BUILD_DIR/makehuman/sip.so
 fi
-if [ ! -a sipconfig.py ]
+if [ ! -f $BUILD_DIR/makehuman/sipconfig.py ]
 then
-	ln -s ../../core_dependencies/sipconfig.py sipconfig.py
+	ln -s $SCRIPTDIR/core_dependencies/sipconfig.py $BUILD_DIR/makehuman/sipconfig.py
 fi
-cd ../../../../
 
+cd $SCRIPTDIR
