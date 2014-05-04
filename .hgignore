@@ -1,0 +1,7 @@
+syntax: glob
+makehuman_hg
+makehuman_hg/*
+xbuild
+xbuild/*
+*.pyc
+*.dmg
