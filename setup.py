@@ -5,7 +5,7 @@ APP = ['makehuman.py']
 PLIST_OPTIONS = {
                   'CFBundleIdentifier':'org.makehuman',
                   'CFBundleGetInfoString':'MakeHuman for Mac OS X',
-                  'CFBundleShortVersionString':'1.1.0',
+                  'CFBundleShortVersionString':os.getenv('MAKEHUMAN_VERSION'),
                   'CFBundleName':os.getenv('MAKEHUMAN_APP_BUNDLE_NAME'),
                 }
 OPTIONS = {
