@@ -50,6 +50,10 @@ echo "Build_prepare failed, output folder not found in: $BUILD_DIR/makehuman"
 exit 1
 fi
 
+# Retrieve useful information from build_prepare in env variables
+export MAKEHUMAN_VERSION=$(python get_build_prepare_output_var.py -t 0 $MAKEHUMAN_HG_DIR/.build_prepare.out 'version')
+export MAKEHUMAN_BUILD_TYPE=$(python get_build_prepare_output_var.py -t 0 $MAKEHUMAN_HG_DIR/.build_prepare.out 'type')
+
 # Switch to exported directory and remove the makehuman startup script as it confuses py2app
 echo
 echo Preparing the exported build directory
