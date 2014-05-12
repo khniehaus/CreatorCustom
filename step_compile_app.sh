@@ -8,7 +8,7 @@ export SCRIPTDIR=`pwd`
 export BUILD_DIR=$SCRIPTDIR/xbuild
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 
-# Ensure SVN source tree exists
+# Ensure HG source tree exists
 if [ ! -d $BUILD_DIR ]
 then
 echo "MakeHuman not built to: $BUILD_DIR"

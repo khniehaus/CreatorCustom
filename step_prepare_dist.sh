@@ -7,7 +7,7 @@ cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export SCRIPTDIR=`pwd`
 export BUILD_DIR=$SCRIPTDIR/xbuild
 
-# Ensure SVN source tree exists
+# Ensure HG source tree exists
 if [ ! -d $BUILD_DIR/makehuman/dist ]
 then
 echo "Built version of MakeHuman application not found in: $BUILD_DIR"

@@ -3,7 +3,7 @@
 # Ensure we are working from the same directory this script is in
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export PACKAGE_NAME=makehumansvn-r$(hg identify -n makehuman_hg)-osx
+export PACKAGE_NAME=makehumanhg-r$(hg identify -n makehuman_hg)-osx
 
 # Work around a bug that sometimes causes error -5341 with hdiutil on
 # Mavericks
