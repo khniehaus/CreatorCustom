@@ -20,7 +20,7 @@ export PATH=$PYTHONPATH/bin:$PATH
 echo Using: $(which python)
 
 # Set the bundle name
-if [ -n "$1" ]
+if [ -n "$MAKEHUMAN_APP_BUNDLE_NAME" ]
 then
     export MAKEHUMAN_APP_BUNDLE_NAME='MakeHuman'
 fi
