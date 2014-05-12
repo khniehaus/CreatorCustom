@@ -9,7 +9,7 @@ export MAKEHUMAN_HG_DIR=$SCRIPTDIR/makehuman_hg
 export BUILD_DIR=$SCRIPTDIR/xbuild
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 
-# Ensure SVN source tree exists
+# Ensure HG source tree exists
 if [ ! -d $MAKEHUMAN_HG_DIR ]
 then
 echo "Source code not found in: $MAKEHUMAN_HG_DIR"
