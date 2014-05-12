@@ -4,7 +4,10 @@
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Run all the steps needed to prepare the Mac OS X MakeHuman app
-./step_repo_update.sh
+if [ "$MH_OSX_SKIP_HG_UPDATE" != "true" ]
+then
+    ./step_repo_update.sh
+fi
 echo
 . ./step_build_prepare.sh
 echo
