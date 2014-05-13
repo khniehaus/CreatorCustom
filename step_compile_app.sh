@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Compiling OSX app bundle ..."
+
 # Ensure we are working from the same directory this script is in
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -22,6 +24,7 @@ echo Using: $(which python)
 # Set the bundle name
 if [ -n "$MAKEHUMAN_APP_BUNDLE_NAME" ]
 then
+    echo "MAKEHUMAN_APP_BUNDLE_NAME variable not set, using default: MakeHuman"
     export MAKEHUMAN_APP_BUNDLE_NAME='MakeHuman'
 fi
 
@@ -61,7 +64,8 @@ fi
 
 # Run py2app (builds the makehuman.app)
 echo
-echo Running py2app build
+echo "Running py2app build"
+echo "  Bundle name: $MAKEHUMAN_APP_BUNDLE_NAME"
 python setup.py py2app
 
 if [ ! -d "$BUILD_DIR/makehuman/dist/${MAKEHUMAN_APP_BUNDLE_NAME}.app" ]

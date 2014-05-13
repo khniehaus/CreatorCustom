@@ -17,6 +17,10 @@ OPTIONS = {
           }
 DATA_FILES = ['apps','core','data','lib','plugins','shared']
 
+print "Py2App summary:"
+print "  version: "+ os.getenv('MAKEHUMAN_VERSION')
+print "  app bundle name: " + os.getenv('MAKEHUMAN_APP_BUNDLE_NAME')
+
 setup(
       app=APP,
       options={'py2app': OPTIONS},
