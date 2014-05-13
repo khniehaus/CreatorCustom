@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Preparing build export ..."
+
 # Ensure we are working from the same directory this script is in
 cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
