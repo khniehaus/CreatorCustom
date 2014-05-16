@@ -7,6 +7,8 @@ cd "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [ "$MH_OSX_SKIP_HG_UPDATE" != "true" ]
 then
     ./step_repo_update.sh
+else
+    echo "skipped HG update"
 fi
 echo
 . ./step_build_prepare.sh

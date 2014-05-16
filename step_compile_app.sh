@@ -22,7 +22,7 @@ export PATH=$PYTHONPATH/bin:$PATH
 echo Using: $(which python)
 
 # Set the bundle name
-if [ -n "$MAKEHUMAN_APP_BUNDLE_NAME" ]
+if [ -z "$MAKEHUMAN_APP_BUNDLE_NAME" ]
 then
     echo "MAKEHUMAN_APP_BUNDLE_NAME variable not set, using default: MakeHuman"
     export MAKEHUMAN_APP_BUNDLE_NAME='MakeHuman'
