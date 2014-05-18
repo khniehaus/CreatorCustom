@@ -22,6 +22,7 @@ echo Copying extra files in dist folder
 # Copy extra files
 cp license.txt dist/license.txt
 cp -R blendertools dist/Blender\ Plugins
+cp $SCRIPTDIR/extra_files/Instructions.rtf dist/Blender\ Plugins
 rm -f dist/Blender\ Plugins/*.bat
 
 # Move dist folder into OS X builder location
