@@ -8,18 +8,28 @@ PLIST_OPTIONS = {
                   'CFBundleShortVersionString':os.getenv('MAKEHUMAN_VERSION'),
                   'CFBundleName':os.getenv('MAKEHUMAN_APP_BUNDLE_NAME'),
                 }
+
+isRelease = (os.getenv('MAKEHUMAN_BUILD_TYPE') == 'RELEASE')
+
+if isRelease:
+    iconFile = 'icons/makehuman.icns'
+else:
+    # Nightly build icon
+    iconFile = 'icons/makehuman_nb.icns'
+
 OPTIONS = {
             'argv_emulation': True,
             'plist': PLIST_OPTIONS,
             'includes': ['sip', 'PyQt4', 'OpenGL', 'cProfile', 'numpy','code','Queue'],
             'packages': ['logging'],
-            'iconfile':'icons/makehuman_nb.icns',
+            'iconfile': iconFile,
           }
 DATA_FILES = ['apps','core','data','lib','plugins','shared']
 
 print "Py2App summary:"
 print "  version: "+ os.getenv('MAKEHUMAN_VERSION')
 print "  app bundle name: " + os.getenv('MAKEHUMAN_APP_BUNDLE_NAME')
+print "  build type: %s" % ("RELEASE" if isRelease else "NIGHTLY")
 
 setup(
       app=APP,
