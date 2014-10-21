@@ -2,7 +2,7 @@
 
 ##
 # Allows to run MakeHuman from source once the build script has been
-# run once. Requires a step_build_app.sh to be executed first and a valid
+# run once. Requires a step_build_prepare.sh to be executed first and a valid
 # xbuild folder to be built.
 ##
 
