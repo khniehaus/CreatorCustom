@@ -20,5 +20,27 @@ export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7
 export PATH=$PYTHONPATH/bin:$PATH
 echo Using: $(which python)
 
+# Link core dependencies
+if [ ! -f $BUILD_DIR/makehuman/numpy ]
+then
+	ln -s $SCRIPTDIR/core_dependencies/numpy $BUILD_DIR/makehuman/numpy
+fi
+if [ ! -f $BUILD_DIR/makehuman/OpenGL ]
+then
+	ln -s $SCRIPTDIR/core_dependencies/OpenGL $BUILD_DIR/makehuman/OpenGL
+fi
+if [ ! -f $BUILD_DIR/makehuman/PyQt4 ]
+then
+	ln -s $SCRIPTDIR/core_dependencies/PyQt4 $BUILD_DIR/makehuman/PyQt4
+fi
+if [ ! -f $BUILD_DIR/makehuman/sip.so ]
+then
+	ln -s $SCRIPTDIR/core_dependencies/sip.so $BUILD_DIR/makehuman/sip.so
+fi
+if [ ! -f $BUILD_DIR/makehuman/sipconfig.py ]
+then
+	ln -s $SCRIPTDIR/core_dependencies/sipconfig.py $BUILD_DIR/makehuman/sipconfig.py
+fi
+
 cd $MH_SOURCE_PATH/makehuman
 python ./makehuman.py
