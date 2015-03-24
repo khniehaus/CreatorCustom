@@ -11,11 +11,7 @@ PLIST_OPTIONS = {
 
 isRelease = (os.getenv('MAKEHUMAN_BUILD_TYPE') == 'RELEASE')
 
-if isRelease:
-    iconFile = 'icons/makehuman.icns'
-else:
-    # Nightly build icon
-    iconFile = 'icons/makehuman_nb.icns'
+iconFile = 'icons/makehuman.icns'
 
 OPTIONS = {
             'argv_emulation': True,
