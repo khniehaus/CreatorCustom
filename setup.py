@@ -16,7 +16,7 @@ iconFile = 'icons/makehuman.icns'
 OPTIONS = {
             'argv_emulation': True,
             'plist': PLIST_OPTIONS,
-            'includes': ['sip', 'PyQt4', 'OpenGL', 'cProfile', 'numpy','code','Queue'],
+            'includes': ['sip', 'PyQt4', 'OpenGL', 'cProfile', 'numpy','code','Queue','csv'],
             'packages': ['logging'],
             'iconfile': iconFile,
           }
