@@ -19,7 +19,7 @@ echo "  Output filename: ${PACKAGE_NAME}.dmg"
 
 # Package result from package.sh into a Mac OS X disk image (dmg)
 echo Creating distributable disk image
-hdiutil create $PACKAGE_NAME -srcfolder dist -volname "$MAKEHUMAN_DMG_VOLNAME" -size 600M
+hdiutil create $PACKAGE_NAME -srcfolder dist -volname "$MAKEHUMAN_DMG_VOLNAME" -size 600M -format UDBZ
 
 if [ ! -f "${PACKAGE_NAME}.dmg" ]
 then
