@@ -40,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gui3d.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gui3d.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/gui3d.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
@@ -84,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="human.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="human.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/human.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -757,14 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/mhmain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -808,6 +800,14 @@
           <folding>
             <element signature="e#1111#1129#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
