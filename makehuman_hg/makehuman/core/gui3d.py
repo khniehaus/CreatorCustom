@@ -64,6 +64,7 @@ class View(events3d.EventHandler):
         self._parent = None
         self._attached = False
         self.widgets = []
+        self.oMD = False
 
     @property
     def parent(self):
@@ -209,7 +210,9 @@ class View(events3d.EventHandler):
 
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
-        y = event.y
+        self.oMD = True
+        #self.parent.callEvent('HumanEvent', event)
+        y = int(event.y)
         x = event.x
 
         print x,y

@@ -93,7 +93,7 @@
     "breast/nipple-size-decr|incr": "",
     "breast/nipple-point-decr|incr": "",
 
-    "genitals/penis-circ-decr|incr": "Circumference or thickness of the male genital (if proxy applied).",
+    "genitals/penis-circ-decr|incr": "Circumference or thickness of a genital (if proxy applied).",
     "genitals/penis-length-decr|incr": "Length of the male genital (if proxy applied).",
     "genitals/penis-testicles-decr|incr": "Size of the testicles of the male genital (if proxy applied).",
 

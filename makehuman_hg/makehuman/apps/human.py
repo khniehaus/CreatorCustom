@@ -3,36 +3,24 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Joel Palmius, Marc Flerackers, Jonas Hauquier
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 TODO
 """
 
@@ -46,6 +34,7 @@ from getpath import getSysDataPath, canonicalPath
 import log
 import material
 import animation
+import gui3d
 
 from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVersion
 
@@ -208,7 +197,6 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         All mesh objects that belong to this human, usually everything that has
         to be exported.
-
         If excludeZeroFaceObjs is set True, the result will not contain objects
         for which the meshes have 0 visible faces (all faces are masked)
         """
@@ -280,10 +268,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     def setGender(self, gender, updateModifier = True):
         """
         Sets the gender of the model. 0 is female, 1 is male.
-
         Parameters
         ----------
-
         amount:
             *float*. An amount, usually between 0 and 1, specifying how much
             of the attribute to apply.
@@ -328,10 +314,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         Sets the age of the model. 0 for 0 years old, 1 is 70. To set a
         particular age in years, use the formula age_value = age_in_years / 70.
-
         Parameters
         ----------
-
         amount:
             *float*. An amount, usually between 0 and 1, specifying how much
             of the attribute to apply.
@@ -381,12 +365,10 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         New system (A8):
         ----------------
-
         1y       10y       25y            90y
         baby    child     young           old
         |---------|---------|--------------|
         0      0.1875      0.5             1  = age [0, 1]
-
         val ^     child young     old
           1 |baby\ / \ /   \    /
             |     \   \      /
@@ -408,10 +390,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     def setWeight(self, weight, updateModifier = True):
         """
         Sets the amount of weight of the model. 0 for underweight, 1 for heavy.
-
         Parameters
         ----------
-
         amount:
             *float*. An amount, usually between 0 and 1, specifying how much
             of the attribute to apply.
@@ -440,10 +420,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     def setMuscle(self, muscle, updateModifier = True):
         """
         Sets the amount of muscle of the model. 0 for flacid, 1 for muscular.
-
         Parameters
         ----------
-
         amount:
             *float*. An amount, usually between 0 and 1, specifying how much
             of the attribute to apply.
@@ -469,14 +447,18 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.minmuscleVal = max(0.0, 1 - self.muscle * 2)
         self.averagemuscleVal = 1 - (self.maxmuscleVal + self.minmuscleVal)
 
+    #inVal = gui3d.View.onMouseDragged.event()
+
     def setHeight(self, height, updateModifier = True):
         #type: #(object, object) -> object
         if updateModifier:
             modifier = self.getModifier('macrodetails-height/Height')
-            modifier.setValue(height + self.events3d.MouseEvent.y)
+            modifier.setValue(height)
             self.applyAllTargets()
             return
 
+        #inVal = int(events3d.MouseEvent(self.y))
+        #print 'w', inVal
         height = min(max(height, 0.0), 1.0)
         if self.height == height:
             return
@@ -946,7 +928,6 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     def applyAllTargets(self, update=True):
         """
         This method applies all targets, in function of age and sex
-
         **Parameters:** None.
         """
         progress = Progress()
@@ -1043,9 +1024,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         This method applies right to left symmetry to the currently selected
         body parts.
-
         **Parameters:** None.
-
         """
         self.symmetrize('l')
 
@@ -1053,9 +1032,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         This method applies left to right symmetry to the currently selected
         body parts.
-
         **Parameters:** None.
-
         """
         self.symmetrize('r')
 
@@ -1063,15 +1040,11 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         This method applies either left to right or right to left symmetry to
         the currently selected body parts.
-
-
         Parameters
         ----------
-
         direction:
             *string*. A string indicating whether to apply left to right
             symmetry (\"r\") or right to left symmetry (\"l\").
-
         """
         if direction == 'l':
             # Apply r to l
@@ -1203,7 +1176,6 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     def _updateMeshVertexWeights(self, mesh, bodyVertexWeights=None):
         # type: (object, object) -> object
         """
-
         :rtype: object
         """
         obj = mesh.object

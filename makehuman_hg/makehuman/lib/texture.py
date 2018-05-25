@@ -45,7 +45,7 @@ from image import Image
 import log
 from getpath import getSysDataPath
 
-NOTFOUND_TEXTURE = getSysDataPath('textures/texture_notfound.png')
+NOTFOUND_TEXTURE = getSysDataPath('litspheres/lit_african.png')
 
 class Texture(object):
     _npot = None

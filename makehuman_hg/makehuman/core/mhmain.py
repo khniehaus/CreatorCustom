@@ -50,6 +50,7 @@ import geometry3d
 import animation3d
 import events3d
 import human
+import humanmodifier
 import skeleton
 import guifiles
 import managed_file
@@ -269,9 +270,9 @@ class MHApplication(gui3d.Application, mh.Application):
 
         self.actions = None
 
-        self.clearColor = [0.5, 0.5, 0.5]
-        self.gridColor = [1.0, 1.0, 1.0]
-        self.gridSubColor = [0.7, 0.7, 0.7]
+        self.clearColor = [1, 0, 0]
+        self.gridColor = [1, 0, 0]
+        self.gridSubColor = [1, 0, 0]
 
         self.modules = {}
 
@@ -834,6 +835,7 @@ class MHApplication(gui3d.Application, mh.Application):
         #print "x is", event.x
 
         if self.selectedHuman.isVisible():
+            humanmodifier.MouAction()
             # Normalize modifiers
             print "y is", event.y
             print "x is", event.x
@@ -993,19 +995,21 @@ class MHApplication(gui3d.Application, mh.Application):
         #if self.theme == theme:
         #    return
 
+        # TODO: change colors here from black gradient
+
         # Set defaults
-        self.clearColor = [0.5, 0.5, 0.5]
-        self.gridColor = [1.0, 1.0, 1.0]
-        self.gridSubColor = [0.7, 0.7, 0.7]
-        log._logLevelColors[log.DEBUG] = 'grey'
+        self.clearColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
+        self.gridColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
+        self.gridSubColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
+        log._logLevelColors[log.DEBUG] = 'red'
         log._logLevelColors[log.NOTICE] = 'blue'
         log._logLevelColors[log.WARNING] = 'blue'
         log._logLevelColors[log.ERROR] = 'red'
         log._logLevelColors[log.CRITICAL] = 'red'
-        self.bgBottomLeftColor = [0.101, 0.101, 0.101]
-        self.bgBottomRightColor = [0.101, 0.101, 0.101]
-        self.bgTopLeftColor = [0.312, 0.312, 0.312]
-        self.bgTopRightColor = [0.312, 0.312, 0.312]
+        self.bgBottomLeftColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
+        self.bgBottomRightColor = [1.0, 0.0, 0.0]
+        self.bgTopLeftColor = [1.0, 0.0, 0.0]
+        self.bgTopRightColor = [(1.0, 0.0, 0.0), (1.0, 1.0, 0.0), (0.0, 1.0, 1.0)]
 
         f = open(os.path.join(mh.getSysDataPath("themes/"), theme + ".mht"), 'rU')
 

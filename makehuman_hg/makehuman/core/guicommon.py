@@ -59,7 +59,7 @@ class Object(events3d.EventHandler):
     An object on the screen.
 
     :param position: The position in 3d space.
-    :type position: list or tuple
+    :type position: list or tuple    def onMouseDragged(self, x, y):
     :param mesh: The mesh object.
     :param visible: Wether the object should be initially visible.
     :type visible: Boolean

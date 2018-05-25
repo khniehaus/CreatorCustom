@@ -3,36 +3,24 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Marc Flerackers, Glynn Clements, Jonas Hauquier
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 TODO
 """
 
@@ -40,12 +28,14 @@ __docformat__ = 'restructuredtext'
 
 import algos3d
 import guicommon
+import gui3d
 from core import G
 import events3d
 import operator
 import numpy as np
 import log
 import targets
+import time
 
 
 # Gender
@@ -148,6 +138,11 @@ class ModifierAction(guicommon.Action):
         self.postAction()
         return True
 
+class MouAction(gui3d.View):
+    def __init__(self):
+        super(MouAction, self).__init__()
+        bs = gui3d.View()
+        print "fuck", bs.onMouseDragged.x, bs.onMouseDragged.y
 
 class Modifier(object):
     """
@@ -391,7 +386,6 @@ class ManagedTargetModifier(Modifier):
         Retrieve a list of targets grouped under the specified target path
         (which is not directly a filesystem path but rather an abstraction
         with a path being a hierarchic string of atoms separated by a - symbol).
-
         The result is a list of tuples, with each tuple as:
             (targetpath, factordependencies)
         With targetpath referencing the filepath of the .target file,
@@ -400,7 +394,6 @@ class ManagedTargetModifier(Modifier):
         The resulting weight with which a target is applied is the
         multiplication of all the factor values declared in the
         factorDependencies list.
-
         Some of these factordependencies come from predeclared macro parameters
         (such as age, race, weight, gender, ...) and are already supplied by the
         targets module which automatically extracts known parameters from the
@@ -414,7 +407,6 @@ class ManagedTargetModifier(Modifier):
         corresponding setters on the human object. getFactors() will by default
         resolve the values of known xVal variables to known factor variable
         names.
-
         factordependencies can be any name and are not restricted to tokens that
         occur in the target path. Though for each factordependency, getFactors()
         will have to return a matching value.
@@ -722,4 +714,3 @@ def loadModifiers(filename, human):
             log.warning("No description defined for modifier %s!", mName)
 
     return modifiers
-
