@@ -138,11 +138,12 @@ class ModifierAction(guicommon.Action):
         self.postAction()
         return True
 
-class MouAction(gui3d.View):
-    def __init__(self):
-        super(MouAction, self).__init__()
-        bs = gui3d.View()
-        print "fuck", bs.onMouseDragged.x, bs.onMouseDragged.y
+class MouAction(events3d.MouseEvent):
+
+    def __init__(self, class_a):
+        self.x = class_a.x
+        self.y = class_a.y
+        print "FUCK YOU", self.x, self.y
 
 class Modifier(object):
     """
@@ -471,6 +472,7 @@ class ManagedTargetModifier(Modifier):
             return -sum([self.human.getDetail(target[0]) for target in self.l_targets])
 
     _variables = targets._value_cat.keys()
+
 
     def getFactors(self, value):
         return dict((name, getattr(self.human, name + 'Val'))

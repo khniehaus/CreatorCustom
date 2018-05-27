@@ -43,6 +43,7 @@ import weakref
 
 import events3d
 import module3d
+import humanmodifier
 import mh
 import log
 import selection
@@ -64,7 +65,6 @@ class View(events3d.EventHandler):
         self._parent = None
         self._attached = False
         self.widgets = []
-        self.oMD = False
 
     @property
     def parent(self):
@@ -210,12 +210,16 @@ class View(events3d.EventHandler):
 
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
-        self.oMD = True
         #self.parent.callEvent('HumanEvent', event)
-        y = int(event.y)
+        y = event.y
         x = event.x
 
-        print x,y
+        #print x, y
+
+        mIo = events3d.MouseEvent(event.button, event.x, event.y)
+        mIo2 = humanmodifier.MouAction(mIo)
+        return mIo2
+
 
     def onMouseUp(self, event):
         self.parent.callEvent('onMouseUp', event)

@@ -835,10 +835,11 @@ class MHApplication(gui3d.Application, mh.Application):
         #print "x is", event.x
 
         if self.selectedHuman.isVisible():
-            humanmodifier.MouAction()
-            # Normalize modifiers
-            print "y is", event.y
-            print "x is", event.x
+            pass
+            #print "y is", event.y
+            #print "x is", event.x
+
+            # Normalize modifier
             #self.selectedHuman.updateMacroModifiers
             #print self.selectedHuman.meshValues
             #modifiers = self.selectedHuman.resetMeshValues(self.selectedHuman.meshData.y + event.y)
@@ -847,7 +848,6 @@ class MHApplication(gui3d.Application, mh.Application):
 
             #if (modifiers, event.button) in self.mouseActions:
                 #self.mouseActions[(modifiers, event.button)](event)
-
     #def onMouseWheel(self, event):
         #if self.selectedHuman.isVisible():
             #zoomOut = event.wheelDelta > 0
@@ -1765,6 +1765,7 @@ class MHApplication(gui3d.Application, mh.Application):
 
     def run(self):
         self.start()
+
 
     def addExporter(self, exporter):
         self.getCategory('Files').getTaskByName('Export').addExporter(exporter)

@@ -34,7 +34,6 @@ from getpath import getSysDataPath, canonicalPath
 import log
 import material
 import animation
-import gui3d
 
 from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVersion
 
