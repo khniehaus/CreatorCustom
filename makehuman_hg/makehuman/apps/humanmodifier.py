@@ -143,7 +143,7 @@ class MouAction(events3d.MouseEvent):
     def __init__(self, class_a):
         self.x = class_a.x
         self.y = class_a.y
-        print "FUCK YOU", self.x, self.y
+        print "X is", self.x, "Y is", self.y
 
 class Modifier(object):
     """
