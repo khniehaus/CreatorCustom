@@ -399,8 +399,8 @@ def loadTranslationTarget(obj, targetPath, morphFactor, faceGroupToUpdateName=No
 
     """
 
-    if not (morphFactor or update):
-        return
+    #if not (morphFactor or update):
+        #return
 
     target = getTarget(obj, targetPath)
 
@@ -456,7 +456,6 @@ def saveTranslationTarget(obj, targetPath, groupToSave=None, epsilon=0.001):
         with open(targetPath, 'w') as fileDescriptor:
             for i in xrange(nVertsExported):
                 fileDescriptor.write('%d %f %f %f\n' % (vertsToSave[i], delta[i,0], delta[i,1], delta[i,2]))
-
         if nVertsExported == 0:
             log.warning('Zero verts exported in file %s', targetPath)
     except Exception as e:

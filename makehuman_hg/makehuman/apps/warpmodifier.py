@@ -174,7 +174,7 @@ class WarpModifier (humanmodifier.UniversalModifier):
 
 
     def clampValue(self, value):
-        return max(0.0, min(1.0, value))
+        return max(0.0, min(500.0, value))
 
     def compileTargetIfNecessary(self):
         # TODO find out when compile is needed
@@ -204,6 +204,7 @@ class WarpModifier (humanmodifier.UniversalModifier):
         data = warpData[verts]
 
         target = WarpTarget(self.targetName, verts, data, self, self.human)
+        print data
         return target
 
 
