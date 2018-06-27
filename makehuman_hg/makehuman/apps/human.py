@@ -29,6 +29,8 @@ import algos3d
 import guicommon
 from core import G
 from progress import Progress
+import humanmodifier
+import gui3d
 import events3d
 from getpath import getSysDataPath, canonicalPath
 import log
@@ -929,6 +931,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         This method applies all targets, in function of age and sex
         **Parameters:** None.
         """
+
         progress = Progress()
 
         progress(0.0, 0.5)

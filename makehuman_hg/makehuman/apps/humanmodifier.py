@@ -145,6 +145,11 @@ class MouAction(events3d.MouseEvent):
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
 
+    def mVar(self):
+        m = (self.y / 500.0)
+        print m
+        return m
+
 class Modifier(object):
     """
     The most basic modifier. All modifiers should inherit from this, directly or
@@ -173,6 +178,7 @@ class Modifier(object):
         self._defaultValue = 0
 
         self.human = None
+        #self.nVal = MouAction.mVar(gui3d.view.onMouseDragged())
 
     def setHuman(self, human):
         self.human = human
@@ -189,7 +195,6 @@ class Modifier(object):
         return 1.0
 
     def setValue(self, value, skipDependencies=False):
-        #self.name = modifier.height
         value = self.clampValue(value)
         factors = self.getFactors(value)
 
@@ -254,7 +259,6 @@ class Modifier(object):
     def updateValue(self, value, updateNormals=1, skipUpdate=False):
         if self.verts is None and self.faces is None:
             self.buildLists()
-
         # Update detail state
         old_detail = [self.human.getDetail(target[0]) for target in self.targets]
         self.setValue(value, skipDependencies = True)

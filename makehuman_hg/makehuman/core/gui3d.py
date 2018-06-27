@@ -44,6 +44,7 @@ import weakref
 import events3d
 import module3d
 import humanmodifier
+import modifierslider
 import mh
 import log
 import selection
@@ -215,10 +216,13 @@ class View(events3d.EventHandler):
         x = event.x
 
         #print x, y
-
         mIo = events3d.MouseEvent(event.button, event.x, event.y)
         mIo2 = humanmodifier.MouAction(mIo)
-        return mIo2
+        mIo3 = humanmodifier.MouAction.mVar(mIo2)
+        #you need the slider name here!!
+        nSli = modifierslider.ModifierSlider()
+        nSli.update()
+        return mIo2, mIo3
 
 
     def onMouseUp(self, event):

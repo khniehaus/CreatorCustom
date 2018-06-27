@@ -125,18 +125,24 @@ class ModifierSlider(gui.Slider):
             human.updateProxyMesh(fit_to_posed=True, fast=True)
 
 
-    def onChange(self, value):
+    #def onChange(self, value):
         #G.app.callAsync(self._onChange)
-        pass
+        #pass
 
     def _onChange(self):
         import humanmodifier
+        import gui3d
+        nGoo = gui3d.View()
+        newV = nGoo.onMouseDragged('onMouseDragged')
 
         if self.slider.isSliderDown():
             # Don't do anything when slider is being clicked or dragged (onRelease triggers it)
             return
 
-        value = self.getValue()
+        #THE PROBLEM: (probably move to update or a non-private class!!)
+        nVal = humanmodifier.MouAction(gui3d.View.onMouseDragged())
+        value = nVal.mVar(nVal)
+        print value
         human = self.modifier.human
         if self.value is None:
             self.value = self.modifier.getValue()
