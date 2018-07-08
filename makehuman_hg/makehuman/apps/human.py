@@ -927,10 +927,12 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return [ fg_name for fg_name in self.meshData.getFaceGroups() if fg_name.startswith('joint-') ]
 
     def applyAllTargets(self, update=True):
+
         """
         This method applies all targets, in function of age and sex
         **Parameters:** None.
         """
+        #fVal = humanmodifier.MouAction(events3d.MouseEvent)
 
         progress = Progress()
 

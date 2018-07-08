@@ -44,7 +44,10 @@ import weakref
 import events3d
 import module3d
 import humanmodifier
+import human
 import modifierslider
+import object3d
+import gui
 import mh
 import log
 import selection
@@ -211,17 +214,19 @@ class View(events3d.EventHandler):
 
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
+        self.parent.callEvent('sliderMoved()', event)
         #self.parent.callEvent('HumanEvent', event)
         y = event.y
         x = event.x
 
         #print x, y
+        #wTf = human.Human()
+        #nVa = human.Human.getHeight(wTf)
         mIo = events3d.MouseEvent(event.button, event.x, event.y)
         mIo2 = humanmodifier.MouAction(mIo)
         mIo3 = humanmodifier.MouAction.mVar(mIo2)
-        #you need the slider name here!!
-        nSli = modifierslider.ModifierSlider()
-        nSli.update()
+        #you need the slider name here!
+
         return mIo2, mIo3
 
 

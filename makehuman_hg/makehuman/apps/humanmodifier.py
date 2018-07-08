@@ -150,6 +150,7 @@ class MouAction(events3d.MouseEvent):
         print m
         return m
 
+
 class Modifier(object):
     """
     The most basic modifier. All modifiers should inherit from this, directly or
@@ -454,6 +455,13 @@ class ManagedTargetModifier(Modifier):
             value = max( 0.0, value)
         return value
 
+    # def updateNewValue(self, value):
+    #     xVa = MouAction(events3d.MouseEvent)
+    #     nVa = xVa.mVar()
+    #     value = nVa
+    #     print "fuck", value
+    #     return value
+
     def setValue(self, value, skipDependencies=False):
         value = self.clampValue(value)
         factors = self.getFactors(value)
@@ -590,7 +598,16 @@ class MacroModifier(ManagedTargetModifier):
         return None
 
     def getValue(self):
-        return getattr(self.human, self.getter)()
+        xVal = float
+        return getattr(self.human, self.updateNewValue(xVal))()
+
+    def updateNewValue(self, value):
+        fRick = events3d.MouseEvent(events3d.MouseEvent.button, events3d.MouseEvent.x, events3d.MouseEvent.y)
+        xVa = MouAction(fRick())
+        nVa = xVa.mVar()
+        value = nVa.m()
+        print "fuck", value
+        return value
 
     def setValue(self, value, skipDependencies = False):
         value = self.clampValue(value)

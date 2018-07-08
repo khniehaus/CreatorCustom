@@ -70,19 +70,23 @@ class ModifierSlider(gui.Slider):
         return targets.getTargets().images.get(name, name)
 
     def mousePressEvent(self, event):
-        if self._handleMousePress(event):
+        import gui3d
+        import events3d
+        gAh = gui3d.View()
+        if gAh.onMouseDragged('MouseEvent'):
+        #if self._handleMousePress(event):
             super(ModifierSlider, self).mousePressEvent(event)
 
     def sliderMousePressEvent(self, event):
         return self._handleMousePress(event)
 
     def _handleMousePress(self, event):
-        if event.button() == gui.QtCore.Qt.RightButton:
-            self.resetValue()
-            return False
-        else:
+        # if event.button() == gui.QtCore.Qt.RightButton:
+        #     self.resetValue()
+        #     return False
+        # else:
             # Default behaviour
-            return True
+        return True
 
     def resetValue(self):
         """
@@ -100,10 +104,19 @@ class ModifierSlider(gui.Slider):
                                               self.update))
 
     def onChanging(self, value):
+
+        # import humanmodifier
+        # import gui3d
+        # fUck = gui3d.View()
+        # fUbk = humanmodifier.MouAction(fUck.onMouseDragged('MouseEvent'))
+        # shIt = fUbk.mVar()
+        # dAmn = shIt.m()
+
         if self.changing is not None:
             # Avoid concurrent updates
             self.changing = value
             return
+
         self.changing = value
         G.app.callAsync(self._onChanging)
 
@@ -131,18 +144,13 @@ class ModifierSlider(gui.Slider):
 
     def _onChange(self):
         import humanmodifier
-        import gui3d
-        nGoo = gui3d.View()
-        newV = nGoo.onMouseDragged('onMouseDragged')
-
-        if self.slider.isSliderDown():
+        #if self.slider.isSliderDown():
             # Don't do anything when slider is being clicked or dragged (onRelease triggers it)
-            return
+            #return
 
         #THE PROBLEM: (probably move to update or a non-private class!!)
-        nVal = humanmodifier.MouAction(gui3d.View.onMouseDragged())
-        value = nVal.mVar(nVal)
-        print value
+        #nVal = humanmodifier.MouAction(gui3d.View.onMouseDragged())
+        value = self.getValue()
         human = self.modifier.human
         if self.value is None:
             self.value = self.modifier.getValue()
@@ -174,8 +182,18 @@ class ModifierSlider(gui.Slider):
         """Synchronize slider value with value of its modifier, make it up to
         date.
         """
-        self.blockSignals(True)
-        if not self.slider.isSliderDown():
+        import humanmodifier
+        import gui3d
+        fUck = gui3d.View()
+        fUbk = humanmodifier.MouAction(fUck.onMouseDragged('onMouseDragged'))
+        shIt = fUbk.mVar()
+        dAmn = shIt.m()
+        print "fuck", dAmn
+
+        #self.blockSignals(True)
+        #if not self.slider.isSliderDown():
             # Only update slider position when it is not being clicked or dragged
-            self.setValue(self.modifier.getValue())
-        self.blockSignals(False)
+        self.setValue(dAmn)
+
+            # Only update slider position when it is not being clicked or dragged
+        #self.blockSignals(False)

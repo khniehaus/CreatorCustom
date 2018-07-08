@@ -383,11 +383,13 @@ class Slider(QtGui.QWidget, Widget):
         type(self)._instances.add(self)
 
     def setValueConverter(self, valueConverter):
+        import gui3d
+        nHuman = gui3d.View()
         self._valueConverter = valueConverter
         if self.valueConverter:
             self.edit = NarrowLineEdit(5)
             self.edit.installEventFilter(self)
-            self.connect(self.edit, QtCore.SIGNAL('returnPressed()'), self._enter)
+            self.connect(self.edit, nHuman.onMouseDragged('onMouseDragged'), self._enter)
             self.layout.addWidget(self.edit, 1, 1, 1, 1)
             if hasattr(self.valueConverter, 'units'):
                 self.units = QtGui.QLabel(self.valueConverter.units)
@@ -438,11 +440,13 @@ class Slider(QtGui.QWidget, Widget):
             return self.valueConverter.displayToData(value)
 
     def eventFilter(self, object, event):
-        if object != self.slider and object != self.edit:
-            return
+        import gui3d
+        nHuman = gui3d.View()
+        #if object != self.slider and object != self.edit:
+            #return
         result = False
-        if object == self.edit:
-            result = self.edit.eventFilter(object, event)
+        if nHuman.onMouseDragged('onMouseDragged'):
+            result = True
         if event.type() == QtCore.QEvent.FocusIn:
             self.callEvent('onFocus', self)
         elif event.type() == QtCore.QEvent.FocusOut:
@@ -510,7 +514,13 @@ class Slider(QtGui.QWidget, Widget):
         self.slider.blockSignals(False)
 
     def getValue(self):
-        return self._i2f(self.slider.value())
+        import humanmodifier
+        import gui3d
+        fUck = gui3d.View()
+        fUbk = humanmodifier.MouAction(fUck.onMouseDragged('MouseEvent'))
+        shIt = fUbk.mVar()
+        value = shIt.m()
+        return value
 
     def setMin(self, min):
         value = self.getValue()
