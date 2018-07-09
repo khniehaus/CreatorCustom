@@ -281,7 +281,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        gender = min(max(gender, 0.0), 1.0)
+        gender = min(max(gender, 0.0), 500.0)
         if self.gender == gender:
             return
         self.gender = gender
@@ -300,16 +300,16 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         The dominant gender of this human as a string (male or female).
         None if both genders are equally represented.
         """
-        if self.getGender() < 0.5:
+        if self.getGender() < 250.0:
             return 'female'
-        elif self.getGender() > 0.5:
+        elif self.getGender() > 250.0:
             return 'male'
         else:
             return None
 
     def _setGenderVals(self):
         self.maleVal = self.gender
-        self.femaleVal = 1 - self.gender
+        self.femaleVal = 500.0 - self.gender
 
     def setAge(self, age, updateModifier = True):
         """
@@ -327,7 +327,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        age = min(max(age, 0.0), 1.0)
+        age = min(max(age, 0.0), 500.0)
         if self.age == age:
             return
         self.age = age
@@ -344,10 +344,10 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         """
         Return the approximate age of the human in years.
         """
-        if self.getAge() < 0.5:
+        if self.getAge() < 250.0:
             return self.MIN_AGE + ((self.MID_AGE - self.MIN_AGE) * 2) * self.getAge()
         else:
-            return self.MID_AGE + ((self.MAX_AGE - self.MID_AGE) * 2) * (self.getAge() - 0.5)
+            return self.MID_AGE + ((self.MAX_AGE - self.MID_AGE) * 2) * (self.getAge() - 250.0)
 
     def setAgeYears(self, ageYears, updateModifier=True):
         """
@@ -359,7 +359,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         if ageYears < self.MID_AGE:
             age = (ageYears - self.MIN_AGE) / ((self.MID_AGE - self.MIN_AGE) * 2)
         else:
-            age = ( (ageYears - self.MID_AGE) / ((self.MAX_AGE - self.MID_AGE) * 2) ) + 0.5
+            age = ( (ageYears - self.MID_AGE) / ((self.MAX_AGE - self.MID_AGE) * 2) ) + 250.0
         self.setAge(age, updateModifier)
 
     def _setAgeVals(self):
@@ -377,15 +377,15 @@ class Human(guicommon.Object, animation.AnimatedMesh):
           0 ______________________________> age
                0  0.1875 0.5      1
         """
-        if self.age < 0.5:
-            self.oldVal = 0.0
-            self.babyVal = max(0.0, 1 - self.age * 5.333)  # 1/0.1875 = 5.333
-            self.youngVal = max(0.0, (self.age-0.1875) * 3.2) # 1/(0.5-0.1875) = 3.2
-            self.childVal = max(0.0, min(1.0, 5.333 * self.age) - self.youngVal)
+        if self.age < 250.0:
+            self.oldVal = 250.0
+            self.babyVal = max(250.0, 1 - self.age * 5.333)  # 1/0.1875 = 5.333
+            self.youngVal = max(250.0, (self.age-0.1875) * 3.2) # 1/(0.5-0.1875) = 3.2
+            self.childVal = max(250.0, min(0.0, 5.333 * self.age) - self.youngVal)
         else:
-            self.childVal = 0.0
-            self.babyVal = 0.0
-            self.oldVal = max(0.0, self.age * 2 - 0.3)
+            self.childVal = 250.0
+            self.babyVal = 250.0
+            self.oldVal = max(250.0, self.age * 2 - 0.3)
             self.youngVal = 1 - self.oldVal
 
     def setWeight(self, weight, updateModifier = True):
@@ -403,7 +403,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        weight = min(max(weight, 0.0), 1.0)
+        weight = min(max(weight, 0.0), 500.0)
         if self.weight == weight:
             return
         self.weight = weight
@@ -414,8 +414,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return self.weight
 
     def _setWeightVals(self):
-        self.maxweightVal = max(0.0, self.weight * 2 - 1)
-        self.minweightVal = max(0.0, 1 - self.weight * 2)
+        self.maxweightVal = max(250.0, self.weight * 2 - 1)
+        self.minweightVal = max(250.0, 1 - self.weight * 2)
         self.averageweightVal = 1 - (self.maxweightVal + self.minweightVal)
 
     def setMuscle(self, muscle, updateModifier = True):
@@ -433,7 +433,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        muscle = min(max(muscle, 0.0), 1.0)
+        muscle = min(max(muscle, 0.0), 500.0)
         if self.muscle == muscle:
             return
         self.muscle = muscle
@@ -444,7 +444,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return self.muscle
 
     def _setMuscleVals(self):
-        self.maxmuscleVal = max(0.0, self.muscle * 2 - 1)
+        self.maxmuscleVal = max(500.0, self.muscle * 2 - 1)
         self.minmuscleVal = max(0.0, 1 - self.muscle * 2)
         self.averagemuscleVal = 1 - (self.maxmuscleVal + self.minmuscleVal)
 
@@ -452,15 +452,14 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
     def setHeight(self, height, updateModifier = True):
         #type: #(object, object) -> object
-        if updateModifier:
-            modifier = self.getModifier('macrodetails-height/Height')
-            modifier.setValue(height)
-            self.applyAllTargets()
-            return
+
+        modifier = self.getModifier('macrodetails-height/Height')
+        modifier.setValue(height)
+        self.applyAllTargets()
 
         #inVal = int(events3d.MouseEvent(self.y))
         #print 'w', inVal
-        height = min(max(height, 0.0), 1.0)
+        height = min(max(height, 0.0), 500.0)
         if self.height == height:
             return
 
@@ -487,8 +486,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return self.meshData.calcBBox(fixedFaceMask = self.staticFaceMask)
 
     def _setHeightVals(self):
-        self.maxheightVal = max(0.0, self.height * 2 - 1)
-        self.minheightVal = max(0.0, 1 - self.height * 2)
+        self.maxheightVal = max(500.0, self.height * 2 - 1)
+        self.minheightVal = max(500.0, 1 - self.height * 2)
 
         if self.maxheightVal > self.minheightVal:
             self.averageheightVal = 1 - self.maxheightVal
@@ -502,7 +501,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        size = min(max(size, 0.0), 1.0)
+        size = min(max(size, 0.0), 500.0)
         if self.breastSize == size:
             return
         self.breastSize = size
@@ -513,7 +512,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return self.breastSize
 
     def _setBreastSizeVals(self):
-        self.maxcupVal = max(0.0, self.breastSize * 2 - 1)
+        self.maxcupVal = max(500.0, self.breastSize * 2 - 1)
         self.mincupVal = max(0.0, 1 - self.breastSize * 2)
         if self.maxcupVal > self.mincupVal:
             self.averagecupVal = 1 - self.maxcupVal
@@ -527,7 +526,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        firmness = min(max(firmness, 0.0), 1.0)
+        firmness = min(max(firmness, 0.0), 500.0)
         if self.breastFirmness == firmness:
             return
         self.breastFirmness = firmness
@@ -538,7 +537,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return self.breastFirmness
 
     def _setBreastFirmnessVals(self):
-        self.maxfirmnessVal = max(0.0, self.breastFirmness * 2 - 1)
+        self.maxfirmnessVal = max(500.0, self.breastFirmness * 2 - 1)
         self.minfirmnessVal = max(0.0, 1 - self.breastFirmness * 2)
 
         if self.maxfirmnessVal > self.minfirmnessVal:
@@ -553,7 +552,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        proportion = min(1.0, max(0.0, proportion))
+        proportion = min(0.0, max(500.0, proportion))
         if self.bodyProportions == proportion:
             return
         self.bodyProportions = proportion
@@ -561,7 +560,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanging', events3d.HumanEvent(self, 'bodyProportions'))
 
     def _setBodyProportionVals(self):
-        self.idealproportionsVal = max(0.0, self.bodyProportions * 2 - 1)
+        self.idealproportionsVal = max(500.0, self.bodyProportions * 2 - 1)
         self.uncommonproportionsVal = max(0.0, 1 - self.bodyProportions * 2)
 
         if self.idealproportionsVal > self.uncommonproportionsVal:
@@ -579,7 +578,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        caucasian = min(max(caucasian, 0.0), 1.0)
+        caucasian = min(max(caucasian, 0.0), 500.0)
         self.caucasianVal = caucasian
 
         if sync and not self.blockEthnicUpdates:
@@ -597,7 +596,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        african = min(max(african, 0.0), 1.0)
+        african = min(max(african, 0.0), 500.0)
         self.africanVal = african
 
         if sync and not self.blockEthnicUpdates:
@@ -615,7 +614,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        asian = min(max(asian, 0.0), 1.0)
+        asian = min(max(asian, 0.0), 500.0)
         self.asianVal = asian
 
         if sync and not self.blockEthnicUpdates:
@@ -640,10 +639,10 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             return abs(value - limit) <= epsilon
 
         ethnics = ['african', 'asian', 'caucasian']
-        remaining = 1.0
+        remaining = 500.0
         if exclude:
             ethnics.remove(exclude)
-            remaining = 1.0 - _getVal(exclude)
+            remaining = 500.0 - _getVal(exclude)
 
         otherTotal = sum(_getVal(e) for e in ethnics)
         if otherTotal == 0.0:
@@ -652,13 +651,13 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             if len(ethnics) == 3 or _getVal(exclude) == 0:
                 # All values 0, this cannot be. Reset to default values.
                 for e in ethnics:
-                    _setVal(e, 1.0 / 3)
+                    _setVal(e, 500.0 / 3)
                 if exclude:
-                    _setVal(exclude, 1.0 / 3)
-            elif exclude and _closeTo(_getVal(exclude), 1.0):
+                    _setVal(exclude, 500.0 / 3)
+            elif exclude and _closeTo(_getVal(exclude), 500.0):
                 # One ethnicity is 1, the rest is 0
                 for e in ethnics:
-                    _setVal(e, 0.0 )
+                    _setVal(e, 250.0 )
                 _setVal(exclude, 1)
             else:
                 # Increase values of other races (that were 0) to hit total sum of 1
@@ -738,7 +737,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         Retrieve a modifier by name.
         Use '.modifierNames' to retrieve the names of all available modifiers.
         """
-        return self._modifiers['macrodetails-height/Height']
+        return self._modifiers[name]
 
     @property
     def modifierGroups(self):
@@ -936,7 +935,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         progress = Progress()
 
-        progress(0.0, 0.5)
+        progress(0.0, 250.0)
 
         # First call progress callback (which often processes events) before resetting mesh
         # so that mesh is not drawn in its reset state
@@ -948,10 +947,10 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             algos3d.loadTranslationTarget(self.meshData, targetPath, morphFactor, None, 0, 0)
             itprog.step()
 
-        progress(0.5, 1.0)
+        progress(250.0, 500.0)
         self.fullUpdate(update)
 
-        progress(1.0)
+        progress(500.0)
 
     def fullUpdate(self, update=True):
         """
@@ -967,7 +966,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         # TODO optimization is possible: only execute this if new-style proxies are applied or if no pose is set
         # TODO alternative optimization: only execute if no pose is set, apply new-style proxies after pose is applied
         self.meshData.calcNormals(1, 1)
-        progress(0.1)
+        progress(50.0)
 
         # Make sure self.getRestposeCoordinates is up-to-date directly (required for proxy fitting)
         self._updateOriginalMeshCoords(self.meshData.name, self.meshData.coord)
@@ -979,21 +978,21 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         #self.traceStack(all=True)
         #self.traceBuffer(all=True, vertsToList=0)
-        progress(0.2)
+        progress(100.0)
 
         # Update skeleton joint positions (before human is posed)
         if self.getBaseSkeleton():
             log.debug("Updating skeleton joint positions")
             self.getBaseSkeleton().updateJoints(self.meshData)
             self.resetBakedAnimations()    # TODO decide whether we require calling this manually, or whether animatedMesh automatically tracks updates of skeleton and updates accordingly
-        progress(0.3)
+        progress(170.0)
 
         if self.skeleton:
             self.skeleton.dirty = True
 
         self.callEvent('onChanged', events3d.HumanEvent(self, 'targets'))
         # Proxy updates and most additional updates performed by plugins happen here
-        progress(0.4)
+        progress(200.0)
 
         # Restore pose, and shadow copy of vertex positions
         # (We do this after onChanged event so that proxies are already updated)
@@ -1001,21 +1000,21 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         # Update subdivision mesh
         if self.isSubdivided():
-            progress(0.5)
+            progress(250.0)
             self.updateSubdivisionMesh()
-            progress(0.7)
+            progress(370.0)
             self.mesh.calcNormals()
-            progress(0.8)
+            progress(420.0)
             if update:
                 self.mesh.update()
         else:
-            progress(0.5)
+            progress(250.0)
             if not self.isPosed():
-                progress(0.8)
+                progress(420.0)
                 if update:
                     self.meshData.update()
 
-        progress(1.0)
+        progress(500.0)
 
     def getPartNameForGroupName(self, groupName):
         # TODO is this still used anywhere?
@@ -1069,14 +1068,14 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         # TODO emit event?
 
     def setDefaultValues(self):
-        self.age = 0.5
-        self.gender = 0.5
-        self.weight = 0.5
-        self.muscle = 0.5
-        self.height = 0.5
-        self.breastSize = 0.5
-        self.breastFirmness = 0.5
-        self.bodyProportions = 0.5
+        self.age = 250.0
+        self.gender = 250.0
+        self.weight = 250.0
+        self.muscle = 250.0
+        self.height = 250.0
+        self.breastSize = 250.0
+        self.breastFirmness = 250.0
+        self.bodyProportions = 250.0
 
         self._setGenderVals()
         self._setAgeVals()
@@ -1087,9 +1086,9 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self._setBreastFirmnessVals()
         self._setBodyProportionVals()
 
-        self.caucasianVal = 1.0/3
-        self.asianVal = 1.0/3
-        self.africanVal = 1.0/3
+        self.caucasianVal = 250.0/1500.0
+        self.asianVal = 250.0/1500.0
+        self.africanVal = 250.0/1500.0
 
     def resetMeshValues(self):
         self.setSubdivided(False, update=False)
@@ -1280,7 +1279,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             return None
 
         log.message("Loading human from MHM file %s.", filename)
-        progress = Progress()(0.0, 0.8)
+        progress = Progress()(250.0, 460.0)
         event = events3d.HumanEvent(self, 'load')
         event.path = filename
         self.callEvent('onChanging', event)
@@ -1373,16 +1372,16 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanged', event)
 
         if update:
-            progress(0.8, 0.9)
+            progress(420.0, 460.0)
             self.applyAllTargets()
 
-        progress(0.9, 0.99)
+        progress(460.0, 495.0)
         if hasattr(self, '_mhm_do_subdivide'):
             subdivide = self._mhm_do_subdivide
             del self._mhm_do_subdivide
         self.setSubdivided(subdivide)
 
-        progress(1.0)
+        progress(500.0)
         log.message("Done loading MHM file.")
 
     def save(self, filename, tags):
