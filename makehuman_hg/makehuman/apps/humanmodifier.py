@@ -150,7 +150,6 @@ class MouAction(events3d.MouseEvent):
         print m
         return m
 
-
 class Modifier(object):
     """
     The most basic modifier. All modifiers should inherit from this, directly or
@@ -162,7 +161,6 @@ class Modifier(object):
     def __init__(self, groupName, name):
         self.groupName = groupName.replace('/', '-')
         self.name = name.replace('/', '-')
-        #self.var = MouAction(events3d.MouseEvent)
 
         self._symmSide = 0
         self._symmModifier = None
@@ -180,7 +178,6 @@ class Modifier(object):
         self._defaultValue = 0
 
         self.human = None
-        #self.nVal = MouAction.mVar(gui3d.view.onMouseDragged())
 
     def setHuman(self, human):
         self.human = human
@@ -194,16 +191,16 @@ class Modifier(object):
         return 0.0
 
     def getMax(self):
-        return 500.0
+        return 1.0
 
     def setValue(self, value, skipDependencies=False):
+        #self.name = modifier.height
         value = self.clampValue(value)
         factors = self.getFactors(value)
 
         tWeights = getTargetWeights(self.targets, factors, value)
         for tpath, tWeight in tWeights.items():
             self.human.setDetail(tpath, tWeight)
-
         if skipDependencies:
             return
 
@@ -262,9 +259,10 @@ class Modifier(object):
     def updateValue(self, value, updateNormals=1, skipUpdate=False):
         if self.verts is None and self.faces is None:
             self.buildLists()
+
         # Update detail state
         old_detail = [self.human.getDetail(target[0]) for target in self.targets]
-        self.setValue(value)
+        self.setValue(value, skipDependencies = True)
         new_detail = [self.human.getDetail(target[0]) for target in self.targets]
 
         # Apply changes
@@ -290,7 +288,7 @@ class Modifier(object):
             self.human.meshData.calcNormals(1, 1, self.verts, self.faces)
         self.human.meshData.update()
         event = events3d.HumanEvent(self.human, self.eventType)
-        event.modifier = 'macrodetails-height'
+        event.modifier = self.fullName
         self.human.callEvent('onChanging', event)
 
     def getSymmetrySide(self):
@@ -371,13 +369,13 @@ class SimpleModifier(Modifier):
     def getFactors(self, value):
         # TODO this is useless
         factors = {
-            'dummy': 500.0
+            'dummy': 1.0
         }
 
         return factors
 
     def clampValue(self, value):
-        return max(0.0, min(500.0, value))
+        return max(0.0, min(1.0, value))
 
 class ManagedTargetModifier(Modifier):
     """
@@ -433,6 +431,7 @@ class ManagedTargetModifier(Modifier):
             targetgroup = '-'.join(component.key)
             factordependencies = component.getVariables() + [targetgroup]
             result.append( (component.path, factordependencies) )
+
         return result
 
     @staticmethod
@@ -451,17 +450,10 @@ class ManagedTargetModifier(Modifier):
     def clampValue(self, value):
         value = min(1.0, value)
         if self.left is not None:
-            value = max(0.0, value)
+            value = max(-1.0, value)
         else:
-            value = max(250.0, value)
+            value = max( 0.0, value)
         return value
-
-    # def updateNewValue(self, value):
-    #     xVa = MouAction(events3d.MouseEvent)
-    #     nVa = xVa.mVar()
-    #     value = nVa
-    #     print "fuck", value
-    #     return value
 
     def setValue(self, value, skipDependencies=False):
         value = self.clampValue(value)
@@ -497,7 +489,7 @@ class UniversalModifier(ManagedTargetModifier):
     the targets module.
     """
     def __init__(self, groupName, targetName, leftExt=None, rightExt=None, centerExt=None):
-        self.targetName = 'macrodetails-height'
+        self.targetName = groupName + "-" + targetName
         if leftExt and rightExt:
             self.left = self.targetName + "-" + leftExt
             self.right = self.targetName + "-" + rightExt
@@ -535,7 +527,7 @@ class UniversalModifier(ManagedTargetModifier):
 
     def getMin(self):
         if self.left:
-            return 0.0
+            return -1.0
         else:
             return 0.0
 
@@ -562,13 +554,12 @@ class MacroModifier(ManagedTargetModifier):
     """
     def __init__(self, groupName, variable):
         super(MacroModifier, self).__init__(groupName, variable)
-        self._defaultValue = 40.0
+        self._defaultValue = 0.5
 
         #log.debug("MacroModifier(%s, %s)  :  %s", self.groupName, self.name, self.fullName)
 
         self.setter = 'set' + self.variable
         self.getter = 'get' + self.variable
-
         self.targets = self.findTargets(self.groupName)
 
         # log.debug('macro modifier %s.%s(%s): %s', base, name, variable, self.targets)
@@ -584,7 +575,7 @@ class MacroModifier(ManagedTargetModifier):
 
     @property
     def variable(self):
-        return self.height
+        return self.name
 
     def getMacroVariable(self):
         """
@@ -600,27 +591,15 @@ class MacroModifier(ManagedTargetModifier):
         return None
 
     def getValue(self):
-        xVal = float
-        return getattr(self.human, self.getter)
-
-    def updateNewValue(self, value):
-        fRick = events3d.MouseEvent(events3d.MouseEvent.button, events3d.MouseEvent.x, events3d.MouseEvent.y)
-        xVa = MouAction(fRick())
-        nVa = xVa.mVar()
-        value = nVa.m()
-        print "fuck", value
-        return value
+        return getattr(self.human, self.getter)()
 
     def setValue(self, value, skipDependencies = False):
-        #THIS is where you need to update immediately
-        nVal = 1.0 + float(MouAction.y())
-        value = nVal
-        print value
+        value = self.clampValue(value)
         getattr(self.human, self.setter)(value, updateModifier=False)
         super(MacroModifier, self).setValue(value, skipDependencies)
 
     def clampValue(self, value):
-        return max(0.0, min(500.0, value))
+        return max(0.0, min(1.0, value))
 
     def getFactors(self, value):
         factors = super(MacroModifier, self).getFactors(value)

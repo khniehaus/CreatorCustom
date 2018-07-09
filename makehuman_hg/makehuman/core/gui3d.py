@@ -239,11 +239,11 @@ class View(events3d.EventHandler):
     def onMouseExited(self, event):
         self.parent.callEvent('onMouseExited', event)
         #I don't think this is the correct format here!! 9/7/18
-        self.parent.callEvent('sliderReleased()', event)
+        #self.parent.callEvent('sliderReleased()', event)
 
     def onClicked(self, event):
         self.parent.callEvent('onClicked', event)
-        self.parent.callEvent('sliderPressed()', event)
+        #self.parent.callEvent('sliderPressed()', event)
 
     def onMouseWheel(self, event):
         self.parent.callEvent('onMouseWheel', event)

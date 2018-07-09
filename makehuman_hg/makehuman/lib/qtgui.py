@@ -3,36 +3,24 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Glynn Clements, Jonas Hauquier
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 TODO
 """
 
@@ -45,23 +33,24 @@ from PyQt4 import QtCore, QtGui, QtSvg
 from core import G
 import events3d
 import language
-#import log
+# import log
 from getpath import getSysDataPath, getPath, isSubPath, pathToUnicode
+
 
 def dummySvgCall():
     """Code which is here just so pyinstaller can discover we need SVG support"""
     dummy = QtSvg.QGraphicsSvgItem("some_svg.svg")
-    
+
+
 def getLanguageString(text, appendData=None, appendFormat=None):
     """Function to get the translation of a text according to the selected
     language.
-
     The function will look up the given text in the current language's
     dictionary and it will return the translated string.
     """
     if not text:
         return text
-    return language.language.getLanguageString(text,appendData,appendFormat)
+    return language.language.getLanguageString(text, appendData, appendFormat)
 
 
 class Widget(events3d.EventHandler):
@@ -99,6 +88,7 @@ class Widget(events3d.EventHandler):
     def onHide(self, event):
         pass
 
+
 class Tab(Widget):
     def __init__(self, parent, name, label):
         super(Tab, self).__init__()
@@ -108,6 +98,7 @@ class Tab(Widget):
 
     def onClicked(self, event):
         pass
+
 
 class TabsBase(Widget):
     def __init__(self):
@@ -151,8 +142,9 @@ class TabsBase(Widget):
     def onTabSelected(self, event):
         pass
 
+
 class Tabs(QtGui.QTabWidget, TabsBase):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         QtGui.QTabWidget.__init__(self, parent)
         TabsBase.__init__(self)
 
@@ -165,7 +157,7 @@ class Tabs(QtGui.QTabWidget, TabsBase):
             return i
         return super(Tabs, self).addTab(tab.child, tab.label)
 
-    def addTab(self, name, label, idx = None):
+    def addTab(self, name, label, idx=None):
         return super(Tabs, self)._addTab(name, label, idx)
 
     def tabChanged(self, idx):
@@ -174,8 +166,9 @@ class Tabs(QtGui.QTabWidget, TabsBase):
         if tab:
             tab.child.tabChanged(tab.child.currentIndex())
 
+
 class TabBar(QtGui.QTabBar, TabsBase):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         QtGui.QTabBar.__init__(self, parent)
         TabsBase.__init__(self)
         self.setDrawBase(False)
@@ -183,7 +176,7 @@ class TabBar(QtGui.QTabBar, TabsBase):
     def tabBar(self):
         return self
 
-    def _makeTab(self, tab, idx = None):
+    def _makeTab(self, tab, idx=None):
         if idx != None:
             i = super(TabBar, self).insertTab(idx, tab.label)
             if i == 0:
@@ -191,11 +184,12 @@ class TabBar(QtGui.QTabBar, TabsBase):
             return i
         return super(TabBar, self).addTab(tab.label)
 
-    def addTab(self, name, label, idx = None):
+    def addTab(self, name, label, idx=None):
         return super(TabBar, self)._addTab(name, label, idx)
 
+
 class GroupBox(QtGui.QGroupBox, Widget):
-    def __init__(self, label = ''):
+    def __init__(self, label=''):
         label = getLanguageString(label) if label else ''
         QtGui.QGroupBox.__init__(self, label)
         Widget.__init__(self)
@@ -204,7 +198,7 @@ class GroupBox(QtGui.QGroupBox, Widget):
     def __str__(self):
         return "%s - %s" % (type(self), unicode(self.title()))
 
-    def addWidget(self, widget, row = None, column = 0, rowSpan = 1, columnSpan = 1, alignment = QtCore.Qt.Alignment(0)):
+    def addWidget(self, widget, row=None, column=0, rowSpan=1, columnSpan=1, alignment=QtCore.Qt.Alignment(0)):
         # widget.setParent(self)
         if row is None:
             row = self.layout.count()
@@ -226,6 +220,7 @@ class GroupBox(QtGui.QGroupBox, Widget):
     def itemAt(self, idx):
         return self.layout.itemAt(idx)
 
+
 # PyQt doesn't implement QProxyStyle so we have to do all this ...
 
 class SliderStyle(QtGui.QCommonStyle):
@@ -233,25 +228,25 @@ class SliderStyle(QtGui.QCommonStyle):
         self.__parent = parent
         super(SliderStyle, self).__init__()
 
-    def drawComplexControl(self, control, option, painter, widget = None):
+    def drawComplexControl(self, control, option, painter, widget=None):
         return self.__parent.drawComplexControl(control, option, painter, widget)
 
-    def drawControl(self, element, option, painter, widget = None):
+    def drawControl(self, element, option, painter, widget=None):
         return self.__parent.drawControl(element, option, painter, widget)
 
     def drawItemPixmap(self, painter, rectangle, alignment, pixmap):
         return self.__parent.drawItemPixmap(painter, rectangle, alignment, pixmap)
 
-    def drawItemText(self, painter, rectangle, alignment, palette, enabled, text, textRole = QtGui.QPalette.NoRole):
+    def drawItemText(self, painter, rectangle, alignment, palette, enabled, text, textRole=QtGui.QPalette.NoRole):
         return self.__parent.drawItemText(painter, rectangle, alignment, palette, enabled, text, textRole)
 
-    def drawPrimitive(self, element, option, painter, widget = None):
+    def drawPrimitive(self, element, option, painter, widget=None):
         return self.__parent.drawPrimitive(element, option, painter, widget)
 
     def generatedIconPixmap(self, iconMode, pixmap, option):
         return self.__parent.generatedIconPixmap(iconMode, pixmap, option)
 
-    def hitTestComplexControl(self, control, option, position, widget = None):
+    def hitTestComplexControl(self, control, option, position, widget=None):
         return self.__parent.hitTestComplexControl(control, option, position, widget)
 
     def itemPixmapRect(self, rectangle, alignment, pixmap):
@@ -260,7 +255,7 @@ class SliderStyle(QtGui.QCommonStyle):
     def itemTextRect(self, metrics, rectangle, alignment, enabled, text):
         return self.__parent.itemTextRect(metrics, rectangle, alignment, enabled, text)
 
-    def pixelMetric(self, metric, option = None, widget = None):
+    def pixelMetric(self, metric, option=None, widget=None):
         return self.__parent.pixelMetric(metric, option, widget)
 
     def polish(self, *args, **kwargs):
@@ -271,17 +266,18 @@ class SliderStyle(QtGui.QCommonStyle):
             return QtCore.Qt.LeftButton | QtCore.Qt.MidButton | QtCore.Qt.RightButton
         return self.__parent.styleHint(hint, option, widget, returnData)
 
-    def subControlRect(self, control, option, subControl, widget = None):
+    def subControlRect(self, control, option, subControl, widget=None):
         return self.__parent.subControlRect(control, option, subControl, widget)
 
-    def subElementRect(self, element, option, widget = None):
+    def subElementRect(self, element, option, widget=None):
         return self.__parent.subElementRect(element, option, widget)
 
     def unpolish(self, *args, **kwargs):
         return self.__parent.unpolish(*args, **kwargs)
 
-    def sizeFromContents(self, ct, opt, contentsSize, widget = None):
+    def sizeFromContents(self, ct, opt, contentsSize, widget=None):
         return self.__parent.sizeFromContents(ct, opt, contentsSize, widget)
+
 
 class NarrowLineEdit(QtGui.QLineEdit):
     def __init__(self, width=4, *args, **kwargs):
@@ -303,6 +299,7 @@ class NarrowLineEdit(QtGui.QLineEdit):
             QtCore.QSize(w, h).expandedTo(QtGui.QApplication.globalStrut()),
             self)
 
+
 class _QSlider(QtGui.QSlider):
     """
     Mock object around QSlider that allows catching mouse press events and
@@ -319,6 +316,7 @@ class _QSlider(QtGui.QSlider):
                 return
         super(_QSlider, self).mousePressEvent(event)
 
+
 class Slider(QtGui.QWidget, Widget):
     _imageCache = {}
     _show_images = False
@@ -331,7 +329,8 @@ class Slider(QtGui.QWidget, Widget):
             cls._imageCache[path] = getPixmap(path)
         return cls._imageCache[path]
 
-    def __init__(self, value=0.0, min=0.0, max=1.0, label=None, vertical=False, valueConverter=None, image=None, scale=1000):
+    def __init__(self, value=0.0, min=0.0, max=1.0, label=None, vertical=False, valueConverter=None, image=None,
+                 scale=1000):
         super(Slider, self).__init__()
         Widget.__init__(self)
         self.text = getLanguageString(label) or ''
@@ -358,7 +357,7 @@ class Slider(QtGui.QWidget, Widget):
 
         self.label = QtGui.QLabel(self.text)
         # Decrease vertical gap between label and slider
-        #self.label.setContentsMargins(0, 0, 0, -1)
+        # self.label.setContentsMargins(0, 0, 0, -1)
         self.layout = QtGui.QGridLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.layout.setColumnMinimumWidth(1, 1)
@@ -383,13 +382,11 @@ class Slider(QtGui.QWidget, Widget):
         type(self)._instances.add(self)
 
     def setValueConverter(self, valueConverter):
-        import gui3d
-        nHuman = gui3d.View()
         self._valueConverter = valueConverter
         if self.valueConverter:
             self.edit = NarrowLineEdit(5)
             self.edit.installEventFilter(self)
-            self.connect(self.edit, nHuman.onMouseDragged('onMouseDragged'), self._enter)
+            self.connect(self.edit, QtCore.SIGNAL('returnPressed()'), self._enter)
             self.layout.addWidget(self.edit, 1, 1, 1, 1)
             if hasattr(self.valueConverter, 'units'):
                 self.units = QtGui.QLabel(self.valueConverter.units)
@@ -440,13 +437,11 @@ class Slider(QtGui.QWidget, Widget):
             return self.valueConverter.displayToData(value)
 
     def eventFilter(self, object, event):
-        import gui3d
-        nHuman = gui3d.View()
-        #if object != self.slider and object != self.edit:
-            #return
+        if object != self.slider and object != self.edit:
+            return
         result = False
-        if nHuman.onMouseDragged('onMouseDragged'):
-            result = True
+        if object == self.edit:
+            result = self.edit.eventFilter(object, event)
         if event.type() == QtCore.QEvent.FocusIn:
             self.callEvent('onFocus', self)
         elif event.type() == QtCore.QEvent.FocusOut:
@@ -493,7 +488,7 @@ class Slider(QtGui.QWidget, Widget):
         if self.edit is not None:
             self.edit.setText('%.2f' % self.toDisplay(value))
         if hasattr(self.valueConverter, 'units') and \
-           self.valueConverter.units != unicode(self.units.text()):
+                        self.valueConverter.units != unicode(self.units.text()):
             self.units.setText(self.valueConverter.units)
 
     def _f2i(self, x):
@@ -514,13 +509,7 @@ class Slider(QtGui.QWidget, Widget):
         self.slider.blockSignals(False)
 
     def getValue(self):
-        import humanmodifier
-        import gui3d
-        fUck = gui3d.View()
-        fUbk = humanmodifier.MouAction(fUck.onMouseDragged('MouseEvent'))
-        shIt = fUbk.mVar()
-        value = shIt.m()
-        return value
+        return self._i2f(self.slider.value())
 
     def setMin(self, min):
         value = self.getValue()
@@ -537,6 +526,7 @@ class Slider(QtGui.QWidget, Widget):
 
     def onChange(self, event):
         pass
+
 
 class ButtonBase(Widget):
     def __init__(self):
@@ -563,11 +553,13 @@ class ButtonBase(Widget):
     def onClicked(self, event):
         pass
 
+
 class Button(QtGui.QPushButton, ButtonBase):
     def __init__(self, label=None, selected=False):
         label = getLanguageString(label)
         super(Button, self).__init__(label)
         ButtonBase.__init__(self)
+
 
 class CheckBox(QtGui.QCheckBox, ButtonBase):
     def __init__(self, label=None, selected=False):
@@ -575,6 +567,7 @@ class CheckBox(QtGui.QCheckBox, ButtonBase):
         super(CheckBox, self).__init__(label)
         ButtonBase.__init__(self)
         self.setChecked(selected)
+
 
 class RadioButton(QtGui.QRadioButton, ButtonBase):
     groups = {}
@@ -617,8 +610,9 @@ class RadioButton(QtGui.QRadioButton, ButtonBase):
             if radio.selected:
                 return radio
 
+
 class ListItem(QtGui.QListWidgetItem):
-    def __init__(self, label, tooltip = True):
+    def __init__(self, label, tooltip=True):
         super(ListItem, self).__init__(label)
         self.__hasCheckbox = False
         self.tooltip = tooltip
@@ -641,7 +635,7 @@ class ListItem(QtGui.QListWidgetItem):
             labelWidth -= self.listWidget().iconSize().width() + 10
             # pad size with 10px to account for margin between icon and text (this is an approximation)
 
-        if metrics.width(self.text)/2 > labelWidth:
+        if metrics.width(self.text) / 2 > labelWidth:
             self.setToolTip(self.text)
         else:
             self.setToolTip("")
@@ -696,6 +690,7 @@ class ListItem(QtGui.QListWidgetItem):
                 return True
         return False
 
+
 class ListView(QtGui.QListWidget, Widget):
     def __init__(self):
         super(ListView, self).__init__()
@@ -738,7 +733,7 @@ class ListView(QtGui.QListWidget, Widget):
         self.updateGeometry()
 
     def rowCount(self):
-        return len( [item for item in self.getItems() if not item.isHidden()] )
+        return len([item for item in self.getItems() if not item.isHidden()])
 
     def sizeHint(self):
         if self._vertical_scrolling:
@@ -752,18 +747,19 @@ class ListView(QtGui.QListWidget, Widget):
                 rowHeight = 0
             height = (rowHeight * rows)
 
-            size = super(ListView,self).sizeHint()
+            size = super(ListView, self).sizeHint()
             size.setHeight(height)
             return size
 
     _brushes = {}
+
     @classmethod
     def getBrush(cls, color):
         if color not in cls._brushes:
             cls._brushes[color] = QtGui.QBrush(QtGui.QColor(color))
         return cls._brushes[color]
 
-    def addItem(self, text, color = None, data = None, checkbox = False, pos = None):
+    def addItem(self, text, color=None, data=None, checkbox=False, pos=None):
         item = ListItem(text)
         item.setText(text)
         if color is not None:
@@ -774,7 +770,7 @@ class ListView(QtGui.QListWidget, Widget):
             item.enableCheckbox()
         return self.addItemObject(item, pos)
 
-    def addItemObject(self, item, pos = None):
+    def addItemObject(self, item, pos=None):
         if pos is not None:
             super(ListView, self).insertItem(pos, item)
         else:
@@ -810,7 +806,7 @@ class ListView(QtGui.QListWidget, Widget):
         return self.selectionMode() == QtGui.QAbstractItemView.MultiSelection
 
     def getItems(self):
-        return [ self.item(row) for row in xrange(self.count()) ]
+        return [self.item(row) for row in xrange(self.count())]
 
     def clearSelection(self):
         super(ListView, self).clearSelection()
@@ -821,34 +817,42 @@ class ListView(QtGui.QListWidget, Widget):
 
         self.callEvent('onClearSelection', None)
 
+
 class TextView(QtGui.QLabel, Widget):
-    def __init__(self, label = ''):
+    def __init__(self, label=''):
         label = getLanguageString(label)
         super(TextView, self).__init__(label)
         Widget.__init__(self)
 
     def setText(self, text):
         text = getLanguageString(text)
-        super(TextView,self).setText(text)
+        super(TextView, self).setText(text)
 
     def setTextFormat(self, text, *values):
         text = getLanguageString(text)
-        super(TextView,self).setText(text % values)
+        super(TextView, self).setText(text % values)
+
 
 class SliderBox(GroupBox):
     pass
 
+
 def intValidator(text):
     return not text or text.isdigit() or (text[0] == '-' and (len(text) == 1 or text[1:].isdigit()))
 
+
 def floatValidator(text):
-    return not text or (text.replace('.', '').isdigit() and text.count('.') <= 1) or (text[0] == '-' and (len(text) == 1 or text[1:].replace('.', '').isdigit()) and text.count('.') <= 1) # Negative sign and optionally digits with optionally 1 decimal point
+    return not text or (text.replace('.', '').isdigit() and text.count('.') <= 1) or (
+    text[0] == '-' and (len(text) == 1 or text[1:].replace('.', '').isdigit()) and text.count(
+        '.') <= 1)  # Negative sign and optionally digits with optionally 1 decimal point
+
 
 def filenameValidator(text):
     return not text or len(set(text) & set('\\/:*?"<>|')) == 0
 
+
 class TextEdit(QtGui.QLineEdit, Widget):
-    def __init__(self, text='', validator = None):
+    def __init__(self, text='', validator=None):
         super(TextEdit, self).__init__(text)
         Widget.__init__(self)
         self.setValidator(validator)
@@ -920,9 +924,9 @@ class TextEdit(QtGui.QLineEdit, Widget):
 
     def event(self, event):
         if event.type() == QtCore.QEvent.KeyPress and \
-           event.key() == QtCore.Qt.Key_Tab and \
-           self.tabPressed():
-                return True
+                        event.key() == QtCore.Qt.Key_Tab and \
+                self.tabPressed():
+            return True
 
         return super(TextEdit, self).event(event)
 
@@ -939,11 +943,12 @@ class TextEdit(QtGui.QLineEdit, Widget):
     def _key_down(self):
         self.callEvent('onDownArrow', None)
 
+
 class DocumentEdit(QtGui.QTextEdit, Widget):
-    NoWrap          = QtGui.QTextEdit.NoWrap
-    WidgetWidth     = QtGui.QTextEdit.WidgetWidth
+    NoWrap = QtGui.QTextEdit.NoWrap
+    WidgetWidth = QtGui.QTextEdit.WidgetWidth
     FixedPixelWidth = QtGui.QTextEdit.FixedPixelWidth
-    FixedColumnWidth= QtGui.QTextEdit.FixedColumnWidth
+    FixedColumnWidth = QtGui.QTextEdit.FixedColumnWidth
 
     def __init__(self, text=''):
         super(DocumentEdit, self).__init__(text)
@@ -964,6 +969,7 @@ class DocumentEdit(QtGui.QTextEdit, Widget):
     def getText(self):
         return unicode(super(DocumentEdit, self).toPlainText())
 
+
 class ProgressBar(QtGui.QProgressBar, Widget):
     def __init__(self, visible=True):
         super(ProgressBar, self).__init__()
@@ -974,6 +980,7 @@ class ProgressBar(QtGui.QProgressBar, Widget):
         min_ = self.minimum()
         max_ = self.maximum()
         self.setValue(min_ + progress * (max_ - min_))
+
 
 class ShortcutEdit(QtGui.QLabel, Widget):
     def __init__(self, shortcut):
@@ -1016,13 +1023,14 @@ class ShortcutEdit(QtGui.QLabel, Widget):
         event.accept()
 
     def shortcutToLabel(self, mod, key):
-        mod &= ~0x20000000 # Qt Bug #4022
+        mod &= ~0x20000000  # Qt Bug #4022
         seq = QtGui.QKeySequence(key + mod)
         s = unicode(seq.toString(QtGui.QKeySequence.NativeText))
         return s
 
     def onChanged(self, shortcut):
         pass
+
 
 class MouseActionEdit(QtGui.QLabel, Widget):
     def __init__(self, shortcut):
@@ -1066,6 +1074,7 @@ class MouseActionEdit(QtGui.QLabel, Widget):
 
     def onChanged(self, shortcut):
         pass
+
 
 class StackedBox(QtGui.QStackedWidget, Widget):
     def __init__(self):
@@ -1119,8 +1128,9 @@ class StackedBox(QtGui.QStackedWidget, Widget):
     def widgetChanged(self, widgetIdx):
         self._updateSize()
 
+
 class Dialog(QtGui.QDialog):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(Dialog, self).__init__(parent)
         self.setModal(True)
 
@@ -1153,7 +1163,8 @@ class Dialog(QtGui.QDialog):
         self.connect(self.button1, QtCore.SIGNAL('clicked(bool)'), self.accept)
         self.connect(self.button2, QtCore.SIGNAL('clicked(bool)'), self.reject)
 
-    def prompt(self, title, text, button1Label, button2Label=None, button1Action=None, button2Action=None, helpId=None, fmtArgs = None):
+    def prompt(self, title, text, button1Label, button2Label=None, button1Action=None, button2Action=None, helpId=None,
+               fmtArgs=None):
         if helpId in self.helpIds:
             return
 
@@ -1220,13 +1231,17 @@ class AboutBox(QtGui.QMessageBox):
 
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 
+
 class AboutBoxScrollbars(QtGui.QDialog):
     def __init__(self, parent, title, text, versiontext):
         super(AboutBoxScrollbars, self).__init__(parent)
 
         def _replace_urls(text):
-            re_match_urls = re.compile(r"""((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.‌​][a-z]{2,4}/)(?:[^\s()<>]+|(([^\s()<>]+|(([^\s()<>]+)))*))+(?:(([^\s()<>]+|(‌​([^\s()<>]+)))*)|[^\s`!()[]{};:'".,<>?«»“”‘’]))""", re.DOTALL)
-            return re_match_urls.sub(lambda x: '<a href="%(url)s" style="color: #ffffff;">%(url)s</a>' % dict(url=str(x.group())), text)
+            re_match_urls = re.compile(
+                r"""((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.‌​][a-z]{2,4}/)(?:[^\s()<>]+|(([^\s()<>]+|(([^\s()<>]+)))*))+(?:(([^\s()<>]+|(‌​([^\s()<>]+)))*)|[^\s`!()[]{};:'".,<>?«»“”‘’]))""",
+                re.DOTALL)
+            return re_match_urls.sub(
+                lambda x: '<a href="%(url)s" style="color: #ffffff;">%(url)s</a>' % dict(url=str(x.group())), text)
 
         if sys.platform == 'darwin':
             self.setWindowFlags(QtCore.Qt.WindowTitleHint | QtCore.Qt.WindowSystemMenuHint)
@@ -1312,7 +1327,6 @@ class AboutBoxScrollbars(QtGui.QDialog):
 
 class FileEntryView(QtGui.QWidget, Widget):
     """Widget for entering paths and filenames.
-
     It can be used in file save / load task views,
     for browsing directories and opening or saving files.
     """
@@ -1323,7 +1337,6 @@ class FileEntryView(QtGui.QWidget, Widget):
 
         def __init__(self, path, source):
             """Constructor of the FileSelected event.
-
             The event consists of the path of the selected file
             as well as the source that triggered the event,
             which can be 'browse' for when the browse button is clicked,
@@ -1341,18 +1354,15 @@ class FileEntryView(QtGui.QWidget, Widget):
 
     def __init__(self, buttonLabel, mode='open'):
         """FileEntryView constructor.
-
         The File Entry has a browse button on the left, which will open
         a standard save dialog. The center is occupied by an empty line edit,
         in which the user can simply enter a filename to save the file
         in the current directory. Finally, a button at the right can be used
         for accepting the filename and doing some action. You can control
         the button's caption with the buttonLabel parameter.
-
         By using the mode parameter, the widget will adapt to the needs,
         depending if it is used for opening a file, saving a file, or browsing
         a directory. Accordingly, its values can be: 'open', 'save', and 'dir'.
-
         If the mode is 'dir', there is no button. The final directory will be
         the path specified by the browse button.
         """
@@ -1399,13 +1409,13 @@ class FileEntryView(QtGui.QWidget, Widget):
                 self._confirm('browse')
 
         self.connect(self.edit, QtCore.SIGNAL(' returnPressed()'),
-            lambda: self._confirm('return'))
+                     lambda: self._confirm('return'))
 
         self.connect(self.edit, QtCore.SIGNAL('textEdited(QString)'),
-            lambda s: self.callEvent('onChange', unicode(s)))
+                     lambda s: self.callEvent('onChange', unicode(s)))
 
         self.connect(self.confirm, QtCore.SIGNAL('clicked(bool)'),
-            lambda _: self._confirm('button'))
+                     lambda _: self._confirm('button'))
 
         # Create GUI
 
@@ -1498,7 +1508,7 @@ class FileEntryView(QtGui.QWidget, Widget):
 
         if len(self.text):
             self.callEvent('onFileSelected',
-                self.FileSelectedEvent(self.path, source))
+                           self.FileSelectedEvent(self.path, source))
         else:
             import log
             log.notice("The text box is empty. Please enter a valid file name.")
@@ -1533,11 +1543,11 @@ class SplashScreen(QtGui.QSplashScreen):
         return self.progress
 
     def escape(self, text):
-        return text.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
+        return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
     def logMessage(self, text):
         text = self.escape(text)
-        self.showMessage(text, alignment = QtCore.Qt.AlignHCenter)
+        self.showMessage(text, alignment=QtCore.Qt.AlignHCenter)
         self.message = text
 
     def drawContents(self, painter):
@@ -1560,11 +1570,12 @@ class SplashScreen(QtGui.QSplashScreen):
         if self.getProgress() == 0:
             progressedWidth = 0
         else:
-            progressedWidth = int(pRect.width()*self.getProgress())
+            progressedWidth = int(pRect.width() * self.getProgress())
         painter.drawRect(pRect.x(), pRect.y(), progressedWidth, pRect.height())
         color.setNamedColor('#56002b')
         painter.setBrush(QtGui.QBrush(color))
-        painter.drawRect(pRect.x()+progressedWidth, pRect.y(), pRect.width()-progressedWidth, pRect.height())
+        painter.drawRect(pRect.x() + progressedWidth, pRect.y(), pRect.width() - progressedWidth, pRect.height())
+
 
 class StatusBar(QtGui.QStatusBar, Widget):
     def __init__(self):
@@ -1575,7 +1586,7 @@ class StatusBar(QtGui.QStatusBar, Widget):
         self.duration = 2000
 
     def showMessage(self, text, *args):
-        if isinstance(text,list):
+        if isinstance(text, list):
             out = ""
             for part in text:
                 out = out + getLanguageString(part)
@@ -1586,7 +1597,7 @@ class StatusBar(QtGui.QStatusBar, Widget):
         super(StatusBar, self).showMessage(text, self.duration)
 
     def setMessage(self, text, *args):
-        if isinstance(text,list):
+        if isinstance(text, list):
             out = ""
             for part in text:
                 out = out + getLanguageString(part)
@@ -1596,8 +1607,9 @@ class StatusBar(QtGui.QStatusBar, Widget):
         text = text % args
         self._perm.setText(text)
 
+
 class VScrollLayout(QtGui.QLayout):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(VScrollLayout, self).__init__(parent)
         self.setContentsMargins(0, 0, 0, 0)
         self.setSizeConstraint(QtGui.QLayout.SetNoConstraint)
@@ -1700,6 +1712,7 @@ class VScrollLayout(QtGui.QLayout):
         left, top, right, bottom = self.getContentsMargins()
         return self._child.sizeHint().height() + top + bottom
 
+
 class Viewport(QtGui.QWidget):
     def __init__(self):
         super(Viewport, self).__init__()
@@ -1722,6 +1735,7 @@ class Viewport(QtGui.QWidget):
 
     def setPosition(self, value):
         self._layout.setPosition(value)
+
 
 class VScrollArea(QtGui.QWidget, Widget):
     def __init__(self):
@@ -1787,6 +1801,7 @@ class VScrollArea(QtGui.QWidget, Widget):
         """
         return str(self.metaObject().className())
 
+
 class TreeItem(QtGui.QTreeWidgetItem):
     def __init__(self, text, parent=None, isDir=False):
         super(TreeItem, self).__init__([text])
@@ -1810,11 +1825,12 @@ class TreeItem(QtGui.QTreeWidgetItem):
         super(TreeItem, self).addChildren(items)
         return items
 
+
 class TreeView(QtGui.QTreeWidget, Widget):
     _dirIcon = None
     _fileIcon = None
 
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(TreeView, self).__init__(parent)
         Widget.__init__(self)
         self.connect(self, QtCore.SIGNAL('itemActivated(QTreeWidgetItem *,int)'), self._activate)
@@ -1837,8 +1853,9 @@ class TreeView(QtGui.QTreeWidget, Widget):
         if item.isDir:
             self.callEvent('onExpand', item)
 
+
 class SpinBox(QtGui.QSpinBox, Widget):
-    def __init__(self, value, parent = None):
+    def __init__(self, value, parent=None):
         super(SpinBox, self).__init__(parent)
         Widget.__init__(self)
         self.setRange(0, 99999)
@@ -1853,8 +1870,8 @@ class SpinBox(QtGui.QSpinBox, Widget):
         super(SpinBox, self).setValue(value)
         self.blockSignals(False)
 
-class BrowseButton(Button):
 
+class BrowseButton(Button):
     @staticmethod
     def conformFilter(filter):
         """Static method that corrects a filter string, if needed, by
@@ -1878,7 +1895,7 @@ class BrowseButton(Button):
                 path = os.getcwd()
         return os.path.normpath(path)
 
-    def __init__(self, mode = 'open', label=None):
+    def __init__(self, mode='open', label=None):
         if label is None:
             label = '...'
         super(BrowseButton, self).__init__(label)
@@ -1937,15 +1954,19 @@ class BrowseButton(Button):
             path = os.path.join(path, self.filename)
 
         if self.mode == 'open':
-            path = pathToUnicode(unicode(QtGui.QFileDialog.getOpenFileName(G.app.mainwin, directory=path, filter=self.filter)))
+            path = pathToUnicode(
+                unicode(QtGui.QFileDialog.getOpenFileName(G.app.mainwin, directory=path, filter=self.filter)))
         elif self.mode == 'save':
-            path = pathToUnicode(unicode(QtGui.QFileDialog.getSaveFileName(G.app.mainwin, directory=path, filter=self.filter)))
+            path = pathToUnicode(
+                unicode(QtGui.QFileDialog.getSaveFileName(G.app.mainwin, directory=path, filter=self.filter)))
         elif self.mode == 'dir':
             path = pathToUnicode(unicode(QtGui.QFileDialog.getExistingDirectory(G.app.mainwin, directory=path)))
 
         if path:
-            if self.mode == 'dir': self.directory = path
-            else: self.path = path
+            if self.mode == 'dir':
+                self.directory = path
+            else:
+                self.path = path
         self.callEvent('onClicked', path)
 
 
@@ -1953,9 +1974,10 @@ class ColorPickButton(Button):
     """
     Button widget that opens a color picker when clicked.
     """
+
     # TODO add a rectangle showing the current color
 
-    def __init__(self, initialColor = None):
+    def __init__(self, initialColor=None):
         super(ColorPickButton, self).__init__("Pick")
         if initialColor is not None:
             self.color = initialColor
@@ -1983,6 +2005,7 @@ class ColorPickButton(Button):
         if pickedColor.isValid():
             self.color = colorFromQColor(pickedColor)
             self.callEvent('onClicked', self.color)
+
 
 class Action(QtGui.QAction, Widget):
     _groups = {}
@@ -2012,9 +2035,9 @@ class Action(QtGui.QAction, Widget):
 
         # Allows setting custom icons for active, selected and disabled states
         ext = os.path.splitext(path)[1]
-        for (name, mode) in [ ("disabled", QtGui.QIcon.Disabled),
-                              ("active", QtGui.QIcon.Active),
-                              ("selected", QtGui.QIcon.Selected) ]:
+        for (name, mode) in [("disabled", QtGui.QIcon.Disabled),
+                             ("active", QtGui.QIcon.Active),
+                             ("selected", QtGui.QIcon.Selected)]:
             customIconPath = "%s_%s%s" % (os.path.splitext(path)[0], name, ext)
             if os.path.isfile(customIconPath):
                 icon.addFile(customIconPath, QtCore.QSize(), mode)
@@ -2026,7 +2049,7 @@ class Action(QtGui.QAction, Widget):
             cls._groups[name] = ActionGroup()
         return cls._groups[name]
 
-    def __init__(self, name, text, method, tooltip = None, group = None, toggle = False):
+    def __init__(self, name, text, method, tooltip=None, group=None, toggle=False):
         super(Action, self).__init__(self.getIcon(name), text, G.app.mainwin)
         self.name = name
         self.method = method
@@ -2049,9 +2072,11 @@ class Action(QtGui.QAction, Widget):
     def _activate(self, checked):
         self.method()
 
+
 class ActionGroup(QtGui.QActionGroup):
     def __init__(self):
         super(ActionGroup, self).__init__(G.app.mainwin)
+
 
 class Actions(object):
     def __init__(self):
@@ -2065,14 +2090,16 @@ class Actions(object):
     def __iter__(self):
         return iter(self._order)
 
+
 class SizePolicy(object):
-    Fixed               = QtGui.QSizePolicy.Fixed
-    Minimum             = QtGui.QSizePolicy.Minimum
-    Maximum             = QtGui.QSizePolicy.Maximum
-    Preferred           = QtGui.QSizePolicy.Preferred
-    Expanding           = QtGui.QSizePolicy.Expanding
-    MinimumExpanding    = QtGui.QSizePolicy.MinimumExpanding
-    Ignored             = QtGui.QSizePolicy.Ignored
+    Fixed = QtGui.QSizePolicy.Fixed
+    Minimum = QtGui.QSizePolicy.Minimum
+    Maximum = QtGui.QSizePolicy.Maximum
+    Preferred = QtGui.QSizePolicy.Preferred
+    Expanding = QtGui.QSizePolicy.Expanding
+    MinimumExpanding = QtGui.QSizePolicy.MinimumExpanding
+    Ignored = QtGui.QSizePolicy.Ignored
+
 
 class TableItem(QtGui.QTableWidgetItem):
     def setUserData(self, data):
@@ -2085,12 +2112,13 @@ class TableItem(QtGui.QTableWidgetItem):
     def text(self):
         return unicode(super(TableItem, self).text())
 
+
 class TableView(QtGui.QTableWidget, Widget):
     def __init__(self):
         super(TableView, self).__init__()
         Widget.__init__(self)
 
-    def setItem(self, row, col, text, data = None):
+    def setItem(self, row, col, text, data=None):
         item = TableItem(text)
         if data is not None:
             item.setUserData(data)
@@ -2099,16 +2127,17 @@ class TableView(QtGui.QTableWidget, Widget):
     def getItemData(self, row, col):
         return self.item(row, col).getUserData()
 
+
 class ImageView(QtGui.QLabel, QtGui.QScrollArea, Widget):
     def __init__(self):
         super(ImageView, self).__init__()
         Widget.__init__(self)
         self.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
-        self.setMinimumSize(50,50)
+        self.setMinimumSize(50, 50)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Ignored, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHeightForWidth(True)
         self.setSizePolicy(sizePolicy)
-        #self.setScaledContents(True)
+        # self.setScaledContents(True)
         self.ratio = 1.0
         self.workingSize = None
         self._pixmap = None
@@ -2129,13 +2158,13 @@ class ImageView(QtGui.QLabel, QtGui.QScrollArea, Widget):
             return width
         else:
             size = self._pixmap.size()
-            return int((float(width)/size.width())*size.height())
+            return int((float(width) / size.width()) * size.height())
 
     def resizeEvent(self, event):
         self.workingSize = event.size()
         self.refreshImage(event.size())
 
-    def refreshImage(self, size = None):
+    def refreshImage(self, size=None):
         if not self._pixmap:
             return
 
@@ -2155,7 +2184,7 @@ class ImageView(QtGui.QLabel, QtGui.QScrollArea, Widget):
             fname = fname + '.png'
 
         if self._pixmap:
-            self._pixmap.save (fname)
+            self._pixmap.save(fname)
 
 
 class ZoomableImageView(QtGui.QScrollArea, Widget):
@@ -2165,7 +2194,7 @@ class ZoomableImageView(QtGui.QScrollArea, Widget):
         self.imageLabel = QtGui.QLabel()
         self.imageLabel.setBackgroundRole(QtGui.QPalette.Base)
         self.imageLabel.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
-        self.imageLabel.setMinimumSize(5,5)
+        self.imageLabel.setMinimumSize(5, 5)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Ignored, QtGui.QSizePolicy.Ignored)
         sizePolicy.setHeightForWidth(True)
         self.imageLabel.setSizePolicy(sizePolicy)
@@ -2201,9 +2230,9 @@ class ZoomableImageView(QtGui.QScrollArea, Widget):
             return width
         else:
             size = pixmap.size()
-            return int((float(width)/size.width())*size.height())
+            return int((float(width) / size.width()) * size.height())
 
-    def refreshImage(self, zoomAct = False, displ = (0, 0)):
+    def refreshImage(self, zoomAct=False, displ=(0, 0)):
         pixmap = self.imageLabel.pixmap()
         if not pixmap:
             return
@@ -2225,7 +2254,7 @@ class ZoomableImageView(QtGui.QScrollArea, Widget):
             fname = fname + '.png'
 
         if self.imageLabel.pixmap():
-            self.imageLabel.pixmap().save (fname)
+            self.imageLabel.pixmap().save(fname)
 
     def mousePressEvent(self, event):
         self.mdown = event.pos()
@@ -2238,47 +2267,49 @@ class ZoomableImageView(QtGui.QScrollArea, Widget):
             self.mdown = event.pos()
         else:
             self.horizontalScrollBar().setValue(
-                self.horizontalScrollBar().value() + 2*(self.mdown.x() - event.pos().x()))
+                self.horizontalScrollBar().value() + 2 * (self.mdown.x() - event.pos().x()))
             self.verticalScrollBar().setValue(
-                self.verticalScrollBar().value() + 2*(self.mdown.y() - event.pos().y()))
+                self.verticalScrollBar().value() + 2 * (self.mdown.y() - event.pos().y()))
             self.mdown = event.pos()
             self.refreshImage()
 
-    def wheelEvent(self, event, displace = True):
+    def wheelEvent(self, event, displace=True):
         ratbef = self.ratio
         if G.app.getSetting('invertMouseWheel'):
             delta = event.delta()
         else:
             delta = -event.delta()
-        factor = 1 - delta*0.0007
+        factor = 1 - delta * 0.0007
         self.ratio *= factor
         if self.ratio > 1.0:
             self.ratio = 1.0
         if self.ratio < self.minratio:
             self.ratio = self.minratio
-        dr = 2*abs(self.ratio - ratbef) if displace else 0
+        dr = 2 * abs(self.ratio - ratbef) if displace else 0
         self.refreshImage(True,
-                          (dr*(event.x() - self.width()/2),
-                           dr*(event.y() - self.height()/2)))
+                          (dr * (event.x() - self.width() / 2),
+                           dr * (event.y() - self.height() / 2)))
 
 
 def colorFromQColor(qColor):
     import material
     if qColor.isValid():
-        values = (float(qColor.red())/255,
-                  float(qColor.green())/255,
-                  float(qColor.blue())/255)
+        values = (float(qColor.red()) / 255,
+                  float(qColor.green()) / 255,
+                  float(qColor.blue()) / 255)
         return material.Color().copyFrom(values)
     else:
         return material.Color()
+
 
 def qColorFromColor(color):
     import material
     if isinstance(color, material.Color):
         color = color.asTuple()
-    return QtGui.QColor(int(color[0]*255),
-                            int(color[1]*255),
-                            int(color[2]*255))
+    return QtGui.QColor(int(color[0] * 255),
+                        int(color[1] * 255),
+                        int(color[2] * 255))
+
 
 def getPixmap(img):
     import image

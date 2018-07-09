@@ -2,36 +2,24 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Glynn Clements
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 TODO
 """
 
@@ -44,6 +32,7 @@ os.environ['QT_API'] = 'pyqt'
 
 # Use version 2 of PyQt4 API
 import sip
+
 sip.setapi(u'QDate', 2)
 sip.setapi(u'QDateTime', 2)
 sip.setapi(u'QString', 2)
@@ -64,12 +53,13 @@ import getpath
 
 import makehuman
 import getpath
+
 if False and makehuman.isBuild():
     # Set absolute Qt plugin path programatically on frozen deployment to fix
     # crashes when Qt is on DLL PATH in windows.
     # No qt.conf file should be present in the application folder!
     deployment_path = getpath.canonicalPath(getpath.getSysPath())
-    QtCore.QCoreApplication.addLibraryPath(os.path.join(deployment_path,'qt4_plugins'))
+    QtCore.QCoreApplication.addLibraryPath(os.path.join(deployment_path, 'qt4_plugins'))
     # Plugins will be loaded when QCoreApplication object is constructed. Some
     # Qt deployments are known to prepend new library paths at this time, such
     # as /usr/lib/qt4/plugins on some linux platforms, but this is not a likely
@@ -79,11 +69,13 @@ if False and makehuman.isBuild():
 # TODO make this configureable in settings?
 MOUSEWHEEL_PICK_TIMEOUT = 0.5
 
+
 class Modifiers:
     SHIFT = int(QtCore.Qt.ShiftModifier)
-    CTRL  = int(QtCore.Qt.ControlModifier)
-    ALT   = int(QtCore.Qt.AltModifier)
-    META  = int(QtCore.Qt.MetaModifier)
+    CTRL = int(QtCore.Qt.ControlModifier)
+    ALT = int(QtCore.Qt.AltModifier)
+    META = int(QtCore.Qt.MetaModifier)
+
 
 class Keys:
     a = QtCore.Qt.Key_A
@@ -124,15 +116,15 @@ class Keys:
     N8 = QtCore.Qt.Key_8
     N9 = QtCore.Qt.Key_9
 
-    F1  = QtCore.Qt.Key_F1
-    F2  = QtCore.Qt.Key_F2
-    F3  = QtCore.Qt.Key_F3
-    F4  = QtCore.Qt.Key_F4
-    F5  = QtCore.Qt.Key_F5
-    F6  = QtCore.Qt.Key_F6
-    F7  = QtCore.Qt.Key_F7
-    F8  = QtCore.Qt.Key_F8
-    F9  = QtCore.Qt.Key_F9
+    F1 = QtCore.Qt.Key_F1
+    F2 = QtCore.Qt.Key_F2
+    F3 = QtCore.Qt.Key_F3
+    F4 = QtCore.Qt.Key_F4
+    F5 = QtCore.Qt.Key_F5
+    F6 = QtCore.Qt.Key_F6
+    F7 = QtCore.Qt.Key_F7
+    F8 = QtCore.Qt.Key_F8
+    F9 = QtCore.Qt.Key_F9
     F10 = QtCore.Qt.Key_F10
     F11 = QtCore.Qt.Key_F11
     F12 = QtCore.Qt.Key_F12
@@ -140,36 +132,38 @@ class Keys:
     F14 = QtCore.Qt.Key_F14
     F15 = QtCore.Qt.Key_F15
 
-    UP        = QtCore.Qt.Key_Up
-    DOWN      = QtCore.Qt.Key_Down
-    LEFT      = QtCore.Qt.Key_Left
-    RIGHT     = QtCore.Qt.Key_Right
+    UP = QtCore.Qt.Key_Up
+    DOWN = QtCore.Qt.Key_Down
+    LEFT = QtCore.Qt.Key_Left
+    RIGHT = QtCore.Qt.Key_Right
 
-    PAGEUP    = QtCore.Qt.Key_PageUp
-    PAGEDOWN  = QtCore.Qt.Key_PageDown
-    HOME      = QtCore.Qt.Key_Home
-    END       = QtCore.Qt.Key_End
-    INSERT    = QtCore.Qt.Key_Insert
-    DELETE    = QtCore.Qt.Key_Delete
-    PAUSE     = QtCore.Qt.Key_Pause
+    PAGEUP = QtCore.Qt.Key_PageUp
+    PAGEDOWN = QtCore.Qt.Key_PageDown
+    HOME = QtCore.Qt.Key_Home
+    END = QtCore.Qt.Key_End
+    INSERT = QtCore.Qt.Key_Insert
+    DELETE = QtCore.Qt.Key_Delete
+    PAUSE = QtCore.Qt.Key_Pause
 
-    RETURN    = QtCore.Qt.Key_Return
+    RETURN = QtCore.Qt.Key_Return
     BACKSPACE = QtCore.Qt.Key_Backspace
-    ESCAPE    = QtCore.Qt.Key_Escape
-    TAB       = QtCore.Qt.Key_Tab
+    ESCAPE = QtCore.Qt.Key_Escape
+    TAB = QtCore.Qt.Key_Tab
 
-    PLUS      = QtCore.Qt.Key_Plus
-    MINUS     = QtCore.Qt.Key_Minus
-    PERIOD    = QtCore.Qt.Key_Period
+    PLUS = QtCore.Qt.Key_Plus
+    MINUS = QtCore.Qt.Key_Minus
+    PERIOD = QtCore.Qt.Key_Period
 
-    SHIFT     = QtCore.Qt.Key_Shift
-    CTRL      = QtCore.Qt.Key_Control
-    ALT       = QtCore.Qt.Key_Alt
-    META      = QtCore.Qt.Key_Meta
+    SHIFT = QtCore.Qt.Key_Shift
+    CTRL = QtCore.Qt.Key_Control
+    ALT = QtCore.Qt.Key_Alt
+    META = QtCore.Qt.Key_Meta
+
 
 Keys._all = set(getattr(Keys, k)
                 for k in dir(Keys)
                 if k[0] != '_')
+
 
 class Buttons:
     LEFT = QtCore.Qt.LeftButton
@@ -180,9 +174,11 @@ class Buttons:
     MIDDLE_MASK = MIDDLE
     RIGHT_MASK = RIGHT
 
+
 g_mouse_pos = None
 gg_mouse_pos = None
 g_mousewheel_t = None
+
 
 class Canvas(QtOpenGL.QGLWidget):
     def __init__(self, parent, app):
@@ -212,7 +208,7 @@ class Canvas(QtOpenGL.QGLWidget):
 
     def getMousePos(self):
         """
-        Get mouse position relative to this rendering canvas. 
+        Get mouse position relative to this rendering canvas.
         Returns None if mouse is outside canvas.
         """
         relPos = self.mapFromGlobal(QtGui.QCursor().pos())
@@ -236,9 +232,9 @@ class Canvas(QtOpenGL.QGLWidget):
         b = ev.button()
 
         gg_mouse_pos = x, y
-        
-        #if y < y.prev():
-            
+
+        # if y < y.prev():
+
 
         G.app.callEvent(direction, events3d.MouseEvent(b, x, y))
 
@@ -318,8 +314,9 @@ class Canvas(QtOpenGL.QGLWidget):
         gl.reshape(w, h)
         G.app.callEvent('onResizedCallback', events3d.ResizeEvent(w, h, False))
 
+
 class VLayout(QtGui.QLayout):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(VLayout, self).__init__(parent)
         self._children = []
 
@@ -377,6 +374,7 @@ class VLayout(QtGui.QLayout):
     def expandingDirections(self):
         return QtCore.Qt.Vertical
 
+
 class TaskPanel(qtgui.VScrollArea):
     def __init__(self):
         super(TaskPanel, self).__init__()
@@ -394,6 +392,7 @@ class TaskPanel(qtgui.VScrollArea):
     def removeWidget(self, widget):
         self.layout.removeWidget(widget)
 
+
 class CategoryPanel(QtGui.QWidget, qtgui.Widget):
     def __init__(self):
         super(CategoryPanel, self).__init__()
@@ -407,11 +406,14 @@ class CategoryPanel(QtGui.QWidget, qtgui.Widget):
     def removeWidget(self, widget):
         self.layout.removeWidget(widget)
 
+
 def getQtVersionString():
     return str(QtCore.qVersion())
 
+
 def getQtVersion():
-    return [ int(versionNb) for versionNb in getQtVersionString().split(".") ]
+    return [int(versionNb) for versionNb in getQtVersionString().split(".")]
+
 
 def supportsSVG():
     """
@@ -421,17 +423,20 @@ def supportsSVG():
     # Care needs to be taken that pyinstaller windows builds and
     # OSX py2app builds include the qt svg lib and plugin
     return qtVersion[0] >= 4 and qtVersion[1] >= 2 and \
-        'svg' in supportedImageFormats()
+           'svg' in supportedImageFormats()
+
 
 def supportsJPG():
     return 'jpg' in supportedImageFormats()
+
 
 def supportedImageFormats():
     """
     The image formats supported by MakeHuman. This is determined by the plugins
     that were loaded into the Qt libraries.
     """
-    return [ str(s).lower() for s in QtGui.QImageReader.supportedImageFormats() ]
+    return [str(s).lower() for s in QtGui.QImageReader.supportedImageFormats()]
+
 
 class Frame(QtGui.QMainWindow):
     title = "MakeHuman"
@@ -451,7 +456,7 @@ class Frame(QtGui.QMainWindow):
         self.setAttribute(QtCore.Qt.WA_KeyCompression, False)
         self.setAcceptDrops(True)
         self.resize(*size)
-        
+
         # work-around for mac QT toolbar bug described in: https://bugreports.qt-project.org/browse/QTBUG-18567
         if sys.platform.startswith("darwin"):
             self.toolbar = self.addToolBar("Toolbar")
@@ -510,11 +515,11 @@ class Frame(QtGui.QMainWindow):
         self.t_layout.addWidget(self.t_panel)
         self.t_panel.setSizePolicy(QtGui.QSizePolicy.Ignored, QtGui.QSizePolicy.Maximum)
 
-        self.canvas = Canvas(self, app = self.app)
+        self.canvas = Canvas(self, app=self.app)
         self.t_layout.addWidget(self.canvas)
 
         self.r_panel = self.panel()
-        self.right_top    = QtGui.QStackedLayout(self.r_panel)
+        self.right_top = QtGui.QStackedLayout(self.r_panel)
         self.h_layout.addWidget(self.r_panel, 0, 2)
         self.h_layout.setColumnStretch(2, 0)
 
@@ -579,7 +584,6 @@ class Frame(QtGui.QMainWindow):
     def _asWindowStateSet(stateflags):
         """Construct a set of window state strings
         from a QWindowStates flags object.
-
         Multiple window states may apply to the same window, for example
         a window might be shown minimized, but set to be maximized when
         restored."""
@@ -594,7 +598,7 @@ class Frame(QtGui.QMainWindow):
         if stateflags & QtCore.Qt.WindowActive:
             state.add('active')
         if not (stateflags &
-            (QtCore.Qt.WindowMaximized | QtCore.Qt.WindowFullScreen)):
+                    (QtCore.Qt.WindowMaximized | QtCore.Qt.WindowFullScreen)):
             state.add('normal geometry')
             if not stateflags & QtCore.Qt.WindowMinimized:
                 state.add('normal')
@@ -624,8 +628,8 @@ class Frame(QtGui.QMainWindow):
         """Return a saveable dictionary describing the window's geometry.
         It can be used for saving the window's shape into a settings file."""
         geometry = {'width': self.width(), 'height': self.height(),
-            'x': self.pos().x(), 'y': self.pos().y()
-            } if 'normal geometry' in self.windowState \
+                    'x': self.pos().x(), 'y': self.pos().y()
+                    } if 'normal geometry' in self.windowState \
             else self.normalStateGeometry.copy()
         geometry['state'] = list(self.windowState)
         return geometry
@@ -660,13 +664,12 @@ class Frame(QtGui.QMainWindow):
 
         if self.app.currentFile.modified:
             self.app.prompt("Load", "You have unsaved changes. Are you sure you want to close the current file?",
-                             "Yes", "No", lambda: self.app.loadHumanMHM(path))
+                            "Yes", "No", lambda: self.app.loadHumanMHM(path))
         else:
             self.app.loadHumanMHM(path)
 
 
 class LogWindow(qtgui.ListView):
-
     def __init__(self):
         super(LogWindow, self).__init__()
         self.level = log.DEBUG
@@ -682,11 +685,12 @@ class LogWindow(qtgui.ListView):
             self.showItem(i, ilevel >= self.level)
             self.setItemColor(i, log.getLevelColor(ilevel))
 
-    def addLogMessage(self, text, level = None):
+    def addLogMessage(self, text, level=None):
         index = self.count()
         color = log.getLevelColor(level)
         self.addItem(text, color, level)
         self.showItem(index, level >= self.level)
+
 
 class AsyncEvent(QtCore.QEvent):
     def __init__(self, callback, args, kwargs):
@@ -694,6 +698,7 @@ class AsyncEvent(QtCore.QEvent):
         self.callback = callback
         self.args = args
         self.kwargs = kwargs
+
 
 class Application(QtGui.QApplication, events3d.EventHandler):
     def __init__(self):
@@ -721,7 +726,7 @@ class Application(QtGui.QApplication, events3d.EventHandler):
         self.progressBar = self.mainwin.progressBar
         self.mainwin.show()
         self.log_window = LogWindow()
-        
+
     def started(self):
         self.callEvent('onStart', None)
 
@@ -735,17 +740,17 @@ class Application(QtGui.QApplication, events3d.EventHandler):
     def stop(self):
         self.callEvent('onStop', None)
         sys.exit()
-        
+
     def redraw(self):
         self.logger_redraw.debug('Application.redraw')
         if self.mainwin and self.mainwin.canvas:
             self.mainwin.canvas.update()
 
-    def addLogMessage(self, text, level = None):
+    def addLogMessage(self, text, level=None):
         if self.log_window is not None:
             self.log_window.addLogMessage(text, level)
 
-    def processEvents(self, flags = QtCore.QEventLoop.ExcludeUserInputEvents):
+    def processEvents(self, flags=QtCore.QEventLoop.ExcludeUserInputEvents):
         """
         Process any asynchronous events in the queue without having to return
         to the qt main event loop. Especially useful for making sure that any
@@ -776,11 +781,11 @@ class Application(QtGui.QApplication, events3d.EventHandler):
     def addEventHandler(self, handler, sortOrder=None):
         if sortOrder is None:
             orders = [h.sortOrder for h in self.eventHandlers]
-            o = max(orders) +1
+            o = max(orders) + 1
             handler.sortOrder = o
 
         self.eventHandlers.append(handler)
-        self.eventHandlers.sort(key = lambda h: h.sortOrder)
+        self.eventHandlers.sort(key=lambda h: h.sortOrder)
 
     def callEventHandlers(self, event_type, event):
         for handler in self.eventHandlers:
@@ -814,20 +819,25 @@ class Application(QtGui.QApplication, events3d.EventHandler):
         self.logger_async.debug('callAsync: %s(%s, %s)', func, args, kwargs)
         self._postAsync(AsyncEvent(func, args, kwargs))
 
-def getSaveFileName(directory, filter = "All files (*.*)"):
-    return unicode(QtGui.QFileDialog.getSaveFileName(
-        G.app.mainwin, directory = directory, filter = filter))
 
-def getOpenFileName(directory, filter = "All files (*.*)"):
+def getSaveFileName(directory, filter="All files (*.*)"):
+    return unicode(QtGui.QFileDialog.getSaveFileName(
+        G.app.mainwin, directory=directory, filter=filter))
+
+
+def getOpenFileName(directory, filter="All files (*.*)"):
     return unicode(QtGui.QFileDialog.getOpenFileName(
-        G.app.mainwin, directory = directory, filter = filter))
+        G.app.mainwin, directory=directory, filter=filter))
+
 
 def getExistingDirectory(directory):
     return unicode(QtGui.QFileDialog.getExistingDirectory(
-        G.app.mainwin, directory = directory))
+        G.app.mainwin, directory=directory))
+
 
 def setShortcut(modifier, key, action):
     action.setShortcut(QtGui.QKeySequence(modifier + key))
+
 
 def callAsyncThread(func, *args, **kwargs):
     """
