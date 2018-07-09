@@ -599,7 +599,7 @@ class MacroModifier(ManagedTargetModifier):
 
     def getValue(self):
         xVal = float
-        return getattr(self.human, self.updateNewValue(xVal))()
+        return getattr(self.human, self.getter)
 
     def updateNewValue(self, value):
         fRick = events3d.MouseEvent(events3d.MouseEvent.button, events3d.MouseEvent.x, events3d.MouseEvent.y)
