@@ -599,6 +599,7 @@ class MacroModifier(ManagedTargetModifier):
         super(MacroModifier, self).setValue(value, skipDependencies)
 
     def clampValue(self, value):
+        print value
         return max(0.0, min(1.0, value))
 
     def getFactors(self, value):

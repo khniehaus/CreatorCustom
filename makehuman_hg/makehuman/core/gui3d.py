@@ -45,7 +45,6 @@ import events3d
 import module3d
 import humanmodifier
 import human
-import modifierslider
 import object3d
 import gui
 import mh
@@ -222,9 +221,12 @@ class View(events3d.EventHandler):
         #print x, y
         #wTf = human.Human()
         #nVa = human.Human.getHeight(wTf)
+        nEv = humanmodifier.MacroModifier('macrodetails', 'macrodetails-height')
         mIo = events3d.MouseEvent(event.button, event.x, event.y)
         mIo2 = humanmodifier.MouAction(mIo)
         mIo3 = humanmodifier.MouAction.mVar(mIo2)
+        nEv.clampValue(mIo3)
+
         #you need the slider name here!
 
         return mIo2, mIo3
