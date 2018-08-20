@@ -34,7 +34,6 @@ from core import G
 import events3d
 import language
 # import log
-import gui3d
 from getpath import getSysDataPath, getPath, isSubPath, pathToUnicode
 
 
@@ -505,7 +504,6 @@ class Slider(QtGui.QWidget, Widget):
         self._sync(value)
         if self._f2i(value) == self.slider.value():
             return
-        print value
         self.slider.blockSignals(True)
         self.slider.setValue(self._f2i(value))
         self.slider.blockSignals(False)

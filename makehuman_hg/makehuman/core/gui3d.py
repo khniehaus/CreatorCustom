@@ -3,39 +3,26 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Joel Palmius, Marc Flerackers
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 This module contains classes defined to implement widgets that provide utility functions
 to the graphical user interface.
-
 Importing this module loads OpenGL dependencies.
 """
 
@@ -108,7 +95,6 @@ class View(events3d.EventHandler):
     def addView(self, view):
         """
         Adds the view to this view. If this view is attached to the app, the view will also be attached.
-
         :param view: The view to be added.
         :type view: gui3d.View
         :return: The view, for convenience.
@@ -129,7 +115,6 @@ class View(events3d.EventHandler):
     def removeView(self, view):
         """
         Removes the view from this view. If this view is attached to the app, the view will be detached.
-
         :param view: The view to be removed.
         :type view: gui3d.View
         """
@@ -145,7 +130,6 @@ class View(events3d.EventHandler):
     def addObject(self, object):
         """
         Adds the object to the view. If the view is attached to the app, the object will also be attached and will get an OpenGL counterpart.
-
         :param object: The object to be added.
         :type object: gui3d.Object
         :return: The object, for convenience.
@@ -165,7 +149,6 @@ class View(events3d.EventHandler):
     def removeObject(self, object):
         """
         Removes the object from the view. If the object was attached to the app, its OpenGL counterpart will be removed as well.
-
         :param object: The object to be removed.
         :type object: gui3d.Object
         """
@@ -428,7 +411,6 @@ class Application(events3d.EventHandler):
     def addObject(self, object):
         """
         Adds the object to the application. The object will also be attached and will get an OpenGL counterpart.
-
         :param object: The object to be added.
         :type object: gui3d.Object
         :return: The object, for convenience.
@@ -447,7 +429,6 @@ class Application(events3d.EventHandler):
     def removeObject(self, object):
         """
         Removes the object from the application. Its OpenGL counterpart will be removed as well.
-
         :param object: The object to be removed.
         :type object: gui3d.Object
         """
@@ -462,7 +443,6 @@ class Application(events3d.EventHandler):
     def addView(self, view):
         """
         Adds the view to the application.The view will also be attached.
-
         :param view: The view to be added.
         :type view: gui3d.View
         :return: The view, for convenience.
@@ -482,7 +462,6 @@ class Application(events3d.EventHandler):
     def removeView(self, view):
         """
         Removes the view from the application. The view will be detached.
-
         :param view: The view to be removed.
         :type view: gui3d.View
         """
@@ -594,7 +573,6 @@ class Application(events3d.EventHandler):
         """
         Retrieve a task by category and name.
         Will not create a task or category if it does not exist.
-
         Set category to None or False to search for a task by name. Will raise
         an exception when the result is ambiguous (there are multiple tasks with
         the same name in different categories).
@@ -718,4 +696,3 @@ class Application(events3d.EventHandler):
             category.callEvent('onResized', event)
             for task in category.tasks:
                 task.callEvent('onResized', event)
-
