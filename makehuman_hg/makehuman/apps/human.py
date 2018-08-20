@@ -40,6 +40,9 @@ from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVer
 
 class Human(guicommon.Object, animation.AnimatedMesh):
 
+    FuckYou = None
+    andAlsoYou = None
+
     def __init__(self, mesh):
         guicommon.Object.__init__(self, mesh)
 
@@ -736,6 +739,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         Retrieve a modifier by name.
         Use '.modifierNames' to retrieve the names of all available modifiers.
         """
+        global FuckYou
+        FuckYou = self._modifiers['macrodetails-height/Height']
         return self._modifiers['macrodetails-height/Height']
 
     @property
@@ -751,6 +756,9 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         Get all modifiers for this human belonging to the same modifier group.
         NOTE: do not confuse groupName with facegroup names!
         """
+        global andAlsoYou
+        andAlsoYou = groupName
+        print andAlsoYou
         try:
             return self._modifier_groups[groupName]
         except:

@@ -47,9 +47,17 @@ import humanmodifier
 import human
 import object3d
 import gui
+import modifierslider
+import mhmain
+import files3d
+import qtui
+import guicommon
+import animation3d
 import mh
 import log
 import selection
+import OSC
+import time
 
 from guicommon import Object, Action
 
@@ -58,6 +66,8 @@ class View(events3d.EventHandler):
     """
     The base view from which all widgets are derived.
     """
+
+    ughWhat = 0.5
 
     def __init__(self):
 
@@ -214,18 +224,47 @@ class View(events3d.EventHandler):
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
 
+        global ughWhat
+        #import human
         #self.parent.callEvent('HumanEvent', event)
+        #you need to connect human here, there's no other way
+        #WTFF = object3d.Object3D(module3d.Object3D(files3d.loadMesh(mh.getSysDataPath("3dobjs/base.obj"))))
+        #eEe = guicommon.Object(WTFF)
+        #kKo = eEe.getSeedMesh()
+        #nHuman = human.Human(WTFF)
+        #nMod = humanmodifier.MacroModifier
+        #bBb = nMod.gName()
+        #cCc = nMod.gGrName()
+        #meh = human.andAlsoYou
+        sigh = human.FuckYou
+        print sigh
+        #gGh = humanmodifier.MacroModifier(meh, sigh)
+        #print sigh
+       # print meh
+        fFf = modifierslider.ModifierSlider(sigh)
+        #self.parent.callEvent('HumanEvent', event)
+
         y = event.y
         x = event.x
 
-        #print x, y
-        #wTf = human.Human()
-        #nVa = human.Human.getHeight(wTf)
-        nEv = humanmodifier.MacroModifier('macrodetails', 'macrodetails-height')
+        #first line is the issue here, you need to get past the mesh thing with Human
+        #nObj = Application()
+        #gGg = nObj.getSelectedFaceGroupAndObject()
+        #nName = nMod.name
+        #nMacroMod = humanmodifier.MacroModifier('macrodetails', nName)
         mIo = events3d.MouseEvent(event.button, event.x, event.y)
         mIo2 = humanmodifier.MouAction(mIo)
         mIo3 = humanmodifier.MouAction.mVar(mIo2)
-        nEv.clampValue(mIo3)
+        ughWhat = mIo3
+        fFf.onChanging(mIo3)
+        fFf.onChange(mIo3)
+        #gGh.clampValue(mIo3)
+        #bleh = humanmodifier.ModifierAction(meh, mIo3, mIo3, postAction = True)
+        #nModAc = humanmodifier.ModifierAction('height', mIo3, mIo3, postAction=True)
+        #nModAc.do()
+        #gGh.setValue(mIo3)
+
+
 
         #you need the slider name here!
 

@@ -35,7 +35,6 @@ import operator
 import numpy as np
 import log
 import targets
-import time
 
 
 # Gender
@@ -117,6 +116,7 @@ class ModifierAction(guicommon.Action):
             else:
                 opposite.setValue( self.modifier.getValue() )
 
+        print self.after
         self.human.applyAllTargets()
         self.postAction()
         return True
@@ -140,14 +140,23 @@ class ModifierAction(guicommon.Action):
 
 class MouAction(events3d.MouseEvent):
 
+    jesusChrist = 0.1
+
     def __init__(self, class_a):
         self.x = class_a.x
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
 
     def mVar(self):
+
         m = (self.y / 500.0)
-        print m
+        global jesusChrist
+        jesusChrist = m
+        #wAt = MacroModifier('macrodetails', 'macrodetails-height')
+        #uGh = ModifierAction(wAt, 0.5, m, postAction=True)
+        #wEh = wAt.clampValue(m)
+        #uGh.do()
+        #print m
         return m
 
 class Modifier(object):
@@ -157,6 +166,8 @@ class Modifier(object):
     A modifier manages a set of targets applied with a certain weight that
     influence the human model.
     """
+    #effOff = None
+    #effOffMac = None
 
     def __init__(self, groupName, name):
         self.groupName = groupName.replace('/', '-')
@@ -185,7 +196,15 @@ class Modifier(object):
 
     @property
     def fullName(self):
+
         return self.groupName+"/"+self.name
+
+
+    # def gName(self):
+    #     return self.name
+    #
+    # def gGrName(self):
+    #     return self.groupName
 
     def getMin(self):
         return 0.0
@@ -575,7 +594,11 @@ class MacroModifier(ManagedTargetModifier):
 
     @property
     def variable(self):
+        #print self.name
         return self.name
+
+    def nVariable(self):
+        return self.variable
 
     def getMacroVariable(self):
         """
@@ -599,7 +622,6 @@ class MacroModifier(ManagedTargetModifier):
         super(MacroModifier, self).setValue(value, skipDependencies)
 
     def clampValue(self, value):
-        print value
         return max(0.0, min(1.0, value))
 
     def getFactors(self, value):

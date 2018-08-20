@@ -834,17 +834,21 @@ class MHApplication(gui3d.Application, mh.Application):
         #You added these as a test of where the cursor is, prints to console
         #print "x is", event.x
 
+        #eHe = gui3d.View()
+
         if self.selectedHuman.isVisible():
             pass
+            #if eHe.onMouseDragged(events3d.MouseEvent(event.button, event.x, event.y)):
+                #self.do(humanmodifier.ModifierAction())
             #print "y is", event.y
             #print "x is", event.x
 
             # Normalize modifier
-            #self.selectedHuman.updateMacroModifiers
-            #print self.selectedHuman.meshValues
-            #modifiers = self.selectedHuman.resetMeshValues(self.selectedHuman.meshData.y + event.y)
-            #self.selectedHuman = human.Human(files3d.loadMesh(mh.getSysDataPath("3dobjs/base.obj"), maxFaces=5))
-            #print sys.path
+            # self.selectedHuman.updateMacroModifiers()
+            # print self.selectedHuman.meshValues
+            # modifiers = self.selectedHuman.resetMeshValues(self.selectedHuman.meshData.y + event.y)
+            # self.selectedHuman = human.Human(files3d.loadMesh(mh.getSysDataPath("3dobjs/base.obj"), maxFaces=5))
+            # print sys.path
 
             #if (modifiers, event.button) in self.mouseActions:
                 #self.mouseActions[(modifiers, event.button)](event)
@@ -1769,3 +1773,5 @@ class MHApplication(gui3d.Application, mh.Application):
 
     def addExporter(self, exporter):
         self.getCategory('Files').getTaskByName('Export').addExporter(exporter)
+
+
