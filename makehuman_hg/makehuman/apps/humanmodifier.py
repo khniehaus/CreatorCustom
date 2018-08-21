@@ -146,9 +146,11 @@ class MouAction(events3d.MouseEvent):
         print "X is", self.x, "Y is", self.y
 
     def mVar(self):
-        m = (self.y / 500.0)
-        print m
-        return m
+        newY = self.y #y value
+        newVal = (newY / 500.0) # y value converted to more or less 0.0-1.0 range
+        sVal = 1.0 + ((newVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0)) #reverse range so figure gets 'taller' as y val gets smaller
+        #print sVal
+        return sVal
 
 class Modifier(object):
     """

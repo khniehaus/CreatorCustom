@@ -54,7 +54,6 @@ class View(events3d.EventHandler):
     The base view from which all widgets are derived.
     """
 
-    ughWhat = 0.5
 
     def __init__(self):
 
@@ -207,51 +206,20 @@ class View(events3d.EventHandler):
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
 
-        global ughWhat
-        #import human
-        #self.parent.callEvent('HumanEvent', event)
-        #you need to connect human here, there's no other way
-        #WTFF = object3d.Object3D(module3d.Object3D(files3d.loadMesh(mh.getSysDataPath("3dobjs/base.obj"))))
-        #eEe = guicommon.Object(WTFF)
-        #kKo = eEe.getSeedMesh()
-        #nHuman = human.Human(WTFF)
-        #nMod = humanmodifier.MacroModifier
-        #bBb = nMod.gName()
-        #cCc = nMod.gGrName()
-        #meh = human.andAlsoYou
-        sigh = human.FuckYou
-        print sigh
-        #gGh = humanmodifier.MacroModifier(meh, sigh)
-        #print sigh
-       # print meh
-        fFf = modifierslider.ModifierSlider(sigh)
-        #self.parent.callEvent('HumanEvent', event)
+        y = event.y #mouse y
+        x = event.x #mouse x
 
-        y = event.y
-        x = event.x
+        modifier1 = human.gMod #instance of global from human class for modifier category
+        print modifier1 # print to make sure it's the right one
+        directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
 
-        #first line is the issue here, you need to get past the mesh thing with Human
-        #nObj = Application()
-        #gGg = nObj.getSelectedFaceGroupAndObject()
-        #nName = nMod.name
-        #nMacroMod = humanmodifier.MacroModifier('macrodetails', nName)
-        mIo = events3d.MouseEvent(event.button, event.x, event.y)
-        mIo2 = humanmodifier.MouAction(mIo)
-        mIo3 = humanmodifier.MouAction.mVar(mIo2)
-        ughWhat = mIo3
-        fFf.onChanging(mIo3)
-        fFf.onChange(mIo3)
-        #gGh.clampValue(mIo3)
-        #bleh = humanmodifier.ModifierAction(meh, mIo3, mIo3, postAction = True)
-        #nModAc = humanmodifier.ModifierAction('height', mIo3, mIo3, postAction=True)
-        #nModAc.do()
-        #gGh.setValue(mIo3)
+        mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
+        mouseAction = humanmodifier.MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
+        dmVal = humanmodifier.MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
+        directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
 
-
-
-        #you need the slider name here!
-
-        return mIo2, mIo3
+        return mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):
