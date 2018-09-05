@@ -625,7 +625,7 @@ class MHApplication(gui3d.Application, mh.Application):
         self.backplaneGrid.placeAtFeet = True
         self.backplaneGrid.lockRotation = True
         self.backplaneGrid.setShadeless(1)
-        #self.backplaneGrid.setPosition([0,offset,0])
+        self.backplaneGrid.setPosition([0,offset,0])
         self.addObject(self.backplaneGrid)
 
         # Ground grid
@@ -640,7 +640,7 @@ class MHApplication(gui3d.Application, mh.Application):
         self.groundplaneGrid.excludeFromProduction = True
         self.groundplaneGrid.placeAtFeet = True
         self.groundplaneGrid.setShadeless(1)
-        #self.groundplaneGrid.setPosition([0,offset,0])
+        self.groundplaneGrid.setPosition([0,offset,0])
         groundGridMesh.restrictVisibleAboveGround = True
         self.addObject(self.groundplaneGrid)
 
@@ -836,10 +836,17 @@ class MHApplication(gui3d.Application, mh.Application):
 
         #eHe = gui3d.View()
 
-        if self.selectedHuman.isVisible():
+
+
+        #print gui3d.View.wtfIs
+
+        if gui3d.View.wtfIs == True:
             pass
-            #if eHe.onMouseDragged(events3d.MouseEvent(event.button, event.x, event.y)):
-                #self.do(humanmodifier.ModifierAction())
+
+            #self.currentFile.modified = True
+            #self.redraw()
+        #if eHe.onMouseDragged(events3d.MouseEvent(event.button, event.x, event.y)):
+            #self.do(humanmodifier.ModifierAction())
             #print "y is", event.y
             #print "x is", event.x
 
@@ -869,6 +876,7 @@ class MHApplication(gui3d.Application, mh.Application):
     # Undo-redo
     def do(self, action):
         if action.do():
+            print action
             self.undoStack.append(action)
             del self.redoStack[:]
             self.currentFile.changed()
@@ -1417,6 +1425,7 @@ class MHApplication(gui3d.Application, mh.Application):
     def goToModelling(self):
         mh.changeCategory("Modelling")
         self.redraw()
+
 
     def doSave(self):
         if self.currentFile.path:

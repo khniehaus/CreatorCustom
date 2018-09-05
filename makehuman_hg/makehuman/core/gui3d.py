@@ -37,6 +37,7 @@ import gui
 import modifierslider
 import mhmain
 import files3d
+import qtgui
 import qtui
 import guicommon
 import animation3d
@@ -54,6 +55,7 @@ class View(events3d.EventHandler):
     The base view from which all widgets are derived.
     """
 
+    uniVal = 0.15
 
     def __init__(self):
 
@@ -209,6 +211,8 @@ class View(events3d.EventHandler):
         y = event.y #mouse y
         x = event.x #mouse x
 
+        global uniVal
+
         modifier1 = human.gMod #instance of global from human class for modifier category
         print modifier1 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
@@ -216,10 +220,17 @@ class View(events3d.EventHandler):
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = humanmodifier.MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         dmVal = humanmodifier.MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
+        #directManipTest.update()
+        uniVal = dmVal
+        directManipTest.update()
+        ##s.setValue(dmVal)
+        #s.onChange(event)
+        #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
 
-        return mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, wtfIs, mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):

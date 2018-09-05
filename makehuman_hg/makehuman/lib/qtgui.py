@@ -409,6 +409,7 @@ class Slider(QtGui.QWidget, Widget):
         return False to interrupt further handling of the event.
         Override this method when needed.
         """
+        self._enter()
         return True
 
     def __del__(self):
@@ -525,7 +526,7 @@ class Slider(QtGui.QWidget, Widget):
         pass
 
     def onChange(self, event):
-        pass
+        self._changed(self.getValue())
 
 
 class ButtonBase(Widget):

@@ -104,6 +104,7 @@ class ModifierAction(guicommon.Action):
             # possibly involved
             self.before = self.modifier.resetValue()
         else:
+            print self.postAction
             self.modifier.setValue(self.after)
 
         # Handle symmetry
@@ -149,8 +150,8 @@ class MouAction(events3d.MouseEvent):
         newY = self.y #y value
         newVal = (newY / 500.0) # y value converted to more or less 0.0-1.0 range
         sVal = 1.0 + ((newVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0)) #reverse range so figure gets 'taller' as y val gets smaller
-        #print sVal
         return sVal
+        #print sVal
 
 class Modifier(object):
     """
@@ -599,9 +600,11 @@ class MacroModifier(ManagedTargetModifier):
         value = self.clampValue(value)
         getattr(self.human, self.setter)(value, updateModifier=False)
         super(MacroModifier, self).setValue(value, skipDependencies)
+        #self.human.applyAllTargets()
+        #self.human.refreshPose()
+
 
     def clampValue(self, value):
-        print value
         return max(0.0, min(1.0, value))
 
     def getFactors(self, value):

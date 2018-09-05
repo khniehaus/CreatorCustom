@@ -32,6 +32,7 @@ from progress import Progress
 import events3d
 from getpath import getSysDataPath, canonicalPath
 import log
+import gui3d
 import material
 import animation
 

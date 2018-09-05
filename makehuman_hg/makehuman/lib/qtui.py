@@ -178,6 +178,7 @@ class Buttons:
 g_mouse_pos = None
 gg_mouse_pos = None
 g_mousewheel_t = None
+gg_butt = None
 
 
 class Canvas(QtOpenGL.QGLWidget):
@@ -226,12 +227,14 @@ class Canvas(QtOpenGL.QGLWidget):
 
     def mouseUpDownEvent(self, ev, direction):
         global gg_mouse_pos
+        global gg_butt
 
         x = ev.x()
         y = ev.y()
         b = ev.button()
 
         gg_mouse_pos = x, y
+        gg_butt = b
 
         # if y < y.prev():
 
@@ -313,7 +316,6 @@ class Canvas(QtOpenGL.QGLWidget):
         G.windowWidth = w
         gl.reshape(w, h)
         G.app.callEvent('onResizedCallback', events3d.ResizeEvent(w, h, False))
-
 
 class VLayout(QtGui.QLayout):
     def __init__(self, parent=None):
