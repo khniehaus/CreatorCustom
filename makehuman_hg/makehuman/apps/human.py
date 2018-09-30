@@ -32,6 +32,7 @@ from progress import Progress
 import events3d
 from getpath import getSysDataPath, canonicalPath
 import log
+import qtui
 import gui3d
 import material
 import animation
@@ -740,8 +741,12 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         Use '.modifierNames' to retrieve the names of all available modifiers.
         """
         global gMod
-        gMod = self._modifiers['macrodetails-height/Height']
-        return self._modifiers['macrodetails-height/Height']
+        gMod = self._modifiers['macrodetails-universal/Weight']
+        # if qtui.gg_mouse_pos != None:
+        #     return self._modifiers['macrodetails-weight/Weight']
+        # else:
+        #     return self._modifiers['macrodetails-height/Height']
+        return self._modifiers['macrodetails-universal/Weight']
 
     @property
     def modifierGroups(self):

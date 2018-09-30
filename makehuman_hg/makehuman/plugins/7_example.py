@@ -76,12 +76,21 @@ class ExampleTaskView(gui3d.TaskView):
         # if a selected texture is specified, it is used to show whether the button is toggled
 
         self.aToggleButton = box.addWidget(gui.CheckBox('ToggleButton'))
+        self.aToggleButton1 = box.addWidget(gui.CheckBox('Medium'))
+        self.aToggleButton2 = box.addWidget(gui.CheckBox('High'))
 
         self.aToggleButtonLabel = box.addWidget(gui.TextView('Not selected'))
 
         @self.aToggleButton.mhEvent
         def onClicked(event):
             if self.aToggleButton.selected:
+                self.aToggleButtonLabel.setText('Selected')
+            else:
+                self.aToggleButtonLabel.setText('Not selected')
+
+        @self.aToggleButton1.mhEvent
+        def onClicked(event):
+            if self.aToggleButton1.selected:
                 self.aToggleButtonLabel.setText('Selected')
             else:
                 self.aToggleButtonLabel.setText('Not selected')
@@ -93,18 +102,33 @@ class ExampleTaskView(gui3d.TaskView):
         self.aRadioButtonGroup = []
 
          # We make the first one selected
-        self.aRadioButton1 = box.addWidget(gui.RadioButton(self.aRadioButtonGroup, 'RadioButton1', selected=True))
-        self.aRadioButton2 = box.addWidget(gui.RadioButton(self.aRadioButtonGroup, 'RadioButton2'))
+        self.aRadioButton1 = box.addWidget(gui.RadioButton(self.aRadioButtonGroup, 'Low', selected=True))
+        self.aRadioButton2 = box.addWidget(gui.RadioButton(self.aRadioButtonGroup, 'Medium'))
+        self.aRadioButton3 = box.addWidget(gui.RadioButton(self.aRadioButtonGroup, 'High'))
 
-        self.aRadioButtonLabel = box.addWidget(gui.TextView('Button 1 is selected'))
+        self.aRadioButtonLabel1 = box.addWidget(gui.TextView('Button 1 is selected'))
+        self.aRadioButtonLabel2 = box.addWidget(gui.TextView('Button 2 is not selected'))
+        self.aRadioButtonLabel3 = box.addWidget(gui.TextView('Button 3 is not selected'))
 
         @self.aRadioButton1.mhEvent
         def onClicked(event):
-            self.aRadioButtonLabel.setText('Button 1 is selected')
+            self.aRadioButtonLabel1.setText('Button 1 is selected')
+            self.aRadioButtonLabel2.setText('Button 2 is not selected')
+            self.aRadioButtonLabel3.setText('Button 3 is not selected')
+
 
         @self.aRadioButton2.mhEvent
         def onClicked(event):
-            self.aRadioButtonLabel.setText('Button 2 is selected')
+            self.aRadioButtonLabel2.setText('Button 2 is selected')
+            self.aRadioButtonLabel1.setText('Button 1 is not selected')
+            self.aRadioButtonLabel3.setText('Button 3 is not selected')
+
+        @self.aRadioButton3.mhEvent
+        def onClicked(event):
+            self.aRadioButtonLabel2.setText('Button 2 is not selected')
+            self.aRadioButtonLabel1.setText('Button 1 is not selected')
+            self.aRadioButtonLabel3.setText('Button 3 is selected')
+
 
 
         # When the slider is dragged and released, an onChange event is fired

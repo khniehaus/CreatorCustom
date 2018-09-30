@@ -62,11 +62,13 @@ class ModifierTaskView(gui3d.TaskView):
 
         self.groupBoxes = OrderedDict()
         self.radioButtons = []
+        self.radioButtonGroup = []
         self.sliders = []
         self.modifiers = {}
 
         self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
         self.groupBox = self.addLeftWidget(gui.StackedBox())
+        self.box2 = self.addLeftWidget(gui.GroupBox('Mode'))
 
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
@@ -93,6 +95,35 @@ class ModifierTaskView(gui3d.TaskView):
         slider.enabledCondition = enabledCondition
         self.sliders.append(slider)
 
+    def boxMode(self):
+        # We make the first one selected
+        self.aRadioButton1 = self.box2.addWidget(gui.RadioButton(self.radioButtonGroup, 'Low', selected=True))
+        self.aRadioButton2 = self.box2.addWidget(gui.RadioButton(self.radioButtonGroup, 'Medium'))
+        self.aRadioButton3 = self.box2.addWidget(gui.RadioButton(self.radioButtonGroup, 'High'))
+
+        self.aRadioButtonLabel1 = self.box2.addWidget(gui.TextView('Low is selected'))
+        self.aRadioButtonLabel2 = self.box2.addWidget(gui.TextView('Medium is not selected'))
+        self.aRadioButtonLabel3 = self.box2.addWidget(gui.TextView('High is not selected'))
+
+        @self.aRadioButton1.mhEvent
+        def onClicked(event):
+            self.aRadioButtonLabel1.setText('Low is selected')
+            self.aRadioButtonLabel2.setText('Medium is not selected')
+            self.aRadioButtonLabel3.setText('High is not selected')
+
+        @self.aRadioButton2.mhEvent
+        def onClicked(event):
+            self.aRadioButtonLabel2.setText('Medium is selected')
+            self.aRadioButtonLabel1.setText('Low is not selected')
+            self.aRadioButtonLabel3.setText('High is not selected')
+
+        @self.aRadioButton3.mhEvent
+        def onClicked(event):
+            self.aRadioButtonLabel2.setText('Medium is not selected')
+            self.aRadioButtonLabel1.setText('Low is not selected')
+            self.aRadioButtonLabel3.setText('High is selected')
+
+
     def updateMacro(self):
         self.human.updateMacroModifiers()
 
@@ -111,6 +142,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
+        self.boxMode()
 
     def syncSliders(self):
         for slider in self.sliders:
@@ -173,12 +205,19 @@ class ModifierTaskView(gui3d.TaskView):
     def setStatus(self, format, *args):
         G.app.statusPersist(format, *args)
 
+class BoxModeIn(gui.RadioButton):
+    def __init__(self, task, groupBox, selected=False):
+        self.groupbox = groupBox
+        self.task = task
+
 
 class GroupBoxRadioButton(gui.RadioButton):
     def __init__(self, task, group, label, groupBox, selected=False):
         super(GroupBoxRadioButton, self).__init__(group, label, selected)
         self.groupBox = groupBox
         self.task = task
+
+        self.aRadioButtonGroup = []
 
     def onClicked(self, event):
         self.task.groupBox.showWidget(self.groupBox)

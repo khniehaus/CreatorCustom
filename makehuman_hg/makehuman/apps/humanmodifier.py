@@ -146,12 +146,39 @@ class MouAction(events3d.MouseEvent):
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
 
+        #FIX THIS FOR BETTER VALS
+
     def mVar(self):
         newY = self.y #y value
-        newVal = (newY / 500.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 1.0 + ((newVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0)) #reverse range so figure gets 'taller' as y val gets smaller
-        return sVal
+        if newY <= 75.0:
+            sVal = 1.0
+            print sVal
+            return sVal
+        if newY >= 150.0:
+            sVal = 0.0
+            print sVal
+            return sVal
+        if 75.0 <= newY <= 100.0:
+            mapVal = (((newY - 75.0) * (1.0 - 0.0)) / (150.0 - 75.0)) + 0.0 # map range to 'slider' range
+            #newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
+            sVal = 1.0 + ((mapVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0)) #reverse range so figure gets 'taller' as y val gets smaller
+            print sVal
+            return sVal
         #print sVal
+
+    def make_interpolater(self, left_min, left_max, right_min, right_max):
+        # Figure out how 'wide' each range is
+        leftSpan = left_max - left_min
+        rightSpan = right_max - right_min
+
+        # Compute the scale factor between left and right values
+        scaleFactor = float(rightSpan) / float(leftSpan)
+
+        # create interpolation function using pre-calculated scaleFactor
+        def interp_fn(value):
+            return right_min + (value - left_min) * scaleFactor
+
+        return interp_fn
 
 class Modifier(object):
     """

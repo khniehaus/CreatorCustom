@@ -5,7 +5,8 @@
     "showMacroStats": true,
     "modifiers": {
       "Macro": [
-          {"mod": "macrodetails-height/Height", "label": "Height"}
+          {"mod": "macrodetails-height/Height", "label": "Height"},
+          {"mod": "macrodetails-universal/Weight", "label": "Weight"}
         ]
     }
   }

@@ -832,16 +832,8 @@ class MHApplication(gui3d.Application, mh.Application):
 
     def onMouseDragged(self, event):
         #You added these as a test of where the cursor is, prints to console
-        #print "x is", event.x
-
-        #eHe = gui3d.View()
-
-
-
-        #print gui3d.View.wtfIs
-
-        if gui3d.View.wtfIs == True:
-            pass
+        print "x is", event.x, "y is", event.y
+        pass
 
             #self.currentFile.modified = True
             #self.redraw()

@@ -219,18 +219,20 @@ class View(events3d.EventHandler):
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = humanmodifier.MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
+        #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal = humanmodifier.MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
-        #directManipTest.update()
-        uniVal = dmVal
         directManipTest.update()
+        uniVal = dmVal
+        #directManipTest.update()
         ##s.setValue(dmVal)
         #s.onChange(event)
         #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
 
-        return uniVal, wtfIs, mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):
