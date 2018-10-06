@@ -43,6 +43,7 @@ from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVer
 class Human(guicommon.Object, animation.AnimatedMesh):
 
     gMod = None #global modifier variable assignment
+    wMod = None #weight modifier variable assignment
 
     def __init__(self, mesh):
         guicommon.Object.__init__(self, mesh)
@@ -740,13 +741,20 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         Retrieve a modifier by name.
         Use '.modifierNames' to retrieve the names of all available modifiers.
         """
+
+        #make another global variable
+        #try to return both at the same time
+        #make separate function in HumanModifier for x val
+        #profit??
         global gMod
-        gMod = self._modifiers['macrodetails-universal/Weight']
+        global wMod
+        gMod = self._modifiers['macrodetails-height/Height']
+        wMod = self._modifiers['macrodetails-universal/Weight']
         # if qtui.gg_mouse_pos != None:
         #     return self._modifiers['macrodetails-weight/Weight']
         # else:
         #     return self._modifiers['macrodetails-height/Height']
-        return self._modifiers['macrodetails-universal/Weight']
+        return gMod
 
     @property
     def modifierGroups(self):

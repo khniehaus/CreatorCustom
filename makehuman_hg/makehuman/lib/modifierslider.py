@@ -131,6 +131,7 @@ class ModifierSlider(gui.Slider):
 
     def _onChange(self):
         import humanmodifier
+        import human
         import events3d
         import qtui
 
@@ -147,8 +148,13 @@ class ModifierSlider(gui.Slider):
         beep = events3d.MouseEvent(mButt, mPosx, mPosy)
         transVar = humanmodifier.MouAction(beep)
         nVal = transVar.mVar()
-        value = nVal
-        print value
+        wVal = transVar.nVar()
+        value = 0.5
+        if self.modifier == human.gMod:
+           value = nVal
+        if self.modifier == human.wMod:
+            value = wVal
+        print 'Its me!', self.modifier
         human = self.modifier.human
         if self.value is None:
             self.value = self.modifier.getValue()

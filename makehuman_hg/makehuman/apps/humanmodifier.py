@@ -166,6 +166,21 @@ class MouAction(events3d.MouseEvent):
             return sVal
         #print sVal
 
+    def nVar(self):
+        newX = self.x
+        if newX <= 200.0:
+            sVal = 0.0
+            print sVal
+            return sVal
+        if newX >= 270.0:
+            sVal = 1.0
+            print sVal
+            return sVal
+        if 200.0 <= newX <= 270.0:
+            sVal = (((newX - 200.0) * (1.0 - 0.0)) / (270.0 - 200.0)) + 0.0 # map range to 'slider' range
+            print "Fuck", sVal
+            return sVal
+
     def make_interpolater(self, left_min, left_max, right_min, right_max):
         # Figure out how 'wide' each range is
         leftSpan = left_max - left_min

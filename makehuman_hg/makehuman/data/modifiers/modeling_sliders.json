@@ -4,10 +4,15 @@
     "sortOrder": 0,
     "showMacroStats": true,
     "modifiers": {
-      "Macro": [
+      "Low": [
           {"mod": "macrodetails-height/Height", "label": "Height"},
           {"mod": "macrodetails-universal/Weight", "label": "Weight"}
-        ]
+        ],
+      "Medium":[
+        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"},
+        {"mod": "armslegs/upperlegs-height-decr|incr", "label": "Upperlegs Length"},
+        {"mod": "armslegs/lowerlegs-height-decr|incr", "label": "Lowerlegs Length"}
+      ]
     }
   }
 

@@ -49,6 +49,7 @@ import events3d
 import qtgui
 import queue
 import time
+import collections
 import getpath
 
 import makehuman
@@ -179,6 +180,8 @@ g_mouse_pos = None
 gg_mouse_pos = None
 g_mousewheel_t = None
 gg_butt = None
+gg_height = None
+gg_weight = None
 
 
 class Canvas(QtOpenGL.QGLWidget):
@@ -228,6 +231,11 @@ class Canvas(QtOpenGL.QGLWidget):
     def mouseUpDownEvent(self, ev, direction):
         global gg_mouse_pos
         global gg_butt
+        global gg_height
+        global gg_weight
+
+        gg_height = 0
+        gg_weight = 0
 
         x = ev.x()
         y = ev.y()
@@ -236,8 +244,21 @@ class Canvas(QtOpenGL.QGLWidget):
         gg_mouse_pos = x, y
         gg_butt = b
 
-        # if y < y.prev():
-
+        # yD = collections.deque([])
+        # xD = collections.deque([])
+        #
+        # yD.appendleft(y)
+        # xD.appendleft(x)
+        #
+        #
+        # if yD[0] != yD[1]:
+        #     gg_height = 1
+        # if yD[0] == yD[1]:
+        #     gg_height = 0
+        # if xD[0] != xD[1]:
+        #     gg_weight = 1
+        # if xD == xD[1]:
+        #     gg_weight = 0
 
         G.app.callEvent(direction, events3d.MouseEvent(b, x, y))
 

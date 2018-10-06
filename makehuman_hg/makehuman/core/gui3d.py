@@ -214,25 +214,33 @@ class View(events3d.EventHandler):
         global uniVal
 
         modifier1 = human.gMod #instance of global from human class for modifier category
-        print modifier1 # print to make sure it's the right one
+        modifier2 = human.wMod
+        print modifier1 #modifier2 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
+        secondManipTest = modifierslider.ModifierSlider(modifier2)
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = humanmodifier.MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal = humanmodifier.MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        amVal = humanmodifier.MouAction.nVar(mouseAction)
 
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
         directManipTest.update()
         uniVal = dmVal
+        secondManipTest.onChanging(dmVal)
+        secondManipTest.onChange(dmVal)
+        secondManipTest.update()
+
         #directManipTest.update()
         ##s.setValue(dmVal)
         #s.onChange(event)
         #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
+        #humanmodifier.MouAction.nVar(mouseAction)
 
-        return uniVal, mouseAction, dmVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, mouseAction, dmVal, amVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):
