@@ -754,7 +754,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         #     return self._modifiers['macrodetails-weight/Weight']
         # else:
         #     return self._modifiers['macrodetails-height/Height']
-        return gMod
+        return self._modifiers[name]
 
     @property
     def modifierGroups(self):
