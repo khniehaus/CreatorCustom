@@ -766,6 +766,7 @@ class Application(QtGui.QApplication, events3d.EventHandler):
 
     def redraw(self):
         self.logger_redraw.debug('Application.redraw')
+        #print "I'm a whole new bitch"
         if self.mainwin and self.mainwin.canvas:
             self.mainwin.canvas.update()
 

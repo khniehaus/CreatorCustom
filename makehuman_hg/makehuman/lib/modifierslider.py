@@ -74,6 +74,7 @@ class ModifierSlider(gui.Slider):
             super(ModifierSlider, self).mousePressEvent(event)
 
     def sliderMousePressEvent(self, event):
+        print "ugh", event
         return self._handleMousePress(event)
 
     def _handleMousePress(self, event):
@@ -82,6 +83,7 @@ class ModifierSlider(gui.Slider):
             return False
         else:
             # Default behaviour
+            print "bitch it's me, the original slider"
             return True
 
     def resetValue(self):
@@ -100,6 +102,25 @@ class ModifierSlider(gui.Slider):
                                               self.update))
 
     def onChanging(self, value):
+        import gui3d
+        import humanmodifier
+        import human
+        import events3d
+        import qtui
+
+        mPos = qtui.gg_mouse_pos
+        mButt = qtui.gg_butt
+        mPosx = mPos[0]
+        mPosy = mPos[1]
+        beep = events3d.MouseEvent(mButt, mPosx, mPosy)
+        transVar = gui3d.MouAction(beep)
+        nVal = transVar.mVar()
+        wVal = transVar.nVar()
+        value = 0.5
+        if self.modifier == human.wMod:
+            value = wVal
+        if self.modifier == human.gMod:
+            value = nVal
         if self.changing is not None:
             # Avoid concurrent updates
             self.changing = value
@@ -109,6 +130,7 @@ class ModifierSlider(gui.Slider):
 
     def _onChanging(self):
         value = self.changing
+        print "bitchface", value  #HERE WE GO
         self.changing = None
 
         if G.app.getSetting('realtimeUpdates'):
@@ -124,41 +146,45 @@ class ModifierSlider(gui.Slider):
             self.modifier.updateValue(value, G.app.getSetting('realtimeNormalUpdates'))
             human.updateProxyMesh(fit_to_posed=True, fast=True)
 
+        self.value = value
+
 
     def onChange(self, value):
-        G.app.callAsync(self._onChange)
-        #pass
+        #G.app.callAsync(self._onChange)
+        pass
 
     def _onChange(self):
+        #import gui3d
         import humanmodifier
-        import human
-        import events3d
-        import qtui
+        #import human
+        #import events3d
+        #import qtui
 
 
-        #if self.slider.isSliderDown():
+        if self.slider.isSliderDown():
             # Don't do anything when slider is being clicked or dragged (onRelease triggers it)
-            #return
+            return
 
         #INTERESTING!!!
-        mPos = qtui.gg_mouse_pos
-        mButt = qtui.gg_butt
-        mPosx = mPos[0]
-        mPosy = mPos[1]
-        beep = events3d.MouseEvent(mButt, mPosx, mPosy)
-        transVar = humanmodifier.MouAction(beep)
-        nVal = transVar.mVar()
-        wVal = transVar.nVar()
-        value = 0.5
-        if self.modifier == human.gMod:
-           value = nVal
-        if self.modifier == human.wMod:
-            value = wVal
-        print 'Its me!', self.modifier
+        # mPos = qtui.gg_mouse_pos
+        # mButt = qtui.gg_butt
+        # mPosx = mPos[0]
+        # mPosy = mPos[1]
+        # beep = events3d.MouseEvent(mButt, mPosx, mPosy)
+        # transVar = gui3d.MouAction(beep)
+        # nVal = transVar.mVar()
+        # wVal = transVar.nVar()
+        # value = 0.5
+        # if self.modifier == human.gMod:
+        #    value = nVal
+        # if self.modifier == human.wMod:
+        #     value = wVal
+        # print 'Its me!', self.modifier
         human = self.modifier.human
         if self.value is None:
             self.value = self.modifier.getValue()
         action = humanmodifier.ModifierAction(self.modifier, self.value, value, self.update)
+        #G.app.redraw()
         if self.value != value:
             G.app.do(action)
         else:
@@ -173,7 +199,7 @@ class ModifierSlider(gui.Slider):
                 human.getSeedMesh().setVisibility(0)
             human.getSubdivisionMesh(False).setVisibility(1)
 
-        #human.applyAllTargets()
+        human.applyAllTargets()
         self.value = value
 
     def onRelease(self, w):

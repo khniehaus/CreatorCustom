@@ -44,10 +44,67 @@ import animation3d
 import mh
 import log
 import selection
-import OSC
 import time
+from PyQt4 import QtGui
 
 from guicommon import Object, Action
+
+
+class MouAction(events3d.MouseEvent):
+    def __init__(self, class_a):
+        self.x = class_a.x
+        self.y = class_a.y
+        print "X is", self.x, "Y is", self.y
+
+        # FIX THIS FOR BETTER VALS
+
+    def mVar(self):
+        newY = self.y  # y value
+        if newY <= 75.0:
+            sVal = 1.0
+            print sVal
+            return sVal
+        if newY >= 150.0:
+            sVal = 0.0
+            print sVal
+            return sVal
+        if 75.0 <= newY <= 100.0:
+            mapVal = (((newY - 75.0) * (1.0 - 0.0)) / (150.0 - 75.0)) + 0.0  # map range to 'slider' range
+            # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
+            sVal = 1.0 + ((mapVal - 0.0) * (0.0 - 1.0) / (
+                1.0 - 0.0))  # reverse range so figure gets 'taller' as y val gets smaller
+            print sVal
+            return sVal
+            # print sVal
+
+    def nVar(self):
+        newX = self.x
+        if newX <= 200.0:
+            sVal = 0.0
+            print sVal
+            return sVal
+        if newX >= 270.0:
+            sVal = 1.0
+            print sVal
+            return sVal
+        if 200.0 <= newX <= 270.0:
+            sVal = (((newX - 200.0) * (1.0 - 0.0)) / (270.0 - 200.0)) + 0.0  # map range to 'slider' range
+            print "Fuck", sVal
+            return sVal
+
+    def make_interpolater(self, left_min, left_max, right_min, right_max):
+        # Figure out how 'wide' each range is
+        leftSpan = left_max - left_min
+        rightSpan = right_max - right_min
+
+        # Compute the scale factor between left and right values
+        scaleFactor = float(rightSpan) / float(leftSpan)
+
+        # create interpolation function using pre-calculated scaleFactor
+        def interp_fn(value):
+            return right_min + (value - left_min) * scaleFactor
+
+        return interp_fn
 
 class View(events3d.EventHandler):
 
@@ -207,6 +264,9 @@ class View(events3d.EventHandler):
 
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
+        #self.parent.callEvent('sliderMousePressEvent', event)
+
+        print "bitch it's me, your slider"
 
         y = event.y #mouse y
         x = event.x #mouse x
@@ -219,20 +279,22 @@ class View(events3d.EventHandler):
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
 
+        #heyLo = qtui.Application
+
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
-        mouseAction = humanmodifier.MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
+        mouseAction = MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
-        dmVal = humanmodifier.MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
-        amVal = humanmodifier.MouAction.nVar(mouseAction)
+        dmVal = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        amVal = MouAction.nVar(mouseAction)
 
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
         directManipTest.update()
-        uniVal = dmVal
         secondManipTest.onChanging(dmVal)
         secondManipTest.onChange(dmVal)
         secondManipTest.update()
+        uniVal = dmVal
 
         #directManipTest.update()
         ##s.setValue(dmVal)
