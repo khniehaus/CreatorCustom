@@ -60,7 +60,7 @@ class MouAction(events3d.MouseEvent):
 
     def mVar(self):
         newY = self.y  # y value
-        if newY <= 75.0:
+        if newY <= 130.0:
             sVal = 1.0
             print sVal
             return sVal
@@ -68,27 +68,26 @@ class MouAction(events3d.MouseEvent):
             sVal = 0.0
             print sVal
             return sVal
-        if 75.0 <= newY <= 100.0:
-            mapVal = (((newY - 75.0) * (1.0 - 0.0)) / (150.0 - 75.0)) + 0.0  # map range to 'slider' range
+        if 130.0 <= newY <= 150.0:
+            mapVal = (((newY - 130.0) * (1.0 - 0.0)) / (150.0 - 130.0)) + 0.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-            sVal = 1.0 + ((mapVal - 0.0) * (0.0 - 1.0) / (
-                1.0 - 0.0))  # reverse range so figure gets 'taller' as y val gets smaller
+            sVal = 1.0 + ((mapVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0))  # reverse range so figure gets 'taller' as y val gets smaller
             print sVal
             return sVal
             # print sVal
 
     def nVar(self):
         newX = self.x
-        if newX <= 200.0:
+        if newX <= 460.0:
             sVal = 0.0
             print sVal
             return sVal
-        if newX >= 270.0:
+        if newX >= 490.0:
             sVal = 1.0
             print sVal
             return sVal
-        if 200.0 <= newX <= 270.0:
-            sVal = (((newX - 200.0) * (1.0 - 0.0)) / (270.0 - 200.0)) + 0.0  # map range to 'slider' range
+        if 460.0 <= newX <= 490.0:
+            sVal = (((newX - 460.0) * (1.0 - 0.0)) / (490.0 - 460.0)) + 0.0  # map range to 'slider' range
             print "Fuck", sVal
             return sVal
 
