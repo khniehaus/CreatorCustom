@@ -364,15 +364,15 @@ class Slider(QtGui.QWidget, Widget):
         self.layout.setColumnStretch(0, 1)
         self.layout.setColumnStretch(1, 0)
         self.layout.setColumnStretch(2, 0)
-        self.layout.addWidget(self.label, 1, 0, 1, 1)
-        self.layout.addWidget(self.slider, 2, 0, 1, -1)
+        #self.layout.addWidget(self.label, 1, 0, 1, 1)
+        #self.layout.addWidget(self.slider, 2, 0, 1, -1)
         if not self.text:
             self.label.hide()
 
         if image is not None:
-            self.image = QtGui.QLabel()
-            self.image.setPixmap(self._getImage(image))
-            self.layout.addWidget(self.image, 0, 0, 1, -1)
+            self.image = None
+            #self.image.setPixmap(self._getImage(image))
+            #self.layout.addWidget(self.image, 0, 0, 1, -1)
         else:
             self.image = None
 
@@ -471,6 +471,9 @@ class Slider(QtGui.QWidget, Widget):
         value = self._i2f(value)
         self._sync(value)
         self.callEvent('onChanging', value)
+        # if self.modifier is not self.group.modifiers:
+        #     print "wtf man"
+        #     pass
 
     def _changed(self, value):
         value = self._i2f(value)
@@ -972,7 +975,7 @@ class DocumentEdit(QtGui.QTextEdit, Widget):
 
 
 class ProgressBar(QtGui.QProgressBar, Widget):
-    def __init__(self, visible=True):
+    def __init__(self, visible=False):
         super(ProgressBar, self).__init__()
         Widget.__init__(self)
         self.setVisible(visible)

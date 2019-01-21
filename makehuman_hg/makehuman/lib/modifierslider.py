@@ -107,7 +107,9 @@ class ModifierSlider(gui.Slider):
         import human
         import events3d
         import qtui
+        import guimodifier
 
+        oTest1 = guimodifier.oTest
         mPos = qtui.gg_mouse_pos
         mButt = qtui.gg_butt
         mPosx = mPos[0]
@@ -117,15 +119,21 @@ class ModifierSlider(gui.Slider):
         nVal = transVar.mVar()
         wVal = transVar.nVar()
         value = 0.5
-        if self.modifier == human.wMod:
-            value = wVal
-        if self.modifier == human.gMod:
-            value = nVal
-        if self.changing is not None:
+        if oTest1 == False:
+            if self.modifier == human.wMod:
+                value = wVal
+            if self.modifier == human.gMod:
+                value = nVal
+            if self.changing is not None:
             # Avoid concurrent updates
-            self.changing = value
+                self.changing = value
+                return
+        if oTest1 == True:
             return
+        # if self.modifier in self.modifier.:
+        #     return
         self.changing = value
+        print "fuck", oTest1
         G.app.callAsync(self._onChanging)
 
     def _onChanging(self):

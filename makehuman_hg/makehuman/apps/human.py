@@ -813,7 +813,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             else:
                 self._modifier_varMapping[modifier.macroVariable] = modifier.groupName
                 # Update any new backwards references that might be influenced by this change (to make it independent of order of adding modifiers)
-                toRemove = set()  # Modifiers to remove again from backwards map because they belogn to the same group as the modifier controlling the var
+                toRemove = set()  # Modifiers to remove again from backwards map because they belong to the same group as the modifier controlling the var
                 dep = modifier.macroVariable
                 for affectedModifierGroup in self._modifier_dependencyMapping.get(dep, []):
                     if affectedModifierGroup == modifier.groupName:
@@ -947,6 +947,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         This method applies all targets, in function of age and sex
         **Parameters:** None.
         """
+
         progress = Progress()
 
         progress(0.0, 0.5)

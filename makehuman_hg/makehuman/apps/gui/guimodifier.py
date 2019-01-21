@@ -40,6 +40,7 @@ Common taskview for managing modifier sliders
 
 import gui
 import gui3d
+import qtgui
 import humanmodifier
 import modifierslider
 import getpath
@@ -47,6 +48,8 @@ from core import G
 import log
 from collections import OrderedDict
 import language
+
+oTest = False
 
 class ModifierTaskView(gui3d.TaskView):
     def __init__(self, category, name, label=None, saveName=None, cameraView=None):
@@ -147,6 +150,7 @@ class ModifierTaskView(gui3d.TaskView):
     def syncSliders(self):
         for slider in self.sliders:
             slider.update()
+
             if slider.enabledCondition:
                 enabled = getattr(slider.modifier.human, slider.enabledCondition)()
                 slider.setEnabled(enabled)
@@ -207,15 +211,23 @@ class ModifierTaskView(gui3d.TaskView):
 
 
 class GroupBoxRadioButton(gui.RadioButton):
+
     def __init__(self, task, group, label, groupBox, selected=False):
         super(GroupBoxRadioButton, self).__init__(group, label, selected)
         self.groupBox = groupBox
         self.task = task
-
         self.aRadioButtonGroup = []
+        self.label = label
 
     def onClicked(self, event):
+        global oTest
         self.task.groupBox.showWidget(self.groupBox)
+        print self.label
+        if self.label == "Medium":
+            oTest = True
+        else:
+            oTest = False
+        return oTest
         #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
 
 
