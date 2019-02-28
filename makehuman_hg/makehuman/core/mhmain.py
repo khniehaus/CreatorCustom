@@ -1145,12 +1145,12 @@ class MHApplication(gui3d.Application, mh.Application):
         if mh.isRelease():
             from getpath import pathToUnicode
             self.setCaption(
-                "MakeHuman %s - [%s][*]" %
+                "KionaCustom %s - [%s][*]" %
                 (mh.getVersionStr(), pathToUnicode(filename)))
         else:
             from getpath import pathToUnicode
             self.setCaption(
-                "MakeHuman r%s (%s) - [%s][*]" %
+                "KionaCustom r%s (%s) - [%s][*]" %
                 (os.environ['HGREVISION'], os.environ['HGNODEID'], 
                 pathToUnicode(filename)))
         self.mainwin.setWindowModified(self.currentFile.modified)

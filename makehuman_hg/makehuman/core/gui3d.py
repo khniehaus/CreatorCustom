@@ -60,36 +60,38 @@ class MouAction(events3d.MouseEvent):
 
     def mVar(self):
         newY = self.y  # y value
-        if newY <= 130.0:
-            sVal = 1.0
-            print sVal
-            return sVal
-        if newY >= 150.0:
-            sVal = 0.0
-            print sVal
-            return sVal
-        if 130.0 <= newY <= 150.0:
-            mapVal = (((newY - 130.0) * (1.0 - 0.0)) / (150.0 - 130.0)) + 0.0  # map range to 'slider' range
+        # if newY <= 130.0:
+        #     sVal = 10.0
+        #     print sVal
+        #     return sVal
+        # if newY >= 150.0:
+        #     sVal = -1.0
+        #     print sVal
+        #     return sVal
+        # if 130.0 <= newY <= 150.0:
+        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (600.0 - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-            sVal = 1.0 + ((mapVal - 0.0) * (0.0 - 1.0) / (1.0 - 0.0))  # reverse range so figure gets 'taller' as y val gets smaller
-            print sVal
-            return sVal
+        sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
+        sVal = sVal
+        print sVal
+        return sVal
             # print sVal
 
     def nVar(self):
         newX = self.x
-        if newX <= 460.0:
-            sVal = 0.0
-            print sVal
-            return sVal
-        if newX >= 490.0:
-            sVal = 1.0
-            print sVal
-            return sVal
-        if 460.0 <= newX <= 490.0:
-            sVal = (((newX - 460.0) * (1.0 - 0.0)) / (490.0 - 460.0)) + 0.0  # map range to 'slider' range
-            print "Fuck", sVal
-            return sVal
+        # if newX <= 460.0:
+        #     sVal = 0.0
+        #     print sVal
+        #     return sVal
+        # if newX >= 475.0:
+        #     sVal = 1.0
+        #     print sVal
+        #     return sVal
+        #if 460.0 <= newX <= 475.0:
+        sVal = (((newX - 0.0) * (5.0 - -1.0)) / (800.0 - 0.0)) + -1.0  # map range to 'slider' range
+        sVal = sVal
+        print "Fuck", sVal
+        return sVal
 
     def make_interpolater(self, left_min, left_max, right_min, right_max):
         # Figure out how 'wide' each range is

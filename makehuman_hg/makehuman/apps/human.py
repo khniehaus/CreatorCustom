@@ -406,7 +406,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        weight = min(max(weight, 0.0), 1.0)
+        weight = weight
         if self.weight == weight:
             return
         self.weight = weight
@@ -463,7 +463,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         #inVal = int(events3d.MouseEvent(self.y))
         #print 'w', inVal
-        height = min(max(height, 0.0), 1.0)
+        height = height
         if self.height == height:
             return
 

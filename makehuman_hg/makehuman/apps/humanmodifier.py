@@ -364,7 +364,7 @@ class SimpleModifier(Modifier):
         return factors
 
     def clampValue(self, value):
-        return max(0.0, min(1.0, value))
+        return value
 
 class ManagedTargetModifier(Modifier):
     """
@@ -437,11 +437,11 @@ class ManagedTargetModifier(Modifier):
         return result
 
     def clampValue(self, value):
-        value = min(1.0, value)
-        if self.left is not None:
-            value = max(-1.0, value)
-        else:
-            value = max( 0.0, value)
+        # value = min(1.0, value)
+        # if self.left is not None:
+        #     value = max(-1.0, value)
+        # else:
+        #     value = max( 0.0, value)
         return value
 
     def setValue(self, value, skipDependencies=False):
@@ -591,7 +591,7 @@ class MacroModifier(ManagedTargetModifier):
 
 
     def clampValue(self, value):
-        return max(0.0, min(1.0, value))
+        return value
 
     def getFactors(self, value):
         factors = super(MacroModifier, self).getFactors(value)
