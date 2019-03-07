@@ -44,6 +44,7 @@ import animation3d
 import mh
 import log
 import selection
+import collections
 import time
 from PyQt4 import QtGui
 
@@ -55,6 +56,7 @@ class MouAction(events3d.MouseEvent):
         self.x = class_a.x
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
+        self.umOk = collections.deque()
 
         # FIX THIS FOR BETTER VALS
 
@@ -72,8 +74,10 @@ class MouAction(events3d.MouseEvent):
         mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (600.0 - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
         sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
+        self.umOk.appendleft(sVal)
         sVal = sVal
         print sVal
+        print self.umOk
         return sVal
             # print sVal
 
