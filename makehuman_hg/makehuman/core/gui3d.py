@@ -56,7 +56,7 @@ class MouAction(events3d.MouseEvent):
         self.x = class_a.x
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
-        self.umOk = collections.deque()
+        #self.umOk = collections.deque()
 
         # FIX THIS FOR BETTER VALS
 
@@ -74,10 +74,10 @@ class MouAction(events3d.MouseEvent):
         mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (600.0 - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
         sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
-        self.umOk.appendleft(sVal)
+        #self.umOk.appendleft(sVal)
         sVal = sVal
         print sVal
-        print self.umOk
+        #print self.umOk
         return sVal
             # print sVal
 
@@ -118,6 +118,8 @@ class View(events3d.EventHandler):
     """
 
     uniVal = 0.15
+    umOk = collections.deque([0,0,0], maxlen=3)
+    soOk = collections.deque([0,0,0], maxlen=3)
 
     def __init__(self):
 
@@ -291,6 +293,20 @@ class View(events3d.EventHandler):
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         amVal = MouAction.nVar(mouseAction)
+
+        self.umOk.appendleft(dmVal)
+        self.soOk.appendleft(amVal)
+        if self.umOk[0] >= self.umOk[2]:
+            dmVal = dmVal + (self.umOk[0] - self.umOk[2])
+            print "this better work"
+        elif self.umOk[0] < self.umOk[2]:
+            dmVal = dmVal - (self.umOk[2] - self.umOk[0])
+            print "lol wtf omg"
+        if self.soOk[0] >= self.soOk[2]:
+            amVal = amVal + (self.soOk[0] - self.soOk[2])
+        elif self.soOk[0] < self.soOk[2]:
+            amVal = amVal - (self.soOk[2] - self.soOk[0])
+        print self.soOk
 
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
