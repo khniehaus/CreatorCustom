@@ -71,7 +71,7 @@ class MouAction(events3d.MouseEvent):
         #     print sVal
         #     return sVal
         # if 130.0 <= newY <= 150.0:
-        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (600.0 - 0.0)) + -1.0  # map range to 'slider' range
+        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (300.0 - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
         sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
         #self.umOk.appendleft(sVal)
@@ -92,7 +92,7 @@ class MouAction(events3d.MouseEvent):
         #     print sVal
         #     return sVal
         #if 460.0 <= newX <= 475.0:
-        sVal = (((newX - 0.0) * (5.0 - -1.0)) / (800.0 - 0.0)) + -1.0  # map range to 'slider' range
+        sVal = (((newX - 0.0) * (5.0 - -1.0)) / (850.0 - 0.0)) + -1.0  # map range to 'slider' range
         sVal = sVal
         print "Fuck", sVal
         return sVal
@@ -118,8 +118,8 @@ class View(events3d.EventHandler):
     """
 
     uniVal = 0.15
-    umOk = collections.deque([0,0,0], maxlen=3)
-    soOk = collections.deque([0,0,0], maxlen=3)
+    umOk = collections.deque([0,0,0,0], maxlen=4)
+    soOk = collections.deque([0,0,0,0], maxlen=4)
 
     def __init__(self):
 
@@ -286,26 +286,24 @@ class View(events3d.EventHandler):
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
 
-        #heyLo = qtui.Application
-
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
-        dmVal = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
-        amVal = MouAction.nVar(mouseAction)
+        dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        amVal1 = MouAction.nVar(mouseAction)
 
-        self.umOk.appendleft(dmVal)
-        self.soOk.appendleft(amVal)
-        if self.umOk[0] >= self.umOk[2]:
-            dmVal = dmVal + (self.umOk[0] - self.umOk[2])
+        self.umOk.appendleft(dmVal1)
+        self.soOk.appendleft(amVal1)
+        if self.umOk[0] >= self.umOk[3]:
+            dmVal = dmVal1 + (self.umOk[0] - self.umOk[3])
             print "this better work"
-        elif self.umOk[0] < self.umOk[2]:
-            dmVal = dmVal - (self.umOk[2] - self.umOk[0])
+        elif self.umOk[0] < self.umOk[3]:
+            dmVal = dmVal1 - (self.umOk[3] - self.umOk[0])
             print "lol wtf omg"
-        if self.soOk[0] >= self.soOk[2]:
-            amVal = amVal + (self.soOk[0] - self.soOk[2])
-        elif self.soOk[0] < self.soOk[2]:
-            amVal = amVal - (self.soOk[2] - self.soOk[0])
+        if self.soOk[0] >= self.soOk[3]:
+            amVal = amVal1 + (self.soOk[0] - self.soOk[3])
+        elif self.soOk[0] < self.soOk[3]:
+            amVal = amVal1 - (self.soOk[3] - self.soOk[0])
         print self.soOk
 
         #if y >= 100 & y <= 200:
