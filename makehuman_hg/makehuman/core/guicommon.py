@@ -41,6 +41,9 @@ import events3d
 import numpy as np
 import matrix
 import material
+import qtui
+import sys
+from collections import namedtuple
 
 class Action(object):
     def __init__(self, name):
@@ -785,10 +788,57 @@ class Object(events3d.EventHandler):
             # Re-generate the subdivided mesh with new UV coordinates
             self.setSubdivided(True)
 
+    Pt = namedtuple('Pt', 'x, y')  # Point
+    Edge = namedtuple('Edge', 'a, b')  # Polygon edge from a to b
+    Poly = namedtuple('Poly', 'name, edges')  # Polygon
 
+    _eps = 0.00001
+    _huge = sys.float_info.max
+    _tiny = sys.float_info.min
+
+    def rayCast(self, p, edge):
+        """Run this function on left mouse, execute the ray cast"""
+        # get the context arguments
+        # scene = context.scene
+
+        a, b = self.Edge(self.mesh.fvert.x, self.mesh.fvert.y) #this is where you are! You're having trouble with getting x and y vals
+        if a.y > b.y:
+            a, b = b, a
+        if p.y == a.y or p.y == b.y:
+            p = self.Pt(p.x, p.y + self._eps)
+
+        intersect = False
+
+        if (p.y > b.y or p.y < a.y) or (
+                    p.x > max(a.x, b.x)):
+            return False
+
+        if p.x < min(a.x, b.x):
+            intersect = True
+        else:
+            if abs(a.x - b.x) > self._tiny:
+                m_red = (b.y - a.y) / float(b.x - a.x)
+            else:
+                m_red = self._huge
+            if abs(a.x - p.x) > self._tiny:
+                m_blue = (p.y - a.y) / float(p.x - a.x)
+            else:
+                m_blue = self._huge
+            intersect = m_blue >= m_red
+        print intersect
+        return intersect
+
+    def _odd(self, x):
+            return x % 2 == 1
+
+    def ispointinside(self, p, poly):
+        ln = len(poly)
+        return self._odd(sum(self.rayCast(p, poly)
+            for Edge in poly.edges))
 
     def onMouseDown(self, event):
         if self.view:
+            print "YOU DUCK"
             self.view.callEvent('onMouseDown', event)
         else:
             import log
@@ -828,6 +878,8 @@ class Object(events3d.EventHandler):
 
     def onClicked(self, event):
         if self.view:
+            self.rayCast(qtui.gg_mouse_pos, self.mesh.fvert)
+            #self.rayCast(self.mesh, event)
             self.view.callEvent('onClicked', event)
         else:
             import log
@@ -836,4 +888,5 @@ class Object(events3d.EventHandler):
     def onMouseWheel(self, event):
         if self.view:
             self.view.callEvent('onMouseWheel', event)
+
 

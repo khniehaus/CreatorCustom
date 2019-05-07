@@ -44,6 +44,7 @@ import qtgui
 import humanmodifier
 import modifierslider
 import getpath
+import module3d
 from core import G
 import log
 from collections import OrderedDict

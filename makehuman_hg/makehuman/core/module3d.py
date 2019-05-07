@@ -40,7 +40,7 @@ import weakref
 
 import numpy as np
 import unique # Bugfix for numpy.unique on older numpy versions
-
+import qtui
 import material
 
 class FaceGroup(object):
@@ -1178,6 +1178,7 @@ class Object3D(object):
 
     def __str__(self):
         return 'object3D Mesh named: %s, nverts: %s, nfaces: %s' % (self.name, self.getVertexCount(), self.getFaceCount())
+
 
 def dot_v3(v3_arr1, v3_arr2):
     """

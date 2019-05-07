@@ -45,6 +45,7 @@ import mh
 import log
 import selection
 import collections
+import selection
 import time
 from PyQt4 import QtGui
 
@@ -274,12 +275,13 @@ class View(events3d.EventHandler):
         #self.parent.callEvent('sliderMousePressEvent', event)
 
         print "bitch it's me, your slider"
-
+        #bleh = guicommon.Object(human.mesh)
         y = event.y #mouse y
         x = event.x #mouse x
 
         global uniVal
-
+        #bleh.getSelectedFaceGroup(module3d.Object3D)
+        #mehah = bleh.rayCast()
         modifier1 = human.gMod #instance of global from human class for modifier category
         modifier2 = human.wMod
         print modifier1 #modifier2 # print to make sure it's the right one

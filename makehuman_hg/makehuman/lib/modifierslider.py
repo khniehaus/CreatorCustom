@@ -108,8 +108,10 @@ class ModifierSlider(gui.Slider):
         import events3d
         import qtui
         import guimodifier
+        #import module3d
 
         oTest1 = guimodifier.oTest
+        #bleh = module3d.object3d()
         mPos = qtui.gg_mouse_pos
         mButt = qtui.gg_butt
         mPosx = mPos[0]
@@ -129,6 +131,7 @@ class ModifierSlider(gui.Slider):
                 self.changing = value
                 return
         if oTest1 == True:
+            #bleh.rayCast()
             return
         # if self.modifier in self.modifier.:
         #     return
