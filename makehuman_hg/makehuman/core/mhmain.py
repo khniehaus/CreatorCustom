@@ -1540,10 +1540,10 @@ class MHApplication(gui3d.Application, mh.Application):
         return animation3d.RotateAction(self.modelCamera, self.modelCamera.getRotation(), axis)
 
     def axisView(self, axis):
-        tmp = self.modelCamera.limitInclination
+        #tmp = self.modelCamera.limitInclination
         self.modelCamera.limitInclination = False
         animation3d.animate(self, 0.20, [self.rotateAction(axis)])
-        self.modelCamera.limitInclination = tmp
+        #self.modelCamera.limitInclination = tmp
 
     def rotateDown(self):
         self.rotateCamera(0, 5.0)
@@ -1576,22 +1576,35 @@ class MHApplication(gui3d.Application, mh.Application):
         self.zoomCamera(-0.65)
 
     def frontView(self):
+        self.resetView()
         self.axisView([0.0, 0.0, 0.0])
 
     def rightView(self):
+        self.resetView()
         self.axisView([0.0, 90.0, 0.0])
 
     def topView(self):
+        self.resetView()
         self.axisView([90.0, 0.0, 0.0])
 
     def backView(self):
+        self.resetView()
         self.axisView([0.0, 180.0, 0.0])
 
     def leftView(self):
+        self.resetView()
         self.axisView([0.0, -90.0, 0.0])
 
     def bottomView(self):
+        self.resetView()
         self.axisView([-90.0, 0.0, 0.0])
+
+    def povView(self):
+        self.axisView([90.0, 180.0, -180.0])
+        #self.rotateAction([140.0, 0.0, 180.0])
+        self.rotateCamera(0, 7.00)
+        #self.panCamera(1, -1.00)
+        self.zoomCamera(-40.00)
 
     def resetView(self):
         cam = self.modelCamera
@@ -1720,6 +1733,7 @@ class MHApplication(gui3d.Application, mh.Application):
         self.actions.left      = action('left',      self.getLanguageString('Left view'),     self.leftView)
         self.actions.top       = action('top',       self.getLanguageString('Top view'),      self.topView)
         self.actions.bottom    = action('bottom',    self.getLanguageString('Bottom view'),   self.bottomView)
+        self.actions.pov = action('pov', self.getLanguageString('PoV view'), self.povView)
         self.actions.resetCam  = action('resetCam',  self.getLanguageString('Reset camera'),  self.resetView)
 
 

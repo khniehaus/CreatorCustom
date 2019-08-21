@@ -62,6 +62,7 @@ class Object3D(object):
 
     @property
     def verts(self):
+        #print self.parent.r_coord
         return self.parent.r_coord
 
     @property

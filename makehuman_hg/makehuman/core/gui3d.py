@@ -45,7 +45,6 @@ import mh
 import log
 import selection
 import collections
-import selection
 import time
 from PyQt4 import QtGui
 
@@ -719,6 +718,7 @@ class Application(events3d.EventHandler):
     def onMouseMovedCallback(self, event):
         # Get picked object
         picked = self.getSelectedFaceGroupAndObject()
+        ugh = self.getSelectedFaceGroup()
 
         # Do not allow picking detached objects (in case of stale picking buffer)
         if picked and hasattr(picked, 'view') and not picked.view:
@@ -730,6 +730,8 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
+
+        print "wtf literally on earth", ugh
 
         event.object = object
         event.group = group

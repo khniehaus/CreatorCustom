@@ -42,6 +42,7 @@ import numpy as np
 import unique # Bugfix for numpy.unique on older numpy versions
 import qtui
 import material
+import selection
 
 class FaceGroup(object):
     """

@@ -36,6 +36,7 @@ import qtui
 import gui3d
 import material
 import animation
+import random
 
 from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVersion
 
@@ -284,7 +285,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        gender = min(max(gender, 0.0), 1.0)
+        gender = gender
         if self.gender == gender:
             return
         self.gender = gender
@@ -436,7 +437,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        muscle = min(max(muscle, 0.0), 1.0)
+        muscle = muscle
         if self.muscle == muscle:
             return
         self.muscle = muscle
@@ -556,7 +557,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        proportion = min(1.0, max(0.0, proportion))
+        proportion = proportion
         if self.bodyProportions == proportion:
             return
         self.bodyProportions = proportion
@@ -1081,6 +1082,16 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.applyAllTargets()
 
         # TODO emit event?
+
+    def getRandomValue(minValue, maxValue, middleValue, sigmaFactor=0.2):
+        rangeWidth = float(abs(maxValue - minValue))
+        sigma = sigmaFactor * rangeWidth
+        randomVal = random.gauss(middleValue, sigma)
+        if randomVal < minValue:
+            randomVal = minValue + abs(randomVal - minValue)
+        elif randomVal > maxValue:
+            randomVal = maxValue - abs(randomVal - maxValue)
+        return max(minValue, min(randomVal, maxValue))
 
     def setDefaultValues(self):
         self.age = 0.5
