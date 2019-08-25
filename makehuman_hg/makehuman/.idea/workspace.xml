@@ -50,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/module3d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="44" column="16" selection-start-line="38" selection-end-line="44" selection-end-column="16" />
+            <state relative-caret-position="1860">
+              <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
               <folding>
                 <element signature="e#1114#1128#0" expanded="true" />
               </folding>
@@ -60,15 +60,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/mhmain.py">
+        <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2430">
-              <caret line="184" column="19" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="19" />
+            <state relative-caret-position="-13993">
+              <caret line="327" column="19" selection-start-line="327" selection-start-column="19" selection-end-line="327" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="132" column="16" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/mhmain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="324" column="58" selection-start-line="324" selection-start-column="55" selection-end-line="324" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
@@ -80,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/human.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8175">
-              <caret line="559" column="31" selection-start-line="559" selection-start-column="31" selection-end-line="559" selection-end-column="31" />
+            <state relative-caret-position="236">
+              <caret line="756" column="85" selection-start-line="756" selection-start-column="85" selection-end-line="756" selection-end-column="85" />
               <folding>
                 <element signature="e#1099#1117#0" expanded="true" />
               </folding>
@@ -89,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/gui/guimodifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="103" column="18" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="18" />
+            <state relative-caret-position="2706">
+              <caret line="224" column="18" selection-start-line="224" selection-start-column="15" selection-end-line="224" selection-end-column="18" />
               <folding>
                 <element signature="e#1156#1166#0" expanded="true" />
               </folding>
@@ -104,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/gui3d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="64" column="25" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="263">
+              <caret line="316" column="34" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
               <folding>
                 <element signature="e#1249#1263#0" expanded="true" />
               </folding>
@@ -117,21 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app</find>
-      <find>pickable</find>
-      <find>vert</find>
-      <find>verts</find>
-      <find>ray</find>
-      <find>maskFaces</find>
-      <find>licke</find>
-      <find>print</find>
-      <find>b</find>
-      <find>log</find>
-      <find>selection</find>
-      <find>b =</find>
-      <find>loadGui</find>
-      <find>limitInclination</find>
-      <find>stomach</find>
       <find>4038</find>
       <find>11966</find>
       <find>random</find>
@@ -147,6 +159,21 @@
       <find>zoomin</find>
       <find>downarml</find>
       <find>arml</find>
+      <find>gender</find>
+      <find>setStatus</find>
+      <find>modifier</find>
+      <find>medium</find>
+      <find>low</find>
+      <find>selection</find>
+      <find>gmod</find>
+      <find>print</find>
+      <find>getselectedfacegroup</find>
+      <find>getselect</find>
+      <find>value</find>
+      <find>ote</find>
+      <find>onMouseDragged</find>
+      <find>otest</find>
+      <find>oTest</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -177,28 +204,28 @@
         <option value="$PROJECT_DIR$/core/events3d.py" />
         <option value="$PROJECT_DIR$/lib/core.py" />
         <option value="$PROJECT_DIR$/plugins/7_example.py" />
-        <option value="$PROJECT_DIR$/data/modifiers/modeling_sliders.json" />
         <option value="$PROJECT_DIR$/core/animation3d.py" />
         <option value="$PROJECT_DIR$/lib/qtui.py" />
         <option value="$PROJECT_DIR$/lib/qtgui.py" />
         <option value="$PROJECT_DIR$/core/selection.py" />
         <option value="$PROJECT_DIR$/apps/warpmodifier.py" />
         <option value="$PROJECT_DIR$/apps/humanmodifier.py" />
-        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
-        <option value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
         <option value="$PROJECT_DIR$/lib/object3d.py" />
         <option value="$PROJECT_DIR$/core/module3d.py" />
         <option value="$PROJECT_DIR$/core/guicommon.py" />
-        <option value="$PROJECT_DIR$/core/gui3d.py" />
-        <option value="$PROJECT_DIR$/apps/human.py" />
         <option value="$PROJECT_DIR$/plugins/0_modeling_8_random.py" />
         <option value="$PROJECT_DIR$/core/mhmain.py" />
         <option value="$PROJECT_DIR$/data/3dobjs/base.obj" />
+        <option value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
+        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
+        <option value="$PROJECT_DIR$/core/gui3d.py" />
+        <option value="$PROJECT_DIR$/data/modifiers/modeling_sliders.json" />
+        <option value="$PROJECT_DIR$/apps/human.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
+    <option name="x" value="30" />
     <option name="y" value="23" />
     <option name="width" value="1349" />
     <option name="height" value="872" />
@@ -209,7 +236,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -359,6 +385,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,16 +567,17 @@
       <workItem from="1566394231011" duration="11280000" />
       <workItem from="1566482808864" duration="7172000" />
       <workItem from="1566566460017" duration="15771000" />
+      <workItem from="1566735941678" duration="9331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56634000" />
+    <option name="totallyTimeSpent" value="65965000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="23" width="1349" height="872" extended-state="0" />
+    <frame x="30" y="23" width="1349" height="872" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27850038" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28156084" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -573,17 +601,17 @@
       <window_info anchor="right" id="SciView" order="5" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2601377" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28232592" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.47015476" weight="0.3279503" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47130835" visible="true" weight="0.20769231" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73980725" weight="0.57875" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73980725" weight="0.5782051" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.52869165" side_tool="true" visible="true" weight="0.20769231" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.52869165" side_tool="true" weight="0.20769231" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -617,7 +645,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1566591185649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1566751663578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2017.2/python_stubs/471202912/PyQt4/QtGui/QInputEvent.py">
@@ -737,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/geometry3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="499" selection-start-line="499" selection-end-line="499" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/files3d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27" />
@@ -773,27 +794,6 @@
         <state relative-caret-position="-89" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="471" column="31" selection-start-line="471" selection-start-column="30" selection-end-line="471" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4070">
-          <caret line="319" column="36" lean-forward="true" selection-start-line="319" selection-start-column="36" selection-end-line="319" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/getpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4655" />
@@ -803,30 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
           <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/qtui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="759" selection-start-line="759" selection-end-line="759" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/guicommon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="894" column="21" selection-start-line="894" selection-start-column="21" selection-end-line="894" selection-end-column="21" />
-          <folding>
-            <element signature="e#1170#1185#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -903,27 +879,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/guicommon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/geometry3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="500" column="38" selection-start-line="500" selection-start-column="38" selection-end-line="500" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="400" column="30" selection-start-line="400" selection-start-column="30" selection-end-line="400" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/qtui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-687">
+          <caret line="759" selection-start-line="759" selection-end-line="759" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13993">
+          <caret line="327" column="19" selection-start-line="327" selection-start-column="19" selection-end-line="327" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="316" column="34" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
+          <folding>
+            <element signature="e#1249#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/module3d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="44" column="16" selection-start-line="38" selection-end-line="44" selection-end-column="16" />
+        <state relative-caret-position="1860">
+          <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
           <folding>
             <element signature="e#1114#1128#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="132" column="16" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/mhmain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2430">
-          <caret line="184" column="19" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="19" />
+        <state relative-caret-position="181">
+          <caret line="324" column="58" selection-start-line="324" selection-start-column="55" selection-end-line="324" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="44106" column="5" selection-start-line="44106" selection-start-column="5" selection-end-line="44106" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/human.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8175">
-          <caret line="559" column="31" selection-start-line="559" selection-start-column="31" selection-end-line="559" selection-end-column="31" />
+        <state relative-caret-position="236">
+          <caret line="756" column="85" selection-start-line="756" selection-start-column="85" selection-end-line="756" selection-end-column="85" />
           <folding>
             <element signature="e#1099#1117#0" expanded="true" />
           </folding>
@@ -932,28 +974,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/gui/guimodifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="103" column="18" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="18" />
+        <state relative-caret-position="2706">
+          <caret line="224" column="18" selection-start-line="224" selection-start-column="15" selection-end-line="224" selection-end-column="18" />
           <folding>
             <element signature="e#1156#1166#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="64" column="25" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="25" />
-          <folding>
-            <element signature="e#1249#1263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="44106" column="5" selection-start-line="44106" selection-start-column="5" selection-end-line="44106" selection-end-column="5" />
         </state>
       </provider>
     </entry>

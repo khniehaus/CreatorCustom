@@ -50,6 +50,7 @@ from PyQt4 import QtGui
 
 from guicommon import Object, Action
 
+sCheck = False
 
 class MouAction(events3d.MouseEvent):
     def __init__(self, class_a):
@@ -274,24 +275,27 @@ class View(events3d.EventHandler):
         #self.parent.callEvent('sliderMousePressEvent', event)
 
         print "bitch it's me, your slider"
-        #bleh = guicommon.Object(human.mesh)
         y = event.y #mouse y
         x = event.x #mouse x
 
         global uniVal
-        #bleh.getSelectedFaceGroup(module3d.Object3D)
         #mehah = bleh.rayCast()
         modifier1 = human.gMod #instance of global from human class for modifier category
         modifier2 = human.wMod
+        modifier3 = human.shoulderlMod
+        blerg = sCheck
         print modifier1 #modifier2 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
+        smallManipTest = modifierslider.ModifierSlider(modifier3)
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         amVal1 = MouAction.nVar(mouseAction)
+
+        print "blerg", blerg
 
         self.umOk.appendleft(dmVal1)
         self.soOk.appendleft(amVal1)
@@ -307,6 +311,10 @@ class View(events3d.EventHandler):
             amVal = amVal1 - (self.soOk[3] - self.soOk[0])
         print self.soOk
 
+        if sCheck == True:
+            smallManipTest.onChanging(dmVal)
+            smallManipTest.onChange(dmVal)
+            smallManipTest.update()
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
@@ -553,7 +561,19 @@ class Application(events3d.EventHandler):
 
     def getSelectedFaceGroup(self):
         picked = mh.getPickedColor()
+
         return selection.selectionColorMap.getSelectedFaceGroup(picked)
+
+    def getChanger(self):
+        global sCheck
+        picked = mh.getPickedColor()
+
+        if picked == (32, 0, 0):
+            sCheck = True
+        else:
+            sCheck = False
+        sCheck = sCheck
+        return sCheck
 
     def addCategory(self, category, sortOrder = None):
         if category.name in self.categories:
@@ -717,6 +737,7 @@ class Application(events3d.EventHandler):
 
     def onMouseMovedCallback(self, event):
         # Get picked object
+
         picked = self.getSelectedFaceGroupAndObject()
         ugh = self.getSelectedFaceGroup()
 
@@ -730,9 +751,7 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
-
-        print "wtf literally on earth", ugh
-
+        print ugh
         event.object = object
         event.group = group
 
@@ -745,6 +764,8 @@ class Application(events3d.EventHandler):
         if event.button:
             if self.mouseDownObject:
                 self.mouseDownObject.callEvent('onMouseDragged', event)
+                self.getChanger()
+                print "WHAT THE FUCK", self.getChanger()
         else:
             if self.enteredObject != object:
                 if self.enteredObject:

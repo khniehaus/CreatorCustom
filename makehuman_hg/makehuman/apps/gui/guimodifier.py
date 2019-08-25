@@ -139,8 +139,8 @@ class ModifierTaskView(gui3d.TaskView):
 
         # Only show macro statistics in status bar for Macro modeling task
         # (depends on the correct task name being defined)
-        if self.showMacroStats:
-            self.showMacroStatus()
+        # if self.showMacroStats:
+        #     self.showMacroStatus()
 
         if G.app.getSetting('cameraAutoZoom'):
             self.setCamera()
@@ -160,7 +160,8 @@ class ModifierTaskView(gui3d.TaskView):
         super(ModifierTaskView, self).onHide(event)
 
         if self.name == "Macro modelling":
-            self.setStatus('')
+            pass
+            #self.setStatus('')
 
     def onHumanChanged(self, event):
         # Update sliders to modifier values
@@ -183,32 +184,32 @@ class ModifierTaskView(gui3d.TaskView):
             f = getattr(G.app, self.cameraFunc)
             f()
 
-    def showMacroStatus(self):
-        human = G.app.selectedHuman
-
-        if human.getGender() == 0.0:
-            gender = G.app.getLanguageString('female')
-        elif human.getGender() == 1.0:
-            gender = G.app.getLanguageString('male')
-        elif abs(human.getGender() - 0.5) < 0.01:
-            gender = G.app.getLanguageString('neutral')
-        else:
-            gender = G.app.getLanguageString('%.2f%% female, %.2f%% male') % ((1.0 - human.getGender()) * 100, human.getGender() * 100)
-
-        age = human.getAgeYears()
-        muscle = (human.getMuscle() * 100.0)
-        weight = (50 + (150 - 50) * human.getWeight())
-        height = human.getHeightCm()
-        if G.app.getSetting('units') == 'metric':
-            units = 'cm'
-        else:
-            units = 'in'
-            height *= 0.393700787
-
-        self.setStatus([ ['Gender',': %s '], ['Age',': %d '], ['Muscle',': %.2f%% '], ['Weight',': %.2f%% '], ['Height',': %.2f %s'] ], gender, age, muscle, weight, height, units)
-
-    def setStatus(self, format, *args):
-        G.app.statusPersist(format, *args)
+    # def showMacroStatus(self):
+    #     human = G.app.selectedHuman
+    #
+    #     if human.getGender() == 0.0:
+    #         gender = G.app.getLanguageString('female')
+    #     elif human.getGender() == 1.0:
+    #         gender = G.app.getLanguageString('male')
+    #     elif abs(human.getGender() - 0.5) < 0.01:
+    #         gender = G.app.getLanguageString('neutral')
+    #     else:
+    #         gender = G.app.getLanguageString('%.2f%% demon, %.2f%% monster') % ((1.0 - human.getGender()) * 100, human.getGender() * 100)
+    #
+    #     age = human.getAgeYears()
+    #     muscle = (human.getMuscle() * 100.0)
+    #     weight = (50 + (150 - 50) * human.getWeight())
+    #     height = human.getHeightCm()
+    #     if G.app.getSetting('units') == 'metric':
+    #         units = 'cm'
+    #     else:
+    #         units = 'in'
+    #         height *= 0.393700787
+    #
+    #     self.setStatus([ ['Supernatural status',': %s '], ['Age',': %d '], ['Muscle',': %.2f%% '], ['Weight',': %.2f%% '], ['Height',': %.2f %s'] ], gender, age, muscle, weight, height, units)
+    #
+    # def setStatus(self, format, *args):
+    #     G.app.statusPersist(format, *args)
 
 
 class GroupBoxRadioButton(gui.RadioButton):

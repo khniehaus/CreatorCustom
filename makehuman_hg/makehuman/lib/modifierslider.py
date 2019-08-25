@@ -131,8 +131,10 @@ class ModifierSlider(gui.Slider):
                 self.changing = value
                 return
         if oTest1 == True:
-            #bleh.rayCast()
-            return
+            if self.modifier == human.shoulderlMod:
+                value = nVal
+            else:
+                return
         # if self.modifier in self.modifier.:
         #     return
         self.changing = value
