@@ -83,7 +83,6 @@ class ModifierSlider(gui.Slider):
             return False
         else:
             # Default behaviour
-            print "bitch it's me, the original slider"
             return True
 
     def resetValue(self):
@@ -120,6 +119,7 @@ class ModifierSlider(gui.Slider):
         transVar = gui3d.MouAction(beep)
         nVal = transVar.mVar()
         wVal = transVar.nVar()
+        vVal = transVar.aVar()
         value = 0.5
         if oTest1 == False:
             if self.modifier == human.wMod:
@@ -133,8 +133,8 @@ class ModifierSlider(gui.Slider):
         if oTest1 == True:
             if self.modifier == human.shoulderlMod:
                 value = nVal
-            else:
-                return
+            if self.modifier == human.upArmlMod:
+                value = vVal
         # if self.modifier in self.modifier.:
         #     return
         self.changing = value

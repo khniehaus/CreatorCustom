@@ -46,7 +46,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
     gMod = None #global modifier variable assignment
     wMod = None #weight modifier variable assignment
     shoulderlMod = None
-    armllMod = None
+    upArmlMod = None
 
     def __init__(self, mesh):
         guicommon.Object.__init__(self, mesh)
@@ -752,9 +752,11 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         global gMod
         global wMod
         global shoulderlMod
+        global upArmlMod
         gMod = self._modifiers['macrodetails-height/Height']
         wMod = self._modifiers['macrodetails-universal/Weight']
         shoulderlMod = self._modifiers['armslegs/r-upperarm-shoulder-muscle-decr|incr']
+        upArmlMod = self._modifiers['armslegs/r-upperarm-scale-horiz-decr|incr']
         # if qtui.gg_mouse_pos != None:
         #     return self._modifiers['macrodetails-weight/Weight']
         # else:
@@ -1101,7 +1103,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.age = 0.5
         self.gender = 0.5
         self.weight = 0.5
-        self.muscle = 0.5
+        self.muscle = 1.0
         self.height = 0.5
         self.breastSize = 0.5
         self.breastFirmness = 0.5
