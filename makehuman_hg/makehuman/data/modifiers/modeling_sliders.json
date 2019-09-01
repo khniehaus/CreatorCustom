@@ -9,13 +9,15 @@
           {"mod": "macrodetails-universal/Weight", "label": "Weight"}
         ],
       "Medium":[
-        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"},
         {"mod": "armslegs/upperlegs-height-decr|incr", "label": "Upperlegs Length"},
         {"mod": "armslegs/lowerlegs-height-decr|incr", "label": "Lowerlegs Length"},
         {"mod": "armslegs/l-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
         {"mod": "armslegs/r-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
         {"mod": "armslegs/l-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"},
         {"mod": "armslegs/r-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"}
+      ],
+      "High": [
+        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"}
       ]
     }
   }

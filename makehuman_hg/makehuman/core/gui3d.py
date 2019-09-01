@@ -53,6 +53,7 @@ from guicommon import Object, Action
 sCheck = None
 
 class MouAction(events3d.MouseEvent):
+    dForce = collections.deque([0, 0], maxlen=2)
     def __init__(self, class_a):
         self.x = class_a.x
         self.y = class_a.y
@@ -63,6 +64,11 @@ class MouAction(events3d.MouseEvent):
 
     def mVar(self):
         newY = self.y  # y value
+
+        self.dForce.appendleft(newY)
+
+        mDelta = (newY - self.dForce[1])
+        print mDelta
         # if newY <= 130.0:
         #     sVal = 10.0
         #     print sVal
@@ -72,12 +78,12 @@ class MouAction(events3d.MouseEvent):
         #     print sVal
         #     return sVal
         # if 130.0 <= newY <= 150.0:
-        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / (300.0 - 0.0)) + -1.0  # map range to 'slider' range
+        #mapVal = (((mDelta - 0.0) * (5.0 - -1.0)) / (300.0 - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
+        #sVal = 5.0 + ((mDelta - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
         #self.umOk.appendleft(sVal)
-        sVal = sVal
-        print sVal
+        sVal = mDelta
+        print "hello I am ruining your life", sVal
         #print self.umOk
         return sVal
             # print sVal
@@ -310,7 +316,7 @@ class View(events3d.EventHandler):
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
         smallManipTest = modifierslider.ModifierSlider(modifier3)
-        smallArm2 = modifierslider.ModifierSlider(modifier4)
+        #smallArm2 = modifierslider.ModifierSlider(modifier4)
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -318,7 +324,7 @@ class View(events3d.EventHandler):
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         amVal1 = MouAction.nVar(mouseAction)
-        vVal1 = MouAction.aVar(mouseAction)
+        #vVal1 = MouAction.aVar(mouseAction)
 
         print "blerg", blerg
 
@@ -340,10 +346,10 @@ class View(events3d.EventHandler):
             smallManipTest.onChanging(dmVal)
             smallManipTest.onChange(dmVal)
             smallManipTest.update()
-        if sCheck == (88, 0, 0) or (64, 0, 0) or (40, 0, 0):
-            smallArm2.onChanging(vVal1)
-            smallArm2.onChange(vVal1)
-            smallArm2.update()
+        # elif sCheck == (88, 0, 0) or (64, 0, 0) or (40, 0, 0):
+        #     smallArm2.onChanging(vVal1)
+        #     smallArm2.onChange(vVal1)
+        #     smallArm2.update()
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
