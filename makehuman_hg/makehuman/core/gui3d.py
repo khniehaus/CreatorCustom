@@ -46,14 +46,14 @@ import log
 import selection
 import collections
 import time
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
 sCheck = None
 
 class MouAction(events3d.MouseEvent):
-    dForce = collections.deque([0, 0], maxlen=2)
+    dForce = collections.deque([0, 0, 0, 0], maxlen=4)
     def __init__(self, class_a):
         self.x = class_a.x
         self.y = class_a.y
@@ -65,10 +65,12 @@ class MouAction(events3d.MouseEvent):
     def mVar(self):
         newY = self.y  # y value
 
-        self.dForce.appendleft(newY)
+        window = QtGui.QWidget()
+        height = window.frameGeometry().height()
+        #self.dForce.appendleft(newY)
 
-        mDelta = (newY - self.dForce[1])
-        print mDelta
+        #mDelta = (newY - self.dForce[3])
+        #print mDelta
         # if newY <= 130.0:
         #     sVal = 10.0
         #     print sVal
@@ -78,11 +80,11 @@ class MouAction(events3d.MouseEvent):
         #     print sVal
         #     return sVal
         # if 130.0 <= newY <= 150.0:
-        #mapVal = (((mDelta - 0.0) * (5.0 - -1.0)) / (300.0 - 0.0)) + -1.0  # map range to 'slider' range
+        mapVal = (((newY - 0.0) * (10.0 - -1.0)) / (height - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        #sVal = 5.0 + ((mDelta - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
+        sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
         #self.umOk.appendleft(sVal)
-        sVal = mDelta
+        sVal = sVal
         print "hello I am ruining your life", sVal
         #print self.umOk
         return sVal
@@ -90,6 +92,8 @@ class MouAction(events3d.MouseEvent):
 
     def nVar(self):
         newX = self.x
+        window = QtGui.QWidget()
+        width = window.frameGeometry().width()
         # if newX <= 460.0:
         #     sVal = 0.0
         #     print sVal
@@ -99,7 +103,7 @@ class MouAction(events3d.MouseEvent):
         #     print sVal
         #     return sVal
         #if 460.0 <= newX <= 475.0:
-        sVal = (((newX - 0.0) * (5.0 - -1.0)) / (850.0 - 0.0)) + -1.0  # map range to 'slider' range
+        sVal = (((newX - 0.0) * (1.0 - -1.0)) / (width - 0.0)) + -1.0  # map range to 'slider' range
         sVal = sVal
         print "Fuck", sVal
         return sVal
@@ -331,15 +335,15 @@ class View(events3d.EventHandler):
         self.umOk.appendleft(dmVal1)
         self.soOk.appendleft(amVal1)
         if self.umOk[0] >= self.umOk[3]:
-            dmVal = dmVal1 + (self.umOk[0] - self.umOk[3])
+            dmVal = self.umOk[3] + (self.umOk[0] - self.umOk[3])
             print "this better work"
         elif self.umOk[0] < self.umOk[3]:
-            dmVal = dmVal1 - (self.umOk[3] - self.umOk[0])
+            dmVal = self.umOk[3] - (self.umOk[3] - self.umOk[0])
             print "lol wtf omg"
         if self.soOk[0] >= self.soOk[3]:
-            amVal = amVal1 + (self.soOk[0] - self.soOk[3])
+            amVal = self.soOk[3] + (self.soOk[0] - self.soOk[3])
         elif self.soOk[0] < self.soOk[3]:
-            amVal = amVal1 - (self.soOk[3] - self.soOk[0])
+            amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
         print self.soOk
 
         if sCheck == (32, 0, 0):
