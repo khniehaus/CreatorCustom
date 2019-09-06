@@ -320,7 +320,7 @@ class View(events3d.EventHandler):
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
         smallManipTest = modifierslider.ModifierSlider(modifier3)
-        #smallArm2 = modifierslider.ModifierSlider(modifier4)
+        smallArm2 = modifierslider.ModifierSlider(modifier4)
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -328,7 +328,7 @@ class View(events3d.EventHandler):
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         amVal1 = MouAction.nVar(mouseAction)
-        #vVal1 = MouAction.aVar(mouseAction)
+        vVal1 = MouAction.aVar(mouseAction)
 
         print "blerg", blerg
 
@@ -346,14 +346,15 @@ class View(events3d.EventHandler):
             amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
         print self.soOk
 
-        if sCheck == (32, 0, 0):
+        if sCheck == (56, 0, 0):
+            print "FUCK YOU FUCK YOU", sCheck
             smallManipTest.onChanging(dmVal)
             smallManipTest.onChange(dmVal)
             smallManipTest.update()
-        # elif sCheck == (88, 0, 0) or (64, 0, 0) or (40, 0, 0):
-        #     smallArm2.onChanging(vVal1)
-        #     smallArm2.onChange(vVal1)
-        #     smallArm2.update()
+        elif sCheck == (88, 0, 0) or (64, 0, 0) or (40, 0, 0):
+            smallArm2.onChanging(vVal1)
+            smallArm2.onChange(vVal1)
+            smallArm2.update()
         #if y >= 100 & y <= 200:
         directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
         directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)

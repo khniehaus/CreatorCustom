@@ -41,11 +41,13 @@ Common taskview for managing modifier sliders
 import gui
 import gui3d
 import qtgui
+import QtGui
 import humanmodifier
 import modifierslider
 import getpath
 import module3d
 from core import G
+from qtpy import QtWidgets
 import log
 from collections import OrderedDict
 import language
@@ -67,37 +69,40 @@ class ModifierTaskView(gui3d.TaskView):
         self.groupBoxes = OrderedDict()
         self.radioButtons = []
         self.radioButtonGroup = []
+        self.toolButtons = []
         self.sliders = []
         self.modifiers = {}
-
-        self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
-        self.groupBox = self.addLeftWidget(gui.StackedBox())
-        self.box2 = self.addLeftWidget(gui.GroupBox('Detail'))
 
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
 
+        #self.categoryBox = self.addLeftWidget(gui.GroupBox('Category'))
+        self.groupBox = self.addLeftWidget(gui.StackedBox())
+        self.box2 = self.addLeftWidget(gui.GroupBox('Detail'))
+        # self.mod_toolbar = self.addToolbar("Fuck")
+
     def addSlider(self, sliderCategory, slider, enabledCondition=None):
-        # Get category groupbox
+        #pass
+        # # Get category groupbox
         categoryName = sliderCategory.capitalize()
         if categoryName not in self.groupBoxes:
-            # Create box
+        #     # Create box
+            #button = gui.button(categoryName)
             box = self.groupBox.addWidget(gui.GroupBox(categoryName))
             self.groupBoxes[categoryName] = box
-
-            # Create radiobutton
+        #
+        #     # Create radiobutton
             isFirstBox = len(self.radioButtons) == 0
             self.box2.addWidget(GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
             if isFirstBox:
                 self.groupBox.showWidget(self.groupBoxes.values()[0])
         else:
             box = self.groupBoxes[categoryName]
-
-        # Add slider to groupbox
-        self.modifiers[slider.modifier.fullName] = slider.modifier
-        box.addWidget(slider)
-        slider.enabledCondition = enabledCondition
-        self.sliders.append(slider)
+        #
+        #Add slider to groupbox
+        box.addWidget(gui.Button(sliderCategory))
+        #slider.enabledCondition = enabledCondition
+        #self.sliders.append(slider)
 
     # def boxMode(self):
     #     # We make the first one selected
@@ -231,6 +236,17 @@ class GroupBoxRadioButton(gui.RadioButton):
             oTest = False
         return oTest
         #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
+# class GroupBoxButton(gui.Button):
+#     def __init__(self, task, group, label, groupBox, selected=False):
+#         super(GroupBoxButton, self).__init__(group, label, selected)
+#         self.groupBox = groupBox
+#         self.task = task
+#         self.aButtonGroup = []
+#         self.label = label
+#
+#         def onClicked(self, event):
+#             self.task.groupBox.showWidget(self.groupBox)
+
 
 
 def _getCamFunc(cameraName):

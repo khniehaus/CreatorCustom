@@ -51,51 +51,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="140" column="27" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/7_targets.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/qtui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11355">
-              <caret line="759" selection-start-line="759" selection-end-line="759" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/mhmain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="225" column="20" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="20" />
+            <state relative-caret-position="152">
+              <caret line="545" selection-start-line="545" selection-end-line="545" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
+        <entry file="file://$PROJECT_DIR$/apps/gui/guimodifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6168">
-              <caret line="43834" column="8" selection-start-line="43834" selection-start-column="8" selection-end-line="43834" selection-end-column="8" />
+            <state relative-caret-position="254">
+              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+              <folding>
+                <element signature="e#1156#1166#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/module3d.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="649" selection-start-line="649" selection-end-line="649" />
+              <folding>
+                <element signature="e#1114#1128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/geometry3d.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="499" selection-start-line="499" selection-end-line="499" />
             </state>
           </provider>
         </entry>
@@ -103,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/human.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+            <state relative-caret-position="287">
+              <caret line="93" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="e#1099#1117#0" expanded="true" />
               </folding>
@@ -113,24 +105,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/gui3d.py">
+        <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4845">
-              <caret line="345" column="31" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
+            <state relative-caret-position="290">
+              <caret line="573" lean-forward="true" selection-start-line="573" selection-end-line="573" />
               <folding>
-                <element signature="e#1249#1263#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/0_modeling_8_random.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
-              <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
-              <folding>
-                <element signature="e#1111#1124#0" expanded="true" />
+                <element signature="e#1084#1094#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,36 +127,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>downarml</find>
-      <find>arml</find>
-      <find>gender</find>
-      <find>setStatus</find>
-      <find>modifier</find>
-      <find>selection</find>
-      <find>gmod</find>
-      <find>print</find>
-      <find>getselectedfacegroup</find>
-      <find>getselect</find>
-      <find>value</find>
-      <find>ote</find>
-      <find>onMouseDragged</find>
-      <find>oTest</find>
-      <find>getchanger</find>
-      <find>transvar</find>
-      <find>gg</find>
-      <find>delta</find>
-      <find>qmouseevent</find>
-      <find>detail</find>
-      <find>medium</find>
-      <find>low</find>
+      <find>categorybox</find>
+      <find>modifiers</find>
+      <find>tool</find>
+      <find>ToolBar</find>
+      <find>addToolBar</find>
+      <find>widget</find>
+      <find>actions</find>
+      <find>Widget</find>
+      <find>mainwin</find>
+      <find>action</find>
+      <find>toolbar</find>
+      <find>groupbox</find>
+      <find>qabstractbutton</find>
+      <find>Button</find>
+      <find>qbutton</find>
+      <find>Special</find>
+      <find>categoryBox</find>
+      <find>GroupBoxRadioButton</find>
+      <find>tab</find>
+      <find>radio</find>
+      <find>combo</find>
+      <find>Qbutton</find>
+      <find>GroupBox</find>
+      <find>gui</find>
+      <find>group</find>
+      <find>button</find>
+      <find>special</find>
+      <find>stacked</find>
       <find>otest</find>
-      <find>dragged</find>
-      <find>soOk</find>
-      <find>dra</find>
-      <find>handl</find>
-      <find>handl6</find>
-      <find>uparml</find>
-      <find>stomach</find>
+      <find>buttongroup</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -197,7 +177,6 @@
         <option value="$PROJECT_DIR$/data/modifiers/modeling_modifiers_desc.json" />
         <option value="$PROJECT_DIR$/lib/texture.py" />
         <option value="$PROJECT_DIR$/shared/animation.py" />
-        <option value="$PROJECT_DIR$/data/themes/makehuman.qss" />
         <option value="$PROJECT_DIR$/apps/autoskinblender.py" />
         <option value="$PROJECT_DIR$/lib/targets.py" />
         <option value="$PROJECT_DIR$/shared/material.py" />
@@ -214,24 +193,25 @@
         <option value="$PROJECT_DIR$/lib/object3d.py" />
         <option value="$PROJECT_DIR$/core/module3d.py" />
         <option value="$PROJECT_DIR$/core/guicommon.py" />
-        <option value="$PROJECT_DIR$/core/mhmain.py" />
-        <option value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
-        <option value="$PROJECT_DIR$/lib/qtgui.py" />
         <option value="$PROJECT_DIR$/apps/human.py" />
-        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
         <option value="$PROJECT_DIR$/plugins/0_modeling_8_random.py" />
-        <option value="$PROJECT_DIR$/lib/qtui.py" />
         <option value="$PROJECT_DIR$/data/modifiers/modeling_sliders.json" />
-        <option value="$PROJECT_DIR$/core/gui3d.py" />
+        <option value="$PROJECT_DIR$/plugins/7_targets.py" />
+        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
         <option value="$PROJECT_DIR$/data/3dobjs/base.obj" />
+        <option value="$PROJECT_DIR$/core/gui3d.py" />
+        <option value="$PROJECT_DIR$/lib/qtui.py" />
+        <option value="$PROJECT_DIR$/core/mhmain.py" />
+        <option value="$PROJECT_DIR$/data/themes/makehuman.qss" />
+        <option value="$PROJECT_DIR$/lib/qtgui.py" />
+        <option value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
     <option name="y" value="23" />
-    <option name="width" value="1349" />
-    <option name="height" value="872" />
+    <option name="width" value="1319" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -239,13 +219,49 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
               <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="modifiers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
@@ -261,91 +277,11 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="alabaster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="alabaster" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-              <item name="Compiler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-              <item name="Loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-              <item name="port_v2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-              <item name="port_v3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PyQt4" type="462c0819:PsiDirectoryNode" />
-              <item name="uic" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,8 +293,8 @@
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="makehuman" is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
+      <console-settings module-name="makehuman" sdk-home="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7">
+        <option name="mySdkHome" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
         <option name="myModuleName" value="makehuman" />
       </console-settings>
     </option>
@@ -451,7 +387,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="download_assets" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="guimodifier" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="makehuman" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -459,12 +395,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apps/gui" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/download_assets.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -496,19 +432,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.download_assets" />
       <item itemvalue="Python.compile_models" />
       <item itemvalue="Python.compile_proxies" />
       <item itemvalue="Python.compile_targets" />
       <item itemvalue="Python.makehuman" />
+      <item itemvalue="Python.guimodifier" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.makehuman" />
+        <item itemvalue="Python.guimodifier" />
         <item itemvalue="Python.compile_proxies" />
         <item itemvalue="Python.compile_targets" />
         <item itemvalue="Python.compile_models" />
-        <item itemvalue="Python.download_assets" />
       </list>
     </recent_temporary>
   </component>
@@ -540,22 +476,27 @@
       <workItem from="1567440703177" duration="4353000" />
       <workItem from="1567546096382" duration="1521000" />
       <workItem from="1567607307329" duration="15413000" />
+      <workItem from="1567694198826" duration="9158000" />
+      <workItem from="1567712046570" duration="11000" />
+      <workItem from="1567767402875" duration="22992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110490000" />
+    <option name="totallyTimeSpent" value="142651000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="23" width="1349" height="872" extended-state="0" />
+    <frame x="0" y="23" width="1319" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31675592" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33907595" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.3299363" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.47015476" weight="0.32692307" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47130835" weight="0.20769231" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73980725" weight="0.5782051" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47130835" visible="true" weight="0.22929937" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73980725" weight="0.3210191" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -565,6 +506,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -617,52 +559,10 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1567629151762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$guimodifier.coverage" NAME="guimodifier Coverage Results" MODIFIED="1567791130038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/gui" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1567793747235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3419" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ipythonconsole.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2015" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/inifile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/compat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4375">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/humanobjchooser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/gui/guiload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-417" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/gui/guifiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers_desc.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/modifiers/measurement_modifiers.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14" />
@@ -725,13 +625,6 @@
         <state relative-caret-position="-1224" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/glmodule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3197">
-          <caret line="119" column="21" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -739,21 +632,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/gui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/getpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4655" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/object3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/matrix.py">
@@ -772,9 +653,6 @@
           <caret line="146" column="47" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/mh_1-0_modifier_mapping.csv">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/3dobjs/a7_converter.proxy">
       <provider selected="true" editor-type-id="text-editor">
@@ -812,27 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/events3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2432">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/geometry3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="500" column="38" selection-start-line="500" selection-start-column="38" selection-end-line="500" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="400" column="30" selection-start-line="400" selection-start-column="30" selection-end-line="400" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/python_stubs/471202912/PyQt4/QtGui/QMouseEvent.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -843,97 +700,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="304" column="41" selection-start-line="304" selection-start-column="38" selection-end-line="304" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/guicommon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="694" column="12" selection-start-line="694" selection-start-column="12" selection-end-line="694" selection-end-column="12" />
-          <folding>
-            <element signature="e#1170#1185#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/module3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="336" column="79" selection-start-line="336" selection-start-column="79" selection-end-line="336" selection-end-column="79" />
-          <folding>
-            <element signature="e#1114#1128#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/gui/guimodifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3345">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-          <folding>
-            <element signature="e#1156#1166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/skeleton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14806" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
-          <caret line="140" column="27" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/7_targets.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/qtui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11355">
-          <caret line="759" selection-start-line="759" selection-end-line="759" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/mhmain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="225" column="20" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/human.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding>
-            <element signature="e#1099#1117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4845">
-          <caret line="345" column="31" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
-          <folding>
-            <element signature="e#1249#1263#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/0_modeling_8_random.py">
@@ -946,10 +715,196 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/python_stubs/471202912/PyQt4/QtGui/QToolButton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1059" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="87" column="59" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/7_targets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/guicommon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="498" column="39" selection-start-line="498" selection-start-column="39" selection-end-line="498" selection-end-column="39" />
+          <folding>
+            <element signature="e#1170#1185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
+          <folding>
+            <element signature="e#1110#1120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6168">
-          <caret line="43834" column="8" selection-start-line="43834" selection-start-column="8" selection-end-line="43834" selection-end-column="8" />
+        <state relative-caret-position="300">
+          <caret line="44828" column="41" selection-start-line="44828" selection-start-column="41" selection-end-line="44828" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers_desc.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/mh_1-0_modifier_mapping.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4175" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="366" column="33" lean-forward="true" selection-start-line="366" selection-start-column="33" selection-end-line="366" selection-end-column="33" />
+          <folding>
+            <element signature="e#1249#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/gui/guifiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/gui/guiload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1171" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/events3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/python_stubs/471202912/PyQt4/QtGui/QButtonGroup.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2019.1/python_stubs/471202912/PyQt4/QtGui/QPushButton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-880" />
+      </provider>
+    </entry>
+    <entry file="file:///anaconda2/lib/python2.7/site-packages/qtpy/QtWidgets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/themes/makehuman.qss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="156" column="35" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/human.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="e#1099#1117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/module3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="649" selection-start-line="649" selection-end-line="649" />
+          <folding>
+            <element signature="e#1114#1128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/mhmain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="545" selection-start-line="545" selection-end-line="545" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/qtui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="785" selection-start-line="785" selection-end-line="785" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/glmodule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="1041" selection-start-line="1041" selection-end-line="1041" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/object3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="286" selection-start-line="286" selection-end-line="286" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/geometry3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="499" selection-start-line="499" selection-end-line="499" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/qtgui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="573" lean-forward="true" selection-start-line="573" selection-end-line="573" />
+          <folding>
+            <element signature="e#1084#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/gui/guimodifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <element signature="e#1156#1166#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
