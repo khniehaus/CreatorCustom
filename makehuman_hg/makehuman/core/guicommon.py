@@ -789,71 +789,9 @@ class Object(events3d.EventHandler):
             # Re-generate the subdivided mesh with new UV coordinates
             self.setSubdivided(True)
 
-    # #Pt = namedtuple('Pt', 'x, y')  # Point
-    # Edge = namedtuple('Edge', 'a, b')  # Polygon edge from a to b
-    # Poly = namedtuple('Poly', 'name, edges')  # Polygon
-    #
-    # _eps = 0.00001
-    # _huge = sys.float_info.max
-    # _tiny = sys.float_info.min
-    #
-    # def rayCast(self, p, edge):
-    #     """Run this function on left mouse, execute the ray cast"""
-    #     # get the context arguments
-    #     # scene = context.scene
-    #
-    #     #np.set_printoptions(threshold=np.inf)
-    #     #print self.mesh.coord
-    #
-    #     # x = (2.0 * p[0]) /  - 1.0
-    #     # y = 1.0f - (2.0 * p[1]) / height;
-    #     # z = 1.0
-    #     # pvec = namedtuple('p', 'x, y, z')
-    #
-    #     for row in np.nditer(self.mesh.coord):
-    #         print "fuck"
-    #
-    #         a = row #this is where you are! You're having trouble with getting x and y vals
-    #         b = row
-    #         print row[0,1,2]
-    #         if a[1] > b[1]:
-    #             a, b = b, a
-    #         if p[1] == a[1] or p[1] == b[1]:
-    #             p = (p[0], p[1] + self._eps)
-    #
-    #         intersect = False
-    #
-    #         if (p[1] > b[1] or p[1] < a[1]) or (
-    #                     p[0] > max(a[0], b[0])):
-    #             return False
-    #
-    #         if p[0] < min(a[0], b[0]):
-    #             intersect = True
-    #         else:
-    #             if abs(a[0] - b[0]) > self._tiny:
-    #                 m_red = (b[1] - a[1]) / float(b[0] - a[0])
-    #             else:
-    #                 m_red = self._huge
-    #             if abs(a[0] - p[0]) > self._tiny:
-    #                 m_blue = (p[1] - a[1]) / float(p[0] - a[0])
-    #             else:
-    #                 m_blue = self._huge
-    #             intersect = m_blue >= m_red
-    #         print intersect
-    #         print "Wtf"
-    #         return intersect
-    #
-    # def _odd(self, x):
-    #         return x % 2 == 1
-    #
-    # def ispointinside(self, p, poly):
-    #     ln = len(poly)
-    #     return self._odd(sum(self.rayCast(p, poly)
-    #         for Edge in poly.edges))
-
     def onMouseDown(self, event):
         if self.view:
-            print "YOU DUCK"
+            print "Mouse is Down"
             self.view.callEvent('onMouseDown', event)
         else:
             import log

@@ -67,25 +67,13 @@ class MouAction(events3d.MouseEvent):
 
         window = QtGui.QWidget()
         height = window.frameGeometry().height()
-        #self.dForce.appendleft(newY)
 
-        #mDelta = (newY - self.dForce[3])
-        #print mDelta
-        # if newY <= 130.0:
-        #     sVal = 10.0
-        #     print sVal
-        #     return sVal
-        # if newY >= 150.0:
-        #     sVal = -1.0
-        #     print sVal
-        #     return sVal
-        # if 130.0 <= newY <= 150.0:
         mapVal = (((newY - 0.0) * (10.0 - -1.0)) / (height - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
         sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
         #self.umOk.appendleft(sVal)
         sVal = sVal
-        print "hello I am ruining your life", sVal
+        print "height val initial", sVal
         #print self.umOk
         return sVal
             # print sVal
@@ -94,54 +82,31 @@ class MouAction(events3d.MouseEvent):
         newX = self.x
         window = QtGui.QWidget()
         width = window.frameGeometry().width()
-        # if newX <= 460.0:
-        #     sVal = 0.0
-        #     print sVal
-        #     return sVal
-        # if newX >= 475.0:
-        #     sVal = 1.0
-        #     print sVal
-        #     return sVal
-        #if 460.0 <= newX <= 475.0:
+
         sVal = (((newX - 0.0) * (1.0 - -1.0)) / (width - 0.0)) + -1.0  # map range to 'slider' range
         sVal = sVal
-        print "Fuck", sVal
+        print "weight val initial", sVal
         return sVal
 
     def aVar(self):
         newY = self.y  # y value
-        # if newY <= 130.0:
-        #     sVal = 10.0
-        #     print sVal
-        #     return sVal
-        # if newY >= 150.0:
-        #     sVal = -1.0
-        #     print sVal
-        #     return sVal
-        # if 130.0 <= newY <= 150.0:
+
         mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (250.0 - 1.0)) + 1.0  # map range to 'slider' range
         # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 1.0 + ((mapVal - 1.0) * (1.0 - -1.0) / (-1.0 - 1.0))  #fix me!
+        #sVal = 1.0 + ((mapVal - 1.0) * (1.0 - -1.0) / (-1.0 - 1.0))
         # self.umOk.appendleft(sVal)
-        sVal = sVal
+        sVal = mapVal
         print sVal
         # print self.umOk
         return sVal
 
+    def wiVar(self):
+        newY = self.y
 
-    def make_interpolater(self, left_min, left_max, right_min, right_max):
-        # Figure out how 'wide' each range is
-        leftSpan = left_max - left_min
-        rightSpan = right_max - right_min
+        mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (10.0 - 1.0)) + 1.0
 
-        # Compute the scale factor between left and right values
-        scaleFactor = float(rightSpan) / float(leftSpan)
-
-        # create interpolation function using pre-calculated scaleFactor
-        def interp_fn(value):
-            return right_min + (value - left_min) * scaleFactor
-
-        return interp_fn
+        sVal = mapVal
+        return sVal
 
 class View(events3d.EventHandler):
 
@@ -152,6 +117,7 @@ class View(events3d.EventHandler):
     uniVal = 0.15
     umOk = collections.deque([0,0,0,0], maxlen=4)
     soOk = collections.deque([0,0,0,0], maxlen=4)
+    yoOk = collections.deque([0,0,0,0], maxlen=4)
 
     def __init__(self):
 
@@ -304,8 +270,9 @@ class View(events3d.EventHandler):
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
         #self.parent.callEvent('sliderMousePressEvent', event)
+        global dval, mVal, vVal
 
-        print "bitch it's me, your slider"
+        print "it's me, your slider"
         y = event.y #mouse y
         x = event.x #mouse x
 
@@ -314,13 +281,13 @@ class View(events3d.EventHandler):
         modifier1 = human.gMod #instance of global from human class for modifier category
         modifier2 = human.wMod
         modifier3 = human.shoulderlMod
-        modifier4 = human.upArmlMod
-        blerg = sCheck
+        #modifier4 = human.upArmlMod
+        colVal = sCheck
         #print modifier1 #modifier2 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
         smallManipTest = modifierslider.ModifierSlider(modifier3)
-        smallArm2 = modifierslider.ModifierSlider(modifier4)
+        #smallArm2 = modifierslider.ModifierSlider(modifier4)
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -330,34 +297,42 @@ class View(events3d.EventHandler):
         amVal1 = MouAction.nVar(mouseAction)
         vVal1 = MouAction.aVar(mouseAction)
 
-        print "blerg", blerg
+        print "color is", colVal
 
         self.umOk.appendleft(dmVal1)
         self.soOk.appendleft(amVal1)
+        self.yoOk.appendleft(vVal1)
         if self.umOk[0] >= self.umOk[3]:
-            dmVal = self.umOk[3] + (self.umOk[0] - self.umOk[3])
-            print "this better work"
+            dmVal = -(self.umOk[0] - self.umOk[3])
         elif self.umOk[0] < self.umOk[3]:
-            dmVal = self.umOk[3] - (self.umOk[3] - self.umOk[0])
-            print "lol wtf omg"
+            dmVal = self.umOk[3] - self.umOk[0]
         if self.soOk[0] >= self.soOk[3]:
             amVal = self.soOk[3] + (self.soOk[0] - self.soOk[3])
         elif self.soOk[0] < self.soOk[3]:
             amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
         print self.soOk
+        if self.yoOk[0] >= self.yoOk[3]:
+            vrVal = self.yoOk[0] - self.yoOk[3]
+        elif self.yoOk[0] < self.yoOk[3]:
+            vrVal = -(self.yoOk[0] - self.yoOk[3])
 
-        if sCheck == (56, 0, 0):
-            print "FUCK YOU FUCK YOU", sCheck
-            smallManipTest.onChanging(dmVal)
-            smallManipTest.onChange(dmVal)
+        dmVal = dmVal
+        amVal = amVal
+
+        if colVal == (56, 0, 0):
+            smallManipTest.onChanging(vrVal)
+            smallManipTest.onChange(vrVal)
             smallManipTest.update()
-        elif sCheck == (88, 0, 0) or (64, 0, 0) or (40, 0, 0):
-            smallArm2.onChanging(vVal1)
-            smallArm2.onChange(vVal1)
-            smallArm2.update()
+        # if sCheck == (224, 0, 0) or (176, 0, 0):
+        #     smallArm2.onChanging(vrVal)
+        #     smallArm2.onChange(vrVal)
+        #     smallArm2.update()
+        # else:
+        #     pass
         #if y >= 100 & y <= 200:
-        directManipTest.onChanging(dmVal) #change val of slider based on new slider value variable (dynamic)
-        directManipTest.onChange(dmVal) #change val of slider based on new slider value variable (both required)
+
+        directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
+        directManipTest.onChange(amVal) #change val of slider based on new slider value variable (both required)
         directManipTest.update()
         secondManipTest.onChanging(dmVal)
         secondManipTest.onChange(dmVal)
@@ -370,7 +345,7 @@ class View(events3d.EventHandler):
         #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
         #humanmodifier.MouAction.nVar(mouseAction)
 
-        return uniVal, mouseAction, dmVal, amVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, mouseAction, dmVal, amVal, vrVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):
@@ -601,7 +576,7 @@ class Application(events3d.EventHandler):
 
     def getSelectedFaceGroup(self):
         picked = mh.getPickedColor()
-        print picked
+        print "picked color:", picked
         return selection.selectionColorMap.getSelectedFaceGroup(picked)
 
     def getChanger(self):
@@ -787,7 +762,7 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
-        print ugh
+        print "facegroup is:", ugh
         event.object = object
         event.group = group
 
@@ -807,7 +782,6 @@ class Application(events3d.EventHandler):
                 self.enteredObject = object
                 self.enteredObject.callEvent('onMouseEntered', event)
                 self.getChanger()
-                print "WHAT THE FUCK", self.getChanger()
             if object != self:
                 object.callEvent('onMouseMoved', event)
             elif self.currentTask:

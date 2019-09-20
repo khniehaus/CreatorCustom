@@ -558,42 +558,12 @@ class ButtonBase(Widget):
         pass
 
 
-
 class Button(QtGui.QPushButton, ButtonBase):
     def __init__(self, label=None, selected=False):
         label = getLanguageString(label)
         super(Button, self).__init__(label)
         ButtonBase.__init__(self)
         self.setCheckable(True)
-
-class GButton(QtGui.QButtonGroup):
-    def __init__(self, label=None, selected=False):
-        label = getLanguageString(label)
-        super(GButton, self).__init__(label)
-        QtGui.QButtonGroup.__init__(self)
-
-    # def addWidget(self, widget, row=None, column=0, rowSpan=1, columnSpan=1, alignment=QtCore.Qt.Alignment(0)):
-    #         # widget.setParent(self)
-    #     if row is None:
-    #         row = self.layout.count()
-    #     self.layout.addWidget(widget, row, column, rowSpan, columnSpan, alignment)
-    #     widget.show()
-    #     return widget
-    #
-    # def removeWidget(self, widget):
-    #     self.layout.removeWidget(widget)
-    #     widget.setParent(None)
-    #
-    # @property
-    # def children(self):
-    #         return list(self.layout.itemAt(i).widget() for i in xrange(self.count()))
-    #
-    # def count(self):
-    #     return self.layout.count()
-    #
-    # def itemAt(self, idx):
-    #     return self.layout.itemAt(idx)
-
 
 
 class CheckBox(QtGui.QCheckBox, ButtonBase):
@@ -1118,7 +1088,6 @@ class StackedBox(QtGui.QStackedWidget, Widget):
         self.layout().setAlignment(QtCore.Qt.AlignTop)
         self.autoResize = False
         self.connect(self, QtCore.SIGNAL('currentChanged(int)'), self.widgetChanged)
-        #self.toggle()
 
     def addWidget(self, widget):
         w = QtGui.QWidget()

@@ -74,7 +74,7 @@ class ModifierSlider(gui.Slider):
             super(ModifierSlider, self).mousePressEvent(event)
 
     def sliderMousePressEvent(self, event):
-        print "ugh", event
+        print "MousePress", event
         return self._handleMousePress(event)
 
     def _handleMousePress(self, event):
@@ -120,30 +120,32 @@ class ModifierSlider(gui.Slider):
         nVal = transVar.mVar()
         wVal = transVar.nVar()
         vVal = transVar.aVar()
+        bVal = transVar.wiVar()
         value = 0.5
         if oTest1 == False:
             if self.modifier == human.wMod:
                 value = wVal
             if self.modifier == human.gMod:
                 value = nVal
-            if self.changing is not None:
-            # Avoid concurrent updates
-                self.changing = value
-                return
+            # if self.changing is not None:
+            # # Avoid concurrent updates
+            #     self.changing = value
+            #     return
         if oTest1 == True:
             if self.modifier == human.shoulderlMod:
-                value = nVal
-            if self.modifier == human.upArmlMod:
                 value = vVal
+            if self.modifier == human.upArmlMod:
+                value = bVal
         # if self.modifier in self.modifier.:
         #     return
+        value = value
         self.changing = value
-        print "fuck", oTest1
+        print "Category T/F:", oTest1
         G.app.callAsync(self._onChanging)
 
     def _onChanging(self):
         value = self.changing
-        print "bitchface", value  #HERE WE GO
+        print "slider value:", value  #HERE WE GO
         self.changing = None
 
         if G.app.getSetting('realtimeUpdates'):

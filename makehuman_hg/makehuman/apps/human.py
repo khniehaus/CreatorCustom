@@ -464,8 +464,6 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             self.applyAllTargets()
             return
 
-        #inVal = int(events3d.MouseEvent(self.y))
-        #print 'w', inVal
         height = height
         if self.height == height:
             return
