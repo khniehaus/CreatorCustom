@@ -2078,8 +2078,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1353">
-              <caret line="44017" column="27" selection-start-line="44017" selection-start-column="27" selection-end-line="44017" selection-end-column="27" />
+            <state relative-caret-position="676">
+              <caret line="41169" column="3" selection-start-line="41169" selection-start-column="3" selection-end-line="41169" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -2137,23 +2137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>4</find>
-      <find>5</find>
-      <find>FRI</find>
-      <find>E</find>
-      <find>F</find>
-      <find>G</find>
-      <find>H</find>
-      <find>I</find>
-      <find>hand</find>
-      <find>fore</find>
-      <find>upper</find>
-      <find>shou</find>
-      <find>BITCH</find>
-      <find>BLIP</find>
-      <find>N</find>
-      <find>S</find>
-      <find>T</find>
       <find>HECK</find>
       <find>L</find>
       <find>HE</find>
@@ -2165,8 +2148,25 @@
       <find>flu</find>
       <find>boo</find>
       <find>what</find>
+      <find>which</find>
+      <find>br</find>
+      <find>bli</find>
+      <find>back</find>
+      <find>bop</find>
+      <find>head</find>
       <find>neck</find>
+      <find>gig</find>
       <find>top</find>
+      <find>fuckb</find>
+      <find>e</find>
+      <find>v</find>
+      <find>d</find>
+      <find>i</find>
+      <find>w</find>
+      <find>l</find>
+      <find>lip</find>
+      <find>heck</find>
+      <find>jaw</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2490,26 +2490,27 @@
       <workItem from="1569506625408" duration="21146000" />
       <workItem from="1569594470620" duration="10863000" />
       <workItem from="1569674532494" duration="25255000" />
+      <workItem from="1569761823074" duration="23770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197670000" />
+    <option name="totallyTimeSpent" value="221440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="23" width="1349" height="872" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37719968" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.38255548" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.47015476" weight="0.32692307" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4682479" weight="0.20769231" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.46748278" weight="0.20769231" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7390972" weight="0.5782051" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5317521" side_tool="true" visible="true" weight="0.20769231" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5325172" side_tool="true" visible="true" weight="0.20769231" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -2567,7 +2568,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1569700188445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1569804196447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers_desc.json">
@@ -2917,8 +2918,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1353">
-          <caret line="44017" column="27" selection-start-line="44017" selection-start-column="27" selection-end-line="44017" selection-end-column="27" />
+        <state relative-caret-position="676">
+          <caret line="41169" column="3" selection-start-line="41169" selection-start-column="3" selection-end-line="41169" selection-end-column="3" />
         </state>
       </provider>
     </entry>
