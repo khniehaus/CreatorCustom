@@ -1,40 +1,27 @@
-#!/usr/bin/python2.7
+# !/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
 """
 Modifier taskview
-
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Glynn Clements, Jonas Hauquier
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 Common taskview for managing modifier sliders
 """
 
@@ -51,6 +38,7 @@ from collections import OrderedDict
 import language
 
 oTest = False
+
 
 class ModifierTaskView(gui3d.TaskView):
     def __init__(self, category, name, label=None, saveName=None, cameraView=None):
@@ -70,7 +58,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.sliders = []
         self.modifiers = {}
 
-        #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
+        self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
         self.groupBox = self.addLeftWidget(gui.StackedBox())
         self.box2 = self.addLeftWidget(gui.GroupBox('Detail'))
 
@@ -94,13 +82,10 @@ class ModifierTaskView(gui3d.TaskView):
             box = self.groupBoxes[categoryName]
 
         # Add slider to groupbox
-        #self.modifiers[slider.modifier.fullName] = slider.modifier
-        #box.setCurrentIndex(0)
-        butt = gui.Button(sliderCategory)
-        box.addWidget(butt)
-
-        #slider.enabledCondition = enabledCondition
-        #self.sliders.append(slider)
+        self.modifiers[slider.modifier.fullName] = slider.modifier
+        box.addWidget(slider)
+        slider.enabledCondition = enabledCondition
+        self.sliders.append(slider)
 
     # def boxMode(self):
     #     # We make the first one selected
@@ -130,7 +115,6 @@ class ModifierTaskView(gui3d.TaskView):
     #         self.aRadioButtonLabel1.setText('Low is not selected')
     #         self.aRadioButtonLabel3.setText('High is selected')
 
-
     def updateMacro(self):
         self.human.updateMacroModifiers()
 
@@ -149,7 +133,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
-        #self.boxMode()
+        # self.boxMode()
 
     def syncSliders(self):
         for slider in self.sliders:
@@ -164,7 +148,7 @@ class ModifierTaskView(gui3d.TaskView):
 
         if self.name == "Macro modelling":
             pass
-            #self.setStatus('')
+            # self.setStatus('')
 
     def onHumanChanged(self, event):
         # Update sliders to modifier values
@@ -233,7 +217,7 @@ class GroupBoxRadioButton(gui.RadioButton):
         else:
             oTest = False
         return oTest
-        #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
+        # self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
 
 
 def _getCamFunc(cameraName):
@@ -244,7 +228,6 @@ def _getCamFunc(cameraName):
         return "set" + cameraName.upper()[0] + cameraName[1:]
     else:
         return None
-
 
 
 def loadModifierTaskViews(filename, human, category, taskviewClass=None):
@@ -274,7 +257,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 modifierName = sDef['mod']
                 modifier = human.getModifier(modifierName)
                 label = sDef.get('label', None)
-                camFunc = _getCamFunc( sDef.get('cam', None) )
+                camFunc = _getCamFunc(sDef.get('cam', None))
                 slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
                 enabledCondition = sDef.get("enabledCondition", None)
                 taskView.addSlider(sliderCategory, slider, enabledCondition)

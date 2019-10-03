@@ -135,7 +135,7 @@ class ModifierSlider(gui.Slider):
             if self.modifier == human.shoulderlMod:
                 value = vVal
             if self.modifier == human.upArmlMod:
-                value = bVal
+                value = vVal
         # if self.modifier in self.modifier.:
         #     return
         value = value
