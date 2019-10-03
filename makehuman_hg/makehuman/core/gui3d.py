@@ -91,7 +91,7 @@ class MouAction(events3d.MouseEvent):
     def aVar(self):
         newY = self.y  # y value
 
-        mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (250.0 - 1.0)) + 1.0  # map range to 'slider' range
+        mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (50.0 - 1.0)) + 1.0  # map range to 'slider' range
         # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
         #sVal = 1.0 + ((mapVal - 1.0) * (1.0 - -1.0) / (-1.0 - 1.0))
         # self.umOk.appendleft(sVal)
@@ -281,13 +281,14 @@ class View(events3d.EventHandler):
         modifier1 = human.gMod #instance of global from human class for modifier category
         modifier2 = human.wMod
         modifier3 = human.shoulderlMod
-        #modifier4 = human.upArmlMod
-        colVal = sCheck
+        modifier4 = human.upArmlMod
+        picked = mh.getPickedColor()
+        colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
         #print modifier1 #modifier2 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
         smallManipTest = modifierslider.ModifierSlider(modifier3)
-        #smallArm2 = modifierslider.ModifierSlider(modifier4)
+        smallArm2 = modifierslider.ModifierSlider(modifier4)
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -318,17 +319,18 @@ class View(events3d.EventHandler):
 
         dmVal = dmVal
         amVal = amVal
+        vrVal = vrVal
 
-        if colVal == (56, 0, 0):
+        if colVal == (176, 0, 0):
             smallManipTest.onChanging(vrVal)
             smallManipTest.onChange(vrVal)
             smallManipTest.update()
-        # if sCheck == (224, 0, 0) or (176, 0, 0):
-        #     smallArm2.onChanging(vrVal)
-        #     smallArm2.onChange(vrVal)
-        #     smallArm2.update()
-        # else:
-        #     pass
+        if sCheck == (192, 0, 0):
+            smallArm2.onChanging(vrVal)
+            smallArm2.onChange(vrVal)
+            smallArm2.update()
+        else:
+            pass
         #if y >= 100 & y <= 200:
 
         directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
@@ -579,12 +581,12 @@ class Application(events3d.EventHandler):
         print "picked color:", picked
         return selection.selectionColorMap.getSelectedFaceGroup(picked)
 
-    def getChanger(self):
-        global sCheck
-        picked = mh.getPickedColor()
-
-        sCheck = picked
-        return sCheck
+    # def getChanger(self):
+    #     global sCheck
+    #     picked = mh.getSelectedFaceGroup()
+    #
+    #     sCheck = picked
+    #     return sCheck
 
     def addCategory(self, category, sortOrder = None):
         if category.name in self.categories:
@@ -781,7 +783,7 @@ class Application(events3d.EventHandler):
                     self.enteredObject.callEvent('onMouseExited', event)
                 self.enteredObject = object
                 self.enteredObject.callEvent('onMouseEntered', event)
-                self.getChanger()
+                #self.getChanger()
             if object != self:
                 object.callEvent('onMouseMoved', event)
             elif self.currentTask:
