@@ -127,15 +127,19 @@ class ModifierSlider(gui.Slider):
                 value = wVal
             if self.modifier == human.gMod:
                 value = nVal
-            # if self.changing is not None:
-            # # Avoid concurrent updates
-            #     self.changing = value
-            #     return
+            if self.changing is not None:
+            # Avoid concurrent updates
+                self.changing = value
+                return
         if oTest1 == True:
             if self.modifier == human.shoulderlMod:
                 value = vVal
             if self.modifier == human.upArmlMod:
-                value = vVal
+                value = bVal
+            if self.changing is not None:
+            # Avoid concurrent updates
+                self.changing = value
+                return
         # if self.modifier in self.modifier.:
         #     return
         value = value

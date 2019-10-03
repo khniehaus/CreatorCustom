@@ -91,21 +91,23 @@ class MouAction(events3d.MouseEvent):
     def aVar(self):
         newY = self.y  # y value
 
-        mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (50.0 - 1.0)) + 1.0  # map range to 'slider' range
-        # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        #sVal = 1.0 + ((mapVal - 1.0) * (1.0 - -1.0) / (-1.0 - 1.0))
-        # self.umOk.appendleft(sVal)
-        sVal = mapVal
+        window = QtGui.QWidget()
+        height = window.frameGeometry().height()
+
+        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / ((height/2) - 0.0)) + -1.0  # map range to 'slider' range
+            # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
+        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 1.0) / (1.0 - -1.0))
+
+        sVal = sVal
         print sVal
         # print self.umOk
         return sVal
 
     def wiVar(self):
-        newY = self.y
+        newX = self.x
 
-        mapVal = (((newY - -1.0) * (-1.0 - 1.0)) / (10.0 - 1.0)) + 1.0
-
-        sVal = mapVal
+        mapVal = (((newX - 0.0) * (10.0 - -1.0)) / (800.0 - 0.0)) + -1.0  # map range to 'slider' range
+        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 1.0) / (1.0 - -1.0))
         return sVal
 
 class View(events3d.EventHandler):
@@ -118,6 +120,7 @@ class View(events3d.EventHandler):
     umOk = collections.deque([0,0,0,0], maxlen=4)
     soOk = collections.deque([0,0,0,0], maxlen=4)
     yoOk = collections.deque([0,0,0,0], maxlen=4)
+    FoOk = collections.deque([0,0,0,0], maxlen=4)
 
     def __init__(self):
 
@@ -282,8 +285,9 @@ class View(events3d.EventHandler):
         modifier2 = human.wMod
         modifier3 = human.shoulderlMod
         modifier4 = human.upArmlMod
-        picked = mh.getPickedColor()
-        colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
+        # picked = mh.getPickedColor()
+        # colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
+        colVal = sCheck
         #print modifier1 #modifier2 # print to make sure it's the right one
         directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
         secondManipTest = modifierslider.ModifierSlider(modifier2)
@@ -297,12 +301,14 @@ class View(events3d.EventHandler):
         dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         amVal1 = MouAction.nVar(mouseAction)
         vVal1 = MouAction.aVar(mouseAction)
+        cVal1 = MouAction.wiVar(mouseAction)
 
         print "color is", colVal
 
         self.umOk.appendleft(dmVal1)
         self.soOk.appendleft(amVal1)
         self.yoOk.appendleft(vVal1)
+        self.FoOk.appendleft(cVal1)
         if self.umOk[0] >= self.umOk[3]:
             dmVal = -(self.umOk[0] - self.umOk[3])
         elif self.umOk[0] < self.umOk[3]:
@@ -316,21 +322,27 @@ class View(events3d.EventHandler):
             vrVal = self.yoOk[0] - self.yoOk[3]
         elif self.yoOk[0] < self.yoOk[3]:
             vrVal = -(self.yoOk[0] - self.yoOk[3])
+        if self.FoOk[0] >= self.FoOk[3]:
+            cmVal = -(self.FoOk[0] - self.FoOk[3])
+        elif self.FoOk[0] < self.FoOk[3]:
+            cmVal = self.FoOk[3] - self.FoOk[0]
+
 
         dmVal = dmVal
         amVal = amVal
         vrVal = vrVal
+        cmVal = cmVal
 
         if colVal == (176, 0, 0):
             smallManipTest.onChanging(vrVal)
             smallManipTest.onChange(vrVal)
             smallManipTest.update()
-        if sCheck == (192, 0, 0):
-            smallArm2.onChanging(vrVal)
-            smallArm2.onChange(vrVal)
+        if colVal == (192, 0, 0):
+            smallArm2.onChanging(cmVal)
+            smallArm2.onChange(cmVal)
             smallArm2.update()
-        else:
-            pass
+        # else:
+        #     pass
         #if y >= 100 & y <= 200:
 
         directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
@@ -347,7 +359,7 @@ class View(events3d.EventHandler):
         #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
         #humanmodifier.MouAction.nVar(mouseAction)
 
-        return uniVal, mouseAction, dmVal, amVal, vrVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, mouseAction, dmVal, amVal, vrVal, cmVal #return mouse call and new 'slider' val based on mouse
 
 
     def onMouseUp(self, event):
@@ -581,12 +593,12 @@ class Application(events3d.EventHandler):
         print "picked color:", picked
         return selection.selectionColorMap.getSelectedFaceGroup(picked)
 
-    # def getChanger(self):
-    #     global sCheck
-    #     picked = mh.getSelectedFaceGroup()
-    #
-    #     sCheck = picked
-    #     return sCheck
+    def getChanger(self):
+        global sCheck
+        picked = mh.getPickedColor()
+
+        sCheck = picked
+        return sCheck
 
     def addCategory(self, category, sortOrder = None):
         if category.name in self.categories:
@@ -783,7 +795,7 @@ class Application(events3d.EventHandler):
                     self.enteredObject.callEvent('onMouseExited', event)
                 self.enteredObject = object
                 self.enteredObject.callEvent('onMouseEntered', event)
-                #self.getChanger()
+                self.getChanger()
             if object != self:
                 object.callEvent('onMouseMoved', event)
             elif self.currentTask:

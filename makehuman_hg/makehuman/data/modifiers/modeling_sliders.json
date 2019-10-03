@@ -1,20 +1,70 @@
+
 {
-  "Macro modelling": {
-    "label": "Main",
+    "Medium": {
+    "sortOrder": 0.1,
+    "modifiers": {
+      "Medium": [
+          {"mod": "breast/BreastSize", "label": "Breast size"},
+          {"mod": "breast/BreastFirmness", "label": "Breast firmness"},
+          {"mod": "breast/breast-trans-down|up", "label": "Vertical position"},
+          {"mod": "breast/breast-dist-decr|incr", "label": "Horizontal distance"},
+          {"mod": "torso/torso-scale-depth-decr|incr", "cam": "leftView", "label": "Scale depth"},
+          {"mod": "torso/torso-scale-horiz-decr|incr", "cam": "globalCamera", "label": "Scale horizontally"},
+          {"mod": "torso/torso-scale-vert-decr|incr", "cam": "globalCamera", "label": "Scale vertically"},
+          {"mod": "torso/torso-trans-in|out", "cam": "globalCamera", "label": "Move horizontally"},
+          {"mod": "torso/torso-trans-down|up", "cam": "globalCamera", "label": "Move vertically"},
+          {"mod": "torso/torso-trans-backward|forward", "cam": "leftView", "label": "Move depth"},
+          {"mod": "torso/torso-vshape-decr|incr", "cam": "globalCamera", "label": "Scale cone-shape"},
+          {"mod": "torso/torso-muscle-dorsi-decr|incr", "cam": "globalCamera", "label": "Dorsi muscle"},
+          {"mod": "torso/torso-muscle-pectoral-decr|incr", "cam": "globalCamera", "label": "Pectoral muscle"},
+          {"mod": "hip/hip-scale-depth-decr|incr", "cam": "globalCamera", "label": "Scale depth"},
+          {"mod": "hip/hip-scale-horiz-decr|incr", "cam": "globalCamera", "label": "Scale horizontally"},
+          {"mod": "hip/hip-scale-vert-decr|incr", "cam": "globalCamera", "label": "Scale vertically"},
+          {"mod": "hip/hip-trans-in|out", "cam": "globalCamera", "label": "Move horizontally"},
+          {"mod": "hip/hip-trans-down|up", "cam": "globalCamera", "label": "Move vertically"},
+          {"mod": "hip/hip-trans-backward|forward", "cam": "globalCamera", "label": "Move depth"},
+          {"mod": "hip/hip-waist-down|up", "cam": "globalCamera", "label": "Waist vertical position"},
+          {"mod": "stomach/stomach-tone-decr|incr", "cam": "globalCamera", "label": "Muscular tone"},
+          {"mod": "stomach/stomach-pregnant-decr|incr", "cam": "globalCamera", "label": "Pregnancy shape"},
+          {"mod": "buttocks/buttocks-volume-decr|incr", "cam": "globalCamera", "label": "Buttocks volume"},
+          {"mod": "pelvis/pelvis-tone-decr|incr", "cam": "globalCamera", "label": "Pelvis muscular tone"},
+          {"mod": "armslegs/upperlegs-height-decr|incr", "label": "Upperlegs Length"},
+          {"mod": "armslegs/lowerlegs-height-decr|incr", "label": "Lowerlegs Length"},
+          {"mod": "armslegs/l-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
+          {"mod": "armslegs/r-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
+          {"mod": "armslegs/l-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"},
+          {"mod": "armslegs/r-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"}
+        ]
+    }
+  },
+
+    "High": {
+    "sortOrder": 0.2,
+    "modifiers":{
+        "High": [
+          {"mod": "breast/breast-point-decr|incr", "label": "Pointiness"},
+          {"mod": "breast/breast-volume-vert-down|up", "label": "Breast Volume"},
+          {"mod": "breast/nipple-size-decr|incr", "label": "Nipple size"},
+          {"mod": "breast/nipple-point-decr|incr", "label": "Nipple point"},
+          {"mod": "stomach/stomach-navel-in|out", "cam": "globalCamera", "label": "Navel bump"},
+          {"mod": "stomach/stomach-navel-down|up", "cam": "globalCamera", "label": "Navel position"},
+          {"mod": "pelvis/bulge-decr|incr", "cam": "globalCamera", "label": "Genital volume"}
+        ]
+    }
+  },
+
+  "Low": {
     "sortOrder": 0,
-    "showMacroStats": true,
     "modifiers": {
       "Low": [
           {"mod": "macrodetails-height/Height", "label": "Height"},
-          {"mod": "macrodetails-universal/Weight", "label": "Weight"}
-        ],
-      "Medium":[
-        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"},
-        {"mod": "armslegs/upperlegs-height-decr|incr", "label": "Upperlegs Length"},
-        {"mod": "armslegs/lowerlegs-height-decr|incr", "label": "Lowerlegs Length"},
-        {"mod": "armslegs/l-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
-        {"mod": "armslegs/r-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
-        {"mod": "armslegs/l-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"}
+          {"mod": "macrodetails-universal/Weight", "label": "Weight"},
+          {"mod": "macrodetails/Gender", "label": "Gender"},
+          {"mod": "macrodetails/Age", "label": "Age"},
+          {"mod": "macrodetails-universal/Muscle", "label": "Muscle"}
+      ],
+      "Medium": [
+        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"}
       ]
     }
   }

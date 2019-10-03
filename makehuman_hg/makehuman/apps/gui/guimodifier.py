@@ -1,4 +1,4 @@
-# !/usr/bin/python2.7
+#!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
 """
@@ -39,7 +39,6 @@ import language
 
 oTest = False
 
-
 class ModifierTaskView(gui3d.TaskView):
     def __init__(self, category, name, label=None, saveName=None, cameraView=None):
         if label is None:
@@ -58,7 +57,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.sliders = []
         self.modifiers = {}
 
-        self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
+        #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
         self.groupBox = self.addLeftWidget(gui.StackedBox())
         self.box2 = self.addLeftWidget(gui.GroupBox('Detail'))
 
@@ -82,10 +81,13 @@ class ModifierTaskView(gui3d.TaskView):
             box = self.groupBoxes[categoryName]
 
         # Add slider to groupbox
-        self.modifiers[slider.modifier.fullName] = slider.modifier
-        box.addWidget(slider)
-        slider.enabledCondition = enabledCondition
-        self.sliders.append(slider)
+        #self.modifiers[slider.modifier.fullName] = slider.modifier
+        #box.setCurrentIndex(0)
+        butt = gui.Button(sliderCategory)
+        box.addWidget(butt)
+
+        #slider.enabledCondition = enabledCondition
+        #self.sliders.append(slider)
 
     # def boxMode(self):
     #     # We make the first one selected
@@ -115,6 +117,7 @@ class ModifierTaskView(gui3d.TaskView):
     #         self.aRadioButtonLabel1.setText('Low is not selected')
     #         self.aRadioButtonLabel3.setText('High is selected')
 
+
     def updateMacro(self):
         self.human.updateMacroModifiers()
 
@@ -133,7 +136,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
-        # self.boxMode()
+        #self.boxMode()
 
     def syncSliders(self):
         for slider in self.sliders:
@@ -148,7 +151,7 @@ class ModifierTaskView(gui3d.TaskView):
 
         if self.name == "Macro modelling":
             pass
-            # self.setStatus('')
+            #self.setStatus('')
 
     def onHumanChanged(self, event):
         # Update sliders to modifier values
@@ -217,7 +220,7 @@ class GroupBoxRadioButton(gui.RadioButton):
         else:
             oTest = False
         return oTest
-        # self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
+        #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
 
 
 def _getCamFunc(cameraName):
@@ -228,6 +231,7 @@ def _getCamFunc(cameraName):
         return "set" + cameraName.upper()[0] + cameraName[1:]
     else:
         return None
+
 
 
 def loadModifierTaskViews(filename, human, category, taskviewClass=None):
@@ -257,7 +261,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 modifierName = sDef['mod']
                 modifier = human.getModifier(modifierName)
                 label = sDef.get('label', None)
-                camFunc = _getCamFunc(sDef.get('cam', None))
+                camFunc = _getCamFunc( sDef.get('cam', None) )
                 slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
                 enabledCondition = sDef.get("enabledCondition", None)
                 taskView.addSlider(sliderCategory, slider, enabledCondition)
