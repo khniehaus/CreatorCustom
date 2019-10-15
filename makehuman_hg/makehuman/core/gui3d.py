@@ -273,7 +273,7 @@ class View(events3d.EventHandler):
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
         #self.parent.callEvent('sliderMousePressEvent', event)
-        global dval, mVal, vVal
+        global dval, mVal, vVal, app
 
         print "it's me, your slider"
         y = event.y #mouse y
@@ -285,6 +285,8 @@ class View(events3d.EventHandler):
         modifier2 = human.wMod
         modifier3 = human.shoulderlMod
         modifier4 = human.upArmlMod
+
+        print modifier3.facegroup
         # picked = mh.getPickedColor()
         # colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
         colVal = sCheck
@@ -293,6 +295,10 @@ class View(events3d.EventHandler):
         secondManipTest = modifierslider.ModifierSlider(modifier2)
         smallManipTest = modifierslider.ModifierSlider(modifier3)
         smallArm2 = modifierslider.ModifierSlider(modifier4)
+
+        faceGroupLookup = {}
+        faceGroupLookup["right-shoulder"] = smallManipTest
+        faceGroupLookup["right-arm-upper"] = smallArm2
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -333,14 +339,21 @@ class View(events3d.EventHandler):
         vrVal = vrVal
         cmVal = cmVal
 
-        if colVal == (176, 0, 0):
-            smallManipTest.onChanging(vrVal)
-            smallManipTest.onChange(vrVal)
-            smallManipTest.update()
-        if colVal == (192, 0, 0):
-            smallArm2.onChanging(cmVal)
-            smallArm2.onChange(cmVal)
-            smallArm2.update()
+        print ("parent", app)
+        print ("facegroup ", app.selectedFaceGroup)
+
+        faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
+        faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
+        faceGroupLookup[app.selectedFaceGroup].update()
+
+        # if colVal == (176, 0, 0):
+        #     smallManipTest.onChanging(vrVal)
+        #     smallManipTest.onChange(vrVal)
+        #     smallManipTest.update()
+        # if colVal == (192, 0, 0):
+        #     smallArm2.onChanging(cmVal)
+        #     smallArm2.onChange(cmVal)
+        #     smallArm2.update()
         # else:
         #     pass
         #if y >= 100 & y <= 200:
@@ -447,6 +460,7 @@ class Category(View):
         self.task = None
         self.sortOrder = None
 
+
     def _taskTab(self, task):
         if task.tab is None:
             task.tab = self.tabs.addTab(task.name, task.label or task.name, self.tasks.index(task))
@@ -513,6 +527,7 @@ class Application(events3d.EventHandler):
         self.mouseDownObject = None
         self.enteredObject = None
         self.fullscreen = False
+        self.selectedFaceGroup = None
 
         self.tabs = None    # Assigned in mhmain.py
 
@@ -590,7 +605,7 @@ class Application(events3d.EventHandler):
 
     def getSelectedFaceGroup(self):
         picked = mh.getPickedColor()
-        print "picked color:", picked
+        #print "picked color:", picked
         return selection.selectionColorMap.getSelectedFaceGroup(picked)
 
     def getChanger(self):
@@ -718,6 +733,7 @@ class Application(events3d.EventHandler):
     def onMouseDownCallback(self, event):
         # Get picked object
         pickedObject = self.getSelectedFaceGroupAndObject()
+        fg = self.getSelectedFaceGroup()
 
         # Do not allow picking detached objects (in case of stale picking buffer)
         if pickedObject and hasattr(pickedObject, 'view') and not pickedObject.view:
@@ -727,6 +743,12 @@ class Application(events3d.EventHandler):
             object = pickedObject[1].object
         else:
             object = self
+
+        if fg == None:
+            self.selectedFaceGroup = None
+        else:
+            self.selectedFaceGroup = fg.name
+        print "facegroup is 2:(" + fg.name + ")"
 
         # It is the object which will receive the following mouse messages
         self.mouseDownObject = object
@@ -776,7 +798,7 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
-        print "facegroup is:", ugh
+        print "facegroup is:("+ ugh.name+ ")"
         event.object = object
         event.group = group
 
@@ -795,6 +817,7 @@ class Application(events3d.EventHandler):
                     self.enteredObject.callEvent('onMouseExited', event)
                 self.enteredObject = object
                 self.enteredObject.callEvent('onMouseEntered', event)
+
                 self.getChanger()
             if object != self:
                 object.callEvent('onMouseMoved', event)
