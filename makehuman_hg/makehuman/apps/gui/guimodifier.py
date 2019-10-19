@@ -27,6 +27,7 @@ Common taskview for managing modifier sliders
 
 import gui
 import gui3d
+import mh
 import qtgui
 import humanmodifier
 import modifierslider
@@ -58,8 +59,17 @@ class ModifierTaskView(gui3d.TaskView):
         self.modifiers = {}
 
         #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
-        self.groupBox = self.addLeftWidget(gui.StackedBox())
-        self.box2 = self.addLeftWidget(gui.GroupBox('Detail'))
+        self.groupBox = self.addRightWidget(gui.StackedBox())
+        self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
+
+        #self.newAct = qtgui.Actions()
+
+        #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
+
+        self.toolbar = mh.addToolBar('Fuck You')
+        #self.toolbar.addAction(self.newAct.frick)
+
+        self.boxBox = self.addLeftWidget(self.toolbar)
 
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
@@ -122,6 +132,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.human.updateMacroModifiers()
 
     def getModifiers(self):
+        print self.modifiers
         return self.modifiers
 
     def onShow(self, event):

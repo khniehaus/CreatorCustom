@@ -286,7 +286,7 @@ class View(events3d.EventHandler):
         modifier3 = human.shoulderlMod
         modifier4 = human.upArmlMod
 
-        print modifier3.facegroup
+        #print modifier3.facegroup
         # picked = mh.getPickedColor()
         # colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
         colVal = sCheck
@@ -340,7 +340,7 @@ class View(events3d.EventHandler):
         cmVal = cmVal
 
         print ("parent", app)
-        print ("facegroup ", app.selectedFaceGroup)
+        print ("facegroup", app.selectedFaceGroup)
 
         faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
         faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
