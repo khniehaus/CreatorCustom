@@ -37,6 +37,7 @@ from core import G
 import log
 from collections import OrderedDict
 import language
+from PyQt4 import QtCore
 
 oTest = False
 
@@ -66,8 +67,10 @@ class ModifierTaskView(gui3d.TaskView):
 
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
 
-        self.toolbar = mh.addToolBar('Fuck You')
+        self.toolbar = mh.addToolBar('Modelling')
         #self.toolbar.addAction(self.newAct.frick)
+
+        self.toolbar.setOrientation(QtCore.Qt.Vertical)
 
         self.boxBox = self.addLeftWidget(self.toolbar)
 
@@ -95,6 +98,48 @@ class ModifierTaskView(gui3d.TaskView):
         #box.setCurrentIndex(0)
         butt = gui.Button(sliderCategory)
         box.addWidget(butt)
+
+    def mod1(self):
+        pass
+
+    def mod2(self):
+        pass
+
+    def mod3(self):
+        pass
+
+    def mod4(self):
+        pass
+
+    def mod5(self):
+        pass
+
+    def mod6(self):
+        pass
+
+    def mod7(self):
+        pass
+
+    def mod8(self):
+        pass
+
+    def createActs(self):
+
+        self.actions = gui.Actions()
+
+        def action(*args, **kwargs):
+            action = gui.Action(*args, **kwargs)
+            self.toolbar.addAction(action)
+            return action
+
+        self.actions.mod1 = action('modifier 1', gui.getLanguageString('Modifier 1'), self.mod1())
+        self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
+        self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
+        self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
+        self.actions.mod5 = action('modifier 5', gui.getLanguageString('Modifier 5'), self.mod5())
+        self.actions.mod6 = action('modifier 6', gui.getLanguageString('Modifier 6'), self.mod6())
+        self.actions.mod7 = action('modifier 7', gui.getLanguageString('Modifier 7'), self.mod7())
+        self.actions.mod8 = action('modifier 8', gui.getLanguageString('Modifier 8'), self.mod8())
 
         #slider.enabledCondition = enabledCondition
         #self.sliders.append(slider)
@@ -147,6 +192,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
+        self.createActs()
         #self.boxMode()
 
     def syncSliders(self):
@@ -266,6 +312,8 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         taskView.showMacroStats = taskViewProps.get('showMacroStats', None)
         category.addTask(taskView)
 
+        #taskView.createActs()
+
         # Create sliders
         for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
             for sDef in sliderDefs:
@@ -276,6 +324,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
                 enabledCondition = sDef.get("enabledCondition", None)
                 taskView.addSlider(sliderCategory, slider, enabledCondition)
+
 
         if taskView.saveName is not None:
             gui3d.app.addLoadHandler(taskView.saveName, taskView.loadHandler)
