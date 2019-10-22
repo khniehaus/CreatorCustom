@@ -27,7 +27,6 @@ Importing this module loads OpenGL dependencies.
 """
 
 import weakref
-
 import events3d
 import module3d
 import humanmodifier
@@ -281,24 +280,33 @@ class View(events3d.EventHandler):
 
         global uniVal
         #mehah = bleh.rayCast()
-        modifier1 = human.gMod #instance of global from human class for modifier category
-        modifier2 = human.wMod
-        modifier3 = human.shoulderlMod
-        modifier4 = human.upArmlMod
+        # modifier1 = human.gMod #instance of global from human class for modifier category
+        # modifier2 = human.wMod
+        # modifier3 = human.shoulderlMod
+        # modifier4 = human.upArmlMod
+
+        faceGroupLookup = {}
+
+        print "App: ", mhmain.G.app.selectedHuman
+
+        for modifier in mhmain.G.app.selectedHuman.modifiers:
+            print modifier.fullName
+            if modifier.faceGroup != None:
+                sliderTest = modifierslider.ModifierSlider(modifier)
+                faceGroupLookup[modifier.faceGroup] = sliderTest
+            print "hello", modifier.faceGroup
+
 
         #print modifier3.facegroup
         # picked = mh.getPickedColor()
         # colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
         colVal = sCheck
         #print modifier1 #modifier2 # print to make sure it's the right one
-        directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
-        secondManipTest = modifierslider.ModifierSlider(modifier2)
-        smallManipTest = modifierslider.ModifierSlider(modifier3)
-        smallArm2 = modifierslider.ModifierSlider(modifier4)
+        # directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
+        # secondManipTest = modifierslider.ModifierSlider(modifier2)
+        # smallArm2 = modifierslider.ModifierSlider(modifier4)
 
-        faceGroupLookup = {}
-        faceGroupLookup["right-shoulder"] = smallManipTest
-        faceGroupLookup["right-arm-upper"] = smallArm2
+        #faceGroupLookup["right-arm-upper"] = smallArm2
 
 
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
@@ -309,7 +317,7 @@ class View(events3d.EventHandler):
         vVal1 = MouAction.aVar(mouseAction)
         cVal1 = MouAction.wiVar(mouseAction)
 
-        print "color is", colVal
+        #print "color is", colVal
 
         self.umOk.appendleft(dmVal1)
         self.soOk.appendleft(amVal1)
@@ -342,9 +350,11 @@ class View(events3d.EventHandler):
         print ("parent", app)
         print ("facegroup", app.selectedFaceGroup)
 
-        faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
-        faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
-        faceGroupLookup[app.selectedFaceGroup].update()
+        if faceGroupLookup.has_key(app.selectedFaceGroup):
+
+            faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
+            faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
+            faceGroupLookup[app.selectedFaceGroup].update()
 
         # if colVal == (176, 0, 0):
         #     smallManipTest.onChanging(vrVal)
@@ -358,12 +368,12 @@ class View(events3d.EventHandler):
         #     pass
         #if y >= 100 & y <= 200:
 
-        directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
-        directManipTest.onChange(amVal) #change val of slider based on new slider value variable (both required)
-        directManipTest.update()
-        secondManipTest.onChanging(dmVal)
-        secondManipTest.onChange(dmVal)
-        secondManipTest.update()
+        # directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
+        # directManipTest.onChange(amVal) #change val of slider based on new slider value variable (both required)
+        # directManipTest.update()
+        # secondManipTest.onChanging(dmVal)
+        # secondManipTest.onChange(dmVal)
+        # secondManipTest.update()
         uniVal = dmVal
 
         #directManipTest.update()
@@ -786,7 +796,7 @@ class Application(events3d.EventHandler):
         # Get picked object
 
         picked = self.getSelectedFaceGroupAndObject()
-        #ugh = self.getSelectedFaceGroup()
+        ugh = self.getSelectedFaceGroup()
 
         # Do not allow picking detached objects (in case of stale picking buffer)
         if picked and hasattr(picked, 'view') and not picked.view:
@@ -798,7 +808,7 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
-        #print "facegroup is:("+ ugh.name+ ")"
+        print "facegroup is:("+ ugh.name+ ")"
         event.object = object
         event.group = group
 
