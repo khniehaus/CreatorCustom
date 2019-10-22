@@ -177,7 +177,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.human.updateMacroModifiers()
 
     def getModifiers(self):
-        print self.modifiers
+        #print self.modifiers
         return self.modifiers
 
     def onShow(self, event):
