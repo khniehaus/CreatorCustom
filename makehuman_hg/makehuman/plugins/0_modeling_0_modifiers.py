@@ -46,6 +46,7 @@ def load(app):
     category = app.getCategory('Modelling')
 
     humanmodifier.loadModifiers(getpath.getSysDataPath('modifiers/modeling_modifiers.json'), app.selectedHuman)
+    #guimodifier.loadModifierTaskViews(getpath.getSysDataPath('modifiers/modeling_modifiers.json'), app.selectedHuman, category)
     guimodifier.loadModifierTaskViews(getpath.getSysDataPath('modifiers/modeling_sliders.json'), app.selectedHuman, category)
 
 def unload(app):
