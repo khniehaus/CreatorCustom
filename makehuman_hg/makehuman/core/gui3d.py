@@ -131,6 +131,18 @@ class View(events3d.EventHandler):
         self._attached = False
         self.widgets = []
 
+        self.faceGroupLookup = {}
+
+        print "App: ", mhmain.G.app.selectedHuman
+
+        for modifier in mhmain.G.app.selectedHuman.modifiers:
+            print modifier.fullName
+            if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
+                sliderTest = modifierslider.ModifierSlider(modifier)
+                self.faceGroupLookup[modifier.faceGroup] = sliderTest
+                print "hello", modifier.faceGroup
+                #put randomizer here!!! (at least try according to Marco)
+
     @property
     def parent(self):
         if self._parent:
@@ -285,16 +297,7 @@ class View(events3d.EventHandler):
         # modifier3 = human.shoulderlMod
         # modifier4 = human.upArmlMod
 
-        faceGroupLookup = {}
 
-        print "App: ", mhmain.G.app.selectedHuman
-
-        for modifier in mhmain.G.app.selectedHuman.modifiers:
-            print modifier.fullName
-            if modifier.faceGroup != None:
-                sliderTest = modifierslider.ModifierSlider(modifier)
-                faceGroupLookup[modifier.faceGroup] = sliderTest
-            print "hello", modifier.faceGroup
 
 
         #print modifier3.facegroup
@@ -350,11 +353,11 @@ class View(events3d.EventHandler):
         print ("parent", app)
         print ("facegroup", app.selectedFaceGroup)
 
-        if faceGroupLookup.has_key(app.selectedFaceGroup):
-
-            faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
-            faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
-            faceGroupLookup[app.selectedFaceGroup].update()
+        if self.faceGroupLookup.has_key(app.selectedFaceGroup):
+            print("vrVal", vrVal)
+            self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
+            self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
+            self.faceGroupLookup[app.selectedFaceGroup].update()
 
         # if colVal == (176, 0, 0):
         #     smallManipTest.onChanging(vrVal)

@@ -109,6 +109,8 @@ class ModifierSlider(gui.Slider):
         import guimodifier
         #import module3d
 
+        print("value ", value)
+
         oTest1 = guimodifier.oTest
         #bleh = module3d.object3d()
         mPos = qtui.gg_mouse_pos
@@ -121,7 +123,7 @@ class ModifierSlider(gui.Slider):
         wVal = transVar.nVar()
         vVal = transVar.aVar()
         bVal = transVar.wiVar()
-        value = 0.5
+        #value = 0.5
         if oTest1 == False:
             if self.modifier == human.wMod:
                 value = wVal
@@ -135,15 +137,15 @@ class ModifierSlider(gui.Slider):
             if self.modifier == human.shoulderlMod:
                 value = vVal
             if self.modifier == human.upArmlMod:
-                value = bVal
+                value = vVal
             if self.changing is not None:
             # Avoid concurrent updates
                 self.changing = value
                 return
         # if self.modifier in self.modifier.:
         #     return
-        value = value
-        self.changing = value
+        value = vVal #value
+        self.changing = vVal #value
         print "Category T/F:", oTest1
         G.app.callAsync(self._onChanging)
 
@@ -165,7 +167,9 @@ class ModifierSlider(gui.Slider):
             self.modifier.updateValue(value, G.app.getSetting('realtimeNormalUpdates'))
             human.updateProxyMesh(fit_to_posed=True, fast=True)
 
+        print "self.value", self.value
         self.value = value
+        print "self.value", self.value
 
 
     def onChange(self, value):

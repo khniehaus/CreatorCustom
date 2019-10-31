@@ -498,6 +498,8 @@ class UniversalModifier(ManagedTargetModifier):
             self.right = self.targetName
             self.center = None
             name = targetName
+        print("name ", self.targetName)
+        print("facegroup ", faceGroup)
         self.faceGroup = faceGroup
 
         super(UniversalModifier, self).__init__(groupName, name)

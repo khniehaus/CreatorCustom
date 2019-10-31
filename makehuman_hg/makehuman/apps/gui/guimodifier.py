@@ -96,8 +96,8 @@ class ModifierTaskView(gui3d.TaskView):
         # Add slider to groupbox
         #self.modifiers[slider.modifier.fullName] = slider.modifier
         #box.setCurrentIndex(0)
-        butt = gui.Button(sliderCategory)
-        box.addWidget(butt)
+        #butt = gui.Button(sliderCategory)
+        #box.addWidget(butt)
 
     def mod1(self):
         pass

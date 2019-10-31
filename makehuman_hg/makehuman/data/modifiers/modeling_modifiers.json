@@ -276,7 +276,7 @@
 
         {"target": "r-lowerarm-scale-depth", "min": "decr", "max": "incr"},
         {"target": "r-lowerarm-scale-horiz", "min": "decr", "max": "incr"},
-        {"target": "r-lowerarm-scale-vert", "min": "decr", "max": "incr"},
+        {"target": "r-lowerarm-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-arm-lower"},
         {"target": "r-lowerarm-fat", "min": "decr", "max": "incr"},
         {"target": "r-lowerarm-muscle", "min": "decr", "max": "incr"},
         {"target": "r-upperarm-scale-depth", "min": "decr", "max": "incr"},
