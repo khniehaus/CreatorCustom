@@ -2051,8 +2051,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="53219" column="17" selection-start-line="53219" selection-start-column="17" selection-end-line="53219" selection-end-column="17" />
+            <state relative-caret-position="-1165">
+              <caret line="53953" column="11" selection-start-line="53953" selection-start-column="4" selection-end-line="53953" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -2167,22 +2167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lower</find>
-      <find>3-24-2</find>
-      <find>3-25</find>
-      <find>2-04-2</find>
-      <find>n-2</find>
-      <find>03-3</find>
-      <find>-25</find>
-      <find>n-2-21-1-2</find>
-      <find>n-2-21-1-1</find>
-      <find>2-1-1</find>
-      <find>2-21-02</find>
-      <find>2-02</find>
-      <find>3-29-1-2</find>
-      <find>2-1-2</find>
-      <find>n-2-22-1</find>
-      <find>n-2-04</find>
       <find>3-28-2</find>
       <find>n-2-07</find>
       <find>2-07-01</find>
@@ -2194,9 +2178,25 @@
       <find>3-27-1</find>
       <find>3-08-1-4</find>
       <find>n-2-02-1-2</find>
-      <find>ankle</find>
-      <find>foot</find>
       <find>n-002-2</find>
+      <find>n-000-1</find>
+      <find>n</find>
+      <find>3-06-1-1</find>
+      <find>n-0</find>
+      <find>n-01</find>
+      <find>f-1</find>
+      <find>n-2-24</find>
+      <find>n-1-4-2-2</find>
+      <find>004-2</find>
+      <find>27-1-2</find>
+      <find>n-2-03</find>
+      <find>n-3-21</find>
+      <find>2-22-1-2</find>
+      <find>foot</find>
+      <find>ankle</find>
+      <find>toes</find>
+      <find>upper</find>
+      <find>lower</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2252,7 +2252,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
+    <option name="x" value="38" />
     <option name="y" value="23" />
     <option name="width" value="1349" />
     <option name="height" value="872" />
@@ -2557,16 +2557,17 @@
       <workItem from="1572560130937" duration="4408000" />
       <workItem from="1572615130131" duration="577000" />
       <workItem from="1572645629744" duration="4492000" />
+      <workItem from="1572710935100" duration="16937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="543578000" />
+    <option name="totallyTimeSpent" value="560515000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="23" width="1349" height="872" extended-state="0" />
+    <frame x="38" y="23" width="1349" height="872" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871793" visible="true" weight="0.25554705" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871793" visible="true" weight="0.25937262" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" sideWeight="0.50128204" side_tool="true" weight="0.23412395" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -2634,7 +2635,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1572650017913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1572737800024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/animation3d.py">
@@ -2907,8 +2908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/3dobjs/base.obj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="53219" column="17" selection-start-line="53219" selection-start-column="17" selection-end-line="53219" selection-end-column="17" />
+        <state relative-caret-position="-1165">
+          <caret line="53953" column="11" selection-start-line="53953" selection-start-column="4" selection-end-line="53953" selection-end-column="11" />
         </state>
       </provider>
     </entry>
