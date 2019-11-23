@@ -53,9 +53,9 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         self.hasWarpTargets = False
 
-        self.MIN_AGE = 1.0
-        self.MAX_AGE = 90.0
-        self.MID_AGE = 25.0
+        #self.MIN_AGE = 1.0
+        #self.MAX_AGE = 90.0
+        #self.MID_AGE = 25.0
 
         self.mesh.setCameraProjection(0)
         self.mesh.setPickable(True)
@@ -76,6 +76,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                           'r-hand', 'r-upperleg', 'l-upperleg', 'r-lowerleg', 'l-lowerleg', 'l-foot', 'r-foot', 'ear']
 
         self.material = material.fromFile(getSysDataPath('skins/default.mhmat'))
+        print "GIANT CUNT", self.material
         self._defaultMaterial = material.Material().copyFrom(self.material)
 
         # Init with no user-selected skeleton
@@ -109,6 +110,30 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         event = events3d.HumanEvent(self, 'proxyChange')
         event.proxy = 'human'
         self.callEvent('onChanged', event)
+
+    def setEyesProxy(self, proxy):
+        self._swapProxies(self._eyesProxy, proxy)
+        self._eyesProxy = proxy
+        event = events3d.HumanEvent(self, 'proxyChange')
+        event.proxy = 'eyes'
+        self.callEvent('onChanged', event)
+
+    def getEyesProxy(self):
+        return self._eyesProxy
+
+    eyesProxy = property(getEyesProxy, setEyesProxy)
+
+    def setTongueProxy(self, proxy):
+        self._swapProxies(self._tongueProxy, proxy)
+        self._tongueProxy = proxy
+        event = events3d.HumanEvent(self, 'proxyChange')
+        event.proxy = 'tongue'
+        self.callEvent('onChanged', event)
+
+    def getTongueProxy(self):
+        return self._tongueProxy
+
+    tongueProxy = property(getTongueProxy, setTongueProxy)
 
     def _swapProxies(self, oldPxy, newPxy):
         """
@@ -199,6 +224,34 @@ class Human(guicommon.Object, animation.AnimatedMesh):
             objs.append(obj)
         return objs
     '''
+
+    def getProxies(self, includeHumanProxy=True):
+        proxies = []
+        for pxy in [
+            self.eyesProxy,
+            self.tongueProxy,
+        ]:
+            if pxy != None:
+                proxies.append(pxy)
+        if includeHumanProxy and self.proxy:
+            proxies.append(self.proxy)
+        for pxy in self._clothesProxies.values():
+            proxies.append(pxy)
+        return proxies
+
+    def getTypedSimpleProxies(self, ptype):
+        ptype = ptype.capitalize()
+        table = {
+            'Eyes': self.eyesProxy,
+            'Tongue': self.tongueProxy,
+        }
+        try:
+            return table[ptype]
+        except KeyError:
+            return None
+
+    def getProxyObjects(self):
+        return [pxy.object for pxy in self.getProxies(includeHumanProxy=False)]
 
     def getObjects(self, excludeZeroFaceObjs=False):
         """
