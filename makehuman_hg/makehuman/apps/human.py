@@ -76,7 +76,6 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                           'r-hand', 'r-upperleg', 'l-upperleg', 'r-lowerleg', 'l-lowerleg', 'l-foot', 'r-foot', 'ear']
 
         self.material = material.fromFile(getSysDataPath('skins/default.mhmat'))
-        print "GIANT CUNT", self.material
         self._defaultMaterial = material.Material().copyFrom(self.material)
 
         # Init with no user-selected skeleton

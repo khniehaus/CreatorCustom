@@ -31,7 +31,6 @@
           {"mod": "armslegs/upperlegs-height-decr|incr", "label": "Upperlegs Length"},
           {"mod": "armslegs/lowerlegs-height-decr|incr", "label": "Lowerlegs Length"},
           {"mod": "armslegs/l-upperarm-shoulder-muscle-decr|incr", "label": "Shoulder muscle mass"},
-          {"mod": "armslegs/r-upperarm-shoulder-muscle-decr|incr", "facegroup": "right-shoulder", "label": "Shoulder muscle mass"},
           {"mod": "armslegs/l-upperarm-scale-horiz-decr|incr", "label": "Upperarm length"},
           {"mod": "armslegs/r-upperarm-scale-horiz-decr|incr", "facegroup": "right-arm-upper", "label": "Upperarm length"}
         ]
@@ -64,7 +63,8 @@
           {"mod": "macrodetails-universal/Muscle", "label": "Muscle"}
       ],
       "Medium": [
-        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"}
+        {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"},
+        {"mod": "armslegs/r-upperarm-shoulder-muscle-decr|incr", "facegroup": "right-shoulder", "label": "Shoulder muscle mass"}
       ]
     }
   }

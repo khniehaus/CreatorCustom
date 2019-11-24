@@ -672,6 +672,7 @@ class Application(events3d.EventHandler):
 
         if self.currentTask:
             log.debug('showing task %s', self.currentTask.name)
+            print "DUCK", self.currentTask.name
             self.currentTask.show()
             self.currentTask.showWidgets()
 
@@ -704,7 +705,6 @@ class Application(events3d.EventHandler):
         log.debug('showing category %s', self.currentCategory.name)
         self.currentCategory.show()
         self.currentCategory.showWidgets()
-
         self.switchTask(category.task)
 
     def getCategory(self, name, sortOrder = None):
