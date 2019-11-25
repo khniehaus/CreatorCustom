@@ -478,10 +478,12 @@ class Category(View):
         if task.tab is None:
             task.tab = self.tabs.addTab(task.name, task.label or task.name, self.tasks.index(task))
 
+
     def realize(self, app):
         self.tasks.sort(key = lambda t: t.sortOrder)
         for task in self.tasks:
             self._taskTab(task)
+            #self.addTBar()
 
         @self.tabs.mhEvent
         def onTabSelected(tab):

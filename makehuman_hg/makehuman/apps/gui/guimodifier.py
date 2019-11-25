@@ -63,16 +63,13 @@ class ModifierTaskView(gui3d.TaskView):
         self.groupBox = self.addRightWidget(gui.StackedBox())
         self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
 
+        self.toolbar = mh.addToolBar(name)
+
         #self.newAct = qtgui.Actions()
 
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
 
-        self.toolbar = mh.addToolBar('Modelling')
-        #self.toolbar.addAction(self.newAct.frick)
-
-        self.toolbar.setOrientation(QtCore.Qt.Vertical)
-
-        self.boxBox = self.addLeftWidget(self.toolbar)
+        #self.boxBox = self.addLeftWidget(self.toolbar)
 
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
@@ -80,22 +77,31 @@ class ModifierTaskView(gui3d.TaskView):
     def addSlider(self, sliderCategory, slider, enabledCondition=None):
         # Get category groupbox
         categoryName = sliderCategory.capitalize()
+        # # self.toolbar.addAction(self.newAct.frick)
+        #
+
         if categoryName not in self.groupBoxes:
             # Create box
             box = self.groupBox.addWidget(gui.GroupBox(categoryName))
+            #box3 = self.addLeftWidget(self.toolbar)
             self.groupBoxes[categoryName] = box
 
             # Create radiobutton
             isFirstBox = len(self.radioButtons) == 0
             self.box2.addWidget(GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
+            self.toolbar.setOrientation(QtCore.Qt.Vertical)
+            self.addLeftWidget(self.toolbar)
+            self.createActs()
             if isFirstBox:
                 self.groupBox.showWidget(self.groupBoxes.values()[0])
         else:
             box = self.groupBoxes[categoryName]
+        #box3 = self.addLeftWidget(self.toolbar)
 
+        #self.createActs()
         # Add slider to groupbox
         #self.modifiers[slider.modifier.fullName] = slider.modifier
-        #box.setCurrentIndex(0)
+        #box3.setCurrentIndex(0)
         #butt = gui.Button(sliderCategory)
         #box.addWidget(butt)
 
@@ -114,15 +120,6 @@ class ModifierTaskView(gui3d.TaskView):
     def mod5(self):
         pass
 
-    def mod6(self):
-        pass
-
-    def mod7(self):
-        pass
-
-    def mod8(self):
-        pass
-
     def createActs(self):
 
         self.actions = gui.Actions()
@@ -137,9 +134,6 @@ class ModifierTaskView(gui3d.TaskView):
         self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
         self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
         self.actions.mod5 = action('modifier 5', gui.getLanguageString('Modifier 5'), self.mod5())
-        self.actions.mod6 = action('modifier 6', gui.getLanguageString('Modifier 6'), self.mod6())
-        self.actions.mod7 = action('modifier 7', gui.getLanguageString('Modifier 7'), self.mod7())
-        self.actions.mod8 = action('modifier 8', gui.getLanguageString('Modifier 8'), self.mod8())
 
         #slider.enabledCondition = enabledCondition
         #self.sliders.append(slider)
@@ -177,10 +171,11 @@ class ModifierTaskView(gui3d.TaskView):
         self.human.updateMacroModifiers()
 
     def getModifiers(self):
-        #print self.modifiers
         return self.modifiers
 
     def onShow(self, event):
+        #self.createActs()
+        #self.task.groupBox.showWidget(self.boxBox)
         gui3d.TaskView.onShow(self, event)
 
         # Only show macro statistics in status bar for Macro modeling task
@@ -192,7 +187,6 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
-        self.createActs()
         #self.boxMode()
 
     def syncSliders(self):
@@ -270,14 +264,66 @@ class GroupBoxRadioButton(gui.RadioButton):
 
     def onClicked(self, event):
         global oTest
+        print "SHIT", self.task.label
         self.task.groupBox.showWidget(self.groupBox)
-        print self.label
+        #print self.groupBox
         if self.label == "Medium":
             oTest = True
         else:
             oTest = False
         return oTest
         #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
+
+# class tBarNew(gui.ActionGroup):
+# #
+#     def __init__(self, task, name):
+#         super(tBarNew, self).__init__(name)
+#         self.task = task
+#         self.name = self.label
+#         self.toolbar = mh.addToolBar('Modelling')
+#
+#     def onClicked(self, event):
+#         self.task.groupBox.showWidget(self.boxBox)
+#
+#         self.toolbar.setOrientation(QtCore.Qt.Vertical)
+#
+#         self.boxBox = self.addLeftWidget(self.toolbar)
+#
+#
+#     def mod1(self):
+#         pass
+#
+#     def mod2(self):
+#         pass
+#
+#     def mod3(self):
+#         pass
+#
+#     def mod4(self):
+#         pass
+#
+#     def mod5(self):
+#         pass
+#
+#     def createActs(self):
+#
+#         self.actions = gui.Actions()
+#
+#         def action(*args, **kwargs):
+#             action = gui.Action(*args, **kwargs)
+#             self.toolbar.addAction(action)
+#             return action
+#
+#         self.actions.mod1 = action('modifier 1', gui.getLanguageString('Modifier 1'), self.mod1())
+#         self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
+#         self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
+#         self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
+#         self.actions.mod5 = action('modifier 5', gui.getLanguageString('Modifier 5'), self.mod5())
+#
+#     def onClicked(self, event):
+#         self.createActs()
+#         self.task.showLeftWidget(self.boxBox)
+
 
 
 def _getCamFunc(cameraName):
@@ -303,6 +349,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
 
     data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
     taskViews = []
+    #ModifierTaskView.createActs(taskView)
     # Create task views
     for taskName, taskViewProps in data.items():
         sName = taskViewProps.get('saveName', None)
@@ -311,8 +358,6 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         taskView.sortOrder = taskViewProps.get('sortOrder', None)
         taskView.showMacroStats = taskViewProps.get('showMacroStats', None)
         category.addTask(taskView)
-
-        #taskView.createActs()
 
         # Create sliders
         for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
