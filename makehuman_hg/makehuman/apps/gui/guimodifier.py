@@ -64,6 +64,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
 
         self.toolbar = mh.addToolBar(name)
+        print "dame", name
 
         #self.newAct = qtgui.Actions()
 
@@ -78,6 +79,7 @@ class ModifierTaskView(gui3d.TaskView):
         # Get category groupbox
         categoryName = sliderCategory.capitalize()
         # # self.toolbar.addAction(self.newAct.frick)
+        print "frick", categoryName
         #
 
         if categoryName not in self.groupBoxes:
@@ -91,7 +93,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.box2.addWidget(GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
             self.toolbar.setOrientation(QtCore.Qt.Vertical)
             self.addLeftWidget(self.toolbar)
-            self.createActs()
+            self.createActs(sliderCategory)
             if isFirstBox:
                 self.groupBox.showWidget(self.groupBoxes.values()[0])
         else:
@@ -105,35 +107,48 @@ class ModifierTaskView(gui3d.TaskView):
         #butt = gui.Button(sliderCategory)
         #box.addWidget(butt)
 
-    def mod1(self):
+    def low(self):
         pass
 
-    def mod2(self):
+    def medium(self):
         pass
 
-    def mod3(self):
+    def high(self):
         pass
 
-    def mod4(self):
-        pass
+    # def mod3(self):
+    #     pass
+    #
+    # def mod4(self):
+    #     pass
+    #
+    # def mod5(self):
+    #     pass
 
-    def mod5(self):
-        pass
-
-    def createActs(self):
+    def createActs(self, sliderCategory):
 
         self.actions = gui.Actions()
+
+        #cName = sliderCategory.capitalize()
 
         def action(*args, **kwargs):
             action = gui.Action(*args, **kwargs)
             self.toolbar.addAction(action)
             return action
 
-        self.actions.mod1 = action('modifier 1', gui.getLanguageString('Modifier 1'), self.mod1())
-        self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
-        self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
-        self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
-        self.actions.mod5 = action('modifier 5', gui.getLanguageString('Modifier 5'), self.mod5())
+        if sliderCategory == "Low":
+
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low())
+        elif sliderCategory == "Medium":
+            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.medium())
+        elif sliderCategory == "High":
+            self.actions.high = action('High', gui.getLanguageString('High'), self.high())
+        else:
+            return None
+        # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
+        # self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
+        # self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
+        # self.actions.mod5 = action('modifier 5', gui.getLanguageString('Modifier 5'), self.mod5())
 
         #slider.enabledCondition = enabledCondition
         #self.sliders.append(slider)
@@ -264,7 +279,7 @@ class GroupBoxRadioButton(gui.RadioButton):
 
     def onClicked(self, event):
         global oTest
-        print "SHIT", self.task.label
+        #print "SHIT", self.task.label
         self.task.groupBox.showWidget(self.groupBox)
         #print self.groupBox
         if self.label == "Medium":

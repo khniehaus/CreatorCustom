@@ -803,10 +803,10 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         global wMod
         global shoulderlMod
         global upArmlMod
-        gMod = self._modifiers['macrodetails-height/Height']
-        wMod = self._modifiers['macrodetails-universal/Weight']
-        shoulderlMod = self._modifiers['armslegs/r-upperarm-shoulder-muscle-decr|incr']
-        upArmlMod = self._modifiers['armslegs/r-upperarm-scale-horiz-decr|incr']
+        # gMod = self._modifiers['macrodetails-height/Height']
+        # wMod = self._modifiers['macrodetails-universal/Weight']
+        # shoulderlMod = self._modifiers['armslegs/r-upperarm-shoulder-muscle-decr|incr']
+        # upArmlMod = self._modifiers['armslegs/r-upperarm-scale-horiz-decr|incr']
         # if qtui.gg_mouse_pos != None:
         #     return self._modifiers['macrodetails-weight/Weight']
         # else:

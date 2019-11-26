@@ -553,7 +553,6 @@ class MacroModifier(ManagedTargetModifier):
         self.setter = 'set' + self.variable
         self.getter = 'get' + self.variable
         self.targets = self.findTargets(self.groupName)
-
         # log.debug('macro modifier %s.%s(%s): %s', base, name, variable, self.targets)
 
         self.macroDependencies = self.findMacroDependencies(self.groupName)

@@ -133,10 +133,11 @@ class View(events3d.EventHandler):
 
         self.faceGroupLookup = {}
 
-        print "App: ", mhmain.G.app.selectedHuman
+        #print "App: ", mhmain.G.app.selectedHuman
 
         for modifier in mhmain.G.app.selectedHuman.modifiers:
-            print modifier.fullName
+            #print modifier.fullName
+            print "slut", modifier.groupName
             if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
                 sliderTest = modifierslider.ModifierSlider(modifier)
                 self.faceGroupLookup[modifier.faceGroup] = sliderTest

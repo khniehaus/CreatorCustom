@@ -124,21 +124,19 @@ class ModifierSlider(gui.Slider):
         vVal = transVar.aVar()
         bVal = transVar.wiVar()
         #value = 0.5
-        if oTest1 == False:
-            if self.modifier == human.wMod:
-                value = wVal
-            if self.modifier == human.gMod:
-                value = nVal
-            if self.changing is not None:
-            # Avoid concurrent updates
-                self.changing = value
-                return
-        if oTest1 == True:
-            if self.modifier == human.shoulderlMod:
-                value = vVal
-            if self.modifier == human.upArmlMod:
-                value = vVal
-            if self.changing is not None:
+        # if oTest1 == False:
+        #     if self.modifier == human.wMod:
+        #         value = wVal
+        #     if self.modifier == human.gMod:
+        #         value = nVal
+        #     if self.changing is not None:
+        #     # Avoid concurrent updates
+        #         self.changing = value
+        #         return
+        value = vVal
+        # if self.modifier == human.upArmlMod:
+        #     value = vVal
+        if self.changing is not None:
             # Avoid concurrent updates
                 self.changing = value
                 return
@@ -146,7 +144,7 @@ class ModifierSlider(gui.Slider):
         #     return
         value = vVal #value
         self.changing = vVal #value
-        print "Category T/F:", oTest1
+        #print "Category T/F:", oTest1
         G.app.callAsync(self._onChanging)
 
     def _onChanging(self):
