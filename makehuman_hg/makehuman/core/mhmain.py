@@ -865,6 +865,7 @@ class MHApplication(gui3d.Application, mh.Application):
             #else:
                 #self.zoomIn()
 
+
     # Undo-redo
     def do(self, action):
         if action.do():

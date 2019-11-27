@@ -60,9 +60,9 @@ class ModifierTaskView(gui3d.TaskView):
         self.modifiers = {}
 
         #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
-        self.groupBox = self.addRightWidget(gui.StackedBox())
-        self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
-
+        #self.groupBox = self.addRightWidget(gui.StackedBox())
+        #self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
+        self.hi = gui3d.View()
         self.toolbar = mh.addToolBar(name)
         print "dame", name
 
@@ -79,25 +79,27 @@ class ModifierTaskView(gui3d.TaskView):
         # Get category groupbox
         categoryName = sliderCategory.capitalize()
         # # self.toolbar.addAction(self.newAct.frick)
-        print "frick", categoryName
+        print "frick", sliderCategory
         #
 
         if categoryName not in self.groupBoxes:
             # Create box
-            box = self.groupBox.addWidget(gui.GroupBox(categoryName))
+            #box = self.groupBox.addWidget(gui.GroupBox(categoryName))
             #box3 = self.addLeftWidget(self.toolbar)
-            self.groupBoxes[categoryName] = box
+            self.toolbar.setOrientation(QtCore.Qt.Vertical)
+            hey = self.addLeftWidget(self.toolbar)
+            self.createActs(sliderCategory)
+            self.groupBoxes[categoryName] = hey
 
             # Create radiobutton
             isFirstBox = len(self.radioButtons) == 0
-            self.box2.addWidget(GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
-            self.toolbar.setOrientation(QtCore.Qt.Vertical)
-            self.addLeftWidget(self.toolbar)
-            self.createActs(sliderCategory)
+            #self.box2.addWidget(GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
             if isFirstBox:
-                self.groupBox.showWidget(self.groupBoxes.values()[0])
+                #self.groupBox.showWidget(self.groupBoxes.values()[0])
+                pass
         else:
             box = self.groupBoxes[categoryName]
+            pass
         #box3 = self.addLeftWidget(self.toolbar)
 
         #self.createActs()
@@ -107,13 +109,21 @@ class ModifierTaskView(gui3d.TaskView):
         #butt = gui.Button(sliderCategory)
         #box.addWidget(butt)
 
-    def low(self):
-        pass
+    #def low(self):
+        # slide = humanmodifier.
+        # slide.groupName = ['hip']
+        # print slide.groupName
+        #print "DAMN YOU ALL", modifier.groupName.name
+        #return modifier.groupName
+        #self.hi.testMe()
 
     def medium(self):
         pass
 
     def high(self):
+        pass
+
+    def changeCat(self):
         pass
 
     # def mod3(self):
@@ -138,11 +148,11 @@ class ModifierTaskView(gui3d.TaskView):
 
         if sliderCategory == "Low":
 
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low())
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.testMe)
         elif sliderCategory == "Medium":
-            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.medium())
+            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.medium)
         elif sliderCategory == "High":
-            self.actions.high = action('High', gui.getLanguageString('High'), self.high())
+            self.actions.high = action('High', gui.getLanguageString('High'), self.high)
         else:
             return None
         # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
@@ -370,6 +380,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         sName = taskViewProps.get('saveName', None)
         label = taskViewProps.get('label', None)
         taskView = taskviewClass(category, taskName, label, sName)
+        print "LOL", taskName
         taskView.sortOrder = taskViewProps.get('sortOrder', None)
         taskView.showMacroStats = taskViewProps.get('showMacroStats', None)
         category.addTask(taskView)

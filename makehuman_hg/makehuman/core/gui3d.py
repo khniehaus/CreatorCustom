@@ -137,12 +137,15 @@ class View(events3d.EventHandler):
 
         for modifier in mhmain.G.app.selectedHuman.modifiers:
             #print modifier.fullName
-            print "slut", modifier.groupName
+            print "group name", modifier.groupName
             if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
                 sliderTest = modifierslider.ModifierSlider(modifier)
                 self.faceGroupLookup[modifier.faceGroup] = sliderTest
                 print "hello", modifier.faceGroup
                 #put randomizer here!!! (at least try according to Marco)
+    def testMe(self):
+        #mhmain.G.app.selectedHuman.getModifiersByGroup()
+        pass
 
     @property
     def parent(self):
@@ -675,7 +678,7 @@ class Application(events3d.EventHandler):
 
         if self.currentTask:
             log.debug('showing task %s', self.currentTask.name)
-            print "DUCK", self.currentTask.name
+            print "Task is", self.currentTask.name
             self.currentTask.show()
             self.currentTask.showWidgets()
 
