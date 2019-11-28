@@ -39,6 +39,7 @@ TODO
 
 import humanmodifier
 import guimodifier
+import gui3d
 import getpath
 
 
@@ -48,6 +49,7 @@ def load(app):
     humanmodifier.loadModifiers(getpath.getSysDataPath('modifiers/modeling_modifiers.json'), app.selectedHuman)
     #guimodifier.loadModifierTaskViews(getpath.getSysDataPath('modifiers/modeling_modifiers.json'), app.selectedHuman, category)
     guimodifier.loadModifierTaskViews(getpath.getSysDataPath('modifiers/modeling_sliders.json'), app.selectedHuman, category)
+    #gui3d.loadModifiers(getpath.getSysDataPath('modifiers/modeling_sliders.json'))
 
 def unload(app):
     pass

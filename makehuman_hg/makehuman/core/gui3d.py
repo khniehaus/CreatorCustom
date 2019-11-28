@@ -51,6 +51,20 @@ from guicommon import Object, Action
 
 sCheck = None
 
+# def loadModifiers(filename):
+#     import json
+#     from collections import OrderedDict
+#
+#     data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
+#     #print "MUNCH", data
+#     for tName, tVP in data.items():
+#         for cat, mods in tVP['modifiers'].items():
+#             for mod in mods:
+#
+#                 sName = mod['mod']
+                #print "WTF", sName
+
+
 class MouAction(events3d.MouseEvent):
     dForce = collections.deque([0, 0, 0, 0], maxlen=4)
     def __init__(self, class_a):
@@ -131,21 +145,31 @@ class View(events3d.EventHandler):
         self._attached = False
         self.widgets = []
 
+        self.filename = None
+
         self.faceGroupLookup = {}
+
+        # # Create sliders
+        # for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
+        #     for sDef in sliderDefs:
+        #         modifierName = sDef['mod']
+        #         modifier = human.getModifier(modifierName)
+        #         label = sDef.get('label', None)
+        #         camFunc = _getCamFunc(sDef.get('cam', None))
+        #         slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
+        #         enabledCondition = sDef.get("enabledCondition", None)
+        #         taskView.addSlider(sliderCategory, slider, enabledCondition)
 
         #print "App: ", mhmain.G.app.selectedHuman
 
         for modifier in mhmain.G.app.selectedHuman.modifiers:
-            #print modifier.fullName
-            print "group name", modifier.groupName
+            #print "UGH", mhmain.G.app.selectedHuman.modifiers.task
             if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
                 sliderTest = modifierslider.ModifierSlider(modifier)
                 self.faceGroupLookup[modifier.faceGroup] = sliderTest
-                print "hello", modifier.faceGroup
+                print "hello", modifier
                 #put randomizer here!!! (at least try according to Marco)
-    def testMe(self):
-        #mhmain.G.app.selectedHuman.getModifiersByGroup()
-        pass
+
 
     @property
     def parent(self):
@@ -354,10 +378,10 @@ class View(events3d.EventHandler):
         vrVal = vrVal
         cmVal = cmVal
 
-        print ("parent", app)
         print ("facegroup", app.selectedFaceGroup)
 
         if self.faceGroupLookup.has_key(app.selectedFaceGroup):
+            self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
             print("vrVal", vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
@@ -391,6 +415,10 @@ class View(events3d.EventHandler):
 
         return uniVal, mouseAction, dmVal, amVal, vrVal, cmVal #return mouse call and new 'slider' val based on mouse
 
+    def getCurrentMod(self, modifier):
+        #mhmain.G.app.selectedHuman.getModifiersByGroup()
+        print "literally what", modifier
+        return modifier
 
     def onMouseUp(self, event):
         self.parent.callEvent('onMouseUp', event)
@@ -660,6 +688,13 @@ class Application(events3d.EventHandler):
         category.realize(self)
 
         return category
+    #
+    # def switchTool(self, name):
+    #     if not self.currentCategory:
+    #         return
+    #     if not self.currentTask:
+    #         return
+
 
     def switchTask(self, name):
         if not self.currentCategory:
@@ -678,9 +713,11 @@ class Application(events3d.EventHandler):
 
         if self.currentTask:
             log.debug('showing task %s', self.currentTask.name)
-            print "Task is", self.currentTask.name
+            #print "Task is", self.currentTask.getModifiers()
+            print "FUCK", self.currentTask.name
             self.currentTask.show()
             self.currentTask.showWidgets()
+
 
     def switchCategory(self, name):
 

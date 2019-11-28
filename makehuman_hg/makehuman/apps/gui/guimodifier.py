@@ -64,7 +64,6 @@ class ModifierTaskView(gui3d.TaskView):
         #self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
         self.hi = gui3d.View()
         self.toolbar = mh.addToolBar(name)
-        print "dame", name
 
         #self.newAct = qtgui.Actions()
 
@@ -116,6 +115,8 @@ class ModifierTaskView(gui3d.TaskView):
         #print "DAMN YOU ALL", modifier.groupName.name
         #return modifier.groupName
         #self.hi.testMe()
+    def low(self):
+        pass
 
     def medium(self):
         pass
@@ -148,7 +149,7 @@ class ModifierTaskView(gui3d.TaskView):
 
         if sliderCategory == "Low":
 
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.testMe)
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low)
         elif sliderCategory == "Medium":
             self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.medium)
         elif sliderCategory == "High":
@@ -380,7 +381,6 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         sName = taskViewProps.get('saveName', None)
         label = taskViewProps.get('label', None)
         taskView = taskviewClass(category, taskName, label, sName)
-        print "LOL", taskName
         taskView.sortOrder = taskViewProps.get('sortOrder', None)
         taskView.showMacroStats = taskViewProps.get('showMacroStats', None)
         category.addTask(taskView)
