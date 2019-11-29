@@ -59,10 +59,11 @@ sCheck = None
 #     #print "MUNCH", data
 #     for tName, tVP in data.items():
 #         for cat, mods in tVP['modifiers'].items():
-#             for mod in mods:
-#
-#                 sName = mod['mod']
-                #print "WTF", sName
+#             print "FUCK YOU ", cat
+#             # for mod in mods:
+            #
+            #     sName = mod['mod']
+            #     print "WTF", sName
 
 
 class MouAction(events3d.MouseEvent):
@@ -456,6 +457,15 @@ class View(events3d.EventHandler):
         for w in self.widgets:
             w.show()
 
+    def low(self):
+        return "low"
+
+    def medium(self):
+        print "medium"
+
+    def high(self):
+        print "high"
+
     def hideWidgets(self):
         for w in self.widgets:
             w.hide()
@@ -499,6 +509,8 @@ class Category(View):
         self.label = label
         self.tasks = []
         self.tasksByName = {}
+        self.modCatByName = {}
+        self.modCats = []
         self.tab = None
         self.tabs = None
         self.panel = None
@@ -546,11 +558,30 @@ class Category(View):
         # Ensure that event order is per category, per task
         eventOrder = 1000 * categoryOrder + task.sortOrder
         self.parent.addEventHandler(task, eventOrder)
+        print "DAMN YOU", self.task
 
         return task
 
+    def addModCat(self, modCat):
+        #if modCat.name in self.modCatByName:
+            #raise KeyError('A modifier group with this name already exists', modCat.name)
+        self.modCats.append(modCat)
+
+        #tasks = sorted(self.parent.tasks.values(), key=lambda t: t.sortOrder)
+        #taskOrder = tasks.index(self)
+        #self.modCatByName[modCat.name] = modCat
+        #self.addView(modCat)
+        #tasks = sorted(self.parent.tasks.values(), key=lambda c: task.sortOrder)
+        #taskOrder = self.tabs.sortOrder()
+        #print "SHIIIT", modCat
+        return modCat
+
     def getTaskByName(self, name):
         return self.tasksByName.get(name)
+
+    def getModsHere(self, mods):
+        print "AAAAHHAHSHAHAH", mods
+        return mods
 
 # The application
 app = None
@@ -571,6 +602,7 @@ class Application(events3d.EventHandler):
         self.categories = {}
         self.currentCategory = None
         self.currentTask = None
+        self.currentMod = None
         self.mouseDownObject = None
         self.enteredObject = None
         self.fullscreen = False
@@ -694,6 +726,11 @@ class Application(events3d.EventHandler):
     #         return
     #     if not self.currentTask:
     #         return
+
+    # def switchMod(self, name):
+    #     if not self.currentTask:
+    #         return
+    #     newMod = self.currentTask.modCatByName[name]
 
 
     def switchTask(self, name):

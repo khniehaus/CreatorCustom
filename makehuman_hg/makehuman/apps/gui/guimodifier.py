@@ -39,7 +39,7 @@ from collections import OrderedDict
 import language
 from PyQt4 import QtCore
 
-oTest = False
+catMod = {} #YOU ARE HERE. SHOULD THIS BE A DEQUE?
 
 class ModifierTaskView(gui3d.TaskView):
     def __init__(self, category, name, label=None, saveName=None, cameraView=None):
@@ -65,6 +65,10 @@ class ModifierTaskView(gui3d.TaskView):
         self.hi = gui3d.View()
         self.toolbar = mh.addToolBar(name)
 
+        self.toolbar.setOrientation(QtCore.Qt.Vertical)
+        tBarWidget = self.addLeftWidget(self.toolbar)
+        self.groupBoxes[category.name] = tBarWidget
+
         #self.newAct = qtgui.Actions()
 
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
@@ -78,17 +82,17 @@ class ModifierTaskView(gui3d.TaskView):
         # Get category groupbox
         categoryName = sliderCategory.capitalize()
         # # self.toolbar.addAction(self.newAct.frick)
-        print "frick", sliderCategory
+        #print "frick", sliderCategory
         #
 
         if categoryName not in self.groupBoxes:
             # Create box
             #box = self.groupBox.addWidget(gui.GroupBox(categoryName))
             #box3 = self.addLeftWidget(self.toolbar)
-            self.toolbar.setOrientation(QtCore.Qt.Vertical)
-            hey = self.addLeftWidget(self.toolbar)
-            self.createActs(sliderCategory)
-            self.groupBoxes[categoryName] = hey
+            # self.toolbar.setOrientation(QtCore.Qt.Vertical)
+            # hey = self.addLeftWidget(self.toolbar)
+            # self.createActs(sliderCategory)
+            # self.groupBoxes[categoryName] = hey
 
             # Create radiobutton
             isFirstBox = len(self.radioButtons) == 0
@@ -149,11 +153,11 @@ class ModifierTaskView(gui3d.TaskView):
 
         if sliderCategory == "Low":
 
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low)
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.low)
         elif sliderCategory == "Medium":
-            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.medium)
+            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.hi.medium)
         elif sliderCategory == "High":
-            self.actions.high = action('High', gui.getLanguageString('High'), self.high)
+            self.actions.high = action('High', gui.getLanguageString('High'), self.hi.high)
         else:
             return None
         # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
@@ -387,14 +391,17 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
 
         # Create sliders
         for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
+            category.addModCat(sliderCategory)
+            taskView.createActs(sliderCategory)
             for sDef in sliderDefs:
                 modifierName = sDef['mod']
                 modifier = human.getModifier(modifierName)
-                label = sDef.get('label', None)
-                camFunc = _getCamFunc( sDef.get('cam', None) )
-                slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
-                enabledCondition = sDef.get("enabledCondition", None)
-                taskView.addSlider(sliderCategory, slider, enabledCondition)
+                category.getModsHere(modifierName)
+                # label = sDef.get('label', None)
+                # camFunc = _getCamFunc( sDef.get('cam', None) )
+                # slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
+                # enabledCondition = sDef.get("enabledCondition", None)
+                # taskView.addSlider(sliderCategory, slider, enabledCondition)
 
 
         if taskView.saveName is not None:
