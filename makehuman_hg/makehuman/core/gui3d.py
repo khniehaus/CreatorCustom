@@ -49,21 +49,24 @@ from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
-sCheck = None
+modifiers = []
+medium = []
 
-# def loadModifiers(filename):
-#     import json
-#     from collections import OrderedDict
-#
-#     data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
-#     #print "MUNCH", data
-#     for tName, tVP in data.items():
-#         for cat, mods in tVP['modifiers'].items():
-#             print "FUCK YOU ", cat
-#             # for mod in mods:
-            #
-            #     sName = mod['mod']
-            #     print "WTF", sName
+
+def loadModifiers(filename):
+    import json
+    from collections import OrderedDict
+    global modifiers
+
+    data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
+    # print "MUNCH", data
+    for tName, tVP in data.items():
+        for cat, mods in tVP['modifiers'].items():
+            for mod in mods:
+                modName = mod['mod']
+                modifiers.append({cat:modName})
+                if cat == 'Medium':
+                    medium.append(modName)
 
 
 class MouAction(events3d.MouseEvent):
@@ -162,14 +165,7 @@ class View(events3d.EventHandler):
         #         taskView.addSlider(sliderCategory, slider, enabledCondition)
 
         #print "App: ", mhmain.G.app.selectedHuman
-
-        for modifier in mhmain.G.app.selectedHuman.modifiers:
-            #print "UGH", mhmain.G.app.selectedHuman.modifiers.task
-            if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
-                sliderTest = modifierslider.ModifierSlider(modifier)
-                self.faceGroupLookup[modifier.faceGroup] = sliderTest
-                print "hello", modifier
-                #put randomizer here!!! (at least try according to Marco)
+                # put randomizer here!!! (at least try according to Marco)
 
 
     @property
@@ -320,6 +316,14 @@ class View(events3d.EventHandler):
         x = event.x #mouse x
 
         global uniVal
+
+        for modifier in modifiers:
+
+            if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
+                sliderTest = modifierslider.ModifierSlider(modifier)
+                self.faceGroupLookup[modifier.faceGroup] = sliderTest
+                print "hello", sliderTest
+            # mh.redraw()
         #mehah = bleh.rayCast()
         # modifier1 = human.gMod #instance of global from human class for modifier category
         # modifier2 = human.wMod
@@ -457,11 +461,34 @@ class View(events3d.EventHandler):
         for w in self.widgets:
             w.show()
 
+    def getModifier(self, cat):
+        global app
+        human = app.selectedHuman
+        modifier = None
+
+        for x in cat:
+            name = x
+            modifier = human.getModifier(name)
+
+        return modifier
+
+                #put randomizer here!!! (at least try according to Marco)
+
     def low(self):
         return "low"
 
     def medium(self):
-        print "medium"
+        global medium, modifiers, app
+        human = app.selectedHuman
+        #modifier = None
+
+        #you need to flush "modifiers" somehow
+
+        for x in medium:
+            name = x
+            modifier = human.getModifier(name)
+            modifiers.append(modifier)
+            print "AAAAAAH", modifiers
 
     def high(self):
         print "high"
@@ -482,8 +509,10 @@ class TaskView(View):
         self.left, self.right = mh.addPanels()
         self.sortOrder = None
 
-    def getModifiers(self):
-        return {}
+    def getModifiers(self, key):
+        global modifiers
+        modifiers.append(key)
+        print modifiers
 
     def showWidgets(self):
         super(TaskView, self).showWidgets()
@@ -558,7 +587,6 @@ class Category(View):
         # Ensure that event order is per category, per task
         eventOrder = 1000 * categoryOrder + task.sortOrder
         self.parent.addEventHandler(task, eventOrder)
-        print "DAMN YOU", self.task
 
         return task
 
@@ -877,7 +905,10 @@ class Application(events3d.EventHandler):
 
     def onMouseMovedCallback(self, event):
         # Get picked object
-
+        global modifiers
+        global medium
+        for x in medium:
+            print "FICK", x
         picked = self.getSelectedFaceGroupAndObject()
         #ugh = self.getSelectedFaceGroup()
 

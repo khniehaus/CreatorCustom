@@ -111,7 +111,7 @@ class ModifierSlider(gui.Slider):
 
         print("value ", value)
 
-        oTest1 = guimodifier.oTest
+        #oTest1 = guimodifier.oTest
         #bleh = module3d.object3d()
         mPos = qtui.gg_mouse_pos
         mButt = qtui.gg_butt

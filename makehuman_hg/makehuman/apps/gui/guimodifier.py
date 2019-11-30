@@ -39,7 +39,7 @@ from collections import OrderedDict
 import language
 from PyQt4 import QtCore
 
-catMod = {} #YOU ARE HERE. SHOULD THIS BE A DEQUE?
+catMod = [] #YOU ARE HERE. SHOULD THIS BE A DEQUE?
 
 class ModifierTaskView(gui3d.TaskView):
     def __init__(self, category, name, label=None, saveName=None, cameraView=None):
@@ -62,7 +62,6 @@ class ModifierTaskView(gui3d.TaskView):
         #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
         #self.groupBox = self.addRightWidget(gui.StackedBox())
         #self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
-        self.hi = gui3d.View()
         self.toolbar = mh.addToolBar(name)
 
         self.toolbar.setOrientation(QtCore.Qt.Vertical)
@@ -74,7 +73,7 @@ class ModifierTaskView(gui3d.TaskView):
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
 
         #self.boxBox = self.addLeftWidget(self.toolbar)
-
+        self.hi = gui3d.View()
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
 
@@ -120,7 +119,13 @@ class ModifierTaskView(gui3d.TaskView):
         #return modifier.groupName
         #self.hi.testMe()
     def low(self):
-        pass
+        #hi = gui3d.TaskView()
+        for key in catMod:
+            print key
+            #hi.getModifiers(key)
+            #else:
+                #pass
+        #print fuck
 
     def medium(self):
         pass
@@ -153,11 +158,11 @@ class ModifierTaskView(gui3d.TaskView):
 
         if sliderCategory == "Low":
 
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.low)
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low)
         elif sliderCategory == "Medium":
             self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.hi.medium)
         elif sliderCategory == "High":
-            self.actions.high = action('High', gui.getLanguageString('High'), self.hi.high)
+            self.actions.high = action('High', gui.getLanguageString('High'), self.high)
         else:
             return None
         # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
@@ -293,15 +298,15 @@ class GroupBoxRadioButton(gui.RadioButton):
         self.label = label
 
     def onClicked(self, event):
-        global oTest
+        # global oTest
         #print "SHIT", self.task.label
         self.task.groupBox.showWidget(self.groupBox)
         #print self.groupBox
-        if self.label == "Medium":
-            oTest = True
-        else:
-            oTest = False
-        return oTest
+        # if self.label == "Medium":
+        #     oTest = True
+        # else:
+        #     oTest = False
+        # return oTest
         #self.task.onSliderFocus(self.groupBox.children[0]) # TODO needed for measurement
 
 # class tBarNew(gui.ActionGroup):
@@ -373,6 +378,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
     file.
     """
     import json
+    global catMod
 
     if not taskviewClass:
         taskviewClass = ModifierTaskView
@@ -395,6 +401,9 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
             taskView.createActs(sliderCategory)
             for sDef in sliderDefs:
                 modifierName = sDef['mod']
+                if sliderCategory == 'Low':
+                    catMod.append(modifierName)
+                    print "what the hell", modifierName
                 modifier = human.getModifier(modifierName)
                 category.getModsHere(modifierName)
                 # label = sDef.get('label', None)
@@ -402,6 +411,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 # slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
                 # enabledCondition = sDef.get("enabledCondition", None)
                 # taskView.addSlider(sliderCategory, slider, enabledCondition)
+        print "It me", catMod
 
 
         if taskView.saveName is not None:
