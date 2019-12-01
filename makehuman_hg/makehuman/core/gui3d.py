@@ -49,7 +49,7 @@ from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
-modifiers = []
+#indicator = []
 medium = []
 
 
@@ -138,6 +138,7 @@ class View(events3d.EventHandler):
     soOk = collections.deque([0,0,0,0], maxlen=4)
     yoOk = collections.deque([0,0,0,0], maxlen=4)
     FoOk = collections.deque([0,0,0,0], maxlen=4)
+    indicator = collections.deque([0], maxlen=1)
 
     def __init__(self):
 
@@ -153,18 +154,20 @@ class View(events3d.EventHandler):
 
         self.faceGroupLookup = {}
 
-        # # Create sliders
-        # for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
-        #     for sDef in sliderDefs:
-        #         modifierName = sDef['mod']
-        #         modifier = human.getModifier(modifierName)
-        #         label = sDef.get('label', None)
-        #         camFunc = _getCamFunc(sDef.get('cam', None))
-        #         slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
-        #         enabledCondition = sDef.get("enabledCondition", None)
-        #         taskView.addSlider(sliderCategory, slider, enabledCondition)
+    def getModifiers(self):
 
-        #print "App: ", mhmain.G.app.selectedHuman
+        for modifier in mhmain.G.app.selectedHuman.modifiers:
+            # print modifier.fullName
+            #print "group name", modifier.groupName
+            # print "UGH", mhmain.G.app.selectedHuman.modifiers.task
+            if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
+                if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
+                    sliderTest = modifierslider.ModifierSlider(modifier)
+                    self.faceGroupLookup[modifier.faceGroup] = sliderTest
+                    print "hello", modifier.faceGroup
+                    print "hell no", modifier.level
+                    print self.indicator[0]
+        return
                 # put randomizer here!!! (at least try according to Marco)
 
 
@@ -316,13 +319,8 @@ class View(events3d.EventHandler):
         x = event.x #mouse x
 
         global uniVal
-
-        for modifier in modifiers:
-
-            if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
-                sliderTest = modifierslider.ModifierSlider(modifier)
-                self.faceGroupLookup[modifier.faceGroup] = sliderTest
-                print "hello", sliderTest
+        self.getModifiers()
+        #self.modMe()
             # mh.redraw()
         #mehah = bleh.rayCast()
         # modifier1 = human.gMod #instance of global from human class for modifier category
@@ -386,7 +384,7 @@ class View(events3d.EventHandler):
         print ("facegroup", app.selectedFaceGroup)
 
         if self.faceGroupLookup.has_key(app.selectedFaceGroup):
-            self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
+           # self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
             print("vrVal", vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
@@ -419,6 +417,15 @@ class View(events3d.EventHandler):
         #humanmodifier.MouAction.nVar(mouseAction)
 
         return uniVal, mouseAction, dmVal, amVal, vrVal, cmVal #return mouse call and new 'slider' val based on mouse
+
+    # def modMe(self):
+    #     for modifier in modifiers:
+    #
+    #         if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
+    #             sliderTest = modifierslider.ModifierSlider(modifier)
+    #             self.faceGroupLookup[modifier.faceGroup] = sliderTest
+    #             print "hello", sliderTest
+    #     self.show()
 
     def getCurrentMod(self, modifier):
         #mhmain.G.app.selectedHuman.getModifiersByGroup()
@@ -461,34 +468,39 @@ class View(events3d.EventHandler):
         for w in self.widgets:
             w.show()
 
-    def getModifier(self, cat):
-        global app
-        human = app.selectedHuman
-        modifier = None
-
-        for x in cat:
-            name = x
-            modifier = human.getModifier(name)
-
-        return modifier
+    # def getModifier(self, cat):
+    #     global app
+    #     human = app.selectedHuman
+    #     modifier = None
+    #
+    #     for x in cat:
+    #         name = x
+    #         modifier = human.getModifier(name)
+    #
+    #     return modifier
 
                 #put randomizer here!!! (at least try according to Marco)
 
     def low(self):
-        return "low"
+        self.indicator.clear()
+        return self.indicator
 
     def medium(self):
-        global medium, modifiers, app
-        human = app.selectedHuman
-        #modifier = None
+        self.indicator.clear()
+        self.indicator.appendleft("medium")
+        return self.indicator
 
-        #you need to flush "modifiers" somehow
-
-        for x in medium:
-            name = x
-            modifier = human.getModifier(name)
-            modifiers.append(modifier)
-            print "AAAAAAH", modifiers
+        # human = app.selectedHuman
+        # #modifier = None
+        #
+        # #you need to flush "modifiers" somehow
+        #
+        # for x in medium:
+        #     name = x
+        #     modifier = human.getModifier(name)
+        #     modifiers.append(modifier)
+        #     print "AAAAAAH", modifiers
+        #     self.modMe()
 
     def high(self):
         print "high"

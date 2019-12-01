@@ -158,7 +158,7 @@ class ModifierTaskView(gui3d.TaskView):
 
         if sliderCategory == "Low":
 
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.low)
+            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.low)
         elif sliderCategory == "Medium":
             self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.hi.medium)
         elif sliderCategory == "High":

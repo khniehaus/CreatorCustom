@@ -276,14 +276,14 @@
 
         {"target": "r-lowerarm-scale-depth", "min": "decr", "max": "incr"},
         {"target": "r-lowerarm-scale-horiz", "min": "decr", "max": "incr"},
-        {"target": "r-lowerarm-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-arm-lower"},
+        {"target": "r-lowerarm-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-arm-lower", "level":  "medium"},
         {"target": "r-lowerarm-fat", "min": "decr", "max": "incr"},
         {"target": "r-lowerarm-muscle", "min": "decr", "max": "incr"},
         {"target": "r-upperarm-scale-depth", "min": "decr", "max": "incr"},
         {"target": "r-upperarm-scale-horiz", "min": "decr", "max": "incr"},
-        {"target": "r-upperarm-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-arm-upper"},
+        {"target": "r-upperarm-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-arm-upper", "level": "medium"},
         {"target": "r-upperarm-fat", "min": "decr", "max": "incr"},
-        {"target": "r-upperarm-shoulder-muscle", "min": "decr", "max": "incr", "faceGroup": "right-shoulder"},
+        {"target": "r-upperarm-shoulder-muscle", "min": "decr", "max": "incr", "faceGroup": "right-shoulder", "level":  "medium"},
         {"target": "r-upperarm-muscle", "min": "decr", "max": "incr"},
 
         {"target": "l-lowerarm-scale-depth", "min": "decr", "max": "incr"},
