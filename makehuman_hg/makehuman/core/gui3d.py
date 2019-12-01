@@ -75,6 +75,8 @@ class MouAction(events3d.MouseEvent):
         self.x = class_a.x
         self.y = class_a.y
         print "X is", self.x, "Y is", self.y
+        self.window = QtGui.QWidget()
+        self.height = self.window.frameGeometry().height()
         #self.umOk = collections.deque()
 
         # FIX THIS FOR BETTER VALS
@@ -106,14 +108,11 @@ class MouAction(events3d.MouseEvent):
         return sVal
 
     def aVar(self):
-        newY = self.y  # y value
+        newY = 0.5  # y value
 
-        window = QtGui.QWidget()
-        height = window.frameGeometry().height()
-
-        mapVal = (((newY - 0.0) * (5.0 - -1.0)) / ((height/2) - 0.0)) + -1.0  # map range to 'slider' range
+        mapVal = ((((newY+(-self.y)) - 0.0) * (1.5 - -1.0)) / ((-self.height/2) - 0.0)) + -1.0  # map range to 'slider' range
             # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 1.0) / (1.0 - -1.0))
+        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 3.0) / (3.0 - -1.0))
 
         sVal = sVal
         print sVal
@@ -367,9 +366,9 @@ class View(events3d.EventHandler):
             amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
         print self.soOk
         if self.yoOk[0] >= self.yoOk[3]:
-            vrVal = self.yoOk[0] - self.yoOk[3]
+            vrVal = -(self.yoOk[0] + self.yoOk[3])
         elif self.yoOk[0] < self.yoOk[3]:
-            vrVal = -(self.yoOk[0] - self.yoOk[3])
+            vrVal = self.yoOk[0] + self.yoOk[3]
         if self.FoOk[0] >= self.FoOk[3]:
             cmVal = -(self.FoOk[0] - self.FoOk[3])
         elif self.FoOk[0] < self.FoOk[3]:
