@@ -2,31 +2,31 @@
   { "group": "head",
     "modifiers": [
       {"target": "head-age", "min": "decr", "max": "incr"},
-      {"target": "head-angle", "min": "in", "max": "out"},
+      {"target": "head-angle", "min": "in", "max": "out", "faceGroup": "chin", "level":  "medium-pull", "direction":  "H"},
       {"target": "head-fat", "min": "decr", "max": "incr"},
-      {"target": "head-oval"},
-      {"target": "head-round"},
-      {"target": "head-rectangular"},
-      {"target": "head-square"},
-      {"target": "head-triangular"},
-      {"target": "head-invertedtriangular"},
-      {"target": "head-diamond"},
+      {"target": "head-oval", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-pull", "direction":  "H"},
+      {"target": "head-round", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-round", "direction":  "H"},
+      {"target": "head-rectangular", "faceGroup": "left-jaw", "alternate faceGroup": "right-jaw", "level":  "medium-pull", "direction":  "H"},
+      {"target": "head-square", "faceGroup": "left-jaw", "alternate faceGroup": "right-jaw", "level":  "medium-add", "direction":  "H"},
+      {"target": "head-triangular", "faceGroup": "forehead", "level":  "medium-add", "direction":  "V"},
+      {"target": "head-invertedtriangular", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-carve", "direction":  "H"},
+      {"target": "head-diamond", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-squeeze", "direction":  "H"},
 
-      {"target": "head-scale-depth", "min": "decr", "max": "incr"},
-      {"target": "head-scale-horiz", "min": "decr", "max": "incr"},
-      {"target": "head-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "head-trans", "min": "in", "max": "out"},
-      {"target": "head-trans", "min": "down", "max": "up"},
-      {"target": "head-trans", "min": "backward", "max": "forward"},
-      {"target": "head-back-scale-depth", "min": "decr", "max": "incr"}
+      {"target": "head-scale-depth", "min": "decr", "max": "incr", "faceGroup": "head-back", "level":  "medium-pull", "direction":  "H"},
+      {"target": "head-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "left-cheek", "alternate faceGroup": "right-cheek", "level":  "medium-add", "direction":  "H"},
+      {"target": "head-scale-vert", "min": "decr", "max": "incr", "faceGroup": "head-top", "level":  "medium-pull", "direction":  "V"},
+      {"target": "head-trans", "min": "in", "max": "out", "faceGroup": "forehead", "level":  "medium-move", "direction":  "H"},
+      {"target": "head-trans", "min": "down", "max": "up", "faceGroup": "forehead", "level":  "medium-add", "direction":  "V"},
+      {"target": "head-trans", "min": "backward", "max": "forward", "faceGroup": "head-back", "level":  "medium-add", "direction":  "H"},
+      {"target": "head-back-scale-depth", "min": "decr", "max": "incr", "faceGroup": "head-back", "level":  "medium-pull", "direction":  "H"}
     ]
   },
 
   { "group": "forehead",
     "modifiers": [
-      {"target": "forehead-trans", "min": "backward", "max": "forward"},
-      {"target": "forehead-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "forehead-nubian", "min": "decr", "max": "incr"},
+      {"target": "forehead-trans", "min": "backward", "max": "forward", "faceGroup": "forehead", "level":  "medium-carve", "direction":  "H"},
+      {"target": "forehead-scale-vert", "min": "decr", "max": "incr", "faceGroup": "forehead", "level":  "medium-pull", "direction":  "V"},
+      {"target": "forehead-nubian", "min": "decr", "max": "incr", "faceGroup": "head-top", "level":  "medium-carve", "direction":  "V"},
       {"target": "forehead-temple", "min": "decr", "max": "incr"}
      ]
   },
@@ -42,11 +42,11 @@
   { "group": "neck",
     "modifiers": [
       {"target": "neck-double", "min": "decr", "max": "incr"},
-      {"target": "neck-scale-depth", "min": "decr", "max": "incr"},
-      {"target": "neck-scale-horiz", "min": "decr", "max": "incr"},
-      {"target": "neck-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "neck-trans", "min": "in", "max": "out"},
-      {"target": "neck-trans", "min": "down", "max": "up"},
+      {"target": "neck-scale-depth", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "neck-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-add", "direction":  "H"},
+      {"target": "neck-scale-vert", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-pull", "direction":  "V"},
+      {"target": "neck-trans", "min": "in", "max": "out", "faceGroup": "neck", "level":  "medium-move", "direction":  "H"},
+      {"target": "neck-trans", "min": "down", "max": "up", "faceGroup": "neck", "level":  "medium-move", "direction":  "V"},
       {"target": "neck-trans", "min": "backward", "max": "forward"},
       {"target": "neck-back-scale-depth", "min": "decr", "max": "incr"}
     ]
@@ -56,7 +56,7 @@
     "modifiers": [
       {"target": "r-eye-bag", "min": "decr", "max": "incr"},
       {"target": "r-eye-bag", "min": "in", "max": "out"},
-      {"target": "r-eye-bag-height", "min": "decr", "max": "incr"},
+      {"target": "r-eye-bag-height", "min": "decr", "max": "incr", "faceGroup": "right-eye-lower", "level":  "medium-pull", "direction":  "V"},
       {"target": "r-eye-eyefold-angle", "min": "down", "max": "up"},
       {"target": "r-eye-epicanthus", "min": "in", "max": "out"},
       {"target": "r-eye-eyefold", "min": "concave", "max": "convex"},
@@ -67,15 +67,15 @@
       {"target": "r-eye-height3", "min": "decr", "max": "incr"},
       {"target": "r-eye-push1", "min": "in", "max": "out"},
       {"target": "r-eye-push2", "min": "in", "max": "out"},
-      {"target": "r-eye-trans", "min": "in", "max": "out"},
-      {"target": "r-eye-trans", "min": "down", "max": "up"},
-      {"target": "r-eye-scale", "min": "decr", "max": "incr"},
+      {"target": "r-eye-trans", "min": "in", "max": "out", "faceGroup": "right-eye-upper", "level":  "medium-pull", "direction":  "H"},
+      {"target": "r-eye-trans", "min": "down", "max": "up", "faceGroup": "right-eye-upper", "level":  "medium-pull", "direction":  "V"},
+      {"target": "r-eye-scale", "min": "decr", "max": "incr", "faceGroup": "right-eye-upper", "level":  "medium-carve", "direction":  "H"},
       {"target": "r-eye-corner1", "min": "down", "max": "up"},
       {"target": "r-eye-corner2", "min": "down", "max": "up"},
 
       {"target": "l-eye-bag", "min": "decr", "max": "incr"},
       {"target": "l-eye-bag", "min": "in", "max": "out"},
-      {"target": "l-eye-bag-height", "min": "decr", "max": "incr"},
+      {"target": "l-eye-bag-height", "min": "decr", "max": "incr", "faceGroup": "left-eye-lower", "level":  "medium-pull", "direction":  "V"},
       {"target": "l-eye-eyefold-angle", "min": "down", "max": "up"},
       {"target": "l-eye-epicanthus", "min": "in", "max": "out"},
       {"target": "l-eye-eyefold", "min": "concave", "max": "convex"},
@@ -86,9 +86,9 @@
       {"target": "l-eye-height3", "min": "decr", "max": "incr"},
       {"target": "l-eye-push1", "min": "in", "max": "out"},
       {"target": "l-eye-push2", "min": "in", "max": "out"},
-      {"target": "l-eye-trans", "min": "in", "max": "out"},
-      {"target": "l-eye-trans", "min": "down", "max": "up"},
-      {"target": "l-eye-scale", "min": "decr", "max": "incr"},
+      {"target": "l-eye-trans", "min": "in", "max": "out", "faceGroup": "left-eye-upper", "level":  "medium-pull", "direction":  "H"},
+      {"target": "l-eye-trans", "min": "down", "max": "up", "faceGroup": "left-eye-upper", "level":  "medium-pull", "direction":  "V"},
+      {"target": "l-eye-scale", "min": "decr", "max": "incr", "faceGroup": "left-eye-upper", "level":  "medium-carve", "direction":  "H"},
       {"target": "l-eye-corner1", "min": "down", "max": "up"},
       {"target": "l-eye-corner2", "min": "down", "max": "up"}
     ]
@@ -96,18 +96,18 @@
 
   { "group": "nose",
     "modifiers": [
-      {"target": "nose-trans", "min": "down", "max": "up"},
-      {"target": "nose-trans", "min": "backward", "max": "forward"},
-      {"target": "nose-trans", "min": "in", "max": "out"},
-      {"target": "nose-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "nose-scale-horiz", "min": "decr", "max": "incr"},
-      {"target": "nose-scale-depth", "min": "decr", "max": "incr"},
+      {"target": "nose-trans", "min": "down", "max": "up", "faceGroup": "nose", "level":  "medium-move", "direction":  "V"},
+      {"target": "nose-trans", "min": "backward", "max": "forward", "faceGroup": "nose", "level":  "medium-pull", "direction":  "H"},
+      {"target": "nose-trans", "min": "in", "max": "out", "faceGroup": "nose", "level":  "medium-move", "direction":  "H"},
+      {"target": "nose-scale-vert", "min": "decr", "max": "incr", "faceGroup": "nose", "level":  "medium-pull", "direction":  "V"},
+      {"target": "nose-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "nose", "level":  "medium-carve", "direction":  "H"},
+      {"target": "nose-scale-depth", "min": "decr", "max": "incr",  "faceGroup": "nose", "level":  "medium-carve", "direction":  "V"},
 
       {"target": "nose-nostrils-width", "min": "decr", "max": "incr"},
       {"target": "nose-point-width", "min": "decr", "max": "incr"},
       {"target": "nose-base", "min": "down", "max": "up"},
-      {"target": "nose-width1", "min": "decr", "max": "incr"},
-      {"target": "nose-width2", "min": "decr", "max": "incr"},
+      {"target": "nose-width1", "min": "decr", "max": "incr",  "faceGroup": "nose-upper", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "nose-width2", "min": "decr", "max": "incr",  "faceGroup": "nose", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "nose-width3", "min": "decr", "max": "incr"},
 
       {"target": "nose-compression", "min": "compress", "max": "uncompress"},
@@ -124,12 +124,12 @@
 
   { "group": "mouth",
     "modifiers": [
-      {"target": "mouth-scale-horiz", "min": "decr", "max": "incr"},
-      {"target": "mouth-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "mouth-scale-depth", "min": "decr", "max": "incr"},
-      {"target": "mouth-trans", "min": "in", "max": "out"},
-      {"target": "mouth-trans", "min": "down", "max": "up"},
-      {"target": "mouth-trans", "min": "backward", "max": "forward"},
+      {"target": "mouth-scale-horiz", "min": "decr", "max": "incr",  "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-add", "direction":  "H"},
+      {"target": "mouth-scale-vert", "min": "decr", "max": "incr", "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-add", "direction":  "V"},
+      {"target": "mouth-scale-depth", "min": "decr", "max": "incr", "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-carve", "direction":  "H"},
+      {"target": "mouth-trans", "min": "in", "max": "out", "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-move", "direction":  "H"},
+      {"target": "mouth-trans", "min": "down", "max": "up", "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-move", "direction":  "V"},
+      {"target": "mouth-trans", "min": "backward", "max": "forward", "faceGroup": "lips-upper", "alternate faceGroup": "lips-lower", "level":  "medium-pull", "direction":  "H"},
 
       {"target": "mouth-lowerlip-height", "min": "decr", "max": "incr"},
       {"target": "mouth-lowerlip-width", "min": "decr", "max": "incr"},
@@ -153,27 +153,27 @@
 
   { "group": "ears",
     "modifiers": [
-      {"target": "r-ear-trans", "min": "backward", "max": "forward"},
-      {"target": "r-ear-scale", "min": "decr", "max": "incr"},
-      {"target": "r-ear-trans", "min": "down", "max": "up"},
-      {"target": "r-ear-scale-vert",  "min": "decr", "max": "incr"},
+      {"target": "r-ear-trans", "min": "backward", "max": "forward", "faceGroup": "right-ear", "level":  "medium-move", "direction":  "H"},
+      {"target": "r-ear-scale", "min": "decr", "max": "incr", "faceGroup": "right-ear", "level":  "medium-add", "direction":  "H"},
+      {"target": "r-ear-trans", "min": "down", "max": "up", "faceGroup": "right-ear", "level":  "medium-move", "direction":  "V"},
+      {"target": "r-ear-scale-vert",  "min": "decr", "max": "incr", "faceGroup": "right-ear", "level":  "medium-pull", "direction":  "V"},
       {"target": "r-ear-lobe", "min": "decr", "max": "incr"},
       {"target": "r-ear-shape", "min": "pointed", "max": "triangle"},
       {"target": "r-ear-rot", "min": "backward", "max": "forward"},
-      {"target": "r-ear-shape", "min": "square", "max": "round"},
-      {"target": "r-ear-scale-depth", "min": "decr", "max": "incr"},
+      {"target": "r-ear-shape", "min": "square", "max": "round", "faceGroup": "right-ear", "level":  "medium-carve", "direction":  "H"},
+      {"target": "r-ear-scale-depth", "min": "decr", "max": "incr", "faceGroup": "right-ear", "level":  "medium-pull", "direction":  "H"},
       {"target": "r-ear-wing", "min": "decr", "max": "incr"},
       {"target": "r-ear-flap", "min": "decr", "max": "incr"},
 
-      {"target": "l-ear-trans", "min": "backward", "max": "forward"},
-      {"target": "l-ear-scale", "min": "decr", "max": "incr"},
-      {"target": "l-ear-trans", "min": "down", "max": "up"},
-      {"target": "l-ear-scale-vert",  "min": "decr", "max": "incr"},
+      {"target": "l-ear-trans", "min": "backward", "max": "forward", "faceGroup": "left-ear", "level":  "medium-move", "direction":  "H"},
+      {"target": "l-ear-scale", "min": "decr", "max": "incr", "faceGroup": "left-ear", "level":  "medium-add", "direction":  "H"},
+      {"target": "l-ear-trans", "min": "down", "max": "up", "faceGroup": "left-ear", "level":  "medium-move", "direction":  "V"},
+      {"target": "l-ear-scale-vert",  "min": "decr", "max": "incr", "faceGroup": "left-ear", "level":  "medium-pull", "direction":  "V"},
       {"target": "l-ear-lobe", "min": "decr", "max": "incr"},
       {"target": "l-ear-shape", "min": "pointed", "max": "triangle"},
       {"target": "l-ear-rot", "min": "backward", "max": "forward"},
-      {"target": "l-ear-shape", "min": "square", "max": "round"},
-      {"target": "l-ear-scale-depth", "min": "decr", "max": "incr"},
+      {"target": "l-ear-shape", "min": "square", "max": "round", "faceGroup": "left-ear", "level":  "medium-carve", "direction":  "H"},
+      {"target": "l-ear-scale-depth", "min": "decr", "max": "incr", "faceGroup": "left-ear", "level":  "medium-pull", "direction":  "H"},
       {"target": "l-ear-wing", "min": "decr", "max": "incr"},
       {"target": "l-ear-flap", "min": "decr", "max": "incr"}
     ]
@@ -193,12 +193,12 @@
 
   { "group": "cheek",
     "modifiers": [
-      {"target": "l-cheek-volume", "min": "decr", "max": "incr"},
-      {"target": "l-cheek-bones", "min": "decr", "max": "incr"},
+      {"target": "l-cheek-volume", "min": "decr", "max": "incr", "faceGroup": "left-cheek", "level":  "medium-pull", "direction":  "H"},
+      {"target": "l-cheek-bones", "min": "decr", "max": "incr", "faceGroup": "left-cheek", "level":  "medium-carve", "direction":  "H"},
       {"target": "l-cheek-inner", "min": "decr", "max": "incr"},
       {"target": "l-cheek-trans", "min": "down", "max": "up"},
-      {"target": "r-cheek-volume", "min": "decr", "max": "incr"},
-      {"target": "r-cheek-bones", "min": "decr", "max": "incr"},
+      {"target": "r-cheek-volume", "min": "decr", "max": "incr", "faceGroup": "left-cheek", "level":  "medium-pull", "direction":  "H"},
+      {"target": "r-cheek-bones", "min": "decr", "max": "incr", "faceGroup": "right-cheek", "level":  "medium-carve", "direction":  "H"},
       {"target": "r-cheek-inner", "min": "decr", "max": "incr"},
       {"target": "r-cheek-trans", "min": "down", "max": "up"}
     ]
@@ -206,13 +206,13 @@
 
   { "group": "torso",
     "modifiers": [
-      {"target": "torso-scale-depth", "min": "decr", "max": "incr"},
-      {"target": "torso-scale-horiz", "min": "decr", "max": "incr"},
-      {"target": "torso-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "torso-trans", "min": "in", "max": "out"},
-      {"target": "torso-trans", "min": "down", "max": "up"},
-      {"target": "torso-trans", "min": "backward", "max": "forward"},
-      {"target": "torso-vshape", "min": "decr", "max": "incr"},
+      {"target": "torso-scale-depth", "min": "decr", "max": "incr", "faceGroup": "torso-back", "level":  "medium-pull", "direction":  "H"},
+      {"target": "torso-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "right-shoulder", "alternate faceGroup": "left-shoulder", "level":  "medium-pull", "direction":  "H"},
+      {"target": "torso-scale-vert", "min": "decr", "max": "incr", "faceGroup": "stomach", "level":  "medium-pull", "direction":  "V"},
+      {"target": "torso-trans", "min": "in", "max": "out", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-move", "direction":  "H"},
+      {"target": "torso-trans", "min": "down", "max": "up", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-pull", "direction":  "V"},
+      {"target": "torso-trans", "min": "backward", "max": "forward", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-pull", "direction":  "H"},
+      {"target": "torso-vshape", "min": "decr", "max": "incr", "faceGroup": "left-shoulder", "alternate faceGroup": "right-shoulder", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "torso-muscle-dorsi", "min": "decr", "max": "incr"},
       {"target": "torso-muscle-pectoral", "min": "decr", "max": "incr"}
     ]
@@ -223,10 +223,10 @@
       {"target": "hip-scale-depth", "min": "decr", "max": "incr"},
       {"target": "hip-scale-horiz", "min": "decr", "max": "incr"},
       {"target": "hip-scale-vert", "min": "decr", "max": "incr"},
-      {"target": "hip-trans", "min": "in", "max": "out"},
-      {"target": "hip-trans", "min": "down", "max": "up"},
+      {"target": "hip-trans", "min": "in", "max": "out", "faceGroup": "stomach", "level":  "medium-move", "direction":  "H"},
+      {"target": "hip-trans", "min": "down", "max": "up", "faceGroup": "left-hip", "alternate faceGroup": "right-hip", "level":  "medium-move", "direction":  "V"},
       {"target": "hip-trans", "min": "backward", "max": "forward"},
-      {"target": "hip-waist", "min": "down", "max": "up"}
+      {"target": "hip-waist", "min": "down", "max": "up", "faceGroup": "belly-button", "level":  "medium-move", "direction":  "V"}
     ]
   },
 
@@ -248,7 +248,7 @@
   { "group": "pelvis",
     "modifiers": [
       {"target": "pelvis-tone", "min": "decr", "max": "incr"},
-      {"target": "bulge", "min": "decr", "max": "incr"}
+      {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "groin", "level":  "medium-add", "direction":  "H"}
     ]
   },
 
@@ -257,22 +257,22 @@
         {"target": "r-hand-fingers-distance", "min": "decr", "max": "incr"},
         {"target": "r-hand-fingers-diameter", "min": "decr", "max": "incr"},
         {"target": "r-hand-fingers-length", "min": "decr", "max": "incr"},
-        {"target": "r-hand-scale", "min": "decr", "max": "incr"},
-        {"target": "r-hand-trans", "min": "in", "max": "out"},
+        {"target": "r-hand-scale", "min": "decr", "max": "incr", "faceGroup": "right-hand", "level":  "medium-add", "direction":  "H"},
+        {"target": "r-hand-trans", "min": "in", "max": "out", "faceGroup": "right-hand", "level":  "medium-pull", "direction":  "V"},
 
         {"target": "l-hand-fingers-distance", "min": "decr", "max": "incr"},
         {"target": "l-hand-fingers-diameter", "min": "decr", "max": "incr"},
         {"target": "l-hand-fingers-length", "min": "decr", "max": "incr"},
-        {"target": "l-hand-scale", "min": "decr", "max": "incr"},
-        {"target": "l-hand-trans", "min": "in", "max": "out"},
+        {"target": "l-hand-scale", "min": "decr", "max": "incr", "faceGroup": "left-hand", "level":  "medium-add", "direction":  "H"},
+        {"target": "l-hand-trans", "min": "in", "max": "out", "faceGroup": "left-hand", "level":  "medium-pull", "direction":  "V"},
 
-        {"target": "r-foot-scale", "min": "decr", "max": "incr"},
+        {"target": "r-foot-scale", "min": "decr", "max": "incr", "faceGroup": "right-foot", "alternate faceGroup": "right-toes", "level":  "medium-add", "direction":  "H"},
         {"target": "r-foot-trans", "min": "in", "max": "out"},
-        {"target": "r-foot-trans", "min": "backward", "max": "forward"},
+        {"target": "r-foot-trans", "min": "backward", "max": "forward", "faceGroup": "right-foot", "alternate faceGroup": "right-toes", "level":  "medium-move", "direction":  "H"},
 
-        {"target": "l-foot-scale", "min": "decr", "max": "incr"},
+        {"target": "l-foot-scale", "min": "decr", "max": "incr", "faceGroup": "left-foot", "alternate faceGroup": "left-toes", "level":  "medium-add", "direction":  "H"},
         {"target": "l-foot-trans", "min": "in", "max": "out"},
-        {"target": "l-foot-trans", "min": "backward", "max": "forward"},
+        {"target": "l-foot-trans", "min": "backward", "max": "forward", "faceGroup": "left-foot", "alternate faceGroup": "left-toes", "level":  "medium-move", "direction":  "H"},
 
         {"target": "r-lowerarm-scale-depth", "min": "decr", "max": "incr"},
         {"target": "r-lowerarm-scale-horiz", "min": "decr", "max": "incr"},
@@ -350,8 +350,8 @@
 
   { "group": "macrodetails",
     "modifiers": [
-        {"macrovar": "Gender"},
-        {"macrovar": "Age"},
+        {"macrovar": "Gender", "level": "low-round", "direction": "V"},
+        {"macrovar": "Age", "level": "low-move", "direction": "V"},
         {"macrovar": "African", "modifierType": "EthnicModifier"},
         {"macrovar": "Asian", "modifierType": "EthnicModifier"},
         {"macrovar": "Caucasian", "modifierType": "EthnicModifier"}
@@ -360,20 +360,20 @@
 
   { "group": "macrodetails-universal",
     "modifiers": [
-        {"macrovar": "Muscle"},
-        {"macrovar": "Weight"}
+        {"macrovar": "Muscle", "level": "low-carve", "direction": "H"},
+        {"macrovar": "Weight", "level": "low-add", "direction": "H"}
     ]
   },
 
   { "group": "macrodetails-height",
     "modifiers": [
-        {"macrovar": "Height"}
+        {"macrovar": "Height", "level": "low-pull", "direction": "V"}
     ]
   },
 
   { "group": "macrodetails-proportions",
     "modifiers": [
-        {"macrovar": "BodyProportions"}
+        {"macrovar": "BodyProportions",  "faceGroup": "stomach", "level":  "medium-add", "direction": "V"}
     ]
   }
 ]
