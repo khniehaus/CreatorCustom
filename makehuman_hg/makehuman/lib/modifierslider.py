@@ -119,10 +119,10 @@ class ModifierSlider(gui.Slider):
         mPosy = mPos[1]
         beep = events3d.MouseEvent(mButt, mPosx, mPosy)
         transVar = gui3d.MouAction(beep)
-        nVal = transVar.mVar()
-        wVal = transVar.nVar()
+        #nVal = transVar.mVar()
+        #wVal = transVar.nVar()
         vVal = transVar.aVar()
-        bVal = transVar.wiVar()
+        #bVal = transVar.wiVar()
         #value = 0.5
         # if oTest1 == False:
         #     if self.modifier == human.wMod:

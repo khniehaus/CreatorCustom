@@ -350,8 +350,8 @@
 
   { "group": "macrodetails",
     "modifiers": [
-        {"macrovar": "Gender", "level": "low-squeeze", "direction": "V"},
-        {"macrovar": "Age", "level": "low-move", "direction": "V"},
+        {"macrovar": "Gender", "faceGroup": "None", "level": "low-squeeze", "direction": "V"},
+        {"macrovar": "Age", "faceGroup": "None", "level": "low-move", "direction": "V"},
         {"macrovar": "African", "modifierType": "EthnicModifier"},
         {"macrovar": "Asian", "modifierType": "EthnicModifier"},
         {"macrovar": "Caucasian", "modifierType": "EthnicModifier"}
@@ -360,14 +360,14 @@
 
   { "group": "macrodetails-universal",
     "modifiers": [
-        {"macrovar": "Muscle", "level": "low-carve", "direction": "H"},
-        {"macrovar": "Weight", "level": "low-add", "direction": "H"}
+        {"macrovar": "Muscle", "faceGroup": "None", "level": "low-carve", "direction": "H"},
+        {"macrovar": "Weight", "faceGroup": "None", "level": "low-add", "direction": "H"}
     ]
   },
 
   { "group": "macrodetails-height",
     "modifiers": [
-        {"macrovar": "Height", "level": "low-pull", "direction": "V"}
+        {"macrovar": "Height", "faceGroup": "None", "level": "low-pull", "direction": "V"}
     ]
   },
 

@@ -49,24 +49,24 @@ from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
-#indicator = []
-medium = []
+indicator = []
+#medium = []
 
 
-def loadModifiers(filename):
-    import json
-    from collections import OrderedDict
-    global modifiers
-
-    data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
-    # print "MUNCH", data
-    for tName, tVP in data.items():
-        for cat, mods in tVP['modifiers'].items():
-            for mod in mods:
-                modName = mod['mod']
-                modifiers.append({cat:modName})
-                if cat == 'Medium':
-                    medium.append(modName)
+# def loadModifiers(filename):
+#     import json
+#     from collections import OrderedDict
+#     global modifiers
+#
+#     data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
+#     # print "MUNCH", data
+#     for tName, tVP in data.items():
+#         for cat, mods in tVP['modifiers'].items():
+#             for mod in mods:
+#                 modName = mod['mod']
+#                 modifiers.append({cat:modName})
+#                 if cat == 'Medium':
+#                     medium.append(modName)
 
 
 class MouAction(events3d.MouseEvent):
@@ -152,6 +152,7 @@ class View(events3d.EventHandler):
         self.filename = None
 
         self.faceGroupLookup = {}
+        self.macroLookup = {}
 
     def getModifiers(self):
 
@@ -160,12 +161,17 @@ class View(events3d.EventHandler):
             #print "group name", modifier.groupName
             # print "UGH", mhmain.G.app.selectedHuman.modifiers.task
             if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
-                if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
+                if hasattr(modifier, "faceGroup") or hasattr(modifier, "alternate faceGroup") and modifier.faceGroup != None:
                     sliderTest = modifierslider.ModifierSlider(modifier)
                     self.faceGroupLookup[modifier.faceGroup] = sliderTest
                     print "hello", modifier.faceGroup
                     print "hell no", modifier.level
                     print self.indicator[0]
+                    # if hasattr(modifier, "faceGroup") and modifier.faceGroup == "None":
+                    #
+                    # sliderTest = modifierslider.ModifierSlider(modifier)
+                    # self.macroLookup[modifier] = sliderTest
+                    # print "GODDAMN YOU ALL TO HELL", sliderTest
         return
                 # put randomizer here!!! (at least try according to Marco)
 
@@ -297,6 +303,7 @@ class View(events3d.EventHandler):
                 self.callEvent('onHide', None)
 
     def onShow(self, event):
+        self.indicator.clear()
         self.show()
 
     def onHide(self, event):
@@ -319,6 +326,8 @@ class View(events3d.EventHandler):
 
         global uniVal
         self.getModifiers()
+        print self.indicator[0]
+        #FIX MACRO PROBLEM!!!!
         #self.modMe()
             # mh.redraw()
         #mehah = bleh.rayCast()
@@ -345,40 +354,40 @@ class View(events3d.EventHandler):
         mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
         mouseAction = MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
-        dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
-        amVal1 = MouAction.nVar(mouseAction)
+        #dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
+        #amVal1 = MouAction.nVar(mouseAction)
         vVal1 = MouAction.aVar(mouseAction)
-        cVal1 = MouAction.wiVar(mouseAction)
+        #cVal1 = MouAction.wiVar(mouseAction)
 
         #print "color is", colVal
 
-        self.umOk.appendleft(dmVal1)
-        self.soOk.appendleft(amVal1)
+        #self.umOk.appendleft(dmVal1)
+        #self.soOk.appendleft(amVal1)
         self.yoOk.appendleft(vVal1)
-        self.FoOk.appendleft(cVal1)
-        if self.umOk[0] >= self.umOk[3]:
-            dmVal = -(self.umOk[0] - self.umOk[3])
-        elif self.umOk[0] < self.umOk[3]:
-            dmVal = self.umOk[3] - self.umOk[0]
-        if self.soOk[0] >= self.soOk[3]:
-            amVal = self.soOk[3] + (self.soOk[0] - self.soOk[3])
-        elif self.soOk[0] < self.soOk[3]:
-            amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
-        print self.soOk
+        #self.FoOk.appendleft(cVal1)
+        # if self.umOk[0] >= self.umOk[3]:
+        #     dmVal = -(self.umOk[0] - self.umOk[3])
+        # elif self.umOk[0] < self.umOk[3]:
+        #     dmVal = self.umOk[3] - self.umOk[0]
+        # if self.soOk[0] >= self.soOk[3]:
+        #     amVal = self.soOk[3] + (self.soOk[0] - self.soOk[3])
+        # elif self.soOk[0] < self.soOk[3]:
+        #     amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
+        # print self.soOk
         if self.yoOk[0] >= self.yoOk[3]:
             vrVal = -(self.yoOk[0] + self.yoOk[3])
         elif self.yoOk[0] < self.yoOk[3]:
             vrVal = self.yoOk[0] + self.yoOk[3]
-        if self.FoOk[0] >= self.FoOk[3]:
-            cmVal = -(self.FoOk[0] - self.FoOk[3])
-        elif self.FoOk[0] < self.FoOk[3]:
-            cmVal = self.FoOk[3] - self.FoOk[0]
+        # if self.FoOk[0] >= self.FoOk[3]:
+        #     cmVal = -(self.FoOk[0] - self.FoOk[3])
+        # elif self.FoOk[0] < self.FoOk[3]:
+        #     cmVal = self.FoOk[3] - self.FoOk[0]
 
 
-        dmVal = dmVal
-        amVal = amVal
+        # dmVal = dmVal
+        # amVal = amVal
         vrVal = vrVal
-        cmVal = cmVal
+        # cmVal = cmVal
 
         print ("facegroup", app.selectedFaceGroup)
 
@@ -388,6 +397,16 @@ class View(events3d.EventHandler):
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
+
+        # else:
+        #     self.faceGroupLookup['None'].onChanging(vrVal)
+        #     self.faceGroupLookup['None'].onChange(vrVal)
+        #     self.faceGroupLookup['None'].update()
+
+        # else:
+        #     self.macroLookup[].onChanging(vrVal)
+        #     self.macroLookup[0].onChange(vrVal)
+        #     self.macroLookup[0].update()
 
         # if colVal == (176, 0, 0):
         #     smallManipTest.onChanging(vrVal)
@@ -407,7 +426,7 @@ class View(events3d.EventHandler):
         # secondManipTest.onChanging(dmVal)
         # secondManipTest.onChange(dmVal)
         # secondManipTest.update()
-        uniVal = dmVal
+        uniVal = vrVal
 
         #directManipTest.update()
         ##s.setValue(dmVal)
@@ -415,7 +434,7 @@ class View(events3d.EventHandler):
         #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
         #humanmodifier.MouAction.nVar(mouseAction)
 
-        return uniVal, mouseAction, dmVal, amVal, vrVal, cmVal #return mouse call and new 'slider' val based on mouse
+        return uniVal, mouseAction, vrVal #return mouse call and new 'slider' val based on mouse
 
     # def modMe(self):
     #     for modifier in modifiers:
@@ -426,10 +445,10 @@ class View(events3d.EventHandler):
     #             print "hello", sliderTest
     #     self.show()
 
-    def getCurrentMod(self, modifier):
-        #mhmain.G.app.selectedHuman.getModifiersByGroup()
-        print "literally what", modifier
-        return modifier
+    # def getCurrentMod(self, modifier):
+    #     #mhmain.G.app.selectedHuman.getModifiersByGroup()
+    #     print "literally what", modifier
+    #     return modifier
 
     def onMouseUp(self, event):
         self.parent.callEvent('onMouseUp', event)
@@ -480,13 +499,79 @@ class View(events3d.EventHandler):
 
                 #put randomizer here!!! (at least try according to Marco)
 
-    def low(self):
+    def lowPP(self):
         self.indicator.clear()
+        self.indicator.appendleft("low-pull")
         return self.indicator
 
-    def medium(self):
+    def lowSL(self):
         self.indicator.clear()
-        self.indicator.appendleft("medium")
+        self.indicator.appendleft("low-squeeze")
+        return self.indicator
+
+    def lowCR(self):
+        self.indicator.clear()
+        self.indicator.appendleft("low-carve")
+        return self.indicator
+
+    def lowAC(self):
+        self.indicator.clear()
+        self.indicator.appendleft("low-add")
+        return self.indicator
+
+    def lowMove(self):
+        self.indicator.clear()
+        self.indicator.appendleft("low-move")
+        return self.indicator
+
+    def mediumPP(self):
+        self.indicator.clear()
+        self.indicator.appendleft("medium-pull")
+        return self.indicator
+
+    def mediumSL(self):
+        self.indicator.clear()
+        self.indicator.appendleft("medium-squeeze")
+        return self.indicator
+
+    def mediumCR(self):
+        self.indicator.clear()
+        self.indicator.appendleft("medium-carve")
+        return self.indicator
+
+    def mediumAC(self):
+        self.indicator.clear()
+        self.indicator.appendleft("medium-add")
+        return self.indicator
+
+    def mediumMove(self):
+        self.indicator.clear()
+        self.indicator.appendleft("medium-move")
+        return self.indicator
+
+    def highPP(self):
+        self.indicator.clear()
+        self.indicator.appendleft("high-pull")
+        return self.indicator
+
+    def highSL(self):
+        self.indicator.clear()
+        self.indicator.appendleft("high-squeeze")
+        return self.indicator
+
+    def highCR(self):
+        self.indicator.clear()
+        self.indicator.appendleft("high-carve")
+        return self.indicator
+
+    def highAC(self):
+        self.indicator.clear()
+        self.indicator.appendleft("high-add")
+        return self.indicator
+
+    def highMove(self):
+        self.indicator.clear()
+        self.indicator.appendleft("high-move")
         return self.indicator
 
         # human = app.selectedHuman
@@ -500,9 +585,6 @@ class View(events3d.EventHandler):
         #     modifiers.append(modifier)
         #     print "AAAAAAH", modifiers
         #     self.modMe()
-
-    def high(self):
-        print "high"
 
     def hideWidgets(self):
         for w in self.widgets:
@@ -520,10 +602,10 @@ class TaskView(View):
         self.left, self.right = mh.addPanels()
         self.sortOrder = None
 
-    def getModifiers(self, key):
-        global modifiers
-        modifiers.append(key)
-        print modifiers
+    # def getModifiers(self, key):
+    #     global modifiers
+    #     modifiers.append(key)
+    #     print modifiers
 
     def showWidgets(self):
         super(TaskView, self).showWidgets()
@@ -601,26 +683,26 @@ class Category(View):
 
         return task
 
-    def addModCat(self, modCat):
-        #if modCat.name in self.modCatByName:
-            #raise KeyError('A modifier group with this name already exists', modCat.name)
-        self.modCats.append(modCat)
-
-        #tasks = sorted(self.parent.tasks.values(), key=lambda t: t.sortOrder)
-        #taskOrder = tasks.index(self)
-        #self.modCatByName[modCat.name] = modCat
-        #self.addView(modCat)
-        #tasks = sorted(self.parent.tasks.values(), key=lambda c: task.sortOrder)
-        #taskOrder = self.tabs.sortOrder()
-        #print "SHIIIT", modCat
-        return modCat
+    # def addModCat(self, modCat):
+    #     #if modCat.name in self.modCatByName:
+    #         #raise KeyError('A modifier group with this name already exists', modCat.name)
+    #     self.modCats.append(modCat)
+    #
+    #     #tasks = sorted(self.parent.tasks.values(), key=lambda t: t.sortOrder)
+    #     #taskOrder = tasks.index(self)
+    #     #self.modCatByName[modCat.name] = modCat
+    #     #self.addView(modCat)
+    #     #tasks = sorted(self.parent.tasks.values(), key=lambda c: task.sortOrder)
+    #     #taskOrder = self.tabs.sortOrder()
+    #     #print "SHIIIT", modCat
+    #     return modCat
 
     def getTaskByName(self, name):
         return self.tasksByName.get(name)
 
-    def getModsHere(self, mods):
-        print "AAAAHHAHSHAHAH", mods
-        return mods
+    # def getModsHere(self, mods):
+    #     print "AAAAHHAHSHAHAH", mods
+    #     return mods
 
 # The application
 app = None
@@ -631,6 +713,7 @@ class Application(events3d.EventHandler):
     """
 
     singleton = None
+    #global indicator
 
     def __init__(self):
         global app
@@ -791,6 +874,7 @@ class Application(events3d.EventHandler):
             log.debug('showing task %s', self.currentTask.name)
             #print "Task is", self.currentTask.getModifiers()
             print "FUCK", self.currentTask.name
+            #self.indicator.clear()
             self.currentTask.show()
             self.currentTask.showWidgets()
 
@@ -822,6 +906,7 @@ class Application(events3d.EventHandler):
         self.currentCategory = category
 
         log.debug('showing category %s', self.currentCategory.name)
+        #self.indicator.clear()
         self.currentCategory.show()
         self.currentCategory.showWidgets()
         self.switchTask(category.task)
@@ -916,10 +1001,11 @@ class Application(events3d.EventHandler):
 
     def onMouseMovedCallback(self, event):
         # Get picked object
-        global modifiers
-        global medium
-        for x in medium:
-            print "FICK", x
+        # global modifiers
+        # global medium
+        # for x in medium:
+
+        #     print "FICK", x
         picked = self.getSelectedFaceGroupAndObject()
         #ugh = self.getSelectedFaceGroup()
 

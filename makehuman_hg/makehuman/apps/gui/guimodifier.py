@@ -73,7 +73,7 @@ class ModifierTaskView(gui3d.TaskView):
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
 
         #self.boxBox = self.addLeftWidget(self.toolbar)
-        self.hi = gui3d.View()
+        self.gTrans = gui3d.View()
         self.showMacroStats = False
         self.human = gui3d.app.selectedHuman
 
@@ -110,41 +110,6 @@ class ModifierTaskView(gui3d.TaskView):
         #box3.setCurrentIndex(0)
         #butt = gui.Button(sliderCategory)
         #box.addWidget(butt)
-
-    #def low(self):
-        # slide = humanmodifier.
-        # slide.groupName = ['hip']
-        # print slide.groupName
-        #print "DAMN YOU ALL", modifier.groupName.name
-        #return modifier.groupName
-        #self.hi.testMe()
-    def low(self):
-        #hi = gui3d.TaskView()
-        for key in catMod:
-            print key
-            #hi.getModifiers(key)
-            #else:
-                #pass
-        #print fuck
-
-    def medium(self):
-        pass
-
-    def high(self):
-        pass
-
-    def changeCat(self):
-        pass
-
-    # def mod3(self):
-    #     pass
-    #
-    # def mod4(self):
-    #     pass
-    #
-    # def mod5(self):
-    #     pass
-
     def createActs(self, sliderCategory):
 
         self.actions = gui.Actions()
@@ -156,13 +121,36 @@ class ModifierTaskView(gui3d.TaskView):
             self.toolbar.addAction(action)
             return action
 
-        if sliderCategory == "Low":
-
-            self.actions.low = action('Low', gui.getLanguageString('Low'), self.hi.low)
-        elif sliderCategory == "Medium":
-            self.actions.medium = action ('Medium', gui.getLanguageString('Medium'), self.hi.medium)
-        elif sliderCategory == "High":
-            self.actions.high = action('High', gui.getLanguageString('High'), self.high)
+        if sliderCategory == "low-pull-push":
+            self.actions.lowPP = action('low-pull-push', gui.getLanguageString('Pull-Push'), self.gTrans.lowPP)
+        elif sliderCategory == "low-squeeze-loosen":
+            self.actions.lowSL = action('low-squeeze-loosen', gui.getLanguageString('Squeeze-Loosen'), self.gTrans.lowSL)
+        elif sliderCategory == "low-carve-round":
+            self.actions.lowCR = action('low-carve-round', gui.getLanguageString('Carve-Round'), self.gTrans.lowCR)
+        elif sliderCategory == "low-add-collect":
+            self.actions.lowAC = action('low-add-collect', gui.getLanguageString('Add-Collect'), self.gTrans.lowAC)
+        elif sliderCategory == "low-move":
+            self.actions.lowMove = action('low-move', gui.getLanguageString('Move'), self.gTrans.lowMove)
+        elif sliderCategory == "medium-pull-push":
+            self.actions.mediumPP = action ('medium-pull-push', gui.getLanguageString('Pull-Push'), self.gTrans.mediumPP)
+        elif sliderCategory == "medium-squeeze-loosen":
+            self.actions.mediumSL = action('medium-squeeze-loosen', gui.getLanguageString('Squeeze-Loosen'), self.gTrans.mediumSL)
+        elif sliderCategory == "medium-carve-round":
+            self.actions.mediumCR = action('medium-carve-round', gui.getLanguageString('Carve-Round'), self.gTrans.mediumCR)
+        elif sliderCategory == "medium-add-collect":
+            self.actions.mediumAC = action('medium-add-collect', gui.getLanguageString('Add-Collect'), self.gTrans.mediumAC)
+        elif sliderCategory == "medium-move":
+            self.actions.mediumMove = action('medium-move', gui.getLanguageString('Move'), self.gTrans.mediumMove)
+        elif sliderCategory == "high-pull-push":
+            self.actions.highPP = action('high-pull-push', gui.getLanguageString('Pull-Push'), self.gTrans.highPP)
+        elif sliderCategory == "high-squeeze-loosen":
+            self.actions.highSL = action('high-squeeze-loosen', gui.getLanguageString('Squeeze-Loosen'), self.gTrans.highSL)
+        elif sliderCategory == "high-carve-round":
+            self.actions.highCR = action('high-carve-round', gui.getLanguageString('Carve-Round'), self.gTrans.highCR)
+        elif sliderCategory == "high-add-collect":
+            self.actions.highAC = action('high-add-collect', gui.getLanguageString('Add-Collect'), self.gTrans.highAC)
+        elif sliderCategory == "high-move":
+            self.actions.highMove = action('high-move', gui.getLanguageString('Move'), self.gTrans.highMove)
         else:
             return None
         # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
@@ -397,7 +385,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
 
         # Create sliders
         for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
-            category.addModCat(sliderCategory)
+            #category.addModCat(sliderCategory)
             taskView.createActs(sliderCategory)
             for sDef in sliderDefs:
                 modifierName = sDef['mod']
@@ -405,7 +393,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                     catMod.append(modifierName)
                     print "what the hell", modifierName
                 modifier = human.getModifier(modifierName)
-                category.getModsHere(modifierName)
+                #category.getModsHere(modifierName)
                 # label = sDef.get('label', None)
                 # camFunc = _getCamFunc( sDef.get('cam', None) )
                 # slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)

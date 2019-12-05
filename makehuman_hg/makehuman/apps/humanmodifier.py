@@ -477,7 +477,7 @@ class UniversalModifier(ManagedTargetModifier):
     Simple target-based modifier that controls 1, 2 or 3 targets, managed by
     the targets module.
     """
-    def __init__(self, groupName, targetName, leftExt=None, rightExt=None, centerExt=None, faceGroup=None, altFaceGroup = None, level = None, camera = None, direction = None):
+    def __init__(self, groupName, targetName, leftExt=None, rightExt=None, centerExt=None, faceGroup=None, altFaceGroup = None, level = None, direction = None):
         self.targetName = groupName + "-" + targetName
         if leftExt and rightExt:
             self.left = self.targetName + "-" + leftExt
@@ -503,7 +503,6 @@ class UniversalModifier(ManagedTargetModifier):
         self.faceGroup = faceGroup
         self.altFaceGroup = altFaceGroup
         self.level = level
-        self.camera = camera
         self.direction = direction
 
         super(UniversalModifier, self).__init__(groupName, name)
@@ -685,7 +684,7 @@ def loadModifiers(filename, human):
                 if not modifier.isMacro():
                     log.warning("Expected modifier %s to be a macro modifier, but identifies as a regular one. Check variable category definitions in targets.py" % modifier.fullName)
             else:
-                modifier = modifierClass(groupName, mDef['target'], mDef.get('min',None), mDef.get('max',None), mDef.get('mid',None), mDef.get('faceGroup',None), mDef.get('alternate faceGroup', None), mDef.get('level', None), mDef.get('camera', None), mDef.get('direction', None))
+                modifier = modifierClass(groupName, mDef['target'], mDef.get('min',None), mDef.get('max',None), mDef.get('mid',None), mDef.get('faceGroup',None), mDef.get('alternate faceGroup', None), mDef.get('level', None), mDef.get('direction', None))
 
             if "defaultValue" in mDef:
                 modifier._defaultValue = mDef["defaultValue"]
