@@ -44,7 +44,11 @@ import material
 import qtui
 import sys
 import selection
-from collections import namedtuple
+import collections
+from PyQt4 import QtGui
+
+startVal = collections.deque([0, 0], maxlen=2)
+quadCount = collections.deque([0], maxlen=1)
 
 class Action(object):
     def __init__(self, name):
@@ -829,8 +833,32 @@ class Object(events3d.EventHandler):
             import log
             log.debug('FAILED: mouseExited')
 
+    def getQuad(self, x, y):
+        global quadCount
+        window = QtGui.QWidget()
+        height = window.frameGeometry().height()
+        width = window.frameGeometry().width()
+        quadCount.clear()
+
+        if x <= (width/2) and y <= (height/2):
+            quadCount.appendleft(["Quad 1"])
+        elif x > (width/2) and y <= (height/2):
+            quadCount.appendleft(["Quad 2"])
+        elif x <= (width/2) and y > (height/2):
+            quadCount.appendleft(["Quad 3"])
+        elif x > (width/2) and y > (height/2):
+            quadCount.appendleft(["Quad 4"])
+        print quadCount
+
+        return
+
     def onClicked(self, event):
+        global startVal
         if self.view:
+            startVal.clear()
+            startVal.appendleft([event.x, event.y])
+            print startVal
+            self.getQuad(event.x, event.y)
             #self.rayCast(qtui.gg_mouse_pos, self.mesh.fvert)
             #self.rayCast(self.mesh, event)
             self.view.callEvent('onClicked', event)

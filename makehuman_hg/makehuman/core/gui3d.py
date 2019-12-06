@@ -49,7 +49,7 @@ from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
-indicator = []
+#indicator = []
 #medium = []
 
 
@@ -80,6 +80,11 @@ class MouAction(events3d.MouseEvent):
         #self.umOk = collections.deque()
 
         # FIX THIS FOR BETTER VALS
+
+    def tTest(self):
+        sV = guicommon.startVal
+        qV = guicommon.quadCount
+        print "YOUUUUUHOOOO", sV, qV
 
     def mVar(self):
         newY = self.y  # y value
@@ -138,6 +143,7 @@ class View(events3d.EventHandler):
     yoOk = collections.deque([0,0,0,0], maxlen=4)
     FoOk = collections.deque([0,0,0,0], maxlen=4)
     indicator = collections.deque([0], maxlen=1)
+    startVal = collections.deque([0], maxlen=2)
 
     def __init__(self):
 
@@ -153,6 +159,7 @@ class View(events3d.EventHandler):
 
         self.faceGroupLookup = {}
         self.macroLookup = {}
+        self.directionLookup = {}
 
     def getModifiers(self):
 
@@ -167,13 +174,27 @@ class View(events3d.EventHandler):
                     print "hello", modifier.faceGroup
                     print "hell no", modifier.level
                     print self.indicator[0]
-                    # if hasattr(modifier, "faceGroup") and modifier.faceGroup == "None":
+                    if hasattr(modifier, "direction") and modifier.faceGroup != "None":
+                        if modifier.direction == "H":
+                            print "you bitch"
+                        if modifier.direction == "V":
+                            print "you witch"
+                        else:
+                            pass
                     #
                     # sliderTest = modifierslider.ModifierSlider(modifier)
                     # self.macroLookup[modifier] = sliderTest
                     # print "GODDAMN YOU ALL TO HELL", sliderTest
         return
                 # put randomizer here!!! (at least try according to Marco)
+
+    # def getDirection(self):
+    #     for modifier in mhmain.G.app.selectedHuman.modifiers:
+    #         if hasattr(modifier, "direction"):
+    #             self.directionLookup["modifier:direction"]
+    #
+    #
+    #     return
 
 
     @property
@@ -326,6 +347,7 @@ class View(events3d.EventHandler):
 
         global uniVal
         self.getModifiers()
+        #self.getDirection()
         print self.indicator[0]
         #FIX MACRO PROBLEM!!!!
         #self.modMe()
@@ -356,6 +378,7 @@ class View(events3d.EventHandler):
         #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
         #dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
         #amVal1 = MouAction.nVar(mouseAction)
+        mouseAction.tTest()
         vVal1 = MouAction.aVar(mouseAction)
         #cVal1 = MouAction.wiVar(mouseAction)
 
@@ -394,6 +417,7 @@ class View(events3d.EventHandler):
         if self.faceGroupLookup.has_key(app.selectedFaceGroup):
            # self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
             print("vrVal", vrVal)
+            #print "WHAT IS GOING ON", self.directionLookup[app.selectedFaceGroup]
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
@@ -463,6 +487,9 @@ class View(events3d.EventHandler):
 
     def onClicked(self, event):
         self.parent.callEvent('onClicked', event)
+        # self.startVal.clear()
+        # self.startVal.appendleft([event.x, event.y])
+        # print "this is so stupid", self.startVal
         #self.parent.callEvent('sliderPressed()', event)
 
     def onMouseWheel(self, event):
