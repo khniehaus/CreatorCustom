@@ -101,50 +101,11 @@ class ModifierSlider(gui.Slider):
                                               self.update))
 
     def onChanging(self, value):
-        import gui3d
-        import humanmodifier
-        import human
-        import events3d
-        import qtui
-        import guimodifier
-        #import module3d
-
-        print("value ", value)
-
-        #oTest1 = guimodifier.oTest
-        #bleh = module3d.object3d()
-        mPos = qtui.gg_mouse_pos
-        mButt = qtui.gg_butt
-        mPosx = mPos[0]
-        mPosy = mPos[1]
-        beep = events3d.MouseEvent(mButt, mPosx, mPosy)
-        transVar = gui3d.MouAction(beep)
-        #nVal = transVar.mVar()
-        #wVal = transVar.nVar()
-        vVal = transVar.aVar()
-        #bVal = transVar.wiVar()
-        #value = 0.5
-        # if oTest1 == False:
-        #     if self.modifier == human.wMod:
-        #         value = wVal
-        #     if self.modifier == human.gMod:
-        #         value = nVal
-        #     if self.changing is not None:
-        #     # Avoid concurrent updates
-        #         self.changing = value
-        #         return
-        value = vVal
-        # if self.modifier == human.upArmlMod:
-        #     value = vVal
         if self.changing is not None:
             # Avoid concurrent updates
-                self.changing = value
-                return
-        # if self.modifier in self.modifier.:
-        #     return
-        value = vVal #value
-        self.changing = vVal #value
-        #print "Category T/F:", oTest1
+            self.changing = value
+            return
+        self.changing = value
         G.app.callAsync(self._onChanging)
 
     def _onChanging(self):

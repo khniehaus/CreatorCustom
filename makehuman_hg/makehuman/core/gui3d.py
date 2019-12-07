@@ -49,101 +49,16 @@ from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
 
-#indicator = []
-#medium = []
-
-
-# def loadModifiers(filename):
-#     import json
-#     from collections import OrderedDict
-#     global modifiers
-#
-#     data = json.load(open(filename, 'rb'), object_pairs_hook=OrderedDict)
-#     # print "MUNCH", data
-#     for tName, tVP in data.items():
-#         for cat, mods in tVP['modifiers'].items():
-#             for mod in mods:
-#                 modName = mod['mod']
-#                 modifiers.append({cat:modName})
-#                 if cat == 'Medium':
-#                     medium.append(modName)
-
-
-class MouAction(events3d.MouseEvent):
-    dForce = collections.deque([0, 0, 0, 0], maxlen=4)
-    def __init__(self, class_a):
-        self.x = class_a.x
-        self.y = class_a.y
-        print "X is", self.x, "Y is", self.y
-        self.window = QtGui.QWidget()
-        self.height = self.window.frameGeometry().height()
-        #self.umOk = collections.deque()
-
-        # FIX THIS FOR BETTER VALS
-
-    def tTest(self):
-        sV = guicommon.startVal
-        qV = guicommon.quadCount
-        print "YOUUUUUHOOOO", sV, qV
-
-    def mVar(self):
-        newY = self.y  # y value
-
-        window = QtGui.QWidget()
-        height = window.frameGeometry().height()
-
-        mapVal = (((newY - 0.0) * (10.0 - -1.0)) / (height - 0.0)) + -1.0  # map range to 'slider' range
-            # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 5.0 + ((mapVal - -1.0) * (-1.0 - 5.0) / (5.0 - -1.0))  # reverse range so figure gets 'taller' as y val gets smaller
-        #self.umOk.appendleft(sVal)
-        sVal = sVal
-        print "height val initial", sVal
-        #print self.umOk
-        return sVal
-            # print sVal
-
-    def nVar(self):
-        newX = self.x
-        window = QtGui.QWidget()
-        width = window.frameGeometry().width()
-
-        sVal = (((newX - 0.0) * (1.0 - -1.0)) / (width - 0.0)) + -1.0  # map range to 'slider' range
-        sVal = sVal
-        print "weight val initial", sVal
-        return sVal
-
-    def aVar(self):
-        newY = 0.5  # y value
-
-        mapVal = ((((newY+(-self.y)) - 0.0) * (1.5 - -1.0)) / ((-self.height/2) - 0.0)) + -1.0  # map range to 'slider' range
-            # newVal = (newY / 300.0) # y value converted to more or less 0.0-1.0 range
-        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 3.0) / (3.0 - -1.0))
-
-        sVal = sVal
-        print sVal
-        # print self.umOk
-        return sVal
-
-    def wiVar(self):
-        newX = self.x
-
-        mapVal = (((newX - 0.0) * (10.0 - -1.0)) / (800.0 - 0.0)) + -1.0  # map range to 'slider' range
-        sVal = 1.0 + ((mapVal - -1.0) * (-1.0 - 1.0) / (1.0 - -1.0))
-        return sVal
-
 class View(events3d.EventHandler):
 
     """
     The base view from which all widgets are derived.
     """
 
-    uniVal = 0.15
-    umOk = collections.deque([0,0,0,0], maxlen=4)
-    soOk = collections.deque([0,0,0,0], maxlen=4)
-    yoOk = collections.deque([0,0,0,0], maxlen=4)
-    FoOk = collections.deque([0,0,0,0], maxlen=4)
     indicator = collections.deque([0], maxlen=1)
-    startVal = collections.deque([0], maxlen=2)
+    startVal = collections.deque([0, 0], maxlen=2)
+    quadCount = collections.deque([0], maxlen=1)
+    endVal = collections.deque([0, 0], maxlen=2)
 
     def __init__(self):
 
@@ -164,37 +79,17 @@ class View(events3d.EventHandler):
     def getModifiers(self):
 
         for modifier in mhmain.G.app.selectedHuman.modifiers:
-            # print modifier.fullName
-            #print "group name", modifier.groupName
-            # print "UGH", mhmain.G.app.selectedHuman.modifiers.task
+
             if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
                 if hasattr(modifier, "faceGroup") or hasattr(modifier, "alternate faceGroup") and modifier.faceGroup != None:
+                                      #self.dirIndicator.append(modifier)
+                    #self.dirIndicator.append(modifier.direction)
                     sliderTest = modifierslider.ModifierSlider(modifier)
                     self.faceGroupLookup[modifier.faceGroup] = sliderTest
-                    print "hello", modifier.faceGroup
-                    print "hell no", modifier.level
-                    print self.indicator[0]
-                    if hasattr(modifier, "direction") and modifier.faceGroup != "None":
-                        if modifier.direction == "H":
-                            print "you bitch"
-                        if modifier.direction == "V":
-                            print "you witch"
-                        else:
-                            pass
-                    #
-                    # sliderTest = modifierslider.ModifierSlider(modifier)
-                    # self.macroLookup[modifier] = sliderTest
-                    # print "GODDAMN YOU ALL TO HELL", sliderTest
+                    mod = modifier.direction
+                    self.directionLookup[sliderTest] = mod
         return
                 # put randomizer here!!! (at least try according to Marco)
-
-    # def getDirection(self):
-    #     for modifier in mhmain.G.app.selectedHuman.modifiers:
-    #         if hasattr(modifier, "direction"):
-    #             self.directionLookup["modifier:direction"]
-    #
-    #
-    #     return
 
 
     @property
@@ -330,8 +225,30 @@ class View(events3d.EventHandler):
     def onHide(self, event):
         self.hide()
 
+    def getQuad(self, x, y):
+        window = QtGui.QWidget()
+        height = window.frameGeometry().height()
+        width = window.frameGeometry().width()
+        self.quadCount.clear()
+
+        if x <= (width/2) and y <= (height/2):
+            self.quadCount.appendleft('Quad 1')
+        elif x > (width/2) and y <= (height/2):
+            self.quadCount.appendleft('Quad 2')
+        elif x <= (width/2) and y > (height/2):
+            self.quadCount.appendleft('Quad 3')
+        elif x > (width/2) and y > (height/2):
+            self.quadCount.appendleft('Quad 4')
+        print self.quadCount
+
+        return
+
     def onMouseDown(self, event):
         self.parent.callEvent('onMouseDown', event)
+        self.startVal.clear()
+        self.startVal.appendleft(event.y)
+        self.startVal.appendleft(event.x)
+        self.getQuad(event.x, event.y)
 
     def onMouseMoved(self, event):
         self.parent.callEvent('onMouseMoved', event)
@@ -339,158 +256,66 @@ class View(events3d.EventHandler):
     def onMouseDragged(self, event):
         self.parent.callEvent('onMouseDragged', event)
         #self.parent.callEvent('sliderMousePressEvent', event)
-        global dval, mVal, vVal, app
+        global app
 
-        print "it's me, your slider"
+        #print "it's me, your slider"
         y = event.y #mouse y
         x = event.x #mouse x
 
-        global uniVal
+
         self.getModifiers()
-        #self.getDirection()
-        print self.indicator[0]
-        #FIX MACRO PROBLEM!!!!
-        #self.modMe()
-            # mh.redraw()
-        #mehah = bleh.rayCast()
-        # modifier1 = human.gMod #instance of global from human class for modifier category
-        # modifier2 = human.wMod
-        # modifier3 = human.shoulderlMod
-        # modifier4 = human.upArmlMod
-
-
-
-
-        #print modifier3.facegroup
-        # picked = mh.getPickedColor()
-        # colVal = selection.selectionColorMap.getSelectedFaceGroup(picked)
-        colVal = sCheck
-        #print modifier1 #modifier2 # print to make sure it's the right one
-        # directManipTest = modifierslider.ModifierSlider(modifier1) #instance of slider variable from slider class
-        # secondManipTest = modifierslider.ModifierSlider(modifier2)
-        # smallArm2 = modifierslider.ModifierSlider(modifier4)
-
-        #faceGroupLookup["right-arm-upper"] = smallArm2
-
-
-        mouseEventTransfer = events3d.MouseEvent(event.button, event.x, event.y) #variable for mouse event with coords
-        mouseAction = MouAction(mouseEventTransfer) #instance of mouse variable (requires mouse event)
-        #scaler = mouseAction.make_interpolater(280.0, 50.0, 0.0, 1.0)
-        #dmVal1 = MouAction.mVar(mouseAction) #instance of new 'slider' value conversion func
-        #amVal1 = MouAction.nVar(mouseAction)
-        mouseAction.tTest()
-        vVal1 = MouAction.aVar(mouseAction)
-        #cVal1 = MouAction.wiVar(mouseAction)
-
-        #print "color is", colVal
-
-        #self.umOk.appendleft(dmVal1)
-        #self.soOk.appendleft(amVal1)
-        self.yoOk.appendleft(vVal1)
-        #self.FoOk.appendleft(cVal1)
-        # if self.umOk[0] >= self.umOk[3]:
-        #     dmVal = -(self.umOk[0] - self.umOk[3])
-        # elif self.umOk[0] < self.umOk[3]:
-        #     dmVal = self.umOk[3] - self.umOk[0]
-        # if self.soOk[0] >= self.soOk[3]:
-        #     amVal = self.soOk[3] + (self.soOk[0] - self.soOk[3])
-        # elif self.soOk[0] < self.soOk[3]:
-        #     amVal = self.soOk[3] - (self.soOk[3] - self.soOk[0])
-        # print self.soOk
-        if self.yoOk[0] >= self.yoOk[3]:
-            vrVal = -(self.yoOk[0] + self.yoOk[3])
-        elif self.yoOk[0] < self.yoOk[3]:
-            vrVal = self.yoOk[0] + self.yoOk[3]
-        # if self.FoOk[0] >= self.FoOk[3]:
-        #     cmVal = -(self.FoOk[0] - self.FoOk[3])
-        # elif self.FoOk[0] < self.FoOk[3]:
-        #     cmVal = self.FoOk[3] - self.FoOk[0]
-
-
-        # dmVal = dmVal
-        # amVal = amVal
-        vrVal = vrVal
-        # cmVal = cmVal
 
         print ("facegroup", app.selectedFaceGroup)
 
         if self.faceGroupLookup.has_key(app.selectedFaceGroup):
            # self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
-            print("vrVal", vrVal)
+            #print("vrVal", vrVal)
+            dirNew =  self.directionLookup[self.faceGroupLookup[app.selectedFaceGroup]]
+
+            if dirNew == 'H':
+                newVal = x - self.startVal[0]
+                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
+                    newVal2 = self.endVal[0] + (newVal * -1)
+                elif self.quadCount[0] == 'Quad 2' or self.quadCount[0] == 'Quad 4':
+                    newVal2 = self.endVal[0] + newVal
+                else:
+                    pass
+            elif dirNew == 'V':
+                newVal = y - self.startVal[1]
+                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
+                    newVal2 = self.endVal[1] + newVal
+                    #newVal2 = newVal
+                elif self.quadCount[0] == 'Quad 3' or self.quadCount[0] == 'Quad 4':
+                    newVal2 = self.endVal[1] + newVal
+                    #newVal2 = newVal
+                else:
+                    pass
+            else:
+                pass
+            finVal = (((newVal2 - 0.0) * (1.0 - 0.0))/ (30 - 0)) + 0.0
+            print "IT IS I", finVal
             #print "WHAT IS GOING ON", self.directionLookup[app.selectedFaceGroup]
-            self.faceGroupLookup[app.selectedFaceGroup].onChanging(vrVal)
-            self.faceGroupLookup[app.selectedFaceGroup].onChange(vrVal)
+            self.faceGroupLookup[app.selectedFaceGroup].onChanging(finVal)
+            self.faceGroupLookup[app.selectedFaceGroup].onChange(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
 
-        # else:
-        #     self.faceGroupLookup['None'].onChanging(vrVal)
-        #     self.faceGroupLookup['None'].onChange(vrVal)
-        #     self.faceGroupLookup['None'].update()
-
-        # else:
-        #     self.macroLookup[].onChanging(vrVal)
-        #     self.macroLookup[0].onChange(vrVal)
-        #     self.macroLookup[0].update()
-
-        # if colVal == (176, 0, 0):
-        #     smallManipTest.onChanging(vrVal)
-        #     smallManipTest.onChange(vrVal)
-        #     smallManipTest.update()
-        # if colVal == (192, 0, 0):
-        #     smallArm2.onChanging(cmVal)
-        #     smallArm2.onChange(cmVal)
-        #     smallArm2.update()
-        # else:
-        #     pass
-        #if y >= 100 & y <= 200:
-
-        # directManipTest.onChanging(amVal) #change val of slider based on new slider value variable (dynamic)
-        # directManipTest.onChange(amVal) #change val of slider based on new slider value variable (both required)
-        # directManipTest.update()
-        # secondManipTest.onChanging(dmVal)
-        # secondManipTest.onChange(dmVal)
-        # secondManipTest.update()
-        uniVal = vrVal
-
-        #directManipTest.update()
-        ##s.setValue(dmVal)
-        #s.onChange(event)
-        #blah = humanmodifier.ModifierAction(directManipTest, dmVal, dmVal, directManipTest.update())
-        #humanmodifier.MouAction.nVar(mouseAction)
-
-        return uniVal, mouseAction, vrVal #return mouse call and new 'slider' val based on mouse
-
-    # def modMe(self):
-    #     for modifier in modifiers:
-    #
-    #         if hasattr(modifier, "faceGroup") and modifier.faceGroup != None:
-    #             sliderTest = modifierslider.ModifierSlider(modifier)
-    #             self.faceGroupLookup[modifier.faceGroup] = sliderTest
-    #             print "hello", sliderTest
-    #     self.show()
-
-    # def getCurrentMod(self, modifier):
-    #     #mhmain.G.app.selectedHuman.getModifiersByGroup()
-    #     print "literally what", modifier
-    #     return modifier
+        return
 
     def onMouseUp(self, event):
         self.parent.callEvent('onMouseUp', event)
+        self.endVal.clear()
+        self.endVal.appendleft(event.y)
+        self.endVal.appendleft(event.x)
+        print self.endVal
 
     def onMouseEntered(self, event):
         self.parent.callEvent('onMouseEntered', event)
 
     def onMouseExited(self, event):
         self.parent.callEvent('onMouseExited', event)
-        #I don't think this is the correct format here!! 9/7/18
-        #self.parent.callEvent('sliderReleased()', event)
 
     def onClicked(self, event):
         self.parent.callEvent('onClicked', event)
-        # self.startVal.clear()
-        # self.startVal.appendleft([event.x, event.y])
-        # print "this is so stupid", self.startVal
-        #self.parent.callEvent('sliderPressed()', event)
 
     def onMouseWheel(self, event):
         self.parent.callEvent('onMouseWheel', event)
@@ -512,19 +337,6 @@ class View(events3d.EventHandler):
     def showWidgets(self):
         for w in self.widgets:
             w.show()
-
-    # def getModifier(self, cat):
-    #     global app
-    #     human = app.selectedHuman
-    #     modifier = None
-    #
-    #     for x in cat:
-    #         name = x
-    #         modifier = human.getModifier(name)
-    #
-    #     return modifier
-
-                #put randomizer here!!! (at least try according to Marco)
 
     def lowPP(self):
         self.indicator.clear()
@@ -601,18 +413,6 @@ class View(events3d.EventHandler):
         self.indicator.appendleft("high-move")
         return self.indicator
 
-        # human = app.selectedHuman
-        # #modifier = None
-        #
-        # #you need to flush "modifiers" somehow
-        #
-        # for x in medium:
-        #     name = x
-        #     modifier = human.getModifier(name)
-        #     modifiers.append(modifier)
-        #     print "AAAAAAH", modifiers
-        #     self.modMe()
-
     def hideWidgets(self):
         for w in self.widgets:
             w.hide()
@@ -628,11 +428,6 @@ class TaskView(View):
         self.tab = None
         self.left, self.right = mh.addPanels()
         self.sortOrder = None
-
-    # def getModifiers(self, key):
-    #     global modifiers
-    #     modifiers.append(key)
-    #     print modifiers
 
     def showWidgets(self):
         super(TaskView, self).showWidgets()
