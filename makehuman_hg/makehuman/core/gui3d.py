@@ -84,7 +84,7 @@ class View(events3d.EventHandler):
             if modifier.groupName == 'macrodetails' or modifier.groupName == 'macrodetails-universal' or modifier.groupName == 'macrodetails-height' or modifier.groupName == 'macrodetails-proportions':
                 sliderTest1 = modifierslider.ModifierSlider(modifier)
                 self.macroLookup[modifier.name] = sliderTest1
-                print "SATAN", modifier.name
+
 
             if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
                 if hasattr(modifier, "faceGroup") or hasattr(modifier, "alternate faceGroup") and modifier.faceGroup != None:
@@ -256,7 +256,7 @@ class View(events3d.EventHandler):
         self.startVal.appendleft(event.y)
         self.startVal.appendleft(event.x)
         newQuad = self.getQuad(event.x, event.y)
-        print newQuad
+        #print newQuad
         self.quadCount.appendleft(newQuad)
 
     def onMouseMoved(self, event):
@@ -274,10 +274,10 @@ class View(events3d.EventHandler):
 
         self.getModifiers()
 
-        print ("facegroup", app.selectedFaceGroup)
+        #print ("facegroup", app.selectedFaceGroup)
 
         if "low" in self.indicator[0]:
-            print "I am satan", self.macroInd[0]
+            #print "I am satan", self.macroInd[0]
             if self.macroInd[0] == 'Weight' or self.macroInd[0] == 'Muscle':
                 itMe = self.macroInd[0]
                 newVal = x - self.startVal[0]
@@ -309,31 +309,42 @@ class View(events3d.EventHandler):
 
             if dirNew == 'H':
                 newVal = x - self.startVal[0]
-                if 'head' or 'stomach' or 'hip' or 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 4) + newVal
-                elif self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
+                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
                     newVal2 = (self.endVal[0]/2) + (newVal * -1)
                 elif self.quadCount[0] == 'Quad 2' or self.quadCount[0] == 'Quad 4':
                     newVal2 = (self.endVal[0]/2) + newVal
+                if 'head' in app.selectedFaceGroup:
+                     newVal2 = (self.endVal[0] / 4) + newVal
+                elif 'stomach' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[0] / 4) + newVal
+                elif 'hip' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[0] / 4) + newVal
+                elif 'belly-button' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[0] / 4) + newVal
                 else:
                     pass
             elif dirNew == 'V':
                 newVal = y - self.startVal[1]
-                if 'head' or 'stomach' or 'hip' or 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1]/4) + (newVal * -1)
-                elif self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
+                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
                     newVal2 = (self.endVal[1]/2) + newVal
                     #newVal2 = newVal
                 elif self.quadCount[0] == 'Quad 3' or self.quadCount[0] == 'Quad 4':
                     newVal2 = (self.endVal[1]/2) + newVal
                     #newVal2 = newVal
+                if 'head' in app.selectedFaceGroup:
+                     newVal2 = (self.endVal[1]/4) + (newVal * -1)
+                elif 'stomach' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
+                elif 'hip' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
+                elif 'belly-button' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
                 else:
                     pass
             else:
                 pass
             finVal = (((newVal2 - 0.0) * (1.0 - 0.0))/ (30 - 0)) + 0.0
-            print "IT IS I", finVal
-            #print "WHAT IS GOING ON", self.directionLookup[app.selectedFaceGroup]
+
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
@@ -349,7 +360,7 @@ class View(events3d.EventHandler):
         curQuad = self.getQuad(event.x, event.y)
         self.quadEnd.appendleft(curQuad)
 
-        print self.endVal
+        #print self.endVal
 
     def onMouseEntered(self, event):
         self.parent.callEvent('onMouseEntered', event)
@@ -558,26 +569,8 @@ class Category(View):
 
         return task
 
-    # def addModCat(self, modCat):
-    #     #if modCat.name in self.modCatByName:
-    #         #raise KeyError('A modifier group with this name already exists', modCat.name)
-    #     self.modCats.append(modCat)
-    #
-    #     #tasks = sorted(self.parent.tasks.values(), key=lambda t: t.sortOrder)
-    #     #taskOrder = tasks.index(self)
-    #     #self.modCatByName[modCat.name] = modCat
-    #     #self.addView(modCat)
-    #     #tasks = sorted(self.parent.tasks.values(), key=lambda c: task.sortOrder)
-    #     #taskOrder = self.tabs.sortOrder()
-    #     #print "SHIIIT", modCat
-    #     return modCat
-
     def getTaskByName(self, name):
         return self.tasksByName.get(name)
-
-    # def getModsHere(self, mods):
-    #     print "AAAAHHAHSHAHAH", mods
-    #     return mods
 
 # The application
 app = None
@@ -748,7 +741,7 @@ class Application(events3d.EventHandler):
         if self.currentTask:
             log.debug('showing task %s', self.currentTask.name)
             #print "Task is", self.currentTask.getModifiers()
-            print "FUCK", self.currentTask.name
+            #print "Task:", self.currentTask.name
             #self.indicator.clear()
             self.currentTask.show()
             self.currentTask.showWidgets()
@@ -840,7 +833,7 @@ class Application(events3d.EventHandler):
             self.selectedFaceGroup = None
         else:
             self.selectedFaceGroup = fg.name
-        print "facegroup is 2:(" + fg.name + ")"
+        #print "facegroup is 2:(" + fg.name + ")"
 
         # It is the object which will receive the following mouse messages
         self.mouseDownObject = object
@@ -880,7 +873,7 @@ class Application(events3d.EventHandler):
         # global medium
         # for x in medium:
 
-        #     print "FICK", x
+
         picked = self.getSelectedFaceGroupAndObject()
         #ugh = self.getSelectedFaceGroup()
 
