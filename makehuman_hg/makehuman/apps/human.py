@@ -87,7 +87,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self._modifier_groups = dict()
         self._modifier_type_cache = dict()
 
-        self.blockEthnicUpdates = False                 # When set to True, changes to race are not normalized automatically
+        self.blockEthnicUpdates = True               # When set to True, changes to race are not normalized automatically
 
         animation.AnimatedMesh.__init__(self, skel=None, mesh=self.meshData, vertexToBoneMapping=None)
         # Make sure that shadow vertices are copied
@@ -1448,7 +1448,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                     log.warning("Exception while finishing MHM loading.", exc_info=True)
         f.close()
 
-        self.blockEthnicUpdates = False
+        self.blockEthnicUpdates = True
         self._setEthnicVals()
 
         self.callEvent('onChanged', event)

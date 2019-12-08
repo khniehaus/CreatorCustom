@@ -59,6 +59,8 @@ class View(events3d.EventHandler):
     startVal = collections.deque([0, 0], maxlen=2)
     quadCount = collections.deque([0], maxlen=1)
     endVal = collections.deque([0, 0], maxlen=2)
+    macroInd = collections.deque([0], maxlen=1)
+    quadEnd = collections.deque([0], maxlen=1)
 
     def __init__(self):
 
@@ -79,6 +81,10 @@ class View(events3d.EventHandler):
     def getModifiers(self):
 
         for modifier in mhmain.G.app.selectedHuman.modifiers:
+            if modifier.groupName == 'macrodetails' or modifier.groupName == 'macrodetails-universal' or modifier.groupName == 'macrodetails-height' or modifier.groupName == 'macrodetails-proportions':
+                sliderTest1 = modifierslider.ModifierSlider(modifier)
+                self.macroLookup[modifier.name] = sliderTest1
+                print "SATAN", modifier.name
 
             if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
                 if hasattr(modifier, "faceGroup") or hasattr(modifier, "alternate faceGroup") and modifier.faceGroup != None:
@@ -88,6 +94,7 @@ class View(events3d.EventHandler):
                     self.faceGroupLookup[modifier.faceGroup] = sliderTest
                     mod = modifier.direction
                     self.directionLookup[sliderTest] = mod
+
         return
                 # put randomizer here!!! (at least try according to Marco)
 
@@ -229,26 +236,28 @@ class View(events3d.EventHandler):
         window = QtGui.QWidget()
         height = window.frameGeometry().height()
         width = window.frameGeometry().width()
-        self.quadCount.clear()
+        #self.quadCount.clear()
 
         if x <= (width/2) and y <= (height/2):
-            self.quadCount.appendleft('Quad 1')
+            return 'Quad 1'
         elif x > (width/2) and y <= (height/2):
-            self.quadCount.appendleft('Quad 2')
+            return  'Quad 2'
         elif x <= (width/2) and y > (height/2):
-            self.quadCount.appendleft('Quad 3')
+            return 'Quad 3'
         elif x > (width/2) and y > (height/2):
-            self.quadCount.appendleft('Quad 4')
-        print self.quadCount
+            return'Quad 4'
 
-        return
+        #return
 
     def onMouseDown(self, event):
         self.parent.callEvent('onMouseDown', event)
         self.startVal.clear()
+        self.quadCount.clear()
         self.startVal.appendleft(event.y)
         self.startVal.appendleft(event.x)
-        self.getQuad(event.x, event.y)
+        newQuad = self.getQuad(event.x, event.y)
+        print newQuad
+        self.quadCount.appendleft(newQuad)
 
     def onMouseMoved(self, event):
         self.parent.callEvent('onMouseMoved', event)
@@ -267,26 +276,56 @@ class View(events3d.EventHandler):
 
         print ("facegroup", app.selectedFaceGroup)
 
-        if self.faceGroupLookup.has_key(app.selectedFaceGroup):
+        if "low" in self.indicator[0]:
+            print "I am satan", self.macroInd[0]
+            if self.macroInd[0] == 'Weight' or self.macroInd[0] == 'Muscle':
+                itMe = self.macroInd[0]
+                newVal = x - self.startVal[0]
+                newVal2 = self.endVal[0] + newVal
+                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (600 - 0)) + 0.0
+                self.macroLookup[itMe].onChanging(finVal)
+                self.macroLookup[itMe].onChange(finVal)
+                self.macroLookup[itMe].update()
+
+            elif self.macroInd[0] == 'BodyProportions':
+                newVal = y - self.startVal[1]
+                newVal2 = self.endVal[1] + newVal
+                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
+                self.macroLookup[self.macroInd[0]].onChanging(finVal)
+                self.macroLookup[self.macroInd[0]].onChange(finVal)
+                self.macroLookup[self.macroInd[0]].update()
+            else:
+                newVal = y - self.startVal[1]
+                newVal2 = (newVal * -1)
+                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
+                self.macroLookup[self.macroInd[0]].onChanging(finVal)
+                self.macroLookup[self.macroInd[0]].onChange(finVal)
+                self.macroLookup[self.macroInd[0]].update()
+
+        elif self.faceGroupLookup.has_key(app.selectedFaceGroup):
            # self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
             #print("vrVal", vrVal)
             dirNew =  self.directionLookup[self.faceGroupLookup[app.selectedFaceGroup]]
 
             if dirNew == 'H':
                 newVal = x - self.startVal[0]
-                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
-                    newVal2 = self.endVal[0] + (newVal * -1)
+                if 'head' or 'stomach' or 'hip' or 'belly-button' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[0] / 4) + newVal
+                elif self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
+                    newVal2 = (self.endVal[0]/2) + (newVal * -1)
                 elif self.quadCount[0] == 'Quad 2' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = self.endVal[0] + newVal
+                    newVal2 = (self.endVal[0]/2) + newVal
                 else:
                     pass
             elif dirNew == 'V':
                 newVal = y - self.startVal[1]
-                if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
-                    newVal2 = self.endVal[1] + newVal
+                if 'head' or 'stomach' or 'hip' or 'belly-button' in app.selectedFaceGroup:
+                    newVal2 = (self.endVal[1]/4) + (newVal * -1)
+                elif self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
+                    newVal2 = (self.endVal[1]/2) + newVal
                     #newVal2 = newVal
                 elif self.quadCount[0] == 'Quad 3' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = self.endVal[1] + newVal
+                    newVal2 = (self.endVal[1]/2) + newVal
                     #newVal2 = newVal
                 else:
                     pass
@@ -304,8 +343,12 @@ class View(events3d.EventHandler):
     def onMouseUp(self, event):
         self.parent.callEvent('onMouseUp', event)
         self.endVal.clear()
+        self.quadEnd.clear()
         self.endVal.appendleft(event.y)
         self.endVal.appendleft(event.x)
+        curQuad = self.getQuad(event.x, event.y)
+        self.quadEnd.appendleft(curQuad)
+
         print self.endVal
 
     def onMouseEntered(self, event):
@@ -340,27 +383,37 @@ class View(events3d.EventHandler):
 
     def lowPP(self):
         self.indicator.clear()
+        self.macroInd.clear()
         self.indicator.appendleft("low-pull")
+        self.macroInd.appendleft('Height')
         return self.indicator
 
     def lowSL(self):
         self.indicator.clear()
+        self.macroInd.clear()
         self.indicator.appendleft("low-squeeze")
+        self.macroInd.appendleft('BodyProportions')
         return self.indicator
 
     def lowCR(self):
         self.indicator.clear()
+        self.macroInd.clear()
         self.indicator.appendleft("low-carve")
+        self.macroInd.appendleft('Muscle')
         return self.indicator
 
     def lowAC(self):
         self.indicator.clear()
+        self.macroInd.clear()
         self.indicator.appendleft("low-add")
+        self.macroInd.appendleft('Weight')
         return self.indicator
 
     def lowMove(self):
         self.indicator.clear()
+        self.macroInd.clear()
         self.indicator.appendleft("low-move")
+        self.macroInd.appendleft('Age')
         return self.indicator
 
     def mediumPP(self):

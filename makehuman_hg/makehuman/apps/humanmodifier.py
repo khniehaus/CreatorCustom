@@ -552,7 +552,6 @@ class MacroModifier(ManagedTargetModifier):
         self._defaultValue = 0.5
 
         #log.debug("MacroModifier(%s, %s)  :  %s", self.groupName, self.name, self.fullName)
-
         self.setter = 'set' + self.variable
         self.getter = 'get' + self.variable
         self.targets = self.findTargets(self.groupName)
@@ -566,6 +565,7 @@ class MacroModifier(ManagedTargetModifier):
         self.macroDependencies = list(self.macroDependencies)
 
         self.macroVariable = var
+
 
     @property
     def variable(self):
