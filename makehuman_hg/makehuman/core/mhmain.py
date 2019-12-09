@@ -702,6 +702,7 @@ class MHApplication(gui3d.Application, mh.Application):
     def loadFinish(self):
         self.selectedHuman.updateMacroModifiers()
         self.selectedHuman.applyAllTargets()
+        self.resetHuman()
 
         self.currentFile.modified = False
 
@@ -869,7 +870,7 @@ class MHApplication(gui3d.Application, mh.Application):
     # Undo-redo
     def do(self, action):
         if action.do():
-            print action
+            #print action
             self.undoStack.append(action)
             del self.redoStack[:]
             self.currentFile.changed()

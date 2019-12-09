@@ -289,7 +289,7 @@ class View(events3d.EventHandler):
 
             elif self.macroInd[0] == 'BodyProportions':
                 newVal = y - self.startVal[1]
-                newVal2 = self.endVal[1] + newVal
+                newVal2 = self.endVal[1] + (newVal * -1)
                 finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
                 self.macroLookup[self.macroInd[0]].onChanging(finVal)
                 self.macroLookup[self.macroInd[0]].onChange(finVal)

@@ -37,6 +37,7 @@ import gui3d
 import material
 import animation
 import random
+import mhmain
 
 from makehuman import getBasemeshVersion, getShortVersion, getVersionStr, getVersion
 
@@ -1139,7 +1140,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         # TODO emit event?
 
-    def getRandomValue(minValue, maxValue, middleValue, sigmaFactor=0.2):
+    def getRandomValue(self, minValue, maxValue, middleValue, sigmaFactor=0.7):
         rangeWidth = float(abs(maxValue - minValue))
         sigma = sigmaFactor * rangeWidth
         randomVal = random.gauss(middleValue, sigma)
@@ -1150,14 +1151,15 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return max(minValue, min(randomVal, maxValue))
 
     def setDefaultValues(self):
-        self.age = 0.5
-        self.gender = 0.5
-        self.weight = 0.5
-        self.muscle = 1.0
-        self.height = 0.5
-        self.breastSize = 0.5
-        self.breastFirmness = 0.5
-        self.bodyProportions = 0.5
+        val = self.getRandomValue(0.5, 1.2, 1.0)
+        self.age = self.getRandomValue(0.0, 1.0, 0.5, 0.1)
+        self.gender = self.getRandomValue(0.0, 0.8, 0.3, 0.1)
+        self.weight = self.getRandomValue(-0.5, 1.2, 0.7, 0.1)
+        self.muscle = self.getRandomValue(0.0, 0.8, 0.3, 0.1)
+        self.height = self.getRandomValue(0.0, 0.8, 0.4, 0.1)
+        self.breastSize = self.getRandomValue(0.0, 0.9, 0.4, 0.1)
+        self.breastFirmness = self.getRandomValue(0.0, 0.7, 0.2, 0.1)
+        self.bodyProportions = self.getRandomValue(-0.5, 0.9, 0.3, 0.1)
 
         self._setGenderVals()
         self._setAgeVals()
@@ -1172,9 +1174,17 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.asianVal = 1.0/3
         self.africanVal = 1.0/3
 
+        #self.resetMeshValues()
+
+        #self.randomize(mhmain.G.app.selectedHuman, self.symmetryModeEnabled)
+
+
     def resetMeshValues(self):
         self.setSubdivided(False, update=False)
-        self.setDefaultValues()
+        #self.setDefaultValues()
+        for modifier in self.modifiers:
+            val = self.getRandomValue(-0.5, 1.5, 0.6)
+            modifier.setValue(val)
         self.resetBoundMeshes()
         self._resetProxies()  # TODO does not properly take care of calling removeObject
         self.removeAnimations(update=False)
@@ -1396,6 +1406,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                     log.warning("Exception while loading MHM property.", exc_info=True)
 
         def _do_load_property(lineData):
+            val = self.getRandomValue(-0.5, 1.2, 0.4)
             if len(lineData) > 0 and not lineData[0] == '#':
                 if lineData[0] == 'version':
                     log.message('Version %s', lineData[1])
@@ -1404,7 +1415,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                         log.debug('Tag %s', tag)
                 elif lineData[0] == 'modifier':
                     try:
-                        self.getModifier(lineData[1]).setValue(float(lineData[2]), skipDependencies=True)
+                        self.getModifier(lineData[1]).setValue(float(val), skipDependencies=True)
                     except KeyError:
                         log.warning('Unknown modifier specified in MHM file: %s', lineData[1])
                 elif lineData[0] == 'camera':

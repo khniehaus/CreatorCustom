@@ -498,8 +498,8 @@ class UniversalModifier(ManagedTargetModifier):
             self.right = self.targetName
             self.center = None
             name = targetName
-        print("name ", self.targetName)
-        print("facegroup ", faceGroup)
+        #print("name ", self.targetName)
+        #print("facegroup ", faceGroup)
         self.faceGroup = faceGroup
         self.altFaceGroup = altFaceGroup
         self.level = level
