@@ -110,7 +110,7 @@ class ModifierSlider(gui.Slider):
 
     def _onChanging(self):
         value = self.changing
-        print "slider value:", value  #HERE WE GO
+        #print "slider value:", value  #HERE WE GO
         self.changing = None
 
         if G.app.getSetting('realtimeUpdates'):
@@ -126,14 +126,14 @@ class ModifierSlider(gui.Slider):
             self.modifier.updateValue(value, G.app.getSetting('realtimeNormalUpdates'))
             human.updateProxyMesh(fit_to_posed=True, fast=True)
 
-        print "self.value", self.value
+        #print "self.value", self.value
         self.value = value
-        print "self.value", self.value
+        #print "self.value", self.value
 
 
     def onChange(self, value):
         #G.app.callAsync(self._onChange)
-        pass
+        self._onChange()
 
     def _onChange(self):
         #import gui3d

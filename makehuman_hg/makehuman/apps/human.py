@@ -1183,7 +1183,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.setSubdivided(False, update=False)
         #self.setDefaultValues()
         for modifier in self.modifiers:
-            val = self.getRandomValue(-0.5, 1.5, 0.6)
+            val = self.getRandomValue(-0.5, 1.0, 0.6)
             modifier.setValue(val)
         self.resetBoundMeshes()
         self._resetProxies()  # TODO does not properly take care of calling removeObject

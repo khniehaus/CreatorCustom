@@ -2085,22 +2085,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
+        <entry file="file://$PROJECT_DIR$/core/mhmain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-335">
-              <caret line="551" column="32" selection-start-line="551" selection-start-column="32" selection-end-line="551" selection-end-column="32" />
+            <state relative-caret-position="184">
+              <caret line="890" column="23" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="23" />
               <folding>
-                <element signature="e#1137#1151#0" expanded="true" />
+                <element signature="e#1123#1133#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="92" column="68" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="68" />
+            <state relative-caret-position="106">
+              <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
               <folding>
                 <element signature="e#1110#1120#0" expanded="true" />
               </folding>
@@ -2109,43 +2109,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/targets.py">
+        <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="-335">
+              <caret line="551" column="32" selection-start-line="551" selection-start-column="32" selection-end-line="551" selection-end-column="32" />
               <folding>
-                <element signature="e#1096#1105#0" expanded="true" />
+                <element signature="e#1137#1151#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3390">
-              <caret line="226" column="42" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/mhmain.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="704" column="25" selection-start-line="704" selection-start-column="25" selection-end-line="704" selection-end-column="25" />
-              <folding>
-                <element signature="e#1123#1133#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/warpmodifier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="176" column="29" selection-start-line="176" selection-start-column="29" selection-end-line="176" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -2161,8 +2131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mouact</find>
-      <find>dir</find>
       <find>macrovar</find>
       <find>direction</find>
       <find>modifierClass</find>
@@ -2175,14 +2143,10 @@
       <find>resetHuman</find>
       <find>default</find>
       <find>defaultValue</find>
-      <find>getDefaultValue</find>
-      <find>value</find>
       <find>applyAllTargets</find>
-      <find>0.5</find>
       <find>randomiz</find>
       <find>symmetry</find>
       <find>rand</find>
-      <find>human</find>
       <find>randomi</find>
       <find>loadHuman</find>
       <find>getValue</find>
@@ -2190,7 +2154,13 @@
       <find>bitch</find>
       <find>setDefaultValues</find>
       <find>load</find>
+      <find>value</find>
+      <find>getDefaultValue</find>
+      <find>human</find>
+      <find>0.5</find>
       <find>getRan</find>
+      <find>undo</find>
+      <find>action</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2235,19 +2205,19 @@
         <option value="$PROJECT_DIR$/data/modifiers/modeling_sliders.json" />
         <option value="$PROJECT_DIR$/apps/gui/guimodifier.py" />
         <option value="$PROJECT_DIR$/core/guicommon.py" />
-        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
         <option value="$PROJECT_DIR$/data/modifiers/modeling_modifiers.json" />
         <option value="$PROJECT_DIR$/apps/warpmodifier.py" />
         <option value="$PROJECT_DIR$/core/gui3d.py" />
         <option value="$PROJECT_DIR$/apps/humanmodifier.py" />
         <option value="$PROJECT_DIR$/core/algos3d.py" />
-        <option value="$PROJECT_DIR$/apps/human.py" />
         <option value="$PROJECT_DIR$/core/mhmain.py" />
+        <option value="$PROJECT_DIR$/apps/human.py" />
+        <option value="$PROJECT_DIR$/lib/modifierslider.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
+    <option name="x" value="30" />
     <option name="y" value="23" />
     <option name="width" value="1349" />
     <option name="height" value="872" />
@@ -2614,12 +2584,12 @@
       <workItem from="1575643981167" duration="10698000" />
       <workItem from="1575731041102" duration="15886000" />
       <workItem from="1575825537767" duration="11146000" />
-      <workItem from="1575913290005" duration="6884000" />
+      <workItem from="1575913290005" duration="7720000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1000978000" />
+    <option name="totallyTimeSpent" value="1001814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2631,7 +2601,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="23" width="1349" height="872" extended-state="0" />
+    <frame x="30" y="23" width="1349" height="872" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871793" visible="true" weight="0.4475899" />
@@ -2702,7 +2672,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1575920234251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1575921119340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/3dobjs/a7_converter.proxy">
@@ -2944,13 +2914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="226" column="42" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/warpmodifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -2978,40 +2941,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="92" column="68" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="68" />
-          <folding>
-            <element signature="e#1110#1120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_sliders.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-889">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/targets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1096#1105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-335">
-          <caret line="551" column="32" selection-start-line="551" selection-start-column="32" selection-end-line="551" selection-end-column="32" />
-          <folding>
-            <element signature="e#1137#1151#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3042,6 +2975,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/modifiers/modeling_modifiers.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="226" column="42" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/targets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1096#1105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-335">
+          <caret line="551" column="32" selection-start-line="551" selection-start-column="32" selection-end-line="551" selection-end-column="32" />
+          <folding>
+            <element signature="e#1137#1151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/human.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -3054,10 +3014,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/mhmain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="704" column="25" selection-start-line="704" selection-start-column="25" selection-end-line="704" selection-end-column="25" />
+        <state relative-caret-position="184">
+          <caret line="890" column="23" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="23" />
           <folding>
             <element signature="e#1123#1133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modifierslider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
+          <folding>
+            <element signature="e#1110#1120#0" expanded="true" />
           </folding>
         </state>
       </provider>
