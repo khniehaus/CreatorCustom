@@ -49,6 +49,7 @@ from humanobjchooser import HumanObjectSelector
 import log
 import getpath
 import filecache
+from PyQt4 import QtGui
 
 class MaterialAction(gui3d.Action):
     def __init__(self, obj, after):
@@ -79,6 +80,8 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         self.filechooser = self.addRightWidget(fc.IconListFileChooser(self.materials, 'mhmat', ['thumb', 'png'], mh.getSysDataPath('skins/notfound.thumb'), name='Material'))
         self.filechooser.setIconSize(50,50)
         self.filechooser.enableAutoRefresh(False)
+
+        #print category.task
         #self.filechooser.setFileLoadHandler(fc.MhmatFileLoader())
         #self.addLeftWidget(self.filechooser.createSortBox())
 
@@ -97,7 +100,7 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
             self.reloadMaterialChooser()
 
         self.filechooser.setFileLoadHandler(fc.TaggedFileLoader(self))
-        self.addLeftWidget(self.filechooser.createTagFilter())
+        #self.addLeftWidget(self.filechooser.createTagFilter())
 
     def getMetadataImpl(self, filename):
         return material.peekMetadata(filename)
@@ -113,7 +116,20 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         # When the task gets shown, set the focus to the file chooser
         gui3d.TaskView.onShow(self, event)
 
-        self.reloadMaterialChooser()
+        #self.reloadMaterialChooser()
+
+            # self.color = self.addLeftWidget(QtGui.QPushButton('Adjust Color'))
+            # self.color.clicked.connect(self.on_click)
+
+    def on_click(self):
+        self.openColorDialog()
+
+    def openColorDialog(self):
+        color = QtGui.QColorDialog()
+        colorMe = color.getColor()
+
+        if colorMe.isValid():
+            print colorMe.name()
 
     def applyClothesMaterial(self, uuid, filename):
         human = self.human
@@ -164,7 +180,17 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         if proxy:
             paths = [os.path.dirname(proxy.file)] + paths
 
+
         return paths
+
+    def loadColorChoose(self):
+
+        if self.humanObjSelector.selected == 'skin':
+            self.color = self.addLeftWidget(QtGui.QPushButton('Adjust Color'))
+            self.color.clicked.connect(self.on_click)
+        else:
+            self.color.hide()
+
 
     def reloadMaterialChooser(self):
         human = self.human
@@ -177,12 +203,13 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
 
         # Reload filechooser
         self.filechooser.deselectAll()
-        self.filechooser.tagFilter.clearAll()
+        #self.filechooser.tagFilter.clearAll()
         self.filechooser.setPaths(self.materials)
         self.filechooser.refresh()
         if selectedMat:
             self.filechooser.setHighlightedItem(selectedMat)
         self.filechooser.setFocus()
+        self.loadColorChoose()
 
     def onHide(self, event):
         gui3d.TaskView.onHide(self, event)
