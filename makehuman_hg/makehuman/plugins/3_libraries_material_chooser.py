@@ -50,6 +50,7 @@ import log
 import getpath
 import filecache
 from PyQt4 import QtGui
+from PIL import Image
 
 class MaterialAction(gui3d.Action):
     def __init__(self, obj, after):
@@ -102,6 +103,10 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         self.filechooser.setFileLoadHandler(fc.TaggedFileLoader(self))
         #self.addLeftWidget(self.filechooser.createTagFilter())
 
+        amBaby = QtGui.QPushButton('Adjust Color')
+        self.color = self.addLeftWidget(amBaby)
+        self.color.clicked.connect(self.on_click)
+
     def getMetadataImpl(self, filename):
         return material.peekMetadata(filename)
 
@@ -128,8 +133,14 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         color = QtGui.QColorDialog()
         colorMe = color.getColor()
 
+        # image_file = Image.open("convert_image.png")  # open colour image
+        # image_file = image_file.convert('1')  # convert image to black and white
+        # image_file.save('result.png')
+
         if colorMe.isValid():
+            #self.human.material = colorMe
             print colorMe.name()
+        return colorMe
 
     def applyClothesMaterial(self, uuid, filename):
         human = self.human
@@ -184,10 +195,10 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         return paths
 
     def loadColorChoose(self):
+        #self.color.update()
 
         if self.humanObjSelector.selected == 'skin':
-            self.color = self.addLeftWidget(QtGui.QPushButton('Adjust Color'))
-            self.color.clicked.connect(self.on_click)
+            self.color.show()
         else:
             self.color.hide()
 
@@ -195,6 +206,7 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
     def reloadMaterialChooser(self):
         human = self.human
         selectedMat = None
+        widgets = QtGui.QWidget()
 
         self.materials = self.getMaterialPaths(self.humanObjSelector.selected, self.humanObjSelector.getSelectedProxy())
         obj = self.humanObjSelector.getSelectedObject()
