@@ -45,7 +45,7 @@ tag young
 tag caucasian
 tag male
 tag special
-diffuseTexture ../textures/young_caucasian_male_special_suit.png
+diffuseTexture skins/textures/young_caucasian_male_special_suit.png
 sssEnabled True
 sssRScale 5.0
 sssGScale 2.5

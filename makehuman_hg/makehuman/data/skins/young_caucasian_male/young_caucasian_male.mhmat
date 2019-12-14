@@ -44,7 +44,7 @@ receiveShadows True
 tag young
 tag caucasian
 tag male
-diffuseTexture ../textures/young_lightskinned_male_diffuse.png
+diffuseTexture skins/textures/young_lightskinned_male_diffuse.png
 sssEnabled True
 sssRScale 5.0
 sssGScale 2.5

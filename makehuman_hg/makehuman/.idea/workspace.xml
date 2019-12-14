@@ -2051,7 +2051,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/gui3d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
+            <state relative-caret-position="556">
               <caret line="82" column="50" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="50" />
               <folding>
                 <element signature="e#1249#1263#0" expanded="true" />
@@ -2063,8 +2063,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/3_libraries_material_chooser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="107" column="49" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
+            <state relative-caret-position="480">
+              <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
               <folding>
                 <element signature="e#1154#1169#0" expanded="true" />
               </folding>
@@ -2075,22 +2075,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/human.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17550">
+            <state relative-caret-position="556">
               <caret line="1185" column="47" selection-start-line="1185" selection-start-column="47" selection-end-line="1185" selection-end-column="47" />
               <folding>
                 <element signature="e#1099#1117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/0_modeling_8_random.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2070">
-              <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
-              <folding>
-                <element signature="e#1111#1124#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2143,9 +2131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>quadEnd</find>
-      <find>print</find>
-      <find>resetHuman</find>
       <find>default</find>
       <find>defaultValue</find>
       <find>applyAllTargets</find>
@@ -2173,6 +2158,9 @@
       <find>color</find>
       <find>png</find>
       <find>reload</find>
+      <find>filename</find>
+      <find>mhmat</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2230,10 +2218,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="14" />
+    <option name="x" value="16" />
     <option name="y" value="23" />
-    <option name="width" value="1398" />
-    <option name="height" value="875" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2607,11 +2595,12 @@
       <workItem from="1575988783614" duration="820000" />
       <workItem from="1576077524884" duration="5986000" />
       <workItem from="1576158728552" duration="3871000" />
+      <workItem from="1576335519883" duration="10249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1012568000" />
+    <option name="totallyTimeSpent" value="1022817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2624,13 +2613,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871793" visible="true" weight="0.43776825" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871793" visible="true" weight="0.444206" />
       <window_info id="Structure" order="1" weight="0.24942617" />
       <window_info id="Favorites" order="2" sideWeight="0.50128204" side_tool="true" weight="0.23412395" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.469013" weight="0.13846155" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.45141545" weight="0.19363058" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.45141545" visible="true" weight="0.19363058" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7390972" weight="0.13589744" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -2693,14 +2683,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1576171066500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/makehuman$makehuman.coverage" NAME="makehuman Coverage Results" MODIFIED="1576349159994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/3dobjs/a7_converter.proxy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/3dobjs/base.mhclo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12098">
@@ -2985,43 +2970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/filechooser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="267" column="6" selection-start-line="267" selection-start-column="6" selection-end-line="267" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="82" column="50" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="50" />
-          <folding>
-            <element signature="e#1249#1263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/human.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17550">
-          <caret line="1185" column="47" selection-start-line="1185" selection-start-column="47" selection-end-line="1185" selection-end-column="47" />
-          <folding>
-            <element signature="e#1099#1117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/0_modeling_8_random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
-          <folding>
-            <element signature="e#1111#1124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/mhmain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13020">
@@ -3052,10 +3000,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/filechooser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1552">
+          <caret line="408" column="6" selection-start-line="408" selection-start-column="6" selection-end-line="408" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/texture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/gui3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="82" column="50" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="50" />
+          <folding>
+            <element signature="e#1249#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/0_modeling_8_random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+          <folding>
+            <element signature="e#1111#1124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/human.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="1185" column="47" selection-start-line="1185" selection-start-column="47" selection-end-line="1185" selection-end-column="47" />
+          <folding>
+            <element signature="e#1099#1117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/3_libraries_material_chooser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="107" column="49" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
+        <state relative-caret-position="480">
+          <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
           <folding>
             <element signature="e#1154#1169#0" expanded="true" />
           </folding>

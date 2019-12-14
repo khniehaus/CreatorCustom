@@ -128,18 +128,41 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
 
     def on_click(self):
         self.openColorDialog()
+        #print self.human.material.filename
+
+    def hex_to_rgb(self, hex):
+        hex = hex.lstrip('#')
+        hlen = len(hex)
+        return tuple(int(hex[i:i + hlen / 3], 16) for i in range(0, hlen, hlen / 3))
 
     def openColorDialog(self):
+        w = "diffuseTexture"
         color = QtGui.QColorDialog()
         colorMe = color.getColor()
+        blip = self.hex_to_rgb(colorMe.name())
 
-        # image_file = Image.open("convert_image.png")  # open colour image
-        # image_file = image_file.convert('1')  # convert image to black and white
-        # image_file.save('result.png')
+        bitch = open(self.human.material.filename, "r")
+        contents = bitch.readlines(0)
+        for line in contents:
+            if w in line:
+                name = line.split(w)
+                print name[1]
+        bitch.close()
+
+        filename = name[1].split()
+
+
+        image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
+        #image_file = image_file.convert('1')  # convert image to black and white
+        image_file.save('cunt.png')
+
+        img = Image.new('RGBA', (600, 300), color = blip)
+        #img.putalpha(1)
+        img.save('testimg2.png')
 
         if colorMe.isValid():
             #self.human.material = colorMe
-            print colorMe.name()
+            print blip
         return colorMe
 
     def applyClothesMaterial(self, uuid, filename):

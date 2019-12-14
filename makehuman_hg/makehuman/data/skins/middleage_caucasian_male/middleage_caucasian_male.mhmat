@@ -45,7 +45,7 @@ tag middleage
 tag caucasian
 tag male
 
-diffuseTexture ../textures/middleage_lightskinned_male_diffuse.png
+diffuseTexture skins/textures/middleage_lightskinned_male_diffuse.png
 
 sssEnabled True
 sssRScale 5.0

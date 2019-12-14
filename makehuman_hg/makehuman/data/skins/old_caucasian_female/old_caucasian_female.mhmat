@@ -46,7 +46,7 @@ tag old
 tag caucasian
 tag female
 
-diffuseTexture ../textures/old_lightskinned_female_diffuse.png
+diffuseTexture skins/textures/old_lightskinned_female_diffuse.png
 
 sssEnabled True
 sssRScale 5.0

@@ -45,7 +45,7 @@ tag old
 tag african
 tag female
 
-diffuseTexture ../textures/old_darkskinned_female_diffuse.png
+diffuseTexture skins/textures/old_darkskinned_female_diffuse.png
 
 sssEnabled True
 sssRScale 5.0

@@ -45,7 +45,7 @@ castShadows True
 
 receiveShadows True
 
-diffuseTexture ../textures/young_darkskinned_male_diffuse.png
+diffuseTexture skins/textures/young_darkskinned_male_diffuse.png
 
 sssEnabled True
 sssRScale 5.0

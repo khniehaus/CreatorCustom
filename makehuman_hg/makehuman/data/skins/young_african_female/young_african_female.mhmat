@@ -46,7 +46,7 @@ tag young
 tag african
 tag female
 
-diffuseTexture ../textures/young_darkskinned_female_diffuse.png
+diffuseTexture skins/textures/young_darkskinned_female_diffuse.png
 
 sssEnabled True
 sssRScale 5.0

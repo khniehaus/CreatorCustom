@@ -45,7 +45,7 @@ tag middleage
 tag asian
 tag male
 
-diffuseTexture ../textures/middleage_lightskinned_male_diffuse2.png
+diffuseTexture skins/textures/middleage_lightskinned_male_diffuse2.png
 
 sssEnabled True
 sssRScale 5.0

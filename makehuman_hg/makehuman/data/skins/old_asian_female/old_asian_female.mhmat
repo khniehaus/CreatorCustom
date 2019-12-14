@@ -46,7 +46,7 @@ tag old
 tag asian
 tag female
 
-diffuseTexture ../textures/old_lightskinned_female_diffuse2.png
+diffuseTexture skins/textures/old_lightskinned_female_diffuse2.png
 
 sssEnabled True
 sssRScale 5.0

@@ -47,7 +47,7 @@ depthless False
 castShadows True
 receiveShadows True
 
-diffuseTexture ../textures/young_lightskinned_female_diffuse3.png
+diffuseTexture skins/textures/young_lightskinned_female_diffuse3.png
 
 sssEnabled True
 sssRScale 5.0

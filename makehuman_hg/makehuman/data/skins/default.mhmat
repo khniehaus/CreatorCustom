@@ -47,7 +47,7 @@ sssBScale 1.0
 shader data/shaders/glsl/litsphere
 
 // Configure built-in shader defines
-shaderConfig diffuse false
+shaderConfig diffuse true
 shaderConfig vertexColors false
 shaderConfig bump true
 shaderConfig spec true

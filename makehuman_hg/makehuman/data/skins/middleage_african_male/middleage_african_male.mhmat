@@ -45,7 +45,7 @@ tag middleage
 tag african
 tag male
 
-diffuseTexture ../textures/middleage_darkskinned_male_diffuse.png
+diffuseTexture skins/textures/middleage_darkskinned_male_diffuse.png
 
 sssEnabled True
 sssRScale 5.0
