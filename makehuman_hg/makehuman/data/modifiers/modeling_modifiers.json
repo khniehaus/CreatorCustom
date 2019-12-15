@@ -248,7 +248,7 @@
   { "group": "pelvis",
     "modifiers": [
       {"target": "pelvis-tone", "min": "decr", "max": "incr"},
-      {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "groin", "level":  "medium-add", "direction":  "H"}
+      {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-add", "direction":  "H"}
     ]
   },
 
