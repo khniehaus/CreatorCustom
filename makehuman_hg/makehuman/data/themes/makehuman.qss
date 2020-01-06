@@ -25,23 +25,23 @@ from.
 
 QToolTip
 {
-     border: 1px solid #ff6db6;
-     background-color: #ffa0ce;
+     border: 1px solid #858585;
+     background-color: #e5e5e5;
      padding: 1px;
-     border-radius: 3px;
-     opacity: 255;
+     border-radius: 0px;
+     opacity: 200;
 }
 
 QWidget
 {
-    color: #f5207c; /*text color*/
-    background-color: #510028; /*background color*/
+    color: #cecece; /*text color*/
+    background-color: #3c0300; /*background color*/
 }
 
 QWidget:item:hover
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 1 #ff6db6);
-    color: #f5207c;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 0.5, stop: 0 #cecece, stop: 1 #720000);
+    color: #cecece;
 }
 
 QWidget:item:selected
@@ -57,17 +57,17 @@ QMenuBar::item
 QMenuBar::item:selected
 {
     background: transparent;
-    border: 1px solid #46ef09;
+    border: 1px solid #720000;
 }
 
 QMenuBar::item:pressed
 {
-    background: #46ef09;
+    background: #720000;
     border: 1px solid #46ef09;
     background-color: QLinearGradient(
         x1:0, y1:0,
         x2:0, y2:1,
-        stop:1 #46ef09,
+        stop:1 #720000,
         stop:0.4 #46ef09/*,
         stop:0.2 #343434,
         stop:0.1 #ffaa00*/
@@ -78,7 +78,7 @@ QMenuBar::item:pressed
 
 QMenu
 {
-    border: 1px solid #46ef09;
+    border: 1px solid #56ff00;
 }
 
 QMenu::item
@@ -88,18 +88,18 @@ QMenu::item
 
 QMenu::item:selected
 {
-    color: #46ef09;
+    color: #56ff00;
 }
 
 QWidget:disabled
 {
-    color: #a3537b;
-    background-color: #510028;
+    color: #835d5d;
+    background-color: #3c0300;
 }
 
 QAbstractItemView
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f27bb6, stop: 1 #ffa0ce);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #3c0300, stop: 1 #56ff00);
 }
 
 QWidget:focus
@@ -118,13 +118,13 @@ QLineEdit
 
 QPushButton
 {
-    color: #f5207c;
+    color: #e5e5e5;
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 0.1 #f27bb6, stop: 0.5 #ff6db6, stop: 0.9 #ffa0ce, stop: 1 #ff5bad);
     border-width: 1px;
-    border-color: #ffa0ce;
+    border-color: #cecece;
     border-style: solid;
     border-radius: 6px;
-    padding: 3px;
+    padding: 4px;
     font-size: 12px;
     padding-left: 5px;
     padding-right: 5px;
@@ -132,8 +132,8 @@ QPushButton
 
 QPushButton:pressed
 {
-    color: #ffa0ce;
-    /*background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 1 #4f4f4f);*/
+    color: #cecece;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 1 #4f4f4f);
 }
 
 
@@ -196,7 +196,7 @@ QGroupBox {
      font: bold;
      text-align: right;
 
-     border: 1px solid #f27bb6;
+     border: 2px solid #858585;
      border-radius: 10px;
      border-top-left-radius: 0px;
      /*border-bottom-right-radius: 0px;*/
@@ -210,8 +210,8 @@ QGroupBox::title {
      subcontrol-origin: margin;
      subcontrol-position: top left; /* position at the top left */
      padding: 0px 5px;
-     margin: 0px 0px 3px -7px;
-     background-color: #510028;
+     margin: 8px 0px 3px -7px;
+     background-color: #3c0300;
 }
 
 QSlider {
