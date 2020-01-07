@@ -40,13 +40,13 @@ QWidget
 
 QWidget:item:hover
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 0.5, stop: 0 #cecece, stop: 1 #720000);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 0.5, stop: 0 #720000, stop: 1 #3c0300);
     color: #cecece;
 }
 
 QWidget:item:selected
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 1 #ff6db6);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #640600, stop: 1 #3c0300);
 }
 
 QMenuBar::item
@@ -99,7 +99,7 @@ QWidget:disabled
 
 QAbstractItemView
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #3c0300, stop: 1 #56ff00);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 1 #3c0300);
 }
 
 QWidget:focus
@@ -109,19 +109,19 @@ QWidget:focus
 
 QLineEdit
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #490024, stop: 0.5 #510028, stop: 1 #490024);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 1 #640600);
     padding: 1px;
     border-style: solid;
-    border: 1px solid #ff87c1;
+    border: 1px solid #BBBBBB;
     border-radius: 5;
 }
 
 QPushButton
 {
     color: #e5e5e5;
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 0.1 #f27bb6, stop: 0.5 #ff6db6, stop: 0.9 #ffa0ce, stop: 1 #ff5bad);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 0.1 #640600, stop: 0.5 #500500, stop: 0.9 #640600, stop: 1 #500500);
     border-width: 1px;
-    border-color: #cecece;
+    border-color: #800000;
     border-style: solid;
     border-radius: 6px;
     padding: 4px;
@@ -133,14 +133,14 @@ QPushButton
 QPushButton:pressed
 {
     color: #cecece;
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 1 #4f4f4f);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #800000, stop: 1 #800000);
 }
 
 
 
 QComboBox
 {
-    selection-background-color: #f5207c;
+    selection-background-color: #500500;
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 0.1 #f5207c, stop: 0.5 #f5207c, stop: 0.9 #f5207c, stop: 1 #ffa0ce);
     border-style: solid;
     border: 1px solid #ffa0ce;
@@ -149,15 +149,15 @@ QComboBox
 
 QComboBox:hover,QPushButton:hover
 {
-    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #a3537b, stop: 1 #ff5bad);
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 0.1 #ffa0ce, stop: 0.5 #ff6db6, stop: 0.9 #ffa0ce, stop: 1 #ffa0ce);
+    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #800000, stop: 1 #9D0000);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #720000, stop: 0.1 #720000, stop: 0.5 #500500, stop: 0.9 #720000, stop: 1 #720000);
     /*background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4, radius: 1.35, stop: 0 #727272, stop: 1 #525252);*/
 }
 
-QComboBox:hover,QPushButton:checked
+/*QComboBox:hover,QPushButton:checked
 {
     background-color: red;
-}
+}*/
 
 
 QComboBox:on
@@ -309,24 +309,24 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 
 QScrollBar:vertical
 {
-      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #510028, stop: 0.2 #510028, stop: 1 #510028);
+      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #720000, stop: 0.2 #500500, stop: 1 #720000);
       width: 12px;
       margin: 16px 0 16px 0;
-      border: 1px solid #a3537b;
+      border: 1px solid #800000;
 }
 
 QScrollBar::handle:vertical
 {
-      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff6db6, stop: 0.5 #ff6db6, stop: 1 #ff5bad);
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 0.5 #640600, stop: 1 #640600);
       min-height: 20px;
       border-radius: 2px;
 }
 
 QScrollBar::add-line:vertical
 {
-      border: 1px solid #a3537b;
+      border: 1px solid #720000;
       border-radius: 2px;
-      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 1 #ff5bad);
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 1 #640600);
       height: 14px;
       subcontrol-position: bottom;
       subcontrol-origin: margin;
@@ -334,9 +334,9 @@ QScrollBar::add-line:vertical
 
 QScrollBar::sub-line:vertical
 {
-      border: 1px solid #a3537b;
+      border: 1px solid #720000;
       border-radius: 2px;
-      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa0ce, stop: 1 #ff5bad);
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #500500, stop: 1 #640600);
       height: 14px;
       subcontrol-position: top;
       subcontrol-origin: margin;
@@ -344,16 +344,16 @@ QScrollBar::sub-line:vertical
 
 QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
 {
-      border: 1px solid #490024;
+      border: 1px solid #640600;
       width: 1px;
       height: 1px;
-      background: #ffa0ce;
+      background: #500500;
 }
 
 
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
 {
-      background: #510028;
+      background: #3c0300;
 }
 
 QTextEdit
@@ -424,14 +424,14 @@ QMainWindow::separator:hover
 
 QToolBar
 {
-    background-color: #490024;
-    border: 0px #490024; /* Fix to force full style redefine, as mentioned at http://qt-project.org/forums/viewthread/24361/#112482 */
+    background-color: #3c0300;
+    border: 0px #3c0300; /* Fix to force full style redefine, as mentioned at http://qt-project.org/forums/viewthread/24361/#112482 */
 }
 
 QToolBar::handle
 {
     spacing: 3px; /* spacing between items in the tool bar */
-    background: url(data/themes/makehuman/images/handle.png);
+    background: #3c0300; /*url(data/themes/makehuman/images/handle.png);*/
 }
 
 QToolButton
@@ -439,7 +439,7 @@ QToolButton
     margin-left: 2px;
     margin-right: 1px;
 
-    border: 1px solid #a3537b;
+    border: 1px solid #BBBBBB; /*make a choice here, apply it to other button if necessary*/
     border-radius: 5px;
 }
 
@@ -454,14 +454,14 @@ QToolButton:hover:pressed
         stop: 0.25 #ff6db6,
         stop: 0.5 #a3537b
     );*/
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ff5bad, stop: 0.5 #700138);
-    border: 1px solid #ffa0ce;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #720000, stop: 0.5 #640600);
+    border: 1px solid #9D0000;
 }
 
 QToolButton:checked:hover:pressed
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #f27bb6, stop: 0.5 #f27bb6);
-    border: 1px solid #ffa0ce;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #720000, stop: 0.5 #640600);
+    border: 1px solid #9D0000;
 }
 
 QToolButton:hover
@@ -478,7 +478,7 @@ QToolButton:hover
     /*background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #e96226, stop: 0.5 #323232);*/
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #f27bb6, stop: 0.5 #510028);
 
-    border: 1px solid #ffa0ce;
+    border: 1px solid #56ff00; /*you are here*/
 }
 
 QToolButton:checked
