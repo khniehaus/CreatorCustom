@@ -157,8 +157,8 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         for g in mesh._faceGroups:
             if g.name.startswith('joint-') or g.name.startswith('helper-'):
                 group_mask[g.idx] = False
-        face_mask = group_mask[mesh.group]
-        self._staticFaceMask = face_mask
+                face_mask = group_mask[mesh.group]
+                self._staticFaceMask = face_mask
 
         self.meshData.changeFaceMask(self.staticFaceMask)
         self.meshData.updateIndexBufferFaces()

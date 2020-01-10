@@ -43,6 +43,7 @@ import gui3d
 import proxychooser
 import filechooser as fc
 import proxy
+import mh
 
 
 class ProxyFileSort(fc.FileSort):
@@ -166,6 +167,7 @@ class ProxyTaskView(proxychooser.ProxyChooserTaskView):
         # Override super-class behaviour
         if event.change == 'reset':
             self.resetSelection()
+            #self.selectProxy(mh.getSysDataPath("proxymeshes/Adult_Male_Genitalia/adult_male_genitalia.proxy"))
 
 
 # This method is called when the plugin is loaded into makehuman
@@ -182,6 +184,8 @@ def load(app):
     category.addTask(taskview)
 
     taskview.registerLoadSaveHandlers()
+
+    #taskview.selectProxy(mh.getSysDataPath("proxymeshes/Adult_Male_Genitalia/adult_male_genitalia.proxy"))
 
 
 # This method is called when the plugin is unloaded from makehuman

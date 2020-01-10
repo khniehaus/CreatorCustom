@@ -875,7 +875,7 @@ class Application(events3d.EventHandler):
 
 
         picked = self.getSelectedFaceGroupAndObject()
-        #ugh = self.getSelectedFaceGroup()
+        ugh = self.getSelectedFaceGroup()
 
         # Do not allow picking detached objects (in case of stale picking buffer)
         if picked and hasattr(picked, 'view') and not picked.view:
@@ -887,7 +887,7 @@ class Application(events3d.EventHandler):
         else:
             group = None
             object = self
-        #print "facegroup is:("+ ugh.name+ ")"
+        print "facegroup is:("+ ugh.name+ ")"
         event.object = object
         event.group = group
 
