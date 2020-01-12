@@ -156,13 +156,14 @@ class ModifierSlider(gui.Slider):
         # transVar = gui3d.MouAction(beep)
         # nVal = transVar.mVar()
         # wVal = transVar.nVar()
-        # value = 0.5
+        value = self.getValue()
         # if self.modifier == human.gMod:
         #    value = nVal
         # if self.modifier == human.wMod:
         #     value = wVal
         # print 'Its me!', self.modifier
         human = self.modifier.human
+        print self.modifier
         if self.value is None:
             self.value = self.modifier.getValue()
         action = humanmodifier.ModifierAction(self.modifier, self.value, value, self.update)

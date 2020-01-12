@@ -247,8 +247,11 @@
 
   { "group": "pelvis",
     "modifiers": [
-      {"target": "pelvis-tone", "min": "decr", "max": "incr"},
-      {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-add", "direction":  "H"}
+      {"target": "pelvis-tone", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-add", "direction":  "H"},
+      {"target": "pelvis-dip", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-carve", "direction":  "V"},
+      {"target": "pelvis-lab-left", "min": "decr", "max": "incr", "faceGroup": "left-groin", "level":  "high-pull", "direction":  "V"},
+      {"target": "pelvis-lab-right", "min": "decr", "max": "incr", "faceGroup": "right-groin", "level":  "high-pull", "direction":  "V"}
     ]
   },
 
@@ -342,8 +345,10 @@
 
   { "group": "genitals",
     "modifiers": [
-        {"target": "penis-length", "min": "decr", "max": "incr"},
-        {"target": "penis-circ", "min": "decr", "max": "incr"},
+        {"target": "hood-shaft-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-pull", "direction":  "V"},
+        {"target": "clit-head-length", "min": "decr", "max": "incr", "faceGroup": "genital-tip", "level":  "high-pull", "direction":  "V"},
+        {"target": "penis-circ", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-squeeze", "direction":  "H"},
+        {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-move", "direction":  "V"},
         {"target": "penis-testicles", "min": "decr", "max": "incr"}
     ]
   },
