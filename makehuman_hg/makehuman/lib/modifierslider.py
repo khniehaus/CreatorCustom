@@ -167,6 +167,7 @@ class ModifierSlider(gui.Slider):
         if self.value is None:
             self.value = self.modifier.getValue()
         action = humanmodifier.ModifierAction(self.modifier, self.value, value, self.update)
+        #print self.value
         #G.app.redraw()
         if self.value != value:
             G.app.do(action)

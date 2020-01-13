@@ -342,7 +342,7 @@
 
   { "group": "genitals",
     "modifiers": [
-        {"target": "penis-length", "min": "decr", "max": "incr"},
+        {"target": "penis-lengths", "min": "decr", "max": "incr"},
         {"target": "penis-circ", "min": "decr", "max": "incr"},
         {"target": "penis-testicles", "min": "decr", "max": "incr"}
     ]

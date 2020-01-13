@@ -266,7 +266,6 @@ class View(events3d.EventHandler):
         self.parent.callEvent('onMouseDragged', event)
         #self.parent.callEvent('sliderMousePressEvent', event)
         global app
-
         #print "it's me, your slider"
         y = event.y #mouse y
         x = event.x #mouse x

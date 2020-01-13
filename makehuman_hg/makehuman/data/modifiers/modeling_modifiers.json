@@ -241,7 +241,8 @@
 
   { "group": "buttocks",
     "modifiers": [
-      {"target": "buttocks-volume", "min": "decr", "max": "incr"}
+      {"target": "buttocks-volume", "min": "decr", "max": "incr"},
+      {"target": "buttocks-volume-fuck", "min": 0.0 , "max": 1.0, "faceGroup": "right-buttock", "level":  "medium-add", "direction":  "H"}
     ]
   },
 
@@ -345,10 +346,8 @@
 
   { "group": "genitals",
     "modifiers": [
-        {"target": "hood-shaft-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-pull", "direction":  "V"},
-        {"target": "clit-head-length", "min": "decr", "max": "incr", "faceGroup": "genital-tip", "level":  "high-pull", "direction":  "V"},
         {"target": "penis-circ", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-squeeze", "direction":  "H"},
-        {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-move", "direction":  "V"},
+        {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-pull", "direction":  "V"},
         {"target": "penis-testicles", "min": "decr", "max": "incr"}
     ]
   },

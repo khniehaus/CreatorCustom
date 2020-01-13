@@ -1195,7 +1195,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanged', events3d.HumanEvent(self, 'reset'))
 
         for modifier in self.modifiers:
-            val = self.getRandomValue(-0.5, 1.0, 0.6)
+            val = self.getRandomValue(-0.1, 1.0, 0.4)
             modifier.setValue(val)
             print modifier, val
 

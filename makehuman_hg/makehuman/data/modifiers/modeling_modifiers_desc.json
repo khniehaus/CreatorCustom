@@ -95,6 +95,7 @@
 
     "genitals/penis-circ-decr|incr": "Circumference or thickness of a genital (if proxy applied).",
     "genitals/penis-length-decr|incr": "Length of the male genital (if proxy applied).",
+    "genitals/penis-lengths-decr|incr": "Length of the male genital (if proxy applied).",
     "genitals/penis-testicles-decr|incr": "Size of the testicles of the male genital (if proxy applied).",
 
     "head/head-age-decr|incr": "Age of the facial features.",
@@ -266,6 +267,7 @@
     "pelvis/pelvis-tone-decr|incr": "",
 
     "buttocks/buttocks-volume-decr|incr": "",
+    "buttocks/buttocks-volume-fuck": "",
 
     "stomach/stomach-pregnant-decr|incr": "",
     "stomach/stomach-tone-decr|incr": "",
