@@ -331,8 +331,8 @@
 
   { "group": "breast",
     "modifiers": [
-        {"macrovar": "BreastSize"},
-        {"macrovar": "BreastFirmness"},
+        {"macrovar": "BreastSize", "faceGroup": "left-breast", "alternate faceGroup": "right-breast", "level":  "medium-add", "direction":  "H"},
+        {"macrovar": "BreastFirmness", "faceGroup": "left-breast", "alternate faceGroup": "right-breast", "level":  "medium-squeeze", "direction":  "H"},
 
         {"target": "breast-trans", "min": "down", "max": "up"},
         {"target": "breast-dist", "min": "decr", "max": "incr"},
@@ -346,8 +346,9 @@
 
   { "group": "genitals",
     "modifiers": [
-        {"target": "penis-circ", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-squeeze", "direction":  "H"},
-        {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "alternate faceGroup": "genital-tip", "level":  "high-pull", "direction":  "V"},
+        {"target": "penis-circ", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-squeeze", "direction":  "H"},
+        {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-pull", "direction":  "V"},
+        {"target": "penis-move", "min": "incr", "max": "decr", "faceGroup": "genital-skin", "level":  "high-move", "direction":  "V"},
         {"target": "penis-testicles", "min": "decr", "max": "incr"}
     ]
   },

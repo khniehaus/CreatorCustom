@@ -1,0 +1,99 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+7043 -.005 -.005 -.009
+7044 -.002 -.003 -.006
+7055 -.019 0 .006
+7056 -.015 -.016 -.002
+7057 -.005 0 0
+7064 0 0 -.001
+7065 0 0 -.001
+7068 .002 0 .003
+7069 .002 0 .003
+7072 .002 0 .003
+7073 .001 0 .001
+7074 .001 0 .001
+7080 -.018 -.007 .002
+7081 -.019 -.017 0
+7082 -.022 0 .004
+7083 -.024 -.004 -.003
+7084 -.024 -.011 -.003
+7085 -.03 -.01 0
+7086 -.032 -.004 0
+7087 -.031 0 .004
+7088 -.03 -.004 .004
+7089 -.006 -.004 -.007
+7090 0 0 -.002
+7091 .002 0 .003
+7092 .002 0 .003
+7093 .004 0 .001
+7095 -.002 0 0
+7096 -.009 0 .002
+7097 -.002 -.003 -.002
+7098 -.011 -.009 0
+7099 -.012 -.003 .001
+7105 -.022 0 .004
+7106 -.02 0 -.001
+7107 -.029 0 0
+7108 -.025 0 .002
+7109 -.006 0 -.002
+7110 -.002 0 0
+7111 0 0 .003
+7112 .002 0 .003
+7113 .007 0 0
+7115 -.013 0 .003
+7119 -.004 0 0
+7124 -.01 -.008 -.01
+7125 -.011 -.005 -.008
+7126 -.012 -.002 -.004
+7127 -.006 -.01 -.007
+7141 -.016 0 0
+7142 -.017 0 -.002
+7143 -.022 0 0
+7144 -.021 0 0
+7145 -.008 0 -.002
+7146 -.006 0 -.001
+7147 -.002 0 0
+7148 0 0 .001
+7151 -.007 0 0
+7152 -.011 -.002 -.003
+7153 -.012 0 -.001
+7154 -.016 0 0
+7155 -.01 0 -.002
+7156 -.006 0 0
+7157 -.008 0 0
+7158 -.006 0 -.001
+11669 -.004 0 0
+11672 -.005 0 0
+11673 -.006 0 0
+11710 -.006 -.009 0
+11746 -.001 0 0

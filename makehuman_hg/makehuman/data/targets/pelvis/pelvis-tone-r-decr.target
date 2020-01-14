@@ -1,0 +1,140 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+4055 0 -.007 0
+4175 0 -.008 0
+4176 0 -.026 0
+4177 0 -.009 0
+4182 0 -.033 0
+4183 0 -.059 -.003
+4184 0 -.035 -.002
+4185 0 -.015 0
+4186 0 -.003 0
+4189 0 -.073 -.004
+4190 0 -.11 -.006
+4191 0 -.076 -.004
+4192 0 -.052 -.003
+4193 0 -.033 0
+4194 0 -.02 0
+4195 0 -.009 0
+4197 0 -.008 0
+4198 .002 -.125 -.021
+4199 0 -.272 -.035
+4200 0 -.297 -.037
+4201 .002 -.274 -.038
+4202 0 -.229 -.035
+4203 0 -.145 -.028
+4204 0 -.064 -.013
+4205 0 -.021 -.004
+4206 .007 -.158 -.014
+4207 0 -.113 -.03
+4208 0 -.232 -.044
+4209 0 -.308 -.077
+4210 0 -.323 -.078
+4211 -.004 -.338 -.079
+4212 -.002 -.316 -.076
+4213 0 -.266 -.072
+4214 0 -.198 -.056
+4215 0 -.147 -.041
+4216 0 -.119 -.034
+4217 0 -.355 -.1
+4218 0 -.356 -.1
+4219 0 -.355 -.1
+4220 0 -.355 -.1
+4221 0 -.355 -.1
+4222 0 -.344 -.097
+4223 0 -.32 -.09
+4224 0 -.258 -.073
+4225 0 -.266 -.075
+4226 0 -.355 -.1
+4227 0 -.355 -.1
+4228 0 -.355 -.1
+4229 0 -.355 -.1
+4230 0 -.327 -.092
+4231 0 -.237 -.067
+4232 0 -.197 -.055
+4233 0 -.355 -.1
+4234 0 -.262 -.074
+4235 0 -.355 -.1
+4236 0 -.355 -.1
+4237 0 -.355 -.1
+4238 0 -.355 -.1
+4239 0 -.324 -.091
+4240 0 -.276 -.078
+4241 0 -.222 -.063
+4242 0 -.355 -.1
+4243 0 -.26 -.073
+4244 0 -.355 -.1
+4245 0 -.357 -.101
+4246 0 -.367 -.102
+4247 0 -.357 -.101
+4248 0 -.323 -.091
+4249 0 -.263 -.074
+4250 0 -.202 -.057
+4251 0 -.355 -.1
+4252 0 -.251 -.071
+4253 0 -.256 -.072
+4254 0 -.182 -.051
+4255 -.006 -.247 -.062
+4256 -.002 -.269 -.073
+4257 0 -.148 -.042
+4258 0 -.081 -.023
+4259 0 -.039 -.011
+4260 0 -.355 -.1
+4261 0 -.127 -.036
+4262 0 -.103 -.029
+4263 0 -.034 -.009
+4264 0 -.079 -.022
+4265 0 -.031 -.008
+4266 0 -.008 -.002
+4268 0 -.29 -.082
+4270 0 -.011 0
+4276 0 -.048 -.014
+4288 0 -.069 -.019
+4294 0 -.063 -.018
+4300 0 -.06 -.017
+4306 0 -.049 -.014
+4386 -.001 -.054 -.003
+4387 0 -.035 -.002
+4388 0 -.168 -.011
+4389 0 -.161 -.01
+4390 0 -.13 -.008
+4391 0 -.044 -.002
+4392 0 -.098 -.005
+4393 0 -.073 -.004
+4394 0 -.016 0
+4401 0 -.019 -.005
+4402 0 -.158 -.044
+4427 0 -.031 -.008
+4430 0 -.004 -.001
+4432 0 -.018 -.005
+4436 0 -.063 -.017

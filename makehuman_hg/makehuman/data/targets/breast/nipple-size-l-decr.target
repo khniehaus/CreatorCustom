@@ -1,0 +1,113 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+8434 -.007 -.036 .002
+8435 .001 -.034 0
+8436 .012 -.03 -.002
+8437 .021 -.025 -.006
+8438 .027 -.013 -.011
+8439 .027 0 -.012
+8440 .025 .017 -.01
+8441 .019 .03 -.004
+8442 .01 .038 .002
+8443 0 .039 .011
+8444 -.011 .034 .017
+8445 -.02 .024 .018
+8446 -.026 .009 .018
+8447 -.029 -.005 .014
+8448 -.026 -.021 .009
+8449 -.018 -.032 .006
+8450 -.012 -.018 -.018
+8451 -.008 -.017 -.021
+8452 -.003 -.013 -.023
+8453 0 -.009 -.024
+8454 .002 -.004 -.024
+8455 .002 0 -.023
+8456 .004 .006 -.022
+8457 .002 .012 -.02
+8458 -.001 .015 -.018
+8459 -.006 .014 -.015
+8460 -.011 .012 -.013
+8461 -.015 .008 -.012
+8462 -.018 .003 -.012
+8463 -.02 0 -.012
+8464 -.019 -.009 -.012
+8465 -.017 -.015 -.015
+8466 0 -.055 .012
+8467 .009 -.048 .009
+8468 .02 -.046 .007
+8469 .032 -.042 .003
+8470 .053 -.023 -.012
+8471 .055 .003 -.015
+8472 .051 .03 -.01
+8473 .039 .053 0
+8474 .022 .066 .013
+8475 .003 .07 .027
+8476 -.016 .063 .038
+8477 -.03 .045 .041
+8478 -.041 .019 .04
+8479 -.043 -.006 .037
+8480 -.035 -.033 .029
+8481 -.022 -.048 .021
+8482 .008 -.055 .011
+8483 .013 -.042 .017
+8484 .022 -.027 .014
+8485 .039 -.023 0
+8486 .038 -.025 -.002
+8487 .051 0 -.009
+8488 .047 .018 -.003
+8489 .033 .044 .008
+8490 .018 .051 .024
+8491 -.008 .06 .041
+8492 -.024 .056 .049
+8493 -.036 .047 .05
+8494 -.047 .019 .049
+8495 -.05 -.01 .047
+8496 -.037 -.032 .036
+8497 -.021 -.047 .024
+8498 .003 0 -.001
+8546 -.013 -.034 .02
+8547 -.024 -.024 .026
+8548 0 .03 .018
+8549 .01 .025 .011
+8550 .008 -.037 .011
+8551 -.008 .03 .024
+8552 .016 -.036 .01
+8553 -.017 .019 .025
+8554 -.002 -.002 .001
+8555 -.009 -.003 .003
+8556 .01 -.012 .003
+8557 -.022 .007 .025
+8558 .004 0 0
+8559 -.006 -.002 .003
+8560 -.029 -.007 .029
+8561 .012 .013 .004

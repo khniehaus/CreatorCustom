@@ -1,0 +1,81 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+15263 0 -.174 -.209
+15264 0 -.137 -.238
+15265 0 -.099 -.270
+15266 0 -.137 -.238
+15267 0 -.162 -.218
+15268 0 -.107 -.259
+15269 0 -.162 -.218
+15270 0 -.107 -.259
+15271 0 -.13 -.290
+15272 0 -.082 -.314
+15273 0 -.041 -.341
+15274 0 -.082 -.314
+15275 0 -.109 -.299
+15276 0 -.052 -.331
+15277 0 -.109 -.299
+15278 0 -.052 -.331
+15279 0 -.068 -.358
+15280 0 -.022 -.371
+15281 0 .022 -.391
+15282 0 -.022 -.371
+15283 0 -.054 -.362
+15284 0 .010 -.382
+15285 0 -.054 -.362
+15286 0 .010 -.382
+15287 0 -.001 -.424
+15288 0 .044 -.437
+15289 0 .091 -.452
+15290 0 .044 -.437
+15291 0 .013 -.428
+15292 0 .079 -.445
+15293 0 .013 -.428
+15294 0 .079 -.445
+15295 0 .015 -.484
+15296 0 .031 -.488
+15297 0 .046 -.493
+15298 0 .031 -.488
+15299 0 .021 -.485
+15300 0 .043 -.490
+15301 0 .021 -.485
+15302 0 .043 -.490
+15319 0 .029 -.495
+15320 0 .050 -.419
+15321 0 .081 -.426
+15322 0 .023 -.411
+15323 0 .010 -.408
+15324 0 .090 -.432
+15325 0 .081 -.426
+15326 0 .050 -.419
+15327 0 .023 -.411

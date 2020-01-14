@@ -1,0 +1,132 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+8434 .133 -.017 .196
+8435 .133 -.017 .196
+8436 .133 -.017 .196
+8437 .133 -.017 .196
+8438 .133 -.017 .196
+8439 .133 -.017 .196
+8440 .133 -.017 .196
+8441 .133 -.017 .196
+8442 .133 -.017 .196
+8443 .133 -.017 .196
+8444 .133 -.017 .196
+8445 .133 -.017 .196
+8446 .133 -.017 .196
+8447 .133 -.017 .196
+8448 .133 -.017 .196
+8449 .133 -.017 .196
+8450 .133 -.017 .196
+8451 .133 -.017 .196
+8452 .133 -.017 .196
+8453 .133 -.017 .196
+8454 .133 -.017 .196
+8455 .133 -.017 .196
+8456 .133 -.017 .196
+8457 .133 -.017 .196
+8458 .133 -.017 .196
+8459 .133 -.017 .196
+8460 .133 -.017 .196
+8461 .133 -.017 .196
+8462 .133 -.017 .196
+8463 .133 -.017 .196
+8464 .133 -.017 .196
+8465 .133 -.017 .196
+8466 .122 -.017 .183
+8467 .122 -.016 .182
+8468 .121 -.016 .182
+8469 .12 -.016 .18
+8470 .117 -.016 .176
+8471 .118 -.016 .177
+8472 .118 -.016 .178
+8473 .119 -.016 .178
+8474 .115 -.016 .173
+8475 .116 -.016 .175
+8476 .114 -.016 .172
+8477 .117 -.016 .175
+8478 .119 -.016 .179
+8479 .12 -.016 .18
+8480 .117 -.016 .176
+8481 .12 -.016 .18
+8482 .094 -.014 .145
+8483 .089 -.013 .138
+8484 .082 -.012 .128
+8485 .079 -.012 .124
+8486 .078 -.012 .122
+8487 .078 -.012 .122
+8488 .08 -.012 .125
+8489 .082 -.012 .129
+8490 .083 -.013 .13
+8491 .085 -.013 .133
+8492 .085 -.013 .133
+8493 .087 -.013 .135
+8494 .089 -.013 .139
+8495 .092 -.013 .142
+8496 .092 -.013 .142
+8497 .095 -.014 .146
+8498 .037 -.005 .058
+8499 .022 -.003 .035
+8500 .007 0 .011
+8501 .002 0 .003
+8502 .003 0 .004
+8503 .005 0 .009
+8504 .012 -.002 .02
+8505 .022 -.003 .034
+8506 .024 -.003 .037
+8507 .023 -.003 .036
+8508 .021 -.003 .033
+8509 .018 -.002 .029
+8510 .02 -.003 .031
+8511 .031 -.004 .049
+8512 .042 -.006 .067
+8513 .043 -.006 .068
+8514 .009 0 .014
+8527 .002 0 .004
+8528 .016 -.002 .025
+8529 .016 -.002 .026
+8546 .069 -.01 .108
+8547 .069 -.01 .109
+8548 .06 -.009 .095
+8549 .059 -.009 .093
+8550 .066 -.01 .103
+8551 .062 -.009 .097
+8552 .058 -.009 .091
+8553 .061 -.009 .096
+8554 .043 -.006 .067
+8555 .04 -.006 .063
+8556 .046 -.007 .072
+8557 .061 -.009 .096
+8558 .048 -.007 .076
+8559 .04 -.006 .063
+8560 .065 -.01 .102
+8561 .056 -.008 .088

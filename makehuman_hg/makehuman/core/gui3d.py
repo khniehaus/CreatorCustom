@@ -343,7 +343,7 @@ class View(events3d.EventHandler):
             else:
                 pass
             finVal = (((newVal2 - 0.0) * (1.0 - 0.0))/ (30 - 0)) + 0.0
-
+            print finVal
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()

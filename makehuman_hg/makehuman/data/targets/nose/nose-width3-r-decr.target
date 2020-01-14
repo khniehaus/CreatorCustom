@@ -1,0 +1,149 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+161 .002 0 0
+184 .001 0 0
+197 .006 0 0
+203 .003 0 0
+274 .012 .002 0
+275 .011 .002 0
+276 .01 .002 0
+277 .007 0 0
+278 .003 0 0
+280 .01 0 0
+281 .005 0 0
+282 .018 0 0
+283 .013 0 0
+284 .016 0 0
+285 .012 0 0
+286 .028 -.002 0
+287 .027 0 0
+288 .017 -.002 0
+292 0 0 0
+295 .005 0 0
+296 .002 0 0
+298 .008 0 0
+299 .008 .002 0
+300 .009 .002 0
+301 .006 0 0
+303 .004 0 0
+304 .005 0 0
+305 .007 0 0
+306 .004 0 0
+308 0 0 0
+309 .002 0 0
+310 .003 0 0
+311 .001 0 0
+313 .003 0 0
+314 .004 0 0
+318 .029 -.003 0
+319 .031 0 0
+320 .029 -.002 0
+321 .024 0 0
+322 .025 0 0
+323 .029 0 0
+324 .027 0 0
+325 .026 -.002 0
+326 .028 -.003 0
+327 .012 0 0
+328 .008 0 0
+329 .004 0 0
+330 .002 0 0
+331 .005 0 0
+332 .015 -.002 0
+333 .025 -.002 0
+334 .024 -.002 0
+335 .014 0 0
+336 .03 0 0
+337 .026 -.002 0
+338 .012 0 0
+339 .025 0 0
+340 .022 -.002 0
+344 .027 -.002 0
+345 .021 0 0
+346 .025 0 0
+347 .024 -.002 0
+348 .012 0 0
+349 .009 0 0
+350 .005 0 0
+351 .003 0 0
+352 .009 0 0
+353 .017 -.002 0
+354 .024 -.002 0
+358 .028 -.003 0
+359 .012 0 0
+360 .023 -.002 0
+364 .015 .002 0
+365 .015 0 0
+366 .014 0 0
+367 .016 .002 0
+381 .026 -.005 0
+382 .019 0 0
+383 .023 0 0
+384 .023 -.002 0
+385 .013 0 0
+386 .011 0 0
+387 .006 0 0
+388 .007 0 0
+389 .012 0 0
+390 .018 -.003 0
+391 .021 -.006 0
+392 .015 0 0
+393 .016 0 0
+394 .019 0 0
+395 .012 0 0
+396 .011 0 0
+397 .016 0 0
+398 .008 0 0
+5050 .01 0 0
+5051 .014 0 0
+5053 .002 0 0
+5055 .029 0 0
+5056 .025 -.002 0
+5057 .013 0 0
+5069 .007 0 0
+5073 .007 0 0
+5088 .005 0 0
+5093 .013 0 0
+5094 .018 0 0
+5095 .024 0 0
+5096 .02 0 0
+5131 .02 0 0
+5135 .018 0 0
+5136 .001 0 0
+5137 .012 0 0
+5138 .002 0 0
+5139 .002 0 0
+5341 .001 0 0
+5346 .003 0 0
+5363 .009 0 0
+5364 .002 0 0

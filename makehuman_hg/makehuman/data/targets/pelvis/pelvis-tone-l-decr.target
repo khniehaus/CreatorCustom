@@ -1,0 +1,140 @@
+# This is a MakeHuman target originally developed by Manuel Bastioni.
+#
+# Original copyright (C) 2014 Manuel Bastioni 
+#
+# The copyright was explicitly transfered to other team members in 2016.
+#
+# Copyright (C) 2017 Data Collection AB, https://www.datacollection.se
+# Copyright (C) 2017 Joel Palmius 
+# Copyright (C) 2017 Jonas Hauquier
+#
+# The primary legal contact for MakeHuman is Data Collection AB.
+#
+# For more information, see homepage at http://www.makehuman.org
+#
+# This file is licensed AGPLv3
+#
+#    This file is part of MakeHuman (www.makehuman.org).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# basemesh hm08
+4195 0 -.009 0
+4205 0 -.021 -.004
+4215 0 -.147 -.041
+4223 0 -.32 -.09
+4232 0 -.197 -.055
+4241 0 -.222 -.063
+4250 0 -.202 -.057
+4259 0 -.039 -.011
+4387 0 -.035 -.002
+10711 0 -.007 0
+10816 0 -.008 0
+10817 0 -.026 0
+10818 0 -.009 0
+10822 0 -.033 0
+10823 0 -.059 -.003
+10824 0 -.035 -.002
+10825 0 -.015 0
+10826 0 -.003 0
+10828 0 -.073 -.004
+10829 0 -.11 -.006
+10830 0 -.076 -.004
+10831 0 -.052 -.003
+10832 0 -.033 0
+10833 0 -.02 0
+10835 0 -.008 0
+10836 -.002 -.125 -.021
+10837 0 -.272 -.035
+10838 0 -.297 -.037
+10839 -.002 -.274 -.038
+10840 0 -.229 -.035
+10841 0 -.145 -.028
+10842 0 -.064 -.013
+10843 -.007 -.158 -.014
+10844 0 -.113 -.03
+10845 0 -.232 -.044
+10846 0 -.308 -.077
+10847 0 -.323 -.078
+10848 .004 -.338 -.079
+10849 .002 -.316 -.076
+10850 0 -.266 -.072
+10851 0 -.198 -.056
+10852 0 -.119 -.034
+10853 0 -.355 -.1
+10854 0 -.356 -.1
+10855 0 -.355 -.1
+10856 0 -.355 -.1
+10857 0 -.355 -.1
+10858 0 -.344 -.097
+10859 0 -.258 -.073
+10860 0 -.266 -.075
+10861 0 -.355 -.1
+10862 0 -.355 -.1
+10863 0 -.355 -.1
+10864 0 -.355 -.1
+10865 0 -.327 -.092
+10866 0 -.237 -.067
+10867 0 -.355 -.1
+10868 0 -.262 -.074
+10869 0 -.355 -.1
+10870 0 -.355 -.1
+10871 0 -.355 -.1
+10872 0 -.355 -.1
+10873 0 -.324 -.091
+10874 0 -.276 -.078
+10875 0 -.355 -.1
+10876 0 -.26 -.073
+10877 0 -.355 -.1
+10878 0 -.357 -.101
+10879 0 -.367 -.102
+10880 0 -.357 -.101
+10881 0 -.323 -.091
+10882 0 -.263 -.074
+10883 0 -.355 -.1
+10884 0 -.251 -.071
+10885 0 -.256 -.072
+10886 0 -.182 -.051
+10887 .006 -.247 -.062
+10888 .002 -.269 -.073
+10889 0 -.148 -.042
+10890 0 -.081 -.023
+10891 0 -.355 -.1
+10892 0 -.127 -.036
+10893 0 -.103 -.029
+10894 0 -.034 -.009
+10895 0 -.079 -.022
+10896 0 -.031 -.008
+10897 0 -.008 -.002
+10898 0 -.29 -.082
+10900 0 -.011 0
+10906 0 -.048 -.014
+10918 0 -.069 -.019
+10924 0 -.063 -.018
+10930 0 -.06 -.017
+10936 0 -.049 -.014
+11005 .001 -.054 -.003
+11006 0 -.168 -.011
+11007 0 -.161 -.01
+11008 0 -.13 -.008
+11009 0 -.044 -.002
+11010 0 -.098 -.005
+11011 0 -.073 -.004
+11012 0 -.016 0
+11019 0 -.019 -.005
+11020 0 -.158 -.044
+11045 0 -.031 -.008
+11048 0 -.004 -.001
+11050 0 -.018 -.005
+11054 0 -.063 -.017
