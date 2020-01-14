@@ -61,21 +61,34 @@ class ModifierTaskView(gui3d.TaskView):
 
         #self.categoryBox = self.addRightWidget(gui.GroupBox('Category'))
         #self.groupBox = self.addRightWidget(gui.StackedBox())
-        #self.box2 = self.addRightWidget(gui.GroupBox('Detail'))
         self.toolbar = mh.addToolBar(name)
 
         self.toolbar.setOrientation(QtCore.Qt.Vertical)
         tBarWidget = self.addLeftWidget(self.toolbar)
         self.groupBoxes[category.name] = tBarWidget
+        self.box2 = self.addRightWidget(gui.GroupBox('Helper Graphics'))
+        self.b1 = self.box2.addWidget(gui.RadioButton(self.radioButtons, 'On', selected = True))
+        self.b2 = self.box2.addWidget(gui.RadioButton(self.radioButtons, 'Off'))
+
+        self.gTrans = gui3d.View()
+        self.showMacroStats = False
+        self.human = gui3d.app.selectedHuman
+
+        @self.b1.mhEvent
+        def onClicked(event):
+            #self.aRadioButtonLabel1 = self.box2.addWidget(gui.TextView('Fucker'))
+            self.gTrans.helpTexture()
+
+        @self.b2.mhEvent
+        def onClicked(event):
+            #self.aRadioButtonLabel1 = self.box2.addWidget(gui.TextView('Fuck You'))
+            self.gTrans.origTexture()
 
         #self.newAct = qtgui.Actions()
 
         #self.newAct.frick = qtgui.Action('Fuck', self.getModifiers)
 
         #self.boxBox = self.addLeftWidget(self.toolbar)
-        self.gTrans = gui3d.View()
-        self.showMacroStats = False
-        self.human = gui3d.app.selectedHuman
 
     def addSlider(self, sliderCategory, slider, enabledCondition=None):
         # Get category groupbox

@@ -45,6 +45,8 @@ import log
 import selection
 import collections
 import time
+import material
+from getpath import getSysDataPath
 from PyQt4 import QtGui, QtCore
 
 from guicommon import Object, Action
@@ -61,6 +63,7 @@ class View(events3d.EventHandler):
     endVal = collections.deque([0, 0], maxlen=2)
     macroInd = collections.deque([0], maxlen=1)
     quadEnd = collections.deque([0], maxlen=1)
+    originalMat = collections.deque([0], maxlen=1)
 
     def __init__(self):
 
@@ -391,6 +394,17 @@ class View(events3d.EventHandler):
         for w in self.widgets:
             w.show()
 
+    def origTexture(self):
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('skins/default.mhmat')))
+        print "I'm bone"
+        return
+
+    def helpTexture(self):
+        if self.originalMat[0] is not None:
+            mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath(self.originalMat[0])))
+        else:
+            return
+
     def lowPP(self):
         self.indicator.clear()
         self.macroInd.clear()
@@ -417,6 +431,8 @@ class View(events3d.EventHandler):
         self.macroInd.clear()
         self.indicator.appendleft("low-add")
         self.macroInd.appendleft('Weight')
+        #mhmain.G.app.selectedHuman.setMaterial(self.originalMat[0])
+        self.origTexture()
         return self.indicator
 
     def lowMove(self):
@@ -424,6 +440,8 @@ class View(events3d.EventHandler):
         self.macroInd.clear()
         self.indicator.appendleft("low-move")
         self.macroInd.appendleft('Age')
+        self.originalMat.appendleft('skins/young_test/test.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('skins/default.mhmat')))
         return self.indicator
 
     def mediumPP(self):
@@ -742,6 +760,8 @@ class Application(events3d.EventHandler):
             #print "Task is", self.currentTask.getModifiers()
             #print "Task:", self.currentTask.name
             #self.indicator.clear()
+            #app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('skins/default.mhmat')))
+            #print app.selectedHuman.getMaterial()
             self.currentTask.show()
             self.currentTask.showWidgets()
 

@@ -78,6 +78,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         self.material = material.fromFile(getSysDataPath('skins/default.mhmat'))
         self._defaultMaterial = material.Material().copyFrom(self.material)
+        #self.material2 = material.fromFile(getSysDataPath('skins/young_test/test.mhmat'))
 
         # Init with no user-selected skeleton
         self.skeleton = None
@@ -1190,12 +1191,13 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.targetsDetailStack = {}
 
         self.setMaterial(self._defaultMaterial)
+        #self.setMaterial(self.material2)
 
         self.callEvent('onChanging', events3d.HumanEvent(self, 'reset'))
         self.callEvent('onChanged', events3d.HumanEvent(self, 'reset'))
 
         for modifier in self.modifiers:
-            val = self.getRandomValue(-0.1, 1.0, 0.4)
+            val = self.getRandomValue(0.0, 1.0, 0.8)
             modifier.setValue(val)
             print modifier, val
 
@@ -1220,6 +1222,9 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanging', events3d.HumanEvent(self, 'material'))
         super(Human, self).setMaterial(mat)
         self.callEvent('onChanged', events3d.HumanEvent(self, 'material'))
+
+    # def refreshMaterial(self):
+    #     self.
 
     material = property(getMaterial, setMaterial)
 

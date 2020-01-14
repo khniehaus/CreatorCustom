@@ -141,27 +141,28 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         colorMe = color.getColor()
         blip = self.hex_to_rgb(colorMe.name())
 
-        bitch = open(self.human.material.filename, "r")
-        contents = bitch.readlines(0)
-        for line in contents:
-            if w in line:
-                name = line.split(w)
-                print name[1]
-        bitch.close()
+        # bitch = open(self.human.material.filename, "r")
+        # contents = bitch.readlines(0)
+        # for line in contents:
+        #     if w in line:
+        #         name = line.split(w)
+        #         print name[1]
+        # bitch.close()
+        #
+        # filename = name[1].split()
 
-        filename = name[1].split()
 
-
-        image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
-        #image_file = image_file.convert('1')  # convert image to black and white
-        image_file.save('cunt.png')
-
-        img = Image.new('RGBA', (600, 300), color = blip)
-        #img.putalpha(1)
-        img.save('testimg2.png')
+        # image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
+        # #image_file = image_file.convert('1')  # convert image to black and white
+        # image_file.save('cunt.png')
+        #
+        # img = Image.new('RGBA', (600, 300), color = blip)
+        # #img.putalpha(1)
+        # img.save('testimg2.png')
 
         if colorMe.isValid():
             #self.human.material = colorMe
+            #self.human.material.setDiffuseTexture(blip)
             print blip
         return colorMe
 
