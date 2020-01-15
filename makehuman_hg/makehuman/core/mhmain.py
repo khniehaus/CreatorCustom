@@ -1773,7 +1773,7 @@ class MHApplication(gui3d.Application, mh.Application):
 
         self.createShortcuts()
 
-        self.splash = gui.SplashScreen(self.getThemeResource('images', 'splash.png'), mh.getVersionDigitsStr())
+        self.splash = gui.SplashScreen(self.getThemeResource('images', 'new_splash.png'), mh.getVersionDigitsStr())
         self.splash.show()
         if sys.platform != 'darwin':
             self.mainwin.hide()  # Fix for OSX crash thanks to Francois (issue #593)

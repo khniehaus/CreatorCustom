@@ -223,6 +223,7 @@ class ModifierTaskView(gui3d.TaskView):
             self.setCamera()
 
         self.syncSliders()
+        self.gTrans.origTexture()
         #self.boxMode()
 
     def syncSliders(self):

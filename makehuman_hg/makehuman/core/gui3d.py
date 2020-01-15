@@ -396,7 +396,6 @@ class View(events3d.EventHandler):
 
     def origTexture(self):
         mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('skins/default.mhmat')))
-        print "I'm bone"
         return
 
     def helpTexture(self):
@@ -408,93 +407,135 @@ class View(events3d.EventHandler):
     def lowPP(self):
         self.indicator.clear()
         self.macroInd.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("low-pull")
         self.macroInd.appendleft('Height')
+        self.originalMat.appendleft('helper-graphics/low/low.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/low/low.mhmat')))
         return self.indicator
 
     def lowSL(self):
         self.indicator.clear()
         self.macroInd.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("low-squeeze")
         self.macroInd.appendleft('BodyProportions')
+        self.originalMat.appendleft('helper-graphics/low/low.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/low/low.mhmat')))
         return self.indicator
 
     def lowCR(self):
         self.indicator.clear()
         self.macroInd.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("low-carve")
         self.macroInd.appendleft('Muscle')
+        self.originalMat.appendleft('helper-graphics/low/low.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/low/low.mhmat')))
         return self.indicator
 
     def lowAC(self):
         self.indicator.clear()
         self.macroInd.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("low-add")
         self.macroInd.appendleft('Weight')
-        #mhmain.G.app.selectedHuman.setMaterial(self.originalMat[0])
-        self.origTexture()
+        self.originalMat.appendleft('helper-graphics/low/low.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/low/low.mhmat')))
         return self.indicator
 
     def lowMove(self):
         self.indicator.clear()
         self.macroInd.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("low-move")
         self.macroInd.appendleft('Age')
-        self.originalMat.appendleft('skins/young_test/test.mhmat')
-        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('skins/default.mhmat')))
+        self.originalMat.appendleft('helper-graphics/low/low.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/low/low.mhmat')))
         return self.indicator
 
     def mediumPP(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("medium-pull")
+        self.originalMat.appendleft('helper-graphics/medium_pull/medium_pull.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/medium_pull/medium_pull.mhmat')))
         return self.indicator
 
     def mediumSL(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("medium-squeeze")
+        self.originalMat.appendleft('helper-graphics/medium_squeeze/medium_squeeze.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/medium_squeeze/medium_squeeze.mhmat')))
         return self.indicator
 
     def mediumCR(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("medium-carve")
+        self.originalMat.appendleft('helper-graphics/medium_carve/medium_carve.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/medium_carve/medium_carve.mhmat')))
         return self.indicator
 
     def mediumAC(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("medium-add")
+        self.originalMat.appendleft('helper-graphics/medium_add/medium_add.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/medium_add/medium_add.mhmat')))
         return self.indicator
 
     def mediumMove(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("medium-move")
+        self.originalMat.appendleft('helper-graphics/medium_move/medium_move.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/medium_move/medium_move.mhmat')))
         return self.indicator
 
     def highPP(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("high-pull")
+        self.originalMat.appendleft('helper-graphics/high_pull/high_pull.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/high_pull/high_pull.mhmat')))
         return self.indicator
 
     def highSL(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("high-squeeze")
+        self.originalMat.appendleft('helper-graphics/high_squeeze/high_squeeze.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/high_squeeze/high_squeeze.mhmat')))
         return self.indicator
 
     def highCR(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("high-carve")
+        self.originalMat.appendleft('helper-graphics/high_carve/high_carve.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/high_carve/high_carve.mhmat')))
         return self.indicator
 
     def highAC(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("high-add")
+        self.originalMat.appendleft('helper-graphics/high_add/high_add.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/high_add/high_add.mhmat')))
         return self.indicator
 
     def highMove(self):
         self.indicator.clear()
+        self.originalMat.clear()
         self.indicator.appendleft("high-move")
+        self.originalMat.appendleft('helper-graphics/high_move/high_move.mhmat')
+        mhmain.G.app.selectedHuman.setMaterial(material.fromFile(getSysDataPath('helper-graphics/high_move/high_move.mhmat')))
         return self.indicator
 
     def hideWidgets(self):
+        self.originalMat.clear()
         for w in self.widgets:
             w.hide()
 

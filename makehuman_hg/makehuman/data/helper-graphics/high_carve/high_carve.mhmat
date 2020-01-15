@@ -25,7 +25,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-name young_test
+name high_carve
 ambientColor 0.301960784314 0.294117647059 0.235294117647
 diffuseColor 1.0 0.95 0.85
 specularColor 0.0274509803922 0.0274509803922 0.0274509803922
@@ -33,8 +33,6 @@ shininess 0.5
 emissiveColor 0.196078431373 0.101960784314 0.101960784314
 opacity 1.0
 translucency 0.0
-
-tag young
 
 shadeless False
 wireframe False
@@ -45,7 +43,7 @@ depthless False
 castShadows True
 receiveShadows True
 
-diffuseTexture ../textures/ugh.png
+diffuseTexture ../textures/high_carve.png
 
 sssEnabled True
 sssRScale 5.0
