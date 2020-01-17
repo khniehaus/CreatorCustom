@@ -49,6 +49,7 @@ import material
 from getpath import getSysDataPath
 from PyQt4 import QtGui, QtCore
 
+
 from guicommon import Object, Action
 
 class View(events3d.EventHandler):

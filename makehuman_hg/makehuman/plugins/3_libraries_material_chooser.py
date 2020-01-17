@@ -49,6 +49,7 @@ from humanobjchooser import HumanObjectSelector
 import log
 import getpath
 import filecache
+import mhmain
 from PyQt4 import QtGui
 from PIL import Image
 
@@ -89,6 +90,7 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         @self.filechooser.mhEvent
         def onFileSelected(filename):
             mat = material.fromFile(filename)
+            print filename
             human = self.human
 
             obj = self.humanObjSelector.getSelectedObject()
@@ -133,7 +135,9 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
     def hex_to_rgb(self, hex):
         hex = hex.lstrip('#')
         hlen = len(hex)
-        return tuple(int(hex[i:i + hlen / 3], 16) for i in range(0, hlen, hlen / 3))
+        tups = tuple(int(hex[i:i + hlen / 3], 16) for i in range(0, hlen, hlen / 3))
+        r, g, b = tups
+        return r, g, b
 
     def openColorDialog(self):
         w = "diffuseTexture"
@@ -141,30 +145,43 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         colorMe = color.getColor()
         blip = self.hex_to_rgb(colorMe.name())
 
-        # bitch = open(self.human.material.filename, "r")
-        # contents = bitch.readlines(0)
-        # for line in contents:
-        #     if w in line:
-        #         name = line.split(w)
-        #         print name[1]
-        # bitch.close()
-        #
-        # filename = name[1].split()
+        #filename = name[1].split()
 
-
-        # image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
-        # #image_file = image_file.convert('1')  # convert image to black and white
-        # image_file.save('cunt.png')
-        #
-        # img = Image.new('RGBA', (600, 300), color = blip)
-        # #img.putalpha(1)
-        # img.save('testimg2.png')
+        #image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
+        #image_file = image_file.convert('1')  # convert image to black and white
+        #image_file.save('cunt.png')
 
         if colorMe.isValid():
-            #self.human.material = colorMe
-            #self.human.material.setDiffuseTexture(blip)
+            img = Image.new('RGBA', (2048, 2048), color=blip)
+            newname = str(colorMe.name())
+            os.mkdir(mh.getSysDataPath('skins/Custom '+newname))
+            if self.human.material.name == 'DefaultSkin':
+                print "I'm a cunt"
+                img.save(mh.getSysDataPath('skins/textures/custom' + newname + '.png'))
+                #bitch = open(self.human.material.filename, "r")
+                with open(self.human.material.filename, 'r') as input:
+                    output = open(mh.getSysDataPath('skins/Custom '+newname+'/'+newname+'.mhmat'), 'w')
+                    for line in input.readlines():
+                        if 'name' in line:
+                            line = line.replace('name DefaultSkin', 'name Custom' + newname)
+                        if 'autoBlendSkin' in line:
+                            line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/custom'+newname+'.png')
+                        output.write(line)
+                self.reloadMaterialChooser()
+                self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat'))
+                self.humanObjSelector.selected = mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat')
+                #self.human.material = material.fromFile(mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat'))
+                #mat = material.fromFile(mh.getSysDataPath('skins/Custom '+newname+'/'+newname+'.mhmat'))
+                #self.human.material = mat
+                #mhmain.G.app.selectedHuman.setMaterial()
+                # newfile = open(mh.getSysDataPath('skins/'+newname+'/'+newname+'.mhmat'), 'r')
+                # for line in newfile.readlines():
+                #     if 'name' in line:
+                #         line = line.replace('name DefaultSkin', 'name custom' + newname)
+                return
+
             print blip
-        return colorMe
+        return
 
     def applyClothesMaterial(self, uuid, filename):
         human = self.human
