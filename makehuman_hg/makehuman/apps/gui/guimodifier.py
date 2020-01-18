@@ -78,11 +78,13 @@ class ModifierTaskView(gui3d.TaskView):
         def onClicked(event):
             #self.aRadioButtonLabel1 = self.box2.addWidget(gui.TextView('Fucker'))
             self.gTrans.helpTexture()
+            log.message('Helper on')
 
         @self.b2.mhEvent
         def onClicked(event):
             #self.aRadioButtonLabel1 = self.box2.addWidget(gui.TextView('Fuck You'))
             self.gTrans.origTexture()
+            log.message('Helper off')
 
         #self.newAct = qtgui.Actions()
 

@@ -142,6 +142,7 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         color = QtGui.QColorDialog()
         colorMe = color.getColor()
         blip = self.hex_to_rgb(colorMe.name())
+        log.message(colorMe.name())
 
 
         if colorMe.isValid():

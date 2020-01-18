@@ -356,6 +356,7 @@ class View(events3d.EventHandler):
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
+            log.message(app.selectedFaceGroup)
 
         return
 
