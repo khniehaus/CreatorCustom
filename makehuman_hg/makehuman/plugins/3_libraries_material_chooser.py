@@ -90,7 +90,6 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         @self.filechooser.mhEvent
         def onFileSelected(filename):
             mat = material.fromFile(filename)
-            print filename
             human = self.human
 
             obj = self.humanObjSelector.getSelectedObject()
@@ -140,47 +139,36 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
         return r, g, b
 
     def openColorDialog(self):
-        w = "diffuseTexture"
         color = QtGui.QColorDialog()
         colorMe = color.getColor()
         blip = self.hex_to_rgb(colorMe.name())
 
-        #filename = name[1].split()
-
-        #image_file = Image.open(mh.getSysDataPath(filename[0])) # open colour image
-        #image_file = image_file.convert('1')  # convert image to black and white
-        #image_file.save('cunt.png')
 
         if colorMe.isValid():
             img = Image.new('RGBA', (2048, 2048), color=blip)
-            newname = str(colorMe.name())
-            os.mkdir(mh.getSysDataPath('skins/Custom '+newname))
+
+            text, done = QtGui.QInputDialog.getText(None, 'New Material', 'Material Name:', QtGui.QLineEdit.Normal)
+            if done and text:
+                newname = str(text)
+
             if self.human.material.name == 'DefaultSkin':
-                print "I'm a cunt"
-                img.save(mh.getSysDataPath('skins/textures/custom' + newname + '.png'))
-                #bitch = open(self.human.material.filename, "r")
+                os.mkdir(mh.getSysDataPath('skins/'+newname))
+                img.save(mh.getSysDataPath('skins/textures/' + newname + '.png'))
+
                 with open(self.human.material.filename, 'r') as input:
-                    output = open(mh.getSysDataPath('skins/Custom '+newname+'/'+newname+'.mhmat'), 'w')
+                    output = open(mh.getSysDataPath('skins/'+newname+'/'+newname+'.mhmat'), 'w')
                     for line in input.readlines():
                         if 'name' in line:
-                            line = line.replace('name DefaultSkin', 'name Custom' + newname)
+                            line = line.replace('name DefaultSkin', 'name' + newname)
                         if 'autoBlendSkin' in line:
-                            line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/custom'+newname+'.png')
+                            line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/'+newname+'.png')
                         output.write(line)
                 self.reloadMaterialChooser()
-                self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat'))
-                self.humanObjSelector.selected = mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat')
-                #self.human.material = material.fromFile(mh.getSysDataPath('data/skins/Custom '+newname+'/'+newname+'.mhmat'))
-                #mat = material.fromFile(mh.getSysDataPath('skins/Custom '+newname+'/'+newname+'.mhmat'))
-                #self.human.material = mat
-                #mhmain.G.app.selectedHuman.setMaterial()
-                # newfile = open(mh.getSysDataPath('skins/'+newname+'/'+newname+'.mhmat'), 'r')
-                # for line in newfile.readlines():
-                #     if 'name' in line:
-                #         line = line.replace('name DefaultSkin', 'name custom' + newname)
+                self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat'))
+                #self.humanObjSelector.selected = mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat')
+
                 return
 
-            print blip
         return
 
     def applyClothesMaterial(self, uuid, filename):
