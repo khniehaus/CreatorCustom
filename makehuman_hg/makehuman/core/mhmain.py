@@ -1687,8 +1687,8 @@ class MHApplication(gui3d.Application, mh.Application):
         self.actions.panD      = action('panD',      self.getLanguageString('Pan Down'),      self.panDown)
         self.actions.panR      = action('panR',      self.getLanguageString('Pan Right'),     self.panRight)
         self.actions.panL      = action('panL',      self.getLanguageString('Pan Left'),      self.panLeft)
-        self.actions.zoomIn    = action('zoomIn',    self.getLanguageString('Zoom In'),       self.zoomIn)
-        self.actions.zoomOut   = action('zoomOut',   self.getLanguageString('Zoom Out'),      self.zoomOut)
+        #self.actions.zoomIn    = action('zoomIn',    self.getLanguageString('Zoom In'),       self.zoomIn)
+        #self.actions.zoomOut   = action('zoomOut',   self.getLanguageString('Zoom Out'),      self.zoomOut)
 
         self.actions.profiling = action('profiling', self.getLanguageString('Profiling'),     self.toggleProfiling, toggle=True)
 
@@ -1717,6 +1717,12 @@ class MHApplication(gui3d.Application, mh.Application):
         self.actions.pose      = action('pose', self.getLanguageString('Pose'),               self.togglePose,  toggle=True)
         self.actions.grid      = action('grid', self.getLanguageString('Grid'),               self.toggleGrid,  toggle=True)
 
+        # 6 - Zoom toolbar
+        toolbar = self.other_toolbar = mh.addToolBar("Zoom")
+
+        self.actions.zoomIn = action('zoomIn', self.getLanguageString('Zoom In'), self.zoomIn)
+        self.actions.ZoomOut = action('zoomOut', self.getLanguageString('Zoom Out'), self.zoomOut)
+
 
         # 4 - Symmetry toolbar
         toolbar = self.sym_toolbar = mh.addToolBar("Symmetry")
@@ -1739,7 +1745,8 @@ class MHApplication(gui3d.Application, mh.Application):
         self.actions.resetCam  = action('resetCam',  self.getLanguageString('Reset camera'),  self.resetView)
 
 
-        # 6 - Other toolbar
+
+        # 7 - Other toolbar
         toolbar = self.other_toolbar = mh.addToolBar("Other")
 
         self.actions.grab      = action('grab',      self.getLanguageString('Grab screen'),   self.grabScreen)
