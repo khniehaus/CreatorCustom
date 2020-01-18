@@ -27,7 +27,9 @@
       {"target": "forehead-trans", "min": "backward", "max": "forward", "faceGroup": "forehead", "level":  "medium-carve", "direction":  "H"},
       {"target": "forehead-scale-vert", "min": "decr", "max": "incr", "faceGroup": "forehead", "level":  "medium-pull", "direction":  "V"},
       {"target": "forehead-nubian", "min": "decr", "max": "incr", "faceGroup": "head-top", "level":  "medium-carve", "direction":  "V"},
-      {"target": "forehead-temple", "min": "decr", "max": "incr"}
+      {"target": "forehead-temple", "min": "decr", "max": "incr"},
+      {"target": "forehead-temple-r", "min": "incr", "max": "decr", "faceGroup": "right-head-side", "level":  "medium-carve", "direction":  "H"},
+      {"target": "forehead-temple-l", "min": "decr", "max": "incr", "faceGroup": "left-head-side", "level":  "medium-carve", "direction":  "H"}
      ]
   },
 
@@ -104,11 +106,15 @@
       {"target": "nose-scale-depth", "min": "decr", "max": "incr",  "faceGroup": "nose", "level":  "medium-carve", "direction":  "V"},
 
       {"target": "nose-nostrils-width", "min": "decr", "max": "incr"},
+      {"target": "nose-nostrils-width-r", "min": "decr", "max": "incr", "faceGroup": "right-nostril", "level":  "high-squeeze", "direction":  "H"},
+      {"target": "nose-nostrils-width-l", "min": "decr", "max": "incr", "faceGroup": "left-nostril", "level":  "high-squeeze", "direction":  "H"},
       {"target": "nose-point-width", "min": "decr", "max": "incr", "faceGroup": "nose", "level":  "high-add", "direction":  "H"},
       {"target": "nose-base", "min": "down", "max": "up", "faceGroup": "nose", "level":  "high-pull", "direction":  "V"},
       {"target": "nose-width1", "min": "decr", "max": "incr",  "faceGroup": "nose-upper", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "nose-width2", "min": "decr", "max": "incr",  "faceGroup": "nose", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "nose-width3", "min": "decr", "max": "incr"},
+      {"target": "nose-width3-r", "min": "decr", "max": "incr", "faceGroup": "right-nostril", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "nose-width3-l", "min": "decr", "max": "incr", "faceGroup": "left-nostril", "level":  "medium-squeeze", "direction":  "H"},
 
       {"target": "nose-compression", "min": "compress", "max": "uncompress", "faceGroup": "nose-upper", "level":  "high-add", "direction":  "H"},
       {"target": "nose-curve", "min": "concave", "max": "convex", "faceGroup": "nose-upper", "level":  "high-squeeze", "direction":  "H"},
@@ -116,9 +122,13 @@
       {"target": "nose-hump", "min": "decr", "max": "incr", "faceGroup": "nose-upper", "level":  "high-carve", "direction":  "H"},
       {"target": "nose-volume", "min": "decr", "max": "incr", "faceGroup": "nose", "level":  "high-carve", "direction":  "H"},
       {"target": "nose-nostrils-angle", "min": "down", "max": "up"},
+      {"target": "nose-nostrils-angle-r", "min": "down", "max": "up", "faceGroup": "right-nostril", "level":  "high-pull", "direction":  "V"},
+      {"target": "nose-nostrils-angle-l", "min": "down", "max": "up", "faceGroup": "left-nostril", "level":  "high-pull", "direction":  "V"},
       {"target": "nose-point", "min": "down", "max": "up", "faceGroup": "nose", "level":  "high-move", "direction":  "V"},
       {"target": "nose-septumangle", "min": "decr", "max": "incr", "faceGroup": "nose", "level":  "high-squeeze", "direction":  "V"},
-      {"target": "nose-flaring", "min": "decr", "max": "incr"}
+      {"target": "nose-flaring", "min": "decr", "max": "incr"},
+      {"target": "nose-flaring-r", "min": "incr", "max": "decr", "faceGroup": "right-nostril", "level":  "high-add", "direction":  "H"},
+      {"target": "nose-flaring-l", "min": "decr", "max": "incr", "faceGroup": "left-nostril", "level":  "high-add", "direction":  "H"}
     ]
   },
 
@@ -223,6 +233,12 @@
       {"target": "hip-scale-depth", "min": "decr", "max": "incr"},
       {"target": "hip-scale-horiz", "min": "decr", "max": "incr"},
       {"target": "hip-scale-vert", "min": "decr", "max": "incr"},
+      {"target": "hip-scale-depth-r", "min": "decr", "max": "incr", "faceGroup": "right-hip", "level":  "medium-pull", "direction":  "H"},
+      {"target": "hip-scale-depth-l", "min": "decr", "max": "incr", "faceGroup": "left-hip", "level":  "medium-pull", "direction":  "H"},
+      {"target": "hip-scale-horiz-r", "min": "decr", "max": "incr", "faceGroup": "right-hip", "level":  "medium-carve", "direction":  "H"},
+      {"target": "hip-scale-horiz-l", "min": "decr", "max": "incr", "faceGroup": "left-hip", "level":  "medium-carve", "direction":  "H"},
+      {"target": "hip-scale-vert-r", "min": "decr", "max": "incr", "faceGroup": "right-hip", "level":  "medium-add", "direction":  "V"},
+      {"target": "hip-scale-vert-l", "min": "decr", "max": "incr", "faceGroup": "left-hip", "level":  "medium-add", "direction":  "V"},
       {"target": "hip-trans", "min": "in", "max": "out", "faceGroup": "stomach", "level":  "medium-move", "direction":  "H"},
       {"target": "hip-trans", "min": "down", "max": "up", "faceGroup": "left-hip", "alternate faceGroup": "right-hip", "level":  "medium-move", "direction":  "V"},
       {"target": "hip-trans", "min": "backward", "max": "forward"},
@@ -242,13 +258,16 @@
   { "group": "buttocks",
     "modifiers": [
       {"target": "buttocks-volume", "min": "decr", "max": "incr"},
-      {"target": "buttocks-volume-fuck", "min": 0.0 , "max": 1.0, "faceGroup": "right-buttock", "level":  "medium-add", "direction":  "H"}
+      {"target": "buttocks-volume-r", "min": "incr" , "max": "decr", "faceGroup": "right-buttock", "level":  "medium-add", "direction":  "H"},
+      {"target": "buttocks-volume-l", "min": "decr" , "max": "incr", "faceGroup": "left-buttock", "level":  "medium-add", "direction":  "H"}
     ]
   },
 
   { "group": "pelvis",
     "modifiers": [
-      {"target": "pelvis-tone", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "pelvis-tone", "min": "decr", "max": "incr"},
+      {"target": "pelvis-tone-r", "min": "decr", "max": "incr", "faceGroup": "right-groin", "level":  "medium-squeeze", "direction":  "H"},
+      {"target": "pelvis-tone-l", "min": "decr", "max": "incr", "faceGroup": "left-groin", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-add", "direction":  "H"},
       {"target": "pelvis-dip", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-carve", "direction":  "V"},
       {"target": "pelvis-lab-left", "min": "decr", "max": "incr", "faceGroup": "left-groin", "level":  "high-pull", "direction":  "V"},
@@ -309,7 +328,7 @@
         {"target": "r-lowerleg-muscle", "min": "decr", "max": "incr", "faceGroup": "right-leg-lower", "level":  "high-squeeze", "direction":  "H"},
         {"target": "r-upperleg-scale-depth", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "medium-squeeze", "direction":  "H"},
         {"target": "r-upperleg-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "medium-add", "direction":  "H"},
-        {"target": "r-upperleg-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "medium-pull", "direction":  "V"},
+        {"target": "r-upperleg-scale-vert", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "high-pull", "direction":  "V"},
         {"target": "r-upperleg-fat", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "medium-carve", "direction":  "H"},
         {"target": "r-upperleg-muscle", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "high-squeeze", "direction":  "H"},
 
@@ -320,10 +339,14 @@
         {"target": "l-lowerleg-muscle", "min": "decr", "max": "incr", "faceGroup": "left-leg-lower", "level":  "high-squeeze", "direction":  "H"},
         {"target": "l-upperleg-scale-depth", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "medium-squeeze", "direction":  "H"},
         {"target": "l-upperleg-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "medium-add", "direction":  "H"},
-        {"target": "l-upperleg-scale-vert", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "medium-pull", "direction":  "V"},
+        {"target": "l-upperleg-scale-vert", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "high-pull", "direction":  "V"},
         {"target": "l-upperleg-fat", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "medium-carve", "direction":  "H"},
         {"target": "l-upperleg-muscle", "min": "decr", "max": "incr", "faceGroup": "left-leg-upper", "level":  "high-squeeze", "direction":  "H"},
-        
+        {"target": "l-lowerleg-height", "min": "decr", "max": "incr", "faceGroup": "left-leg-lower", "level":  "medium-pull", "direction":  "V"},
+        {"target": "r-lowerleg-height", "min": "decr", "max": "incr","faceGroup": "right-leg-lower", "level":  "medium-pull", "direction":  "V"},
+        {"target": "l-upperleg-height", "min": "decr", "max": "incr","faceGroup": "left-leg-upper", "level":  "medium-pull", "direction":  "V"},
+        {"target": "r-upperleg-height", "min": "decr", "max": "incr", "faceGroup": "right-leg-upper", "level":  "medium-pull", "direction":  "V"},
+
         {"target": "lowerlegs-height", "min": "decr", "max": "incr"},
         {"target": "upperlegs-height", "min": "decr", "max": "incr"}
     ]
@@ -331,16 +354,28 @@
 
   { "group": "breast",
     "modifiers": [
-        {"macrovar": "BreastSize", "faceGroup": "left-breast", "alternate faceGroup": "right-breast", "level":  "medium-add", "direction":  "H"},
-        {"macrovar": "BreastFirmness", "faceGroup": "left-breast", "alternate faceGroup": "right-breast", "level":  "medium-squeeze", "direction":  "H"},
+        {"macrovar": "BreastSize"},
+        {"macrovar": "BreastFirmness"},
 
         {"target": "breast-trans", "min": "down", "max": "up"},
         {"target": "breast-dist", "min": "decr", "max": "incr"},
         {"target": "breast-point", "min": "decr", "max": "incr"},
         {"target": "breast-volume-vert", "min": "down", "max": "up"},
         {"target": "nipple-size", "min": "decr", "max": "incr"},
-        {"target": "nipple-point", "min": "decr", "max": "incr"}
+        {"target": "nipple-point", "min": "decr", "max": "incr"},
 
+        {"target": "breast-trans-r", "min": "up", "max": "down",  "faceGroup": "right-breast", "level":  "medium-pull", "direction":  "V"},
+        {"target": "breast-trans-l", "min": "up", "max": "down",  "faceGroup": "left-breast", "level":  "medium-pull", "direction":  "V"},
+        {"target": "breast-dist-r", "min": "decr", "max": "incr", "faceGroup": "right-breast", "level":  "medium-move", "direction":  "H"},
+        {"target": "breast-dist-l", "min": "decr", "max": "incr", "faceGroup": "left-breast", "level":  "medium-move", "direction":  "H"},
+        {"target": "breast-point-r", "min": "decr", "max": "incr", "faceGroup": "right-breast", "level":  "medium-carve", "direction":  "H"},
+        {"target": "breast-point-l", "min": "decr", "max": "incr", "faceGroup": "left-breast", "level":  "medium-carve", "direction":  "H"},
+        {"target": "breast-volume-vert-r", "min": "up", "max": "down", "faceGroup": "right-breast", "level":  "medium-add", "direction":  "V"},
+        {"target": "breast-volume-vert-l", "min": "up", "max": "down", "faceGroup": "left-breast", "level":  "medium-add", "direction":  "V"},
+        {"target": "nipple-size-r", "min": "incr", "max": "decr", "faceGroup": "right-nipple", "level":  "high-add", "direction":  "H"},
+        {"target": "nipple-size-l", "min": "incr", "max": "decr", "faceGroup": "left-nipple", "level":  "high-add", "direction":  "H"},
+        {"target": "nipple-point-r", "min": "incr", "max": "decr", "faceGroup": "right-nipple", "level":  "high-pull", "direction":  "H"},
+        {"target": "nipple-point-l", "min": "incr", "max": "decr", "faceGroup": "left-nipple", "level":  "high-pull", "direction":  "H"}
     ]
   },
 

@@ -151,23 +151,21 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
             if done and text:
                 newname = str(text)
 
-            if self.human.material.name == 'DefaultSkin':
-                os.mkdir(mh.getSysDataPath('skins/'+newname))
-                img.save(mh.getSysDataPath('skins/textures/' + newname + '.png'))
+            os.mkdir(mh.getSysDataPath('skins/'+newname))
+            img.save(mh.getSysDataPath('skins/textures/' + newname + '.png'))
 
-                with open(self.human.material.filename, 'r') as input:
-                    output = open(mh.getSysDataPath('skins/'+newname+'/'+newname+'.mhmat'), 'w')
-                    for line in input.readlines():
-                        if 'name' in line:
-                            line = line.replace('name DefaultSkin', 'name' + newname)
-                        if 'autoBlendSkin' in line:
-                            line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/'+newname+'.png')
-                        output.write(line)
-                self.reloadMaterialChooser()
-                self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat'))
+            with open(mh.getSysDataPath('skins/default.mhmat'), 'r') as input:
+                output = open(mh.getSysDataPath('skins/'+newname+'/'+newname+'.mhmat'), 'w')
+                for line in input.readlines():
+                    if 'name' in line:
+                        line = line.replace('name DefaultSkin', 'name' + newname)
+                    if 'autoBlendSkin' in line:
+                        line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/'+newname+'.png')
+                    output.write(line)
+            self.reloadMaterialChooser()
+            self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat'))
                 #self.humanObjSelector.selected = mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat')
 
-                return
 
         return
 

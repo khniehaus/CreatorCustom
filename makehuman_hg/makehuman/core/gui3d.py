@@ -89,6 +89,11 @@ class View(events3d.EventHandler):
                 sliderTest1 = modifierslider.ModifierSlider(modifier)
                 self.macroLookup[modifier.name] = sliderTest1
 
+            # if modifier.name == 'BreastSize' or modifier.name == 'BreastFirmness':
+            #     sliderTest2 = modifierslider.ModifierSlider(modifier)
+            #     self.faceGroupLookup[modifier.faceGroup] = sliderTest2
+            #     mod = modifier.direction
+            #     self.directionLookup[sliderTest2] = mod
 
             if hasattr(modifier, "level") and modifier.level == self.indicator[0]:
                 if hasattr(modifier, "faceGroup") or hasattr(modifier, "alternate faceGroup") and modifier.faceGroup != None:
