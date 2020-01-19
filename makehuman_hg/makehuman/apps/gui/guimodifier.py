@@ -29,6 +29,7 @@ import gui
 import gui3d
 import mh
 import qtgui
+from PyQt4 import QtGui
 import humanmodifier
 import modifierslider
 import getpath
@@ -38,6 +39,7 @@ import log
 from collections import OrderedDict
 import language
 from PyQt4 import QtCore
+from getpath import getSysDataPath
 
 catMod = [] #YOU ARE HERE. SHOULD THIS BE A DEQUE?
 
@@ -66,7 +68,7 @@ class ModifierTaskView(gui3d.TaskView):
         self.toolbar.setOrientation(QtCore.Qt.Vertical)
         tBarWidget = self.addLeftWidget(self.toolbar)
         self.groupBoxes[category.name] = tBarWidget
-        self.box2 = self.addRightWidget(gui.GroupBox('Helper Graphics'))
+        self.box2 = self.addLeftWidget(gui.GroupBox('Helper Graphics'))
         self.b1 = self.box2.addWidget(gui.RadioButton(self.radioButtons, 'On', selected = True))
         self.b2 = self.box2.addWidget(gui.RadioButton(self.radioButtons, 'Off'))
 
@@ -129,6 +131,9 @@ class ModifierTaskView(gui3d.TaskView):
 
         self.actions = gui.Actions()
 
+
+        #mh.redraw()
+
         #cName = sliderCategory.capitalize()
 
         def action(*args, **kwargs):
@@ -168,6 +173,16 @@ class ModifierTaskView(gui3d.TaskView):
             self.actions.highMove = action('high-move', gui.getLanguageString('Move'), self.gTrans.highMove)
         else:
             return None
+        #
+        for action in self.actions:
+            #action.setIcon(gui.Action.getIcon(action.name))
+            action.setIcon(QtGui.QIcon(getSysDataPath('themes/makehuman/icons/'+action.name+'.png')))
+            print action.setIcon(QtGui.QIcon(getSysDataPath('themes/makehuman/icons/'+action.name+'.png')))
+
+
+
+
+
         # self.actions.mod2 = action('modifier 2', gui.getLanguageString('Modifier 2'), self.mod2())
         # self.actions.mod3 = action('modifier 3', gui.getLanguageString('Modifier 3'), self.mod3())
         # self.actions.mod4 = action('modifier 4', gui.getLanguageString('Modifier 4'), self.mod4())
@@ -403,6 +418,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         for sliderCategory, sliderDefs in taskViewProps['modifiers'].items():
             #category.addModCat(sliderCategory)
             taskView.createActs(sliderCategory)
+
             for sDef in sliderDefs:
                 modifierName = sDef['mod']
                 if sliderCategory == 'Low':

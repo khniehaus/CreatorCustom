@@ -768,7 +768,7 @@ class MHApplication(gui3d.Application, mh.Application):
         self.splash.close()
         self.splash = None
 
-        self.prompt('Ethical Warning', 'MakeHuman is a flawed character creation suite. It is designed for making anatomically normative humans.\nI am proceeding with the intention to change this.\nDo you want to proceed now?', 'Yes', 'No', None, self.stop, 'nudityWarning')
+        #self.prompt('Ethical Warning', 'MakeHuman is a flawed character creation suite. It is designed for making anatomically normative humans.\nI am proceeding with the intention to change this.\nDo you want to proceed now?', 'Yes', 'No', None, self.stop, 'nudityWarning')
 
         if not self.args.get('noshaders', False) and \
           ( not mh.Shader.supported() or mh.Shader.glslVersion() < (1,20) ):
@@ -1004,18 +1004,18 @@ class MHApplication(gui3d.Application, mh.Application):
         # TODO: change colors here from black gradient
 
         # Set defaults
-        self.clearColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
-        self.gridColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
-        self.gridSubColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
-        log._logLevelColors[log.DEBUG] = 'red'
+        self.clearColor = [0.5, 0.5, 0.5]
+        self.gridColor = [1.0, 1.0, 1.0]
+        self.gridSubColor = [0.7, 0.7, 0.7]
+        log._logLevelColors[log.DEBUG] = 'grey'
         log._logLevelColors[log.NOTICE] = 'blue'
-        log._logLevelColors[log.WARNING] = 'blue'
+        log._logLevelColors[log.WARNING] = 'darkorange'
         log._logLevelColors[log.ERROR] = 'red'
         log._logLevelColors[log.CRITICAL] = 'red'
-        self.bgBottomLeftColor = [(1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0)]
-        self.bgBottomRightColor = [1.0, 0.0, 0.0]
-        self.bgTopLeftColor = [1.0, 0.0, 0.0]
-        self.bgTopRightColor = [(1.0, 0.0, 0.0), (1.0, 1.0, 0.0), (0.0, 1.0, 1.0)]
+        self.bgBottomLeftColor = [0.101, 0.101, 0.101]
+        self.bgBottomRightColor = [0.101, 0.101, 0.101]
+        self.bgTopLeftColor = [0.312, 0.312, 0.312]
+        self.bgTopRightColor = [0.312, 0.312, 0.312]
 
         f = open(os.path.join(mh.getSysDataPath("themes/"), theme + ".mht"), 'rU')
 
@@ -1147,12 +1147,12 @@ class MHApplication(gui3d.Application, mh.Application):
         if mh.isRelease():
             from getpath import pathToUnicode
             self.setCaption(
-                "KionaCustom %s - [%s][*]" %
+                "CreatorCustom %s - [%s][*]" %
                 (mh.getVersionStr(), pathToUnicode(filename)))
         else:
             from getpath import pathToUnicode
             self.setCaption(
-                "KionaCustom r%s (%s) - [%s][*]" %
+                "CreatorCustom r%s (%s) - [%s][*]" %
                 (os.environ['HGREVISION'], os.environ['HGNODEID'], 
                 pathToUnicode(filename)))
         self.mainwin.setWindowModified(self.currentFile.modified)
@@ -1725,11 +1725,11 @@ class MHApplication(gui3d.Application, mh.Application):
 
 
         # 4 - Symmetry toolbar
-        toolbar = self.sym_toolbar = mh.addToolBar("Symmetry")
-
-        self.actions.symmetryR = action('symm1', self.getLanguageString('Symmmetry R>L'),     self.symmetryLeft)
-        self.actions.symmetryL = action('symm2', self.getLanguageString('Symmmetry L>R'),     self.symmetryRight)
-        self.actions.symmetry  = action('symm',  self.getLanguageString('Symmmetry'),         self.symmetry, toggle=True)
+        # toolbar = self.sym_toolbar = mh.addToolBar("Symmetry")
+        #
+        # self.actions.symmetryR = action('symm1', self.getLanguageString('Symmmetry R>L'),     self.symmetryLeft)
+        # self.actions.symmetryL = action('symm2', self.getLanguageString('Symmmetry L>R'),     self.symmetryRight)
+        # self.actions.symmetry  = action('symm',  self.getLanguageString('Symmmetry'),         self.symmetry, toggle=True)
 
 
         # 5 - Camera toolbar
@@ -1780,7 +1780,7 @@ class MHApplication(gui3d.Application, mh.Application):
 
         self.createShortcuts()
 
-        self.splash = gui.SplashScreen(self.getThemeResource('images', 'new_splash.png'), mh.getVersionDigitsStr())
+        self.splash = gui.SplashScreen(self.getThemeResource('images', 'new_splash.png'))
         self.splash.show()
         if sys.platform != 'darwin':
             self.mainwin.hide()  # Fix for OSX crash thanks to Francois (issue #593)

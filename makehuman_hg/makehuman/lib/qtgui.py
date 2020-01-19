@@ -1557,19 +1557,19 @@ class SplashScreen(QtGui.QSplashScreen):
 
     def drawContents(self, painter):
         color = QtGui.QColor()
-        color.setNamedColor('#f5207c')
+        color.setNamedColor('#9D0000')
         painter.setPen(color)
         font = painter.font()
-        font.setPixelSize(16)
+        font.setPixelSize(12)
         painter.setFont(font)
         painter.drawText(self.messageRect, self.messageAlignment, self.message);
         if self._version:
             font.setPixelSize(29)
             painter.setFont(font)
             painter.drawText(self.versionRect, QtCore.Qt.AlignLeft, self._version)
-        color.setNamedColor('#56002b')
+        color.setNamedColor('#900000')
         painter.setPen(color)
-        color.setNamedColor('#f5207c')
+        color.setNamedColor('#900000')
         painter.setBrush(QtGui.QBrush(color))
         pRect = self.progressBarRect
         if self.getProgress() == 0:
@@ -1577,7 +1577,7 @@ class SplashScreen(QtGui.QSplashScreen):
         else:
             progressedWidth = int(pRect.width() * self.getProgress())
         painter.drawRect(pRect.x(), pRect.y(), progressedWidth, pRect.height())
-        color.setNamedColor('#56002b')
+        color.setNamedColor('#500500')
         painter.setBrush(QtGui.QBrush(color))
         painter.drawRect(pRect.x() + progressedWidth, pRect.y(), pRect.width() - progressedWidth, pRect.height())
 

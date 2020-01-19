@@ -561,6 +561,7 @@ class TaskView(View):
     def showWidgets(self):
         super(TaskView, self).showWidgets()
         mh.showPanels(self.left, self.right)
+        mh.redraw()
 
     def addLeftWidget(self, widget):
         return self.left.addWidget(widget)

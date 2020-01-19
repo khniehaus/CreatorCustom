@@ -1,148 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="24"
-   height="24"
-   id="svg4744"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="wireframe.svg">
-  <defs
-     id="defs4746">
-    <linearGradient
-       id="linearGradient4964">
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1;"
-         offset="0"
-         id="stop4966" />
-      <stop
-         style="stop-color:#000000;stop-opacity:1;"
-         offset="1"
-         id="stop4968" />
-    </linearGradient>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="0.25737561"
-     inkscape:cy="11.833329"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-width="1366"
-     inkscape:window-height="721"
-     inkscape:window-x="-3"
-     inkscape:window-y="-3"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata4749">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1028.3622)">
-    <g
-       id="g4242-2"
-       transform="matrix(1.3504546,0,0,1.3504546,-35.318691,569.30911)"
-       inkscape:export-filename="savetgt.png"
-       inkscape:export-xdpi="93"
-       inkscape:export-ydpi="93"
-       style="fill:none;stroke:#b3b3b3;stroke-opacity:1" />
-    <rect
-       style="fill:none;stroke:none"
-       id="rect2996-9-5-2-1-4"
-       width="23.039999"
-       height="23.039999"
-       x="0.4800005"
-       y="1028.8422"
-       ry="3.7271249"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.729421,1049.0748 c -2.14658,-7.7024 0.62887,-18.3324 5.93464,-18.1196 5.305771,0.2127 11.416531,11.1149 11.616761,18.4984"
-       id="path4587-6-1-3"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="czc"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.676431,1035.0589 c 2.14658,0.442 4.73509,0.8839 6.566001,0.3157 1.8309,-0.5682 3.09359,-1.8309 3.09359,-1.8309"
-       id="path4589-0-3-1"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.350611,1039.8571 c 3.72494,1.0102 5.61897,1.7047 8.712571,1.0733 3.09359,-0.6313 5.3033,-3.1567 5.3033,-3.1567"
-       id="path4591-1-8-2"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.350611,1046.6125 c 6.31345,1.0733 9.470181,1.2627 12.626911,-0.1262 3.15672,-1.389 4.23001,-2.9674 4.23001,-2.9674"
-       id="path4593-6-7-3"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 9.727201,1031.1446 c 0,0 1.641501,1.1995 3.346131,4.1037 1.70463,2.9042 4.86136,10.6066 4.92449,14.3316"
-       id="path4595-5-4-3"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 9.095851,1031.2077 c 0.56821,5.8084 0.63135,7.1342 2.209711,12.8795 1.57836,5.7452 2.02031,6.1871 2.02031,6.1871"
-       id="path4597-7-2-4"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-    <path
-       style="fill:none;stroke:#eaeaea;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 7.927861,1031.4602 c -1.45209,3.2199 -1.52002,5.6711 -1.45209,9.4071 0.10695,5.8827 1.8309,9.0282 1.8309,9.0282"
-       id="path4597-0-5-7-1"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="csc"
-       inkscape:export-filename="wireframe.png"
-       inkscape:export-xdpi="93.750031"
-       inkscape:export-ydpi="93.750031" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg4744" inkscape:version="0.48.4 r9939" sodipodi:docname="wireframe.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
+	 style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#E5E5E5;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" fit-margin-bottom="0" fit-margin-left="0" fit-margin-right="0" fit-margin-top="0" id="base" inkscape:current-layer="layer1" inkscape:cx="0.25737561" inkscape:cy="11.833329" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="721" inkscape:window-maximized="1" inkscape:window-width="1366" inkscape:window-x="-3" inkscape:window-y="-3" inkscape:zoom="15.839192" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<g id="layer1" transform="translate(0,-1028.3622)" inkscape:groupmode="layer" inkscape:label="Layer 1">
+	
+		<g id="g4242-2" transform="matrix(1.3504546,0,0,1.3504546,-35.318691,569.30911)" inkscape:export-filename="savetgt.png" inkscape:export-xdpi="93" inkscape:export-ydpi="93">
+	</g>
+	
+		<path id="rect2996-9-5-2-1-4" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st0" d="
+		M4.2,1028.8h15.6c2.1,0,3.7,1.7,3.7,3.7v15.6c0,2.1-1.7,3.7-3.7,3.7H4.2c-2.1,0-3.7-1.7-3.7-3.7v-15.6
+		C0.5,1030.5,2.1,1028.8,4.2,1028.8z"/>
+	
+		<path id="path4587-6-1-3" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" sodipodi:nodetypes="czc" class="st1" d="
+		M3.4,1049.6c-2.3-6.9,1.1-19.7,8.1-19.5c7.1,0.2,11.3,13.2,9.4,19.8"/>
+	
+		<path id="path4589-0-3-1" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st1" d="
+		M4.8,1035.1c2.7,0.4,5.9,0.9,8.2,0.3c2.3-0.6,3.8-1.8,3.8-1.8"/>
+	
+		<path id="path4591-1-8-2" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st1" d="
+		M3.4,1039.9c4.4,1,6.6,1.7,10.2,1.1c3.6-0.6,6.2-3.2,6.2-3.2"/>
+	
+		<path id="path4593-6-7-3" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st1" d="
+		M2.8,1046.6c6.9,1.1,10.3,1.3,13.7-0.1c3.4-1.4,4.6-3,4.6-3"/>
+	
+		<path id="path4595-5-4-3" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st1" d="
+		M13.2,1030.5c0,0,1.4,1.6,2.5,4.8c1.1,3.2,2.5,11.4,1.7,15"/>
+	
+		<path id="path4597-7-2-4" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" class="st1" d="
+		M12,1030.1c-1.1,5.9-1.4,7.2-1.4,13.3c-0.1,6.1,0.2,6.7,0.2,6.7"/>
+	
+		<path id="path4597-0-5-7-1" inkscape:connector-curvature="0" inkscape:export-filename="wireframe.png" inkscape:export-xdpi="93.750031" inkscape:export-ydpi="93.750031" sodipodi:nodetypes="csc" class="st1" d="
+		M9.4,1030.5c-1.9,3.2-2.3,5.8-2.8,9.8c-0.8,6.3,0.5,9.9,0.5,9.9"/>
+</g>
 </svg>
