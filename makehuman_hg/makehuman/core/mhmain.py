@@ -1750,7 +1750,7 @@ class MHApplication(gui3d.Application, mh.Application):
         toolbar = self.other_toolbar = mh.addToolBar("Other")
 
         self.actions.grab      = action('grab',      self.getLanguageString('Grab screen'),   self.grabScreen)
-        self.actions.help      = action('help',      self.getLanguageString('Help'),          self.goToHelp)
+        #self.actions.help      = action('help',      self.getLanguageString('Help'),          self.goToHelp)
         
 
     def createShortcuts(self):
