@@ -151,7 +151,6 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
             text, done = QtGui.QInputDialog.getText(None, 'New Material', 'Material Name:', QtGui.QLineEdit.Normal)
             if done and text:
                 newname = str(text)
-
             os.mkdir(mh.getSysDataPath('skins/'+newname))
             img.save(mh.getSysDataPath('skins/textures/' + newname + '.png'))
 
@@ -161,10 +160,10 @@ class MaterialTaskView(gui3d.TaskView, filecache.MetadataCacher):
                     if 'name' in line:
                         line = line.replace('name DefaultSkin', 'name' + newname)
                     if 'autoBlendSkin' in line:
-                        line = line.replace('autoBlendSkin false', 'diffuseTexture skins/textures/'+newname+'.png')
+                        line = line.replace('autoBlendSkin true', 'diffuseTexture skins/textures/'+newname+'.png')
                     output.write(line)
-            self.reloadMaterialChooser()
-            self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat'))
+        self.reloadMaterialChooser()
+            #self.filechooser.setHighlightedItem(mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat'))
                 #self.humanObjSelector.selected = mh.getSysDataPath('data/skins/'+newname+'/'+newname+'.mhmat')
 
 

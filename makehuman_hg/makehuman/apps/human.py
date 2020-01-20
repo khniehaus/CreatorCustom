@@ -1197,7 +1197,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanged', events3d.HumanEvent(self, 'reset'))
 
         for modifier in self.modifiers:
-            val = self.getRandomValue(0.0, 1.0, 0.8)
+            val = self.getRandomValue(0.0, 1.0, 0.2)
             modifier.setValue(val)
             #print modifier, val
 
@@ -1413,7 +1413,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                     log.warning("Exception while loading MHM property.", exc_info=True)
 
         def _do_load_property(lineData):
-            val = self.getRandomValue(-0.5, 1.2, 0.4)
+            #val = self.getRandomValue(-0.5, 1.2, 0.4)
             if len(lineData) > 0 and not lineData[0] == '#':
                 if lineData[0] == 'version':
                     log.message('Version %s', lineData[1])
@@ -1422,7 +1422,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
                         log.debug('Tag %s', tag)
                 elif lineData[0] == 'modifier':
                     try:
-                        self.getModifier(lineData[1]).setValue(float(val), skipDependencies=True)
+                        self.getModifier(lineData[1]).setValue(float(lineData[2]), skipDependencies=True)
                     except KeyError:
                         log.warning('Unknown modifier specified in MHM file: %s', lineData[1])
                 elif lineData[0] == 'camera':

@@ -269,9 +269,7 @@
       {"target": "pelvis-tone-r", "min": "decr", "max": "incr", "faceGroup": "right-groin", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "pelvis-tone-l", "min": "decr", "max": "incr", "faceGroup": "left-groin", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "bulge", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-add", "direction":  "H"},
-      {"target": "pelvis-dip", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-carve", "direction":  "V"},
-      {"target": "pelvis-lab-left", "min": "decr", "max": "incr", "faceGroup": "left-groin", "level":  "high-pull", "direction":  "V"},
-      {"target": "pelvis-lab-right", "min": "decr", "max": "incr", "faceGroup": "right-groin", "level":  "high-pull", "direction":  "V"}
+      {"target": "pelvis-dip", "min": "decr", "max": "incr", "faceGroup": "right-groin", "alternate faceGroup": "left-groin", "level":  "medium-carve", "direction":  "V"}
     ]
   },
 

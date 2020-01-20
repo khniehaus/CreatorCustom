@@ -294,7 +294,8 @@ class View(events3d.EventHandler):
                 itMe = self.macroInd[0]
                 newVal = x - self.startVal[0]
                 newVal2 = self.endVal[0] + newVal
-                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (600 - 0)) + 0.0
+                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
+                print finVal
                 self.macroLookup[itMe].onChanging(finVal)
                 self.macroLookup[itMe].onChange(finVal)
                 self.macroLookup[itMe].update()
@@ -303,16 +304,20 @@ class View(events3d.EventHandler):
                 newVal = y + self.startVal[1]
                 newVal2 = self.endVal[1] + (newVal * -1)
                 finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
+                print finVal
+                self.macroLookup[self.macroInd[0]].onChanging(finVal)
+                self.macroLookup[self.macroInd[0]].onChange(finVal)
+                self.macroLookup[self.macroInd[0]].update()
+            elif self.macroInd[0] == 'Height' or self.macroInd[0] == 'Age':
+                newVal = y #- self.startVal[1]
+                newVal2 = (((newVal - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
+                finVal = 1.0 + ((newVal2 - 0.0) * (0.0 - 1.0) / (1.0 - 0.0))
+                print finVal
                 self.macroLookup[self.macroInd[0]].onChanging(finVal)
                 self.macroLookup[self.macroInd[0]].onChange(finVal)
                 self.macroLookup[self.macroInd[0]].update()
             else:
-                newVal = y - self.startVal[1]
-                newVal2 = (newVal * -1)
-                finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
-                self.macroLookup[self.macroInd[0]].onChanging(finVal)
-                self.macroLookup[self.macroInd[0]].onChange(finVal)
-                self.macroLookup[self.macroInd[0]].update()
+                pass
 
         elif self.faceGroupLookup.has_key(app.selectedFaceGroup):
             #self.getCurrentMod(self.faceGroupLookup[app.selectedFaceGroup].label)
