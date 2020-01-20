@@ -248,12 +248,16 @@ class View(events3d.EventHandler):
         #self.quadCount.clear()
 
         if x <= (width/2) and y <= (height/2):
+            print 'Quad 1'
             return 'Quad 1'
         elif x > (width/2) and y <= (height/2):
+            print 'Quad2'
             return  'Quad 2'
         elif x <= (width/2) and y > (height/2):
+            print 'Quad 3'
             return 'Quad 3'
         elif x > (width/2) and y > (height/2):
+            print 'Quad 4'
             return'Quad 4'
 
         #return
@@ -296,7 +300,7 @@ class View(events3d.EventHandler):
                 self.macroLookup[itMe].update()
 
             elif self.macroInd[0] == 'BodyProportions':
-                newVal = y - self.startVal[1]
+                newVal = y + self.startVal[1]
                 newVal2 = self.endVal[1] + (newVal * -1)
                 finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
                 self.macroLookup[self.macroInd[0]].onChanging(finVal)
@@ -318,35 +322,35 @@ class View(events3d.EventHandler):
             if dirNew == 'H':
                 newVal = x - self.startVal[0]
                 if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
-                    newVal2 = (self.endVal[0]/2) + (newVal * -1)
+                    newVal2 = (self.endVal[0]/7) + (newVal * -1)
                 elif self.quadCount[0] == 'Quad 2' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = (self.endVal[0]/2) + newVal
+                    newVal2 = (self.endVal[0]/7) + newVal
                 if 'head' in app.selectedFaceGroup:
-                     newVal2 = (self.endVal[0] / 4) + newVal
+                     newVal2 = (self.endVal[0] / 11) + newVal
                 elif 'stomach' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 4) + newVal
+                    newVal2 = (self.endVal[0] / 10) + newVal
                 elif 'hip' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 4) + newVal
+                    newVal2 = (self.endVal[0] / 10) + newVal
                 elif 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 4) + newVal
+                    newVal2 = (self.endVal[0] / 10) + newVal
                 else:
                     pass
             elif dirNew == 'V':
                 newVal = y - self.startVal[1]
                 if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
-                    newVal2 = (self.endVal[1]/2) + newVal
+                    newVal2 = (self.endVal[1]/8) + newVal
                     #newVal2 = newVal
                 elif self.quadCount[0] == 'Quad 3' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = (self.endVal[1]/2) + newVal
+                    newVal2 = (self.endVal[1]/8) + newVal
                     #newVal2 = newVal
                 if 'head' in app.selectedFaceGroup:
-                     newVal2 = (self.endVal[1]/4) + (newVal * -1)
+                     newVal2 = (self.endVal[1]/11) + (newVal * -1)
                 elif 'stomach' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
                 elif 'hip' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
                 elif 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 4) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
                 else:
                     pass
             else:

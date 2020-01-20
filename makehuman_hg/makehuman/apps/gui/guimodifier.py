@@ -177,7 +177,7 @@ class ModifierTaskView(gui3d.TaskView):
         for action in self.actions:
             #action.setIcon(gui.Action.getIcon(action.name))
             action.setIcon(QtGui.QIcon(getSysDataPath('themes/makehuman/icons/'+action.name+'.png')))
-            print action.setIcon(QtGui.QIcon(getSysDataPath('themes/makehuman/icons/'+action.name+'.png')))
+            #print action.setIcon(QtGui.QIcon(getSysDataPath('themes/makehuman/icons/'+action.name+'.png')))
 
 
 
@@ -423,7 +423,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 modifierName = sDef['mod']
                 if sliderCategory == 'Low':
                     catMod.append(modifierName)
-                    print "what the hell", modifierName
+                    #print "what the hell", modifierName
                 modifier = human.getModifier(modifierName)
                 #category.getModsHere(modifierName)
                 # label = sDef.get('label', None)
@@ -431,7 +431,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
                 # slider = modifierslider.ModifierSlider(modifier, label=label, cameraView=camFunc)
                 # enabledCondition = sDef.get("enabledCondition", None)
                 # taskView.addSlider(sliderCategory, slider, enabledCondition)
-        print "It me", catMod
+        #print "It me", catMod
 
 
         if taskView.saveName is not None:

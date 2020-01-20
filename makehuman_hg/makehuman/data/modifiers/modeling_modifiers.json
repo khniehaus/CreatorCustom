@@ -12,7 +12,7 @@
       {"target": "head-invertedtriangular", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-carve", "direction":  "H"},
       {"target": "head-diamond", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-squeeze", "direction":  "H"},
 
-      {"target": "head-scale-depth", "min": "decr", "max": "incr", "faceGroup": "head-back", "level":  "medium-pull", "direction":  "H"},
+      {"target": "head-scale-depth", "min": "incr", "max": "decr", "faceGroup": "head-back", "level":  "medium-pull", "direction":  "H"},
       {"target": "head-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "left-cheek", "alternate faceGroup": "right-cheek", "level":  "medium-add", "direction":  "H"},
       {"target": "head-scale-vert", "min": "decr", "max": "incr", "faceGroup": "head-top", "level":  "medium-pull", "direction":  "V"},
       {"target": "head-trans", "min": "in", "max": "out", "faceGroup": "forehead", "level":  "medium-move", "direction":  "H"},
@@ -46,7 +46,7 @@
       {"target": "neck-double", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "high-add", "direction":  "H"},
       {"target": "neck-scale-depth", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-squeeze", "direction":  "H"},
       {"target": "neck-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-add", "direction":  "H"},
-      {"target": "neck-scale-vert", "min": "decr", "max": "incr", "faceGroup": "neck", "level":  "medium-pull", "direction":  "V"},
+      {"target": "neck-scale-vert", "min": "incr", "max": "decr", "faceGroup": "neck", "level":  "medium-pull", "direction":  "V"},
       {"target": "neck-trans", "min": "in", "max": "out", "faceGroup": "neck", "level":  "medium-move", "direction":  "H"},
       {"target": "neck-trans", "min": "down", "max": "up", "faceGroup": "neck", "level":  "medium-move", "direction":  "V"},
       {"target": "neck-trans", "min": "backward", "max": "forward", "faceGroup": "neck", "level":  "medium-pull", "direction":  "H"},
@@ -58,7 +58,7 @@
     "modifiers": [
       {"target": "r-eye-bag", "min": "decr", "max": "incr", "faceGroup": "right-eye-lower", "level":  "high-squeeze", "direction":  "V"},
       {"target": "r-eye-bag", "min": "in", "max": "out", "faceGroup": "right-eye-lower", "level":  "high-carve", "direction":  "H"},
-      {"target": "r-eye-bag-height", "min": "decr", "max": "incr", "faceGroup": "right-eye-lower", "level":  "medium-pull", "direction":  "V"},
+      {"target": "r-eye-bag-height", "min": "incr", "max": "decr", "faceGroup": "right-eye-lower", "level":  "medium-pull", "direction":  "V"},
       {"target": "r-eye-eyefold-angle", "min": "down", "max": "up", "faceGroup": "right-eye-upper", "level":  "high-carve", "direction":  "V"},
       {"target": "r-eye-epicanthus", "min": "in", "max": "out", "faceGroup": "right-eye-inner", "level":  "high-add", "direction":  "H"},
       {"target": "r-eye-eyefold", "min": "concave", "max": "convex", "faceGroup": "right-eye-upper", "level":  "high-add", "direction":  "V"},
@@ -77,7 +77,7 @@
 
       {"target": "l-eye-bag", "min": "decr", "max": "incr", "faceGroup": "left-eye-lower", "level":  "high-squeeze", "direction":  "V"},
       {"target": "l-eye-bag", "min": "in", "max": "out", "faceGroup": "left-eye-lower", "level":  "high-carve", "direction":  "H"},
-      {"target": "l-eye-bag-height", "min": "decr", "max": "incr", "faceGroup": "left-eye-lower", "level":  "medium-pull", "direction":  "V"},
+      {"target": "l-eye-bag-height", "min": "incr", "max": "decr", "faceGroup": "left-eye-lower", "level":  "medium-pull", "direction":  "V"},
       {"target": "l-eye-eyefold-angle", "min": "down", "max": "up", "faceGroup": "left-eye-upper", "level":  "high-carve", "direction":  "V"},
       {"target": "l-eye-epicanthus", "min": "in", "max": "out", "faceGroup": "left-eye-inner", "level":  "high-add", "direction":  "H"},
       {"target": "l-eye-eyefold", "min": "concave", "max": "convex", "faceGroup": "left-eye-upper", "level":  "high-add", "direction":  "V"},
@@ -219,8 +219,8 @@
       {"target": "torso-scale-depth", "min": "decr", "max": "incr", "faceGroup": "torso-back", "level":  "medium-pull", "direction":  "H"},
       {"target": "torso-scale-horiz", "min": "decr", "max": "incr", "faceGroup": "right-shoulder", "alternate faceGroup": "left-shoulder", "level":  "medium-pull", "direction":  "H"},
       {"target": "torso-scale-vert", "min": "decr", "max": "incr", "faceGroup": "stomach", "level":  "medium-pull", "direction":  "V"},
-      {"target": "torso-trans", "min": "in", "max": "out", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-move", "direction":  "H"},
-      {"target": "torso-trans", "min": "down", "max": "up", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-pull", "direction":  "V"},
+      {"target": "torso-trans", "min": "in", "max": "out", "faceGroup": "left-side", "level":  "medium-move", "direction":  "H"},
+      {"target": "torso-trans", "min": "down", "max": "up", "faceGroup": "right-side", "level":  "medium-pull", "direction":  "V"},
       {"target": "torso-trans", "min": "backward", "max": "forward", "faceGroup": "left-side", "alternate faceGroup": "right-side", "level":  "medium-pull", "direction":  "H"},
       {"target": "torso-vshape", "min": "decr", "max": "incr", "faceGroup": "left-shoulder", "alternate faceGroup": "right-shoulder", "level":  "medium-carve", "direction":  "H"},
       {"target": "torso-muscle-dorsi", "min": "decr", "max": "incr", "faceGroup": "torso-back", "level":  "high-pull", "direction":  "H"},
@@ -258,7 +258,7 @@
   { "group": "buttocks",
     "modifiers": [
       {"target": "buttocks-volume", "min": "decr", "max": "incr"},
-      {"target": "buttocks-volume-r", "min": "incr" , "max": "decr", "faceGroup": "right-buttock", "level":  "medium-add", "direction":  "H"},
+      {"target": "buttocks-volume-r", "min": "decr" , "max": "incr", "faceGroup": "right-buttock", "level":  "medium-add", "direction":  "H"},
       {"target": "buttocks-volume-l", "min": "decr" , "max": "incr", "faceGroup": "left-buttock", "level":  "medium-add", "direction":  "H"}
     ]
   },

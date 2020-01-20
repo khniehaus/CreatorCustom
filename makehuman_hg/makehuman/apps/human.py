@@ -1199,7 +1199,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         for modifier in self.modifiers:
             val = self.getRandomValue(0.0, 1.0, 0.8)
             modifier.setValue(val)
-            print modifier, val
+            #print modifier, val
 
     def _resetProxies(self):
         """
