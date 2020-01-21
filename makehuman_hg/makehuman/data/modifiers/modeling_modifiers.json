@@ -382,7 +382,8 @@
         {"target": "penis-circ", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-squeeze", "direction":  "H"},
         {"target": "penis-length", "min": "decr", "max": "incr", "faceGroup": "genital-skin", "level":  "high-pull", "direction":  "V"},
         {"target": "penis-move", "min": "incr", "max": "decr", "faceGroup": "genital-skin", "level":  "high-move", "direction":  "V"},
-        {"target": "penis-testicles", "min": "decr", "max": "incr"}
+        {"target": "penis-testicles", "min": "decr", "max": "incr", "faceGroup": "genital-back", "level":  "high-squeeze", "direction":  "H"},
+        {"target": "penis-testicles-move", "min": "decr", "max": "incr", "faceGroup": "genital-back", "level":  "high-move", "direction":  "V"}
     ]
   },
 
