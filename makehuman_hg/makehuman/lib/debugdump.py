@@ -69,7 +69,7 @@ class DebugDump(object):
             if not os.path.exists(self.debugpath):
                 os.makedirs(self.debugpath)
 
-            self.debugpath = os.path.join(self.debugpath, "makehuman-debug.txt")
+            self.debugpath = os.path.join(self.debugpath, "creatorcustom-debug.txt")
             self.debug = open(self.debugpath, "w", encoding="utf-8")
         else:
             self.debug = open(self.debugpath, "a", encoding="utf-8")

@@ -929,7 +929,7 @@ class MHApplication(gui3d.Application, mh.Application):
                             # Store the values of (yet) undeclared settings and defer until plugins are loaded
                             self._undeclared_settings[setting_name] = value
                 else:
-                    log.warning("Incompatible MakeHuman settings (version %s) detected (expected %s). Loading default settings." % (settings.get('version','undefined'), mh.getVersionDigitsStr()))
+                    log.warning("Incompatible CreatorCustom settings (version %s) detected (expected %s). Loading default settings." % (settings.get('version','undefined'), mh.getVersionDigitsStr()))
             else:
                 log.warning("No settings file found, starting with default settings.")
 
@@ -1211,9 +1211,9 @@ class MHApplication(gui3d.Application, mh.Application):
         """
         #gui.QtGui.QMessageBox.about(self.mainwin, 'About MakeHuman', mh.getCopyrightMessage())
         #aboutbox = gui.AboutBox(self.mainwin, 'About MakeHuman', mh.getCopyrightMessage())
-        abouttext = '<h1>MakeHuman license</h1>' + mh.getCopyrightMessage() + "\n" + mh.getCredits(richtext=True) + "\n\n" + mh.getSoftwareLicense(richtext=True) + "\n\n\n" + mh.getThirdPartyLicenses(richtext=True)
+        abouttext = '<h1>CreatorCustom license</h1>' + mh.getCopyrightMessage() + "\n" + mh.getCredits(richtext=True) + "\n\n" + mh.getSoftwareLicense(richtext=True) + "\n\n\n" + mh.getThirdPartyLicenses(richtext=True)
 
-        aboutbox = gui.AboutBoxScrollbars(self.mainwin, 'About MakeHuman', abouttext, "MakeHuman v"+mh.getVersionStr(verbose=False, full=True))
+        aboutbox = gui.AboutBoxScrollbars(self.mainwin, 'About CreatorCustom', abouttext, "CreatorCustom v"+mh.getVersionStr(verbose=False, full=True))
         aboutbox.show()
         aboutbox.exec_()
 

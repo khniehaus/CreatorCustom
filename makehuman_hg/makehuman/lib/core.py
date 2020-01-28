@@ -43,8 +43,8 @@ class Globals(object):
         self.world = []
         self.cameras = []
         self.canvas = None
-        self.windowHeight = 1600
-        self.windowWidth = 1800
+        self.windowHeight = 600
+        self.windowWidth = 800
         self.clearColor = (0.0, 0.0, 0.0, 0.0)
 
 G = Globals()

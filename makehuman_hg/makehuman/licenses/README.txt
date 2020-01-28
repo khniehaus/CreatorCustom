@@ -1,5 +1,9 @@
-Makehuman includes a number of third part software components, which have 
-their own respective licenses.
+CreatorCustom includes a number of third part software components, which have
+their own respective licenses. CreatorCustom is a derivative of MakeHuman, made
+as a component of a PhD research project by Kiona Hagen Niehaus.
+
+This version of CreatorCustom is being distributed to participants in a research
+workshop for educational purposes, and is not a release version.
 
 Dependencies, included in packaged versions:
 

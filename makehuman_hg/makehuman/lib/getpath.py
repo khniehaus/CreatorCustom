@@ -3,36 +3,24 @@
 
 """
 **Project Name:**      MakeHuman
-
 **Product Home Page:** http://www.makehuman.org/
-
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
 **Authors:**           Jonas Hauquier, Glynn Clements, Joel Palmius, Marc Flerackers
-
 **Copyright(c):**      MakeHuman Team 2001-2017
-
 **Licensing:**         AGPL3
-
     This file is part of MakeHuman (www.makehuman.org).
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 Abstract
 --------
-
 Utility module for finding the user home path.
 """
 
@@ -42,6 +30,7 @@ from core import G
 
 __home_path = None
 
+
 def _unique_list(l):
     """
     Create a list that maintains order of original list, but with duplicates
@@ -50,10 +39,13 @@ def _unique_list(l):
     seen = set()
     return [x for x in l if not (x in seen or seen.add(x))]
 
-PATH_ENCODINGS = _unique_list(map(lambda s:s.lower(), [sys.getfilesystemencoding(), sys.getdefaultencoding(), 'utf-8']))
+
+PATH_ENCODINGS = _unique_list(
+    map(lambda s: s.lower(), [sys.getfilesystemencoding(), sys.getdefaultencoding(), 'utf-8']))
 
 if sys.stdout.encoding is not None and sys.stdout.encoding.lower() not in PATH_ENCODINGS:
     PATH_ENCODINGS.append(sys.stdout.encoding)
+
 
 def pathToUnicode(path):
     """
@@ -68,6 +60,7 @@ def pathToUnicode(path):
     else:
         # Approach for basestring type, as well as others such as QString
         return stringToUnicode(path, PATH_ENCODINGS)
+
 
 def stringToUnicode(string_, encodings):
     """
@@ -105,14 +98,17 @@ def stringToUnicode(string_, encodings):
     fallback = unicode(string_, 'ascii', 'replace')
 
     import log
-    log.warning("Failed to convert a string to unicode. The hex representation of the string was " + ":".join("{:02x}".format(ord(c)) for c in string_))
+    log.warning("Failed to convert a string to unicode. The hex representation of the string was " + ":".join(
+        "{:02x}".format(ord(c)) for c in string_))
 
     return fallback
+
 
 def formatPath(path):
     if path is None:
         return None
-    return pathToUnicode( os.path.normpath(path).replace("\\", "/") )
+    return pathToUnicode(os.path.normpath(path).replace("\\", "/"))
+
 
 def canonicalPath(path):
     """
@@ -121,14 +117,16 @@ def canonicalPath(path):
     """
     return formatPath(os.path.realpath(path))
 
+
 def localPath(path):
     """
     Returns the path relative to the MH program directory,
     i.e. the inverse of canonicalPath.
     """
     path = os.path.realpath(path)
-    root = os.path.realpath( getSysPath() )
+    root = os.path.realpath(getSysPath())
     return formatPath(os.path.relpath(path, root))
+
 
 def getHomePath():
     """
@@ -137,12 +135,12 @@ def getHomePath():
     """
     # Cache the home path
     global __home_path
-    
+
     if G.args.get("home_location") is not None:
         __home_path = formatPath(G.args.get("home_location"))
         if os.path.isdir(__home_path) is False:
             raise RuntimeError("Invalid path in command line option")
-            
+
     if __home_path is not None:
         return __home_path
 
@@ -150,7 +148,7 @@ def getHomePath():
     if sys.platform == 'win32':
         import _winreg
         keyname = r'Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
-        #name = 'Personal'
+        # name = 'Personal'
         k = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, keyname)
         value, type_ = _winreg.QueryValueEx(k, 'Personal')
         if type_ == _winreg.REG_EXPAND_SZ:
@@ -164,10 +162,11 @@ def getHomePath():
 
     # Unix-based
     else:
-        __home_path = pathToUnicode( os.path.expanduser('~') )
+        __home_path = pathToUnicode(os.path.expanduser('~'))
         return __home_path
 
-def getPath(subPath = ""):
+
+def getPath(subPath=""):
     """
     Get MakeHuman folder that contains per-user files, located in the user home
     path.
@@ -176,16 +175,16 @@ def getPath(subPath = ""):
 
     # Windows
     if sys.platform == 'win32':
-        path = os.path.join(path, "makehuman")
+        path = os.path.join(path, "CreatorCustom")
 
     # MAC OSX
     elif sys.platform.startswith("darwin"):
         path = os.path.join(path, "Documents")
-        path = os.path.join(path, "MakeHuman")
+        path = os.path.join(path, "CreatorCustom")
 
     # Unix/Linux
     else:
-        path = os.path.join(path, "makehuman")
+        path = os.path.join(path, "CreatorCustom")
 
     path = os.path.join(path, 'v1')
 
@@ -194,28 +193,31 @@ def getPath(subPath = ""):
 
     return formatPath(path)
 
-def getDataPath(subPath = ""):
+
+def getDataPath(subPath=""):
     """
     Path to per-user data folder, should always be the same as getPath('data').
     """
     if subPath:
-        path = getPath( os.path.join("data", subPath) )
+        path = getPath(os.path.join("data", subPath))
     else:
         path = getPath("data")
     return formatPath(path)
 
-def getSysDataPath(subPath = ""):
+
+def getSysDataPath(subPath=""):
     """
     Path to the data folder that is installed with MakeHuman system-wide.
     NOTE: do NOT assume that getSysPath("data") == getSysDataPath()!
     """
     if subPath:
-        path = getSysPath( os.path.join("data", subPath) )
+        path = getSysPath(os.path.join("data", subPath))
     else:
         path = getSysPath("data")
     return formatPath(path)
 
-def getSysPath(subPath = ""):
+
+def getSysPath(subPath=""):
     """
     Path to the system folder where MakeHuman is installed (it is possible that
     data is stored in another path).
@@ -230,18 +232,19 @@ def getSysPath(subPath = ""):
 
 
 def _allnamesequal(name):
-    return all(n==name[0] for n in name[1:])
+    return all(n == name[0] for n in name[1:])
+
 
 def commonprefix(paths, sep='/'):
     """
     Implementation of os.path.commonprefix that works as you would expect.
-
     Source: http://rosettacode.org/wiki/Find_Common_Directory_Path#Python
     """
     from itertools import takewhile
 
     bydirectorylevels = zip(*[p.split(sep) for p in paths])
     return sep.join(x[0] for x in takewhile(_allnamesequal, bydirectorylevels))
+
 
 def isSubPath(subpath, path):
     """
@@ -251,13 +254,15 @@ def isSubPath(subpath, path):
     path = canonicalPath(path)
     return commonprefix([subpath, path]) == path
 
+
 def isSamePath(path1, path2):
     """
     Determines whether two paths point to the same location.
     """
     return canonicalPath(path1) == canonicalPath(path2)
 
-def getRelativePath(path, relativeTo = [getDataPath(), getSysDataPath()], strict=False):
+
+def getRelativePath(path, relativeTo=[getDataPath(), getSysDataPath()], strict=False):
     """
     Return a relative file path, relative to one of the specified search paths.
     First valid path is returned, so order in which search paths are given matters.
@@ -275,9 +280,10 @@ def getRelativePath(path, relativeTo = [getDataPath(), getSysDataPath()], strict
         else:
             return path
 
-    return formatPath( os.path.relpath(path, relto) )
+    return formatPath(os.path.relpath(path, relto))
 
-def findFile(relPath, searchPaths = [getDataPath(), getSysDataPath()], strict=False):
+
+def findFile(relPath, searchPaths=[getDataPath(), getSysDataPath()], strict=False):
     """
     Inverse of getRelativePath: find an absolute path from specified relative
     path in one of the search paths.
@@ -291,12 +297,13 @@ def findFile(relPath, searchPaths = [getDataPath(), getSysDataPath()], strict=Fa
     for dataPath in searchPaths:
         path = os.path.join(dataPath, relPath)
         if os.path.isfile(path):
-            return formatPath( path )
+            return formatPath(path)
 
     if strict:
         return None
     else:
         return relPath
+
 
 def thoroughFindFile(filename, searchPaths=[], searchDefaultPaths=True):
     """
@@ -332,11 +339,12 @@ def thoroughFindFile(filename, searchPaths=[], searchDefaultPaths=True):
     # Nothing found
     return formatPath(filename)
 
+
 def search(paths, extensions, recursive=True, mutexExtensions=False):
     """
     Search for files with specified extensions in specified paths.
     If mutexExtensions is True, no duplicate files with only differing extension
-    will be returned. Instead, only the file with highest extension precedence 
+    will be returned. Instead, only the file with highest extension precedence
     (extensions occurs earlier in the extensions list) is kept.
     """
     if isinstance(paths, basestring):
@@ -347,6 +355,7 @@ def search(paths, extensions, recursive=True, mutexExtensions=False):
 
     if mutexExtensions:
         discovered = dict()
+
         def _aggregate_files_mutexExt(filepath):
             basep, ext = os.path.splitext(filepath)
             ext = ext[1:]
@@ -365,7 +374,7 @@ def search(paths, extensions, recursive=True, mutexExtensions=False):
                         if mutexExtensions:
                             _aggregate_files_mutexExt(os.path.join(root, f))
                         else:
-                            yield pathToUnicode( os.path.join(root, f) )
+                            yield pathToUnicode(os.path.join(root, f))
     else:
         for path in paths:
             if not os.path.isdir(path):
@@ -378,11 +387,12 @@ def search(paths, extensions, recursive=True, mutexExtensions=False):
                         if mutexExtensions:
                             _aggregate_files_mutexExt(f)
                         else:
-                            yield pathToUnicode( f )
+                            yield pathToUnicode(f)
 
     if mutexExtensions:
-        for f in ["%s.%s" % (p,e) for p,e in discovered.items()]:
-            yield pathToUnicode( f )
+        for f in ["%s.%s" % (p, e) for p, e in discovered.items()]:
+            yield pathToUnicode(f)
+
 
 def getJailedPath(filepath, relativeTo, jailLimits=[getDataPath(), getSysDataPath()]):
     """
@@ -394,6 +404,7 @@ def getJailedPath(filepath, relativeTo, jailLimits=[getDataPath(), getSysDataPat
     a path to filename relative to relativeTo path if it is a subpath of it,
     else returns a path relative to the jailLimits.
     """
+
     def _withinJail(path):
         for j in jailLimits:
             if isSubPath(path, j):
