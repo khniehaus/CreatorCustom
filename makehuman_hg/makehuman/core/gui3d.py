@@ -242,9 +242,9 @@ class View(events3d.EventHandler):
         self.hide()
 
     def getQuad(self, x, y):
-        window = QtGui.QWidget()
-        height = window.frameGeometry().height()
-        width = window.frameGeometry().width()
+        #window = QtGui.QWidget()
+        height = mhmain.G.windowHeight
+        width = mhmain.G.windowWidth
         #self.quadCount.clear()
 
         if x <= (width/2) and y <= (height/2):

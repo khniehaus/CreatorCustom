@@ -1,4 +1,4 @@
-Makehuman includes a number of third part software components, which have 
+CreatorCustom includes a number of third part software components, which have
 their own respective licenses.
 
 Dependencies, included in packaged versions:

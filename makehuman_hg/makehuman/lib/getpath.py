@@ -176,16 +176,16 @@ def getPath(subPath = ""):
 
     # Windows
     if sys.platform == 'win32':
-        path = os.path.join(path, "makehuman")
+        path = os.path.join(path, "CreatorCustom")
 
     # MAC OSX
     elif sys.platform.startswith("darwin"):
         path = os.path.join(path, "Documents")
-        path = os.path.join(path, "MakeHuman")
+        path = os.path.join(path, "CreatorCustom")
 
     # Unix/Linux
     else:
-        path = os.path.join(path, "makehuman")
+        path = os.path.join(path, "CreatorCustom")
 
     path = os.path.join(path, 'v1')
 

@@ -53,12 +53,12 @@ versionSub = ""                         # Short version description
 meshVersion = "hm08"                    # Version identifier of the basemesh
 ################################################################################
 
-__author__ = "Jonas Hauquier, Joel Palmius, Glynn Clements, Thomas Larsson et al."
-__copyright__ = "Copyright 2017 Data Collection AB and listed authors"
-__credits__ = ["See http://www.makehuman.org/halloffame"]
+__author__ = "Kiona Hagen Niehaus, derived from Jonas Hauquier, Joel Palmius, Glynn Clements, Thomas Larsson et al."
+__copyright__ = "Copyright 2020 Data Collection AB and listed authors"
+__credits__ = ["See http://www.kh-niehaus.com, http://www.makehuman.org/halloffame"]
 __license__ = "AGPLv3"
-__maintainer__ = "Joel Palmius, Jonas Hauquier"
-__email__ = "dev@makehuman.org"
+__maintainer__ = "Kiona Hagen Niehaus"
+__email__ = "k.hagen.niehaus@gmail.com"
 __status__ = "Production" if release else "Development"
 
 
@@ -379,8 +379,8 @@ def get_platform_paths():
         stderr_filename = os.path.join(home, "python_err.txt")
 
     elif sys.platform.startswith("darwin"):
-        stdout_filename = os.path.join(home, "makehuman-output.txt")
-        stderr_filename = os.path.join(home, "makehuman-error.txt")
+        stdout_filename = os.path.join(home, "creatorcustom-output.txt")
+        stderr_filename = os.path.join(home, "creatorcustom-error.txt")
 
 def redirect_standard_streams():
     from codecs import open
@@ -457,14 +457,13 @@ def parse_arguments():
 
 def getCopyrightMessage(short=False):
     if short:
-        return """MakeHuman Copyright (C) 2001-2016 http://www.makehuman.org
+        return """CreatorCustom Copyright (C) 2018-2020, derivative of http://www.makehuman.org
 This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions. For details use the option --license"""
 
-    return """Makehuman is a completely free, open source, innovative and 
-professional software for the modelling of 3-Dimensional humanoid characters
-Copyright (C) 2001-2016  www.makehuman.org
+    return """CreatorCustom is a completely free, open source software for the modelling of 3-Dimensional humanoid characters
+Copyright (C) 2018-2020  www.kh-niehaus.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -479,37 +478,24 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-The MakeHuman source and data are released under the AGPL license.
-This also includes everything that is exported from or by MakeHuman. 
+The CreatorCustom source and data are released under the AGPL license.
+This also includes everything that is exported from or by CreatorCustom. 
 However, respecting a set of conditions (which are explained in section 
 C of license.txt), you are allowed to instead use the CC0 license 
 for exports. 
 
-A human readable explanation of the license terms can be found via
+A human readable explanation of the original MakeHuman license terms can be found via
 the MakeHuman home page:
 
     http://www.makehuman.org
 
 Licenses for dependencies are included in the licenses folder.
 
-Frequently asked questions are found at:
-
-    http://www.makehumancommunity.org/wiki/FAQ:Index
-
-For further help, have a look in the community wiki at:
-
-    http://www.makehumancommunity.org/wiki/Main_Page
-
 The MakeHuman team can be contacted at dev@makehuman.org
 
-If you have other questions or need support, feel free to ask on our 
-forums at:
+If you have other questions or need support, feel free to email at:
 
-    http://www.makehumancommunity.org/forum/
-
-Bugs can be reported on the project's bug tracker:
-
-    http://bugtracker.makehumancommunity.org
+    k.hagen.niehaus@gmail.com
 """
 
 
@@ -532,10 +518,10 @@ class LicenseInfo(object):
         """Create the default MakeHuman asset license. Can be modified for
         user-created assets.
         """
-        self.author = "MakeHuman Team"
+        self.author = "Kiona Hagen Niehaus"
         self.license = "AGPL3"
-        self.homepage = "http://www.makehuman.org"
-        self.copyright = "(c) MakeHuman.org 2001-2016"
+        self.homepage = "http://www.kh-niehaus.com"
+        self.copyright = "(c) Kiona Hagen Niehaus 2018-2020, a derivative of  MakeHuman.org 2001-2019"
         self._keys = ["author", "license", "copyright", "homepage"]
         self._customized = False
 
@@ -565,7 +551,7 @@ class LicenseInfo(object):
         return self._customized
 
     def __str__(self):
-        return """MakeHuman asset license:
+        return """CreatorCustom asset license:
 Author: %s
 License: %s
 Copyright: %s
@@ -697,11 +683,10 @@ def _wordwrap(text, chars_per_line=80):
 def getCredits(richtext=False):
     # TODO print contributors.txt
     if richtext:
-        result = '<h2>MakeHuman credits</h2>'
+        result = '<h2>CreatorCustom [demo] credits</h2>'
     else:
         result = ''
-    return result + '''The list of people that made this software can be found at our website at 
-http://www.makehuman.org/halloffame'''
+    return result + '''This software is a derivative of MakeHuman. This derivative and all changes associated with it were made by Kiona Hagen Niehaus. This version of the program contains assets made by http://www.makehuman.org/halloffame'''
 
 def getSoftwareLicense(richtext=False):
     import getpath
@@ -709,14 +694,14 @@ def getSoftwareLicense(richtext=False):
     lfile = getpath.getSysPath('license.txt')
     if not os.path.isfile(lfile):
         if richtext:
-            return '\n<span style="color: red;">Error: License file %s is not found, this is an incomplete MakeHuman distribution!</span>\n' % lfile
+            return '\n<span style="color: red;">Error: License file %s is not found, this is an incomplete CreatorCustom distribution!</span>\n' % lfile
         else:
-            return "Error: License file %s is not found, this is an incomplete MakeHuman distribution!" % lfile
+            return "Error: License file %s is not found, this is an incomplete CreatorCustom distribution!" % lfile
     f = open(lfile, encoding='utf-8')
     text = f.read()
     f.close()
     if richtext:
-        result = '<h2>MakeHuman software license</h2>'
+        result = '<h2>CreatorCustom software license</h2>'
     else:
         result = ""
     return result + _wordwrap(text)
@@ -748,14 +733,14 @@ def getThirdPartyLicenses(richtext=False):
         result = '<h2>Third-party licenses</h2>'
     else:
         result = ""
-    result += """MakeHuman includes a number of third part software components, which have 
+    result += """CreatorCustom includes a number of third part software components, which have 
 their own respective licenses. We express our gratitude to the developers of
-those libraries, without which MakeHuman would not have been made possible.
-Here follows a list of the third-party open source libraries that MakeHuman
+those libraries, without which CreatorCustom would not have been made possible.
+Here follows a list of the third-party open source libraries that CreatorCustom
 makes use of.\n"""
     license_folder = getpath.getSysPath('licenses')
     if not os.path.isdir(license_folder):
-        return result + _error("Error: external licenses folder is not found, this is an incomplete MakeHuman distribution!")
+        return result + _error("Error: external licenses folder is not found, this is an incomplete CreatorCustom distribution!")
     external_licenses = [ ("PyQt4", ("pyQt4-license.txt", "http://www.riverbankcomputing.co.uk", "GPLv3")),
                           ("Qt4", ("qt4-license.txt", "http://www.qt-project.org", "LGPLv2.1")),
                           ("Numpy", ("numpy-license.txt", "http://www.numpy.org", "BSD (3-clause)")),
@@ -771,7 +756,7 @@ makes use of.\n"""
 
         lfile = os.path.join(license_folder, lic_file)
         if not os.path.isfile(lfile):
-            result += "\n%s\n" % _error("Error: License file %s is not found, this is an incomplete MakeHuman distribution!" % lfile)
+            result += "\n%s\n" % _error("Error: License file %s is not found, this is an incomplete CreatorCustom distribution!" % lfile)
             continue
         f = open(lfile, encoding='utf-8')
         text = f.read()
