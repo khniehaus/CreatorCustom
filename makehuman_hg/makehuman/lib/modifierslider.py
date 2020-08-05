@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**Project Name:**      MakeHuman
-**Product Home Page:** http://www.makehuman.org/
-**Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-**Authors:**           Marc Flerackers
-**Copyright(c):**      MakeHuman Team 2001-2017
+**Project Name:**      CreatorCustom
+**Product Home Page:** http://www.kh-niehaus.com
+**Code Home Page:**    https://github.com/khniehaus/CreatorCustom/
+**Authors:**           Kiona Hagen Niehaus, derived from Marc Flerackers
+**Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
-    This file is part of MakeHuman (www.makehuman.org).
+    This file is derived from MakeHuman (www.makehuman.org).
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -110,7 +110,7 @@ class ModifierSlider(gui.Slider):
 
     def _onChanging(self):
         value = self.changing
-        #print "slider value:", value  #HERE WE GO
+        #print "slider value:", value
         self.changing = None
 
         if G.app.getSetting('realtimeUpdates'):
@@ -143,31 +143,21 @@ class ModifierSlider(gui.Slider):
         #import qtui
 
 
-        if self.slider.isSliderDown():
-            # Don't do anything when slider is being clicked or dragged (onRelease triggers it)
-            return
+        # if self.slider.isSliderDown():
+        #     # Don't do anything when slider is being clicked or dragged (onRelease triggers it)
+        #     return
 
         #INTERESTING!!!
-        # mPos = qtui.gg_mouse_pos
-        # mButt = qtui.gg_butt
-        # mPosx = mPos[0]
-        # mPosy = mPos[1]
-        # beep = events3d.MouseEvent(mButt, mPosx, mPosy)
-        # transVar = gui3d.MouAction(beep)
-        # nVal = transVar.mVar()
-        # wVal = transVar.nVar()
         value = self.getValue()
         # if self.modifier == human.gMod:
         #    value = nVal
         # if self.modifier == human.wMod:
         #     value = wVal
-        # print 'Its me!', self.modifier
         human = self.modifier.human
-        print self.modifier
+        #print self.modifier
         if self.value is None:
             self.value = self.modifier.getValue()
         action = humanmodifier.ModifierAction(self.modifier, self.value, value, self.update)
-        #print self.value
         #G.app.redraw()
         if self.value != value:
             G.app.do(action)
@@ -198,8 +188,9 @@ class ModifierSlider(gui.Slider):
         """Synchronize slider value with value of its modifier, make it up to
         date.
         """
-        self.blockSignals(True)
-        if not self.slider.isSliderDown():
-            # Only update slider position when it is not being clicked or dragged
-            self.setValue(self.modifier.getValue())
-        self.blockSignals(False)
+        #pass
+        # self.blockSignals(True)
+        # if not self.slider.isSliderDown():
+        #     # Only update slider position when it is not being clicked or dragged
+        self.setValue(self.modifier.getValue())
+        # self.blockSignals(False)

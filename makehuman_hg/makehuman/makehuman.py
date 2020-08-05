@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-MakeHuman python entry-point.
-**Project Name:**      MakeHuman
-**Product Home Page:** http://www.makehuman.org/
-**Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-**Authors:**           Glynn Clements, Jonas Hauquier, Joel Palmius
-**Copyright(c):**      MakeHuman Team 2001-2016
+CreatorCustom python entry-point.
+**Project Name:**      CreatorCustom
+**Product Home Page:** http://www.kh-niehaus.com
+**Code Home Page:**    https://github.com/khniehaus/CreatorCustom/
+**Authors:**           Joel Palmius, Marc Flerackers, Jonas Hauquier
+**Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
-    This file is part of MakeHuman (www.makehuman.org).
+    This file is derived from MakeHuman (www.makehuman.org).
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -22,7 +22,7 @@ MakeHuman python entry-point.
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Abstract
 --------
-This file starts the MakeHuman python application.
+This file starts the CreatorCustom python application.
 """
 
 from __future__ import absolute_import  # Fix 'from . import x' statements on python 2.6

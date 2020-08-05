@@ -4,19 +4,13 @@
 """ 
 Mesh Subdivision Plugin.
 
-**Project Name:**      MakeHuman
-
-**Product Home Page:** http://www.makehuman.org/
-
-**Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
-**Authors:**           Marc Flerackers, Glynn Clements
-
-**Copyright(c):**      MakeHuman Team 2001-2017
-
+**Project Name:**      CreatorCustom
+**Product Home Page:** http://www.kh-niehaus.com
+**Code Home Page:**    https://github.com/khniehaus/CreatorCustom/
+**Authors:**           Glynn Clements, Marc Flerackers
+**Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
-
-    This file is part of MakeHuman (www.makehuman.org).
+    This file is derived from MakeHuman (www.makehuman.org).
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as

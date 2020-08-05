@@ -2,19 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**Project Name:**      MakeHuman
-
-**Product Home Page:** http://www.makehuman.org/
-
-**Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-
-**Authors:**           Glynn Clements, Jonas Hauquier
-
-**Copyright(c):**      MakeHuman Team 2001-2017
-
+**Project Name:**      CreatorCustom
+**Product Home Page:** http://www.kh-niehaus.com
+**Code Home Page:**    https://github.com/khniehaus/CreatorCustom/
+**Authors:**           Kiona Hagen Niehaus, derived from Joel Palmius, Glynn Clements
+**Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
-
-    This file is part of MakeHuman (www.makehuman.org).
+    This file is derived from MakeHuman (www.makehuman.org).
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -833,7 +827,7 @@ class MHApplication(gui3d.Application, mh.Application):
 
     def onMouseDragged(self, event):
         #You added these as a test of where the cursor is, prints to console
-        print "x is", event.x, "y is", event.y
+        #print "x is", event.x, "y is", event.y
         #pass
 
         self.currentFile.modified = True

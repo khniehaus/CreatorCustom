@@ -4,7 +4,7 @@
 """
 **Project Name:**      CreatorCustom
 **Product Home Page:** http://www.kh-niehaus.com
-**Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
+**Code Home Page:**    https://github.com/khniehaus/CreatorCustom/
 **Authors:**           Kiona Hagen Niehaus, derived from Joel Palmius, Marc Flerackers
 **Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
@@ -289,13 +289,12 @@ class View(events3d.EventHandler):
         #print ("facegroup", app.selectedFaceGroup)
 
         if "low" in self.indicator[0]:
-            #print "I am satan", self.macroInd[0]
             if self.macroInd[0] == 'Weight' or self.macroInd[0] == 'Muscle':
                 itMe = self.macroInd[0]
                 newVal = x - self.startVal[0]
                 newVal2 = self.endVal[0] + newVal
                 finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
-                print finVal
+                #print finVal
                 self.macroLookup[itMe].onChanging(finVal)
                 self.macroLookup[itMe].onChange(finVal)
                 self.macroLookup[itMe].update()
@@ -304,7 +303,7 @@ class View(events3d.EventHandler):
                 newVal = y + self.startVal[1]
                 newVal2 = self.endVal[1] + (newVal * -1)
                 finVal = (((newVal2 - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
-                print finVal
+                #print finVal
                 self.macroLookup[self.macroInd[0]].onChanging(finVal)
                 self.macroLookup[self.macroInd[0]].onChange(finVal)
                 self.macroLookup[self.macroInd[0]].update()
@@ -312,7 +311,7 @@ class View(events3d.EventHandler):
                 newVal = y #- self.startVal[1]
                 newVal2 = (((newVal - 0.0) * (1.0 - 0.0)) / (200 - 0)) + 0.0
                 finVal = 1.0 + ((newVal2 - 0.0) * (0.0 - 1.0) / (1.0 - 0.0))
-                print finVal
+                #print finVal
                 self.macroLookup[self.macroInd[0]].onChanging(finVal)
                 self.macroLookup[self.macroInd[0]].onChange(finVal)
                 self.macroLookup[self.macroInd[0]].update()
@@ -361,7 +360,7 @@ class View(events3d.EventHandler):
             else:
                 pass
             finVal = (((newVal2 - 0.0) * (1.0 - 0.0))/ (30 - 0)) + 0.0
-            print finVal
+            #print finVal
             self.faceGroupLookup[app.selectedFaceGroup].onChanging(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].onChange(finVal)
             self.faceGroupLookup[app.selectedFaceGroup].update()
