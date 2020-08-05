@@ -10,6 +10,7 @@ Please note: Because of recent changes in OS X's support for OpenGL, I cannot gu
 
 To launch software, run MakeHuman.py file in makehuman_hg directory. 
 Requires Python 2.7 and Pillow library (though can be run without the latter). 
+Note: To export your creation successfully, go to ‘Geometries’ and select ‘Adult genitals’, then export. To continue modeling, go back to ‘Geometries’ and select ‘None’.
 
 ### License ###
 
