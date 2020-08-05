@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**Project Name:**      MakeHuman
-**Product Home Page:** http://www.makehuman.org/
+**Project Name:**      CreatorCustom
+**Product Home Page:** http://www.kh-niehaus.com
 **Code Home Page:**    https://bitbucket.org/MakeHuman/makehuman/
-**Authors:**           Joel Palmius, Marc Flerackers
-**Copyright(c):**      MakeHuman Team 2001-2017
+**Authors:**           Kiona Hagen Niehaus, derived from Joel Palmius, Marc Flerackers
+**Copyright(c):**      Kiona Hagen Niehaus 2020
 **Licensing:**         AGPL3
-    This file is part of MakeHuman (www.makehuman.org).
+    This file is derived from MakeHuman (www.makehuman.org).
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -248,16 +248,16 @@ class View(events3d.EventHandler):
         #self.quadCount.clear()
 
         if x <= (width/2) and y <= (height/2):
-            print 'Quad 1'
+            #print 'Quad 1'
             return 'Quad 1'
         elif x > (width/2) and y <= (height/2):
-            print 'Quad2'
+            #print 'Quad2'
             return  'Quad 2'
         elif x <= (width/2) and y > (height/2):
-            print 'Quad 3'
+            #print 'Quad 3'
             return 'Quad 3'
         elif x > (width/2) and y > (height/2):
-            print 'Quad 4'
+            #print 'Quad 4'
             return'Quad 4'
 
         #return
@@ -327,35 +327,35 @@ class View(events3d.EventHandler):
             if dirNew == 'H':
                 newVal = x - self.startVal[0]
                 if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 3':
-                    newVal2 = (self.endVal[0]/7) + (newVal * -1)
+                    newVal2 = (self.endVal[0]/21) + (newVal * -1)
                 elif self.quadCount[0] == 'Quad 2' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = (self.endVal[0]/7) + newVal
+                    newVal2 = (self.endVal[0]/21) + newVal
                 if 'head' in app.selectedFaceGroup:
-                     newVal2 = (self.endVal[0] / 11) + newVal
+                     newVal2 = (self.endVal[0] / 60) + newVal
                 elif 'stomach' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 10) + newVal
+                    newVal2 = (self.endVal[0] / 20) + newVal
                 elif 'hip' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 10) + newVal
+                    newVal2 = (self.endVal[0] / 20) + newVal
                 elif 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[0] / 10) + newVal
+                    newVal2 = (self.endVal[0] / 60) + newVal
                 else:
                     pass
             elif dirNew == 'V':
                 newVal = y - self.startVal[1]
                 if self.quadCount[0] == 'Quad 1' or self.quadCount[0] == 'Quad 2':
-                    newVal2 = (self.endVal[1]/8) + newVal
+                    newVal2 = (self.endVal[1]/20) + newVal
                     #newVal2 = newVal
                 elif self.quadCount[0] == 'Quad 3' or self.quadCount[0] == 'Quad 4':
-                    newVal2 = (self.endVal[1]/8) + newVal
+                    newVal2 = (self.endVal[1]/20) + newVal
                     #newVal2 = newVal
                 if 'head' in app.selectedFaceGroup:
-                     newVal2 = (self.endVal[1]/11) + (newVal * -1)
+                     newVal2 = (self.endVal[1]/60) + (newVal * -1)
                 elif 'stomach' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 20) + (newVal * -1)
                 elif 'hip' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 20) + (newVal * -1)
                 elif 'belly-button' in app.selectedFaceGroup:
-                    newVal2 = (self.endVal[1] / 10) + (newVal * -1)
+                    newVal2 = (self.endVal[1] / 60) + (newVal * -1)
                 else:
                     pass
             else:

@@ -1141,7 +1141,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
 
         # TODO emit event?
 
-    def getRandomValue(self, minValue, maxValue, middleValue, sigmaFactor=0.7):
+    def getRandomValue(self, minValue, maxValue, middleValue, sigmaFactor):
         rangeWidth = float(abs(maxValue - minValue))
         sigma = sigmaFactor * rangeWidth
         randomVal = random.gauss(middleValue, sigma)
@@ -1152,7 +1152,7 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         return max(minValue, min(randomVal, maxValue))
 
     def setDefaultValues(self):
-        val = self.getRandomValue(0.5, 1.2, 1.0)
+        #val = self.getRandomValue(0.5, 1.2, 1.0)
         self.age = self.getRandomValue(0.0, 1.0, 0.5, 0.1)
         self.gender = self.getRandomValue(0.0, 0.8, 0.3, 0.1)
         self.weight = self.getRandomValue(-0.5, 1.2, 0.7, 0.1)
@@ -1197,8 +1197,13 @@ class Human(guicommon.Object, animation.AnimatedMesh):
         self.callEvent('onChanged', events3d.HumanEvent(self, 'reset'))
 
         for modifier in self.modifiers:
-            val = self.getRandomValue(0.0, 1.0, 0.2)
-            modifier.setValue(val)
+            #print modifier
+            if modifier == 'macrodetails/Gender':
+                val = self.getRandomValue(0.0, 1.0, 1.0, 0.3)
+                modifier.setValue(val)
+            else:
+                val = self.getRandomValue(0.0, 1.0, 0.2, 0.2)
+                modifier.setValue(val)
             #print modifier, val
 
     def _resetProxies(self):

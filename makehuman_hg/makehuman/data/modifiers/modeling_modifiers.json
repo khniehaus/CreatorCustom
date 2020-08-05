@@ -3,12 +3,11 @@
     "modifiers": [
       {"target": "head-age", "min": "decr", "max": "incr","faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "high-squeeze", "direction":  "H"},
       {"target": "head-angle", "min": "in", "max": "out", "faceGroup": "chin", "level":  "medium-pull", "direction":  "H"},
-      {"target": "head-fat", "min": "decr", "max": "incr", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "high-add", "direction":  "H"},
+      {"target": "head-fat", "min": "decr", "max": "incr", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-add", "direction":  "H"},
       {"target": "head-oval", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-pull", "direction":  "H"},
       {"target": "head-round", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-carve", "direction":  "H"},
       {"target": "head-rectangular", "faceGroup": "left-jaw", "alternate faceGroup": "right-jaw", "level":  "medium-pull", "direction":  "H"},
       {"target": "head-square", "faceGroup": "left-jaw", "alternate faceGroup": "right-jaw", "level":  "medium-add", "direction":  "H"},
-      {"target": "head-triangular", "faceGroup": "forehead", "level":  "medium-add", "direction":  "V"},
       {"target": "head-invertedtriangular", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-carve", "direction":  "H"},
       {"target": "head-diamond", "faceGroup": "left-head-side", "alternate faceGroup": "right-head-side", "level":  "medium-squeeze", "direction":  "H"},
 
