@@ -398,7 +398,6 @@ def get_platform_paths():
         stdout_filename = os.path.join(home, "creatorcustom-output.txt")
         stderr_filename = os.path.join(home, "creatorcustom-error.txt")
 
-
 def redirect_standard_streams():
     from codecs import open
     import locale
@@ -488,6 +487,7 @@ under certain conditions. For details use the option --license"""
 
     return """CreatorCustom is a completely free, open source software for the modelling of 3-Dimensional humanoid characters
 Copyright (C) 2018-2020  www.kh-niehaus.com
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
 published by the Free Software Foundation, either version 3 of the
@@ -498,11 +498,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 The CreatorCustom source and data are released under the AGPL license.
 This also includes everything that is exported from or by CreatorCustom. 
 However, respecting a set of conditions (which are explained in section 
 C of license.txt), you are allowed to instead use the CC0 license 
 for exports. 
+
 A human readable explanation of the original MakeHuman license terms can be found via
 the MakeHuman home page:
     http://www.makehuman.org
@@ -704,7 +706,6 @@ def getCredits(richtext=False):
         result = ''
     return result + '''This software is a derivative of MakeHuman. This derivative and all changes associated with it were made by Kiona Hagen Niehaus. This version of the program contains assets made by http://www.makehuman.org/halloffame'''
 
-
 def getSoftwareLicense(richtext=False):
     import getpath
     from codecs import open
@@ -771,6 +772,7 @@ makes use of.\n"""
                                     "GPLv2")),
                          ("Python hglib", ("hglib-license.txt", "http://mercurial.selenic.com/wiki/PythonHglib", "MIT"))
                          ]
+
     external_licenses = OrderedDict(external_licenses)
 
     for name, (lic_file, url, lic_type) in external_licenses.items():

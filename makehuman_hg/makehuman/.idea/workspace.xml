@@ -2277,59 +2277,17 @@
             <path>
               <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
               <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="licenses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
               <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="pandas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python2.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="_libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="setuptools-0.6c11-py2.7.egg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="makehuman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7.14 (/anaconda2/bin/python2.7) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="setuptools-0.6c11-py2.7.egg" type="462c0819:PsiDirectoryNode" />
-              <item name="setuptools" type="462c0819:PsiDirectoryNode" />
+              <item name="makehuman" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2944,16 +2902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-494">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1146#1164#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/humanmodifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
@@ -3089,7 +3037,7 @@
         <state relative-caret-position="11190">
           <caret line="756" column="23" selection-start-line="756" selection-start-column="23" selection-end-line="756" selection-end-column="23" />
           <folding>
-            <element signature="e#1084#1094#0" expanded="true" />
+            <element signature="e#1146#1164#0" expanded="true" />
           </folding>
         </state>
       </provider>
